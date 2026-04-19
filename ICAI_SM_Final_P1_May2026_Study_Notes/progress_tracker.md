@@ -1,0 +1,81 @@
+# Progress Tracker
+
+## Current Status
+
+- Source PDFs downloaded: 63
+- Study notes/guides created: 63
+- Module QA reports completed: 5 plus pilot QA
+- QA fixes applied: encoding/BOM cleanup, broken inline-code cleanup, additional mixed examples, and tighter version-sensitive caveats
+
+## Completed Study Set
+
+| # | Source PDF | Output note | Owner | Status | Next action |
+|---:|---|---|---|---|---|
+| 1 | 001_MODULE_1_Initial_Pages.pdf | 01_Module_1/001_Module_1_Initial_Pages_Overview.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 2 | 002_MODULE_1_Chapter_1_Introduction_to_Indian_Accounting_Standards.pdf | 01_Module_1/002_Chapter_1_Introduction_to_Indian_Accounting_Standards.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 3 | 003_MODULE_1_Chapter_2_Conceptual_Framework_for_Financial_Reporting_under_Indian_Accounting_Standards_Ind_AS.pdf | 01_Module_1/003_Chapter_2_Conceptual_Framework_for_Financial_Reporting_under_Ind_AS.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 4 | 004_MODULE_1_Unit_1_Ind_AS_1_Presentation_of_Financial_Statements.pdf | 01_Module_1/004_Chapter_3_Unit_1_Ind_AS_1_Presentation_of_Financial_Statements.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 5 | 005_MODULE_1_Unit_2_Ind_AS_34_Interim_Financial_Reporting.pdf | 01_Module_1/005_Chapter_3_Unit_2_Ind_AS_34_Interim_Financial_Reporting.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 6 | 006_MODULE_1_Unit_3_Ind_AS_7_Statement_of_Cash_Flows.pdf | 01_Module_1/006_Chapter_3_Unit_3_Ind_AS_7_Statement_of_Cash_Flows.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 7 | 007_MODULE_1_Unit_1_Ind_AS_8_Accounting_Policies_Changes_in_Accounting_Estimates_and_Errors.pdf | 01_Module_1/007_Chapter_4_Unit_1_Ind_AS_8_Accounting_Policies_Changes_in_Accounting_Estimates_and_Errors.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 8 | 008_MODULE_1_Unit_2_Ind_AS_10_Events_after_the_Reporting_Period.pdf | 01_Module_1/008_Chapter_4_Unit_2_Ind_AS_10_Events_after_the_Reporting_Period.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 9 | 009_MODULE_1_Unit_3_Ind_AS_113_Fair_Value_Measurement.pdf | 01_Module_1/009_Chapter_4_Unit_3_Ind_AS_113_Fair_Value_Measurement.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 10 | 010_MODULE_1_Annexure_Division_II_of_Schedule_III_to_the_Companies_Act_2013.pdf | 01_Module_1/010_Annexure_Division_II_of_Schedule_III_to_the_Companies_Act_2013.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 11 | 011_MODULE_1_Practice_Questions.pdf | 01_Module_1/011_Module_1_Practice_Questions_Pattern_Guide.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 12 | 012_MODULE_2_Initial_Pages.pdf | 02_Module_2/012_Module_2_Initial_Pages_Overview.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 13 | 013_MODULE_2_Unit_1_Ind_AS_2_Inventories.pdf | 02_Module_2/013_Chapter_5_Unit_1_Ind_AS_2_Inventories.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 14 | 014_MODULE_2_Unit_2_Ind_AS_16_Property_Plant_and_Equipment.pdf | 02_Module_2/014_Chapter_5_Unit_2_Ind_AS_16_Property_Plant_and_Equipment.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 15 | 015_MODULE_2_Unit_3_Ind_AS_23_Borrowing_Costs.pdf | 02_Module_2/015_Chapter_5_Unit_3_Ind_AS_23_Borrowing_Costs.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 16 | 016_MODULE_2_Unit_4_Ind_AS_36_Impairment_of_Assets.pdf | 02_Module_2/016_Chapter_5_Unit_4_Ind_AS_36_Impairment_of_Assets.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 17 | 017_MODULE_2_Unit_5_Ind_AS_38_Intangible_Assets.pdf | 02_Module_2/017_Chapter_5_Unit_5_Ind_AS_38_Intangible_Assets.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 18 | 018_MODULE_2_Unit_6_Ind_AS_40_Investment_Property.pdf | 02_Module_2/018_Chapter_5_Unit_6_Ind_AS_40_Investment_Property.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 19 | 019_MODULE_2_Unit_7_Ind_AS_105_Non-current_Assets_Held_for_Sale_and_Discontinued_Operations.pdf | 02_Module_2/019_Chapter_5_Unit_7_Ind_AS_105_Non_current_Assets_Held_for_Sale_and_Discontinued_Operations.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 20 | 020_MODULE_2_Unit_8_Ind_AS_116_Leases.pdf | 02_Module_2/020_Chapter_5_Unit_8_Ind_AS_116_Leases.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 21 | 021_MODULE_2_Practice_Questions.pdf | 02_Module_2/021_Module_2_Practice_Questions_Pattern_Guide.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 22 | 022_MODULE_2_Ind_AS_Puzzlers_Test_Your_Accounting_Acumen.pdf | 02_Module_2/022_Module_2_Ind_AS_Puzzlers_Trap_Guide.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 23 | 023_MODULE_3_Initial_Pages.pdf | 03_Module_3/023_Module_3_Initial_Pages_Overview.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 24 | 024_MODULE_3_Unit_1_Ind_AS_19_Employee_Benefits.pdf | 03_Module_3/024_Chapter_6_Unit_1_Ind_AS_19_Employee_Benefits.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 25 | 025_MODULE_3_Unit_2_Ind_AS_37_Provisions_Contingent_Liabilities_and_Contingent_Assets.pdf | 03_Module_3/025_Chapter_6_Unit_2_Ind_AS_37_Provisions_Contingent_Liabilities_and_Contingent_Assets.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 26 | 026_MODULE_3_Unit_1_Ind_AS_12_Income_Taxes.pdf | 03_Module_3/026_Chapter_7_Unit_1_Ind_AS_12_Income_Taxes.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 27 | 027_MODULE_3_Unit_2_Ind_AS_21_The_Effects_of_Changes_in_Foreign_Exchange_Rates.pdf | 03_Module_3/027_Chapter_7_Unit_2_Ind_AS_21_Effects_of_Changes_in_Foreign_Exchange_Rates.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 28 | 028_MODULE_3_Unit_1_Ind_AS_24_Related_Party_Disclosures.pdf | 03_Module_3/028_Chapter_8_Unit_1_Ind_AS_24_Related_Party_Disclosures.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 29 | 029_MODULE_3_Unit_2_Ind_AS_33_Earnings_per_Share.pdf | 03_Module_3/029_Chapter_8_Unit_2_Ind_AS_33_Earnings_Per_Share.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 30 | 030_MODULE_3_Unit_3_Ind_AS_108_Operating_Segments.pdf | 03_Module_3/030_Chapter_8_Unit_3_Ind_AS_108_Operating_Segments.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 31 | 031_MODULE_3_Practice_Questions.pdf | 03_Module_3/031_Module_3_Practice_Questions_Pattern_Guide.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 32 | 032_MODULE_3_Ind_AS_Puzzlers_Test_Your_Accounting_Acumen.pdf | 03_Module_3/032_Module_3_Ind_AS_Puzzlers_Trap_Guide.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 33 | 033_MODULE_4_Initial_Pages.pdf | 04_Module_4/033_Module_4_Initial_Pages_Overview.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 34 | 034_MODULE_4_Chapter_9_Ind_AS_115_Revenue_from_Contracts_with_Customers.pdf | 04_Module_4/034_Chapter_9_Ind_AS_115_Revenue_from_Contracts_with_Customers.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 35 | 035_MODULE_4_Unit_1_Ind_AS_41_Agriculture.pdf | 04_Module_4/035_Chapter_10_Unit_1_Ind_AS_41_Agriculture.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 36 | 036_MODULE_4_Unit_2_Ind_AS_20_Accounting_for_Government_Grants_and_Disclosure_of_Government_Assistance.pdf | 04_Module_4/036_Chapter_10_Unit_2_Ind_AS_20_Government_Grants.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 37 | 037_MODULE_4_Unit_3_Ind_AS_102_Share_Based_Payment.pdf | 04_Module_4/037_Chapter_10_Unit_3_Ind_AS_102_Share_Based_Payment.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 38 | 038_MODULE_4_Unit_1_Financial_Instruments_Scope_and_Definitions.pdf | 04_Module_4/038_Chapter_11_Unit_1_Financial_Instruments_Scope_and_Definitions.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 39 | 039_MODULE_4_Unit_2_Classification_and_Measurement_of_Financial_Assets_and_Financial_Liabilities.pdf | 04_Module_4/039_Chapter_11_Unit_2_Classification_and_Measurement_of_Financial_Assets_and_Liabilities.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 40 | 040_MODULE_4_Unit_3_Financial_Instruments_Equity_and_Financial_Liabilities.pdf | 04_Module_4/040_Chapter_11_Unit_3_Financial_Instruments_Equity_and_Financial_Liabilities.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 41 | 041_MODULE_4_Unit_4_Derivatives_and_Embedded_Derivatives.pdf | 04_Module_4/041_Chapter_11_Unit_4_Derivatives_and_Embedded_Derivatives.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 42 | 042_MODULE_4_Unit_5_Recognition_and_Derecognition_of_Financial_Instruments.pdf | 04_Module_4/042_Chapter_11_Unit_5_Recognition_and_Derecognition_of_Financial_Instruments.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 43 | 043_MODULE_4_Unit_6_Hedge_Accounting.pdf | 04_Module_4/043_Chapter_11_Unit_6_Hedge_Accounting.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 44 | 044_MODULE_4_Unit_7_Disclosures.pdf | 04_Module_4/044_Chapter_11_Unit_7_Financial_Instruments_Disclosures.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 45 | 045_MODULE_4_Comprehensive_Illustrations.pdf | 04_Module_4/045_Chapter_11_Comprehensive_Illustrations_Pattern_Guide.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 46 | 046_MODULE_4_Test_Your_Knowledge.pdf | 04_Module_4/046_Chapter_11_Test_Your_Knowledge_Guide.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 47 | 047_MODULE_4_Practice_Questions.pdf | 04_Module_4/047_Module_4_Practice_Questions_Pattern_Guide.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 48 | 048_MODULE_5_Initial_Pages.pdf | 05_Module_5/048_Module_5_Initial_Pages_Overview.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 49 | 049_MODULE_5_Chapter_12_Ind_AS_103_Business_Combinations.pdf | 05_Module_5/049_Chapter_12_Ind_AS_103_Business_Combinations.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 50 | 050_MODULE_5_Unit_1_Introduction_to_Consolidated_and_Separate_Financial_Statements.pdf | 05_Module_5/050_Chapter_13_Unit_1_Introduction_to_Consolidated_and_Separate_Financial_Statements.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 51 | 051_MODULE_5_Unit_2_Important_Definitions.pdf | 05_Module_5/051_Chapter_13_Unit_2_Important_Definitions.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 52 | 052_MODULE_5_Unit_3_Consolidated_Financial_Statements.pdf | 05_Module_5/052_Chapter_13_Unit_3_Consolidated_Financial_Statements.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 53 | 053_MODULE_5_Unit_4_Ind_AS_110_Consolidation_Procedure_for_Subsidiaries.pdf | 05_Module_5/053_Chapter_13_Unit_4_Ind_AS_110_Consolidation_Procedure_for_Subsidiaries.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 54 | 054_MODULE_5_Unit_5_Ind_AS_111_Joint_Arrangements.pdf | 05_Module_5/054_Chapter_13_Unit_5_Ind_AS_111_Joint_Arrangements.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 55 | 055_MODULE_5_Unit_6_Ind_AS_28_Investments_in_Associates_and_Joint_Ventures.pdf | 05_Module_5/055_Chapter_13_Unit_6_Ind_AS_28_Investments_in_Associates_and_Joint_Ventures.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 56 | 056_MODULE_5_Unit_7_Ind_AS_27_Separate_Financial_Statements.pdf | 05_Module_5/056_Chapter_13_Unit_7_Ind_AS_27_Separate_Financial_Statements.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 57 | 057_MODULE_5_Unit_8_Disclosures.pdf | 05_Module_5/057_Chapter_13_Unit_8_Disclosures.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 58 | 058_MODULE_5_Chapter_14_Ind_AS_101_First-time_Adoption_of_Ind_AS.pdf | 05_Module_5/058_Chapter_14_Ind_AS_101_First_time_Adoption_of_Ind_AS.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 59 | 059_MODULE_5_Chapter_15_Analysis_of_Financial_Statements.pdf | 05_Module_5/059_Chapter_15_Analysis_of_Financial_Statements.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 60 | 060_MODULE_5_Chapter_16_Professional_and_Ethical_Duty_of_a_Chartered_Accountant.pdf | 05_Module_5/060_Chapter_16_Professional_and_Ethical_Duty_of_a_Chartered_Accountant.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 61 | 061_MODULE_5_Chapter_17_Accounting_and_Technology.pdf | 05_Module_5/061_Chapter_17_Accounting_and_Technology.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 62 | 062_MODULE_5_Practice_Questions.pdf | 05_Module_5/062_Module_5_Practice_Questions_Pattern_Guide.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+| 63 | 063_MODULE_5_Ind_AS_Puzzlers_Test_Your_Accounting_Acumen.pdf | 05_Module_5/063_Module_5_Ind_AS_Puzzlers_Trap_Guide.md | Drafting wave + QA pass | Complete | Use for study; check version-sensitive items for exact exam wording |
+
+## Status Key
+
+- Complete: note exists, module QA completed, and required fix pass applied.
+- Version-sensitive: verify exact ICAI/MCA wording before relying on legal, disclosure, or transition details in a live exam answer.
