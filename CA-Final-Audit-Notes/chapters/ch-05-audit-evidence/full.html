@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ch 5 — Audit Evidence · CA Final Audit</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<style>
+:root {
+  --bg: #faf8f3;
+  --ink: #1a1a1a;
+  --muted: #5b5b5b;
+  --accent: #0a4a8f;
+  --keyword-bg: #fff3d4;
+  --exception-bg: #ffe4e4;
+  --exception-border: #c33;
+  --clause-bg: #e8f2ff;
+  --table-stripe: #f5f2ea;
+  --rule: #d8d3c4;
+  --quote-bar: #0a4a8f;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Georgia, serif;
+  background: var(--bg); color: var(--ink);
+  max-width: 820px; margin: 2rem auto; padding: 0 1.25rem;
+  line-height: 1.55; font-size: 16px;
+}
+h1 { font-size: 1.9rem; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 0.4rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin-top: 2rem; border-left: 4px solid var(--accent); padding-left: 0.6rem; }
+h3 { font-size: 1.15rem; color: var(--ink); margin-top: 1.5rem; }
+h4 { font-size: 1rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1.2rem; margin-bottom: 0.3rem; }
+.meta { color: var(--muted); font-style: italic; font-size: 0.9rem; margin-top: -0.5rem; }
+.keyword { background: var(--keyword-bg); padding: 0 0.2em; border-radius: 2px; font-weight: 600; }
+.exception {
+  background: var(--exception-bg);
+  border-left: 4px solid var(--exception-border);
+  padding: 0.5rem 0.8rem; margin: 0.5rem 0; border-radius: 3px;
+}
+.exception::before { content: "⚠ "; font-weight: bold; color: var(--exception-border); }
+.clause {
+  background: var(--clause-bg); padding: 0.1rem 0.4rem;
+  border-radius: 3px; font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+}
+blockquote.icai {
+  border-left: 4px solid var(--quote-bar);
+  background: #fff; margin: 0.8rem 0; padding: 0.6rem 1rem;
+  font-style: italic; color: #333;
+}
+blockquote.icai::before { content: "ICAI verbatim · "; font-style: normal; font-weight: 600; color: var(--accent); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.95rem; }
+th, td { padding: 0.5rem 0.7rem; text-align: left; border: 1px solid var(--rule); vertical-align: top; }
+th { background: var(--accent); color: #fff; font-weight: 600; }
+tr:nth-child(even) td { background: var(--table-stripe); }
+.sa-card {
+  border: 1px solid var(--rule); border-radius: 6px;
+  padding: 1rem 1.2rem; margin: 1.5rem 0; background: #fff;
+}
+.sa-card h3 { margin-top: 0; color: var(--accent); }
+.triggers {
+  background: #fff; border: 1px dashed var(--accent);
+  padding: 1rem; border-radius: 6px; margin: 1.5rem 0;
+}
+.triggers h3 { margin-top: 0; color: var(--accent); }
+.triggers ol { margin: 0; padding-left: 1.2rem; }
+.triggers li { margin: 0.4rem 0; }
+.mermaid { background: #fff; padding: 1rem; border-radius: 6px; margin: 1rem 0; text-align: center; }
+svg.diagram { max-width: 100%; height: auto; display: block; margin: 1rem auto; background: #fff; border-radius: 6px; padding: 0.5rem; }
+ul, ol { padding-left: 1.3rem; }
+li { margin: 0.2rem 0; }
+.chip { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-right: 0.3rem; }
+.chip-sa { background: var(--accent); color: #fff; }
+.chip-marks { background: #2a7c3a; color: #fff; }
+.nav { margin: 1rem 0; font-size: 0.9rem; }
+.nav a { color: var(--accent); text-decoration: none; margin-right: 1rem; }
+.nav a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="nav">← <a href="../../index.html">All chapters</a> · <a href="onepager.html">One-pager</a></div>
+<h1>Chapter 5 — Audit Evidence</h1>
+<p class="meta">ICAI SM Final P3 May 2026 · <span class="chip chip-marks">~15–18 marks</span> Covers SA 500 · 501 · 505 · 510 · 520 · 530 · 540 · 550 · 560 · 570 · 580 (11 SAs — densest chapter)</p>
+
+<div class="exception">
+<strong>PDF scope note (§1.1a).</strong> The Ch 5 Final SM PDF expressly states (end of chapter, before TYK): <em>"Content of SA 500, SA 501, SA 505, SA 510, SA 530 &amp; SA 550 is covered in depth at Intermediate level. Thus, application part of the above SAs may be discussed in the form of Case Study at Final level."</em> Verbatim Objective clauses are therefore <em>not</em> reproduced in this chapter PDF in prose form — the PDF presents them only inside diagram boxes. Those diagram-box sentences are cited below as the closest PDF-available source. <strong>SA 520, SA 540, SA 560, SA 570 and SA 580 are <em>not</em> covered in the Ch 5 PDF at all</strong> (per SPEC §11 allocation they belong here functionally) — those cards therefore give a brief scope block, a §1.1a deferral flag, and keywords-to-remember only, without fabricated ICAI text. SA 570 still carries its mandatory whitelisted mermaid flowchart (SPEC §9) as a refresher aid.
+</div>
+
+<h2>Chapter map</h2>
+<p>Audit evidence is the oxygen of the opinion. <span class="clause">SA 500</span> is the umbrella — defines <span class="keyword">sufficient appropriate audit evidence</span>, the relevance-vs-reliability hierarchy, and the auditor's duty to escalate inconsistencies. The chapter then splits three ways: <em>gathering tools</em> (SA 501 specific items, SA 505 external confirmations, SA 520 analytical procedures, SA 530 sampling); <em>specific balance SAs</em> (SA 510 opening balances, SA 540 estimates, SA 550 related parties, SA 560 subsequent events); and <em>late-stage assertion SAs</em> (SA 570 going concern, SA 580 written representations). Memorise the split — it organises every case question.</p>
+
+<h2>SA cluster overview</h2>
+<svg class="diagram" viewBox="0 0 800 440" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L8,5 L0,10 z" fill="#0a4a8f"/>
+    </marker>
+  </defs>
+
+  <!-- Umbrella SA 500 -->
+  <rect x="250" y="10" width="300" height="48" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="400" y="32" text-anchor="middle" font-size="14" font-weight="700" fill="#0a4a8f">SA 500 — Audit Evidence (Umbrella)</text>
+  <text x="400" y="48" text-anchor="middle" font-size="11" fill="#333">SAAE · relevance &amp; reliability · inconsistencies</text>
+
+  <!-- Cluster 1: Evidence-gathering tools -->
+  <rect x="10" y="85" width="500" height="150" rx="8" fill="#f5f2ea" stroke="#d8d3c4" stroke-dasharray="4,3"/>
+  <text x="260" y="103" text-anchor="middle" font-size="12" font-style="italic" font-weight="700" fill="#5b5b5b">EVIDENCE-GATHERING TOOLS</text>
+
+  <rect x="20" y="115" width="115" height="50" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="77" y="135" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">SA 501</text>
+  <text x="77" y="150" text-anchor="middle" font-size="10" fill="#333">Inventory · Litig.</text>
+  <text x="77" y="161" text-anchor="middle" font-size="10" fill="#333">· Segments</text>
+
+  <rect x="145" y="115" width="115" height="50" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="202" y="135" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">SA 505</text>
+  <text x="202" y="150" text-anchor="middle" font-size="10" fill="#333">External</text>
+  <text x="202" y="161" text-anchor="middle" font-size="10" fill="#333">confirmations</text>
+
+  <rect x="270" y="115" width="115" height="50" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="327" y="135" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">SA 520</text>
+  <text x="327" y="150" text-anchor="middle" font-size="10" fill="#333">Analytical</text>
+  <text x="327" y="161" text-anchor="middle" font-size="10" fill="#333">procedures</text>
+
+  <rect x="395" y="115" width="105" height="50" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="447" y="135" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">SA 530</text>
+  <text x="447" y="150" text-anchor="middle" font-size="10" fill="#333">Audit</text>
+  <text x="447" y="161" text-anchor="middle" font-size="10" fill="#333">sampling</text>
+
+  <!-- Cluster 2: Specific-balance SAs -->
+  <rect x="10" y="255" width="500" height="120" rx="8" fill="#f5f2ea" stroke="#d8d3c4" stroke-dasharray="4,3"/>
+  <text x="260" y="273" text-anchor="middle" font-size="12" font-style="italic" font-weight="700" fill="#5b5b5b">SPECIFIC-BALANCE SAs</text>
+
+  <rect x="20" y="285" width="115" height="50" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="77" y="305" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">SA 510</text>
+  <text x="77" y="320" text-anchor="middle" font-size="10" fill="#333">Opening</text>
+  <text x="77" y="331" text-anchor="middle" font-size="10" fill="#333">balances</text>
+
+  <rect x="145" y="285" width="115" height="50" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="202" y="305" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">SA 540</text>
+  <text x="202" y="320" text-anchor="middle" font-size="10" fill="#333">Estimates</text>
+  <text x="202" y="331" text-anchor="middle" font-size="10" fill="#333">+ fair value</text>
+
+  <rect x="270" y="285" width="115" height="50" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="327" y="305" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">SA 550</text>
+  <text x="327" y="320" text-anchor="middle" font-size="10" fill="#333">Related</text>
+  <text x="327" y="331" text-anchor="middle" font-size="10" fill="#333">parties</text>
+
+  <rect x="395" y="285" width="105" height="50" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="447" y="305" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">SA 560</text>
+  <text x="447" y="320" text-anchor="middle" font-size="10" fill="#333">Subsequent</text>
+  <text x="447" y="331" text-anchor="middle" font-size="10" fill="#333">events</text>
+
+  <!-- Cluster 3: Late-stage assertion -->
+  <rect x="540" y="85" width="250" height="290" rx="8" fill="#f5f2ea" stroke="#d8d3c4" stroke-dasharray="4,3"/>
+  <text x="665" y="103" text-anchor="middle" font-size="12" font-style="italic" font-weight="700" fill="#5b5b5b">LATE-STAGE ASSERTIONS</text>
+
+  <rect x="560" y="140" width="210" height="70" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="665" y="165" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">SA 570</text>
+  <text x="665" y="183" text-anchor="middle" font-size="11" fill="#333">Going concern —</text>
+  <text x="665" y="197" text-anchor="middle" font-size="11" fill="#333">4 reporting branches</text>
+
+  <rect x="560" y="240" width="210" height="70" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="665" y="265" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">SA 580</text>
+  <text x="665" y="283" text-anchor="middle" font-size="11" fill="#333">Written representations</text>
+  <text x="665" y="297" text-anchor="middle" font-size="11" fill="#333">— refusal → disclaimer</text>
+
+  <!-- Summary strip -->
+  <rect x="15" y="395" width="770" height="40" rx="6" fill="#f5f2ea" stroke="#d8d3c4"/>
+  <text x="400" y="415" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">Gather evidence → apply to specific balances → anchor late-stage assertions → form opinion</text>
+  <text x="400" y="430" text-anchor="middle" font-size="10" fill="#5b5b5b" font-style="italic">SA 500 sets the standard of sufficiency &amp; appropriateness that every other SA in this chapter serves</text>
+
+  <!-- Arrows from umbrella to clusters -->
+  <path d="M350,58 L260,110" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M400,58 L260,280" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M450,58 L625,135" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+</svg>
+
+<h2>Foundation — sufficiency vs appropriateness (SA 500 spine)</h2>
+<table>
+<thead><tr><th>Axis</th><th>Meaning</th><th>Driven by</th></tr></thead>
+<tbody>
+<tr><td><span class="keyword">Sufficiency</span></td><td>Quantity of audit evidence</td><td>Assessed RMM (higher risk → more evidence) &amp; quality of evidence (higher quality → less needed)</td></tr>
+<tr><td><span class="keyword">Appropriateness</span></td><td>Quality — measured along <span class="keyword">relevance</span> &amp; <span class="keyword">reliability</span></td><td>Source, nature, circumstances (including controls over preparation)</td></tr>
+<tr><td><span class="keyword">Relevance</span></td><td>Logical connection with the purpose of the procedure &amp; the assertion tested</td><td>Direction of testing (existence → trace from book to item; completeness → from item to book)</td></tr>
+<tr><td><span class="keyword">Reliability</span></td><td>Dependability — generalisations have exceptions</td><td>Independent external source · effective IC · auditor-obtained directly · documentary (originals &gt; copies)</td></tr>
+</tbody>
+</table>
+
+<!-- SA 500 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 500</span> Audit Evidence</h3>
+  <p><strong>Scope:</strong> Umbrella SA on audit evidence — what constitutes it and the auditor's responsibility to design/perform procedures to obtain <span class="keyword">sufficient appropriate audit evidence</span>. <strong>PDF status (§1.1a):</strong> covered in depth at Intermediate; at Final only application/case-study expected.</p>
+
+  <h4>Objective (from PDF — verbatim)</h4>
+  <blockquote class="icai">"To design and perform audit procedures in such a way as to enable the auditor to obtain sufficient appropriate audit evidence to be able to draw reasonable conclusions on which to base auditor's opinion."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Audit evidence</span> — information used by the auditor in arriving at conclusions on which the opinion is based; includes accounting records &amp; other information</li>
+    <li><span class="keyword">Sufficient</span> — measure of <em>quantity</em>; affected by assessed RMM and quality of evidence</li>
+    <li><span class="keyword">Appropriate</span> — measure of <em>quality</em> (relevance + reliability)</li>
+    <li><span class="keyword">Management's expert</span> — individual/organisation in field other than accounting/auditing, whose work is used by the entity to assist in preparing FS</li>
+  </ul>
+
+  <h4>Key Requirements</h4>
+  <ul>
+    <li>Consider <span class="keyword">relevance and reliability</span> of the information used as audit evidence</li>
+    <li>When info comes from a <span class="keyword">management's expert</span> → evaluate the expert's <span class="keyword">competence, capabilities &amp; objectivity</span>; obtain understanding of work; evaluate appropriateness as evidence for the relevant assertion</li>
+    <li>When using info <span class="keyword">produced by the entity</span> → evaluate reliability, completeness, accuracy</li>
+    <li>Obtain evidence via <span class="keyword">risk assessment procedures</span> + <span class="keyword">further audit procedures</span> = TOC + substantive (tests of details + substantive analytical)</li>
+    <li>If audit evidence from one source is <span class="keyword">inconsistent</span> with another, or the auditor has doubts over <span class="keyword">reliability</span> → determine modifications/additions to procedures needed to resolve the matter &amp; consider effect on other aspects of the audit</li>
+  </ul>
+
+  <h4>Reliability hierarchy (generalisations · all subject to exceptions)</h4>
+  <ul>
+    <li>Independent external source &gt; internal source</li>
+    <li>Internal evidence when related IC is effective &gt; when IC is weak</li>
+    <li>Evidence obtained <span class="keyword">directly by the auditor</span> (e.g., observation of a control) &gt; indirectly/inferentially</li>
+    <li>Evidence in <span class="keyword">documentary form</span> (paper/electronic) &gt; oral</li>
+    <li><span class="keyword">Original documents</span> &gt; photocopies / facsimiles / electronic renderings</li>
+  </ul>
+
+  <h4>Management's expert — objectivity caveat (PDF TYK-5)</h4>
+  <div class="exception">An expert engaged/employed <em>by the entity</em> cannot ordinarily be regarded as more likely to be objective than other employees. Threats: <span class="keyword">self-interest · self-review · advocacy · familiarity · intimidation</span>. Evaluate interests (financial, personal, other services) &amp; safeguards. PDF: re-appointment for 5 years by management does <em>not</em> cure the objectivity threat.</div>
+
+  <h4>Inconsistency / reliability-doubt protocol</h4>
+  <div class="exception">Even external-source evidence may be unreliable (all responses carry risk of interception, alteration, fraud; response may not come from the originally intended party — PDF TYK-5 GST-cancelled creditors case). Determine modifications/additions to procedures; escalate as fraud risk factor where appropriate.</div>
+
+  <h4>Auditor's Responsibilities</h4>
+  <ul>
+    <li>Design &amp; perform procedures appropriate in the circumstances to obtain SAAE</li>
+    <li>Where entity-prepared information is used, evaluate R/C/A before relying on it</li>
+    <li>Escalate inconsistencies, investigate, document</li>
+  </ul>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>If SAAE cannot be obtained → <span class="keyword">modify opinion</span> per <span class="clause">SA 705</span> (qualified or disclaimer depending on pervasiveness &amp; materiality).</p>
+</section>
+
+<!-- SA 501 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 501</span> Audit Evidence — Specific Considerations for Selected Items</h3>
+  <p><strong>Scope:</strong> Specific considerations in obtaining SAAE for three items — <span class="keyword">inventory</span>, <span class="keyword">litigation &amp; claims</span>, <span class="keyword">segment information</span>. <strong>PDF status (§1.1a):</strong> Intermediate depth; Final application only.</p>
+
+  <h4>Objective (from PDF — verbatim)</h4>
+  <blockquote class="icai">"To obtain sufficient and appropriate audit evidence regarding: 1. Existence and condition of inventory. 2. Completeness of litigation and claims involving the entity. 3. Presentation and disclosure of segment information in accordance with applicable FRF."</blockquote>
+
+  <h4>Inventory — procedures</h4>
+  <ul>
+    <li>If inventory is material: <span class="keyword">attend physical inventory counting</span>, unless impracticable → (i) evaluate mgmt's instructions &amp; procedures, (ii) observe performance of count, (iii) inspect inventory, (iv) perform <span class="keyword">test counts</span></li>
+    <li>Perform audit procedures on the entity's <span class="keyword">final inventory records</span> to determine they accurately reflect count results</li>
+    <li>Count on <span class="keyword">date other than FS date</span> → additional procedures for intervening transactions (roll-forward/roll-back)</li>
+    <li>Attendance <span class="keyword">unforeseeably</span> prevented (PDF TYK-2: NH-7 blockade) → make/observe count on alternate date + procedures on intervening transactions (<em>not</em> a scope limitation)</li>
+    <li>Attendance <span class="keyword">impracticable</span> (safety, nature, location) → alternative procedures (e.g., inspect documentation of subsequent sale of pre-count inventory); if alternative can't give SAAE → <span class="keyword">modify opinion</span> (SA 705 scope limitation). Mere inconvenience / cost / time is <em>not</em> impracticability (SA 200 link)</li>
+    <li>Inventory in custody of a <span class="keyword">third party</span> → confirmation from third party <em>plus</em> inspection / other procedures; if integrity of third party doubtful (PDF TYK-4 DGGI raid) → attend count directly or arrange another auditor + inspect challans/e-way bills</li>
+  </ul>
+
+  <h4>Litigation &amp; claims — procedures</h4>
+  <ul>
+    <li>Design procedures to identify litigation &amp; claims giving rise to RMM — <span class="keyword">inquiry of management</span> (and in-house counsel), review of <span class="keyword">minutes</span> of TCWG meetings, review of <span class="keyword">legal expense account</span></li>
+    <li>If assessed risk of material misstatement → seek <span class="keyword">direct communication with external legal counsel</span> via a <span class="keyword">letter of inquiry prepared by management &amp; sent by the auditor</span> (PDF TYK-3 — auditor sending letter herself is <em>incorrect</em>)</li>
+    <li>Letter contents: list of litigation &amp; claims, mgmt's assessment of outcome, financial implications, request for external counsel's confirmation of reasonableness</li>
+    <li>If unable to communicate with external legal counsel or counsel refuses → <span class="keyword">modify opinion</span> per <span class="clause">SA 705</span></li>
+    <li>Obtain <span class="keyword">Written Representation</span> that all known actual or possible litigation &amp; claims have been disclosed &amp; appropriately accounted for</li>
+  </ul>
+
+  <h4>Segment information — procedures</h4>
+  <ul>
+    <li>Obtain understanding of <span class="keyword">methods used by management</span> to determine segment info &amp; whether likely to result in disclosure per FRF — matters: inter-segment sales &amp; eliminations, comparison with budgets, allocation of assets &amp; costs, consistency with prior periods &amp; adequacy of disclosures on inconsistencies</li>
+    <li>Perform <span class="keyword">analytical procedures</span> or other procedures appropriate</li>
+  </ul>
+
+  <h4>Exceptions / Conditions</h4>
+  <div class="exception">"Selective examination of specific items" (large-value or unusual items picked at auditor's judgment — PDF opening vignette of CA Kartik) is <em>not</em> audit sampling — subject only to <span class="keyword">non-sampling risk</span> &amp; results cannot be projected to population.</div>
+
+  <h4>Auditor's Responsibilities</h4>
+  <ul>
+    <li>Plan attendance considering <span class="keyword">nature, location, timing, IC</span> over inventory</li>
+    <li>Identify litigation/claims proactively (not wait for mgmt to disclose)</li>
+  </ul>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>SAAE unobtainable on any of the three items → modify opinion per <span class="clause">SA 705</span>; WR on completeness of litigation/claims supports but does <em>not</em> replace other evidence.</p>
+</section>
+
+<!-- SA 505 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 505</span> External Confirmations</h3>
+  <p><strong>Scope:</strong> Auditor's use of external confirmation procedures to obtain audit evidence in accordance with <span class="clause">SA 500</span>; assists in designing &amp; performing confirmations to obtain relevant &amp; reliable evidence. <strong>PDF status (§1.1a):</strong> Intermediate depth; Final application only.</p>
+
+  <h4>Objective (from PDF — verbatim)</h4>
+  <blockquote class="icai">"To design and perform external confirmation procedures to obtain relevant and reliable audit evidence."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Positive confirmation</span> — reply required whether or not confirming party agrees</li>
+    <li><span class="keyword">Negative confirmation</span> — reply only if confirming party <em>disagrees</em> with the information</li>
+    <li><span class="keyword">Non-response</span> — confirming party does not reply, or reply is undeliverable</li>
+    <li><span class="keyword">Exception</span> — response indicates a difference between the info requested/supplied &amp; the confirming party's records</li>
+  </ul>
+
+  <h4>Key Requirements</h4>
+  <ul>
+    <li>Maintain control over the confirmation process: <span class="keyword">determine info to be confirmed · select confirming party · design request · send (incl. follow-ups)</span></li>
+    <li>If management <span class="keyword">refuses</span> the auditor to send a request: inquire reasons &amp; seek evidence of their validity/reasonableness; evaluate implication on RMM (incl. fraud) &amp; on N/T/E of other procedures; perform alternative procedures. If refusal <span class="keyword">unreasonable</span> → communicate with <span class="keyword">TCWG</span> &amp; consider implication on opinion</li>
+    <li>If a response is <span class="keyword">unreliable</span> → evaluate implications for RMM (incl. fraud) &amp; N/T/E of other procedures. (PDF TYK-5 — GST registrations cancelled for 25 of 30 creditors → responses unreliable)</li>
+    <li><span class="keyword">Non-response</span> to a positive confirmation → perform alternative audit procedures; if response is <em>necessary</em> to obtain SAAE (and alternative procedures can't) → determine implications on opinion</li>
+    <li>Investigate <span class="keyword">exceptions</span> to determine whether they indicate misstatement</li>
+  </ul>
+
+  <h4>Negative confirmations — restrictive use</h4>
+  <div class="exception">Use negative confirmation as sole substantive procedure <strong>only if ALL</strong>: (a) assessed RMM is <span class="keyword">low</span> and relevant controls operate effectively; (b) population is <span class="keyword">large, homogeneous, small balances</span>; (c) <span class="keyword">very low exception rate</span> expected; (d) auditor is <em>not</em> aware of circumstances that would cause recipients to disregard. Non-response to a negative confirmation provides significantly <em>less</em> persuasive evidence than a positive reply.</div>
+
+  <h4>Reliability risk factors</h4>
+  <ul>
+    <li>Response received <span class="keyword">indirectly</span> (not directly by the auditor) · appears not to come from the originally intended party · oral-only responses (document &amp; follow up for written)</li>
+    <li>All responses carry some risk of <span class="keyword">interception, alteration, fraud</span> — electronic or paper</li>
+    <li>Confirmation signed by an <span class="keyword">inappropriate person</span> at the confirming party (PDF MCQ — "signed by plant manager" → not reliable)</li>
+  </ul>
+
+  <h4>Auditor's Responsibilities</h4>
+  <ul>
+    <li>Retain control over the confirmation process; evaluate reliability of responses</li>
+    <li>If unable to obtain sufficient &amp; reliable response (incl. mgmt-refusal unreasonable) → communicate TCWG, consider opinion impact</li>
+  </ul>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>Non-response + alternative procedures fail, or reliability doubts unresolved → <span class="keyword">qualified / disclaimer</span> per <span class="clause">SA 705</span>.</p>
+</section>
+
+<!-- SA 510 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 510</span> Initial Audit Engagements — Opening Balances</h3>
+  <p><strong>Scope:</strong> Auditor's responsibilities for <span class="keyword">opening balances</span> in an <em>initial</em> audit engagement — where prior-period FS were unaudited or audited by a predecessor. <strong>PDF status (§1.1a):</strong> Intermediate depth; Final application only.</p>
+
+  <h4>Objective (from PDF — verbatim)</h4>
+  <blockquote class="icai">"To obtain sufficient appropriate audit evidence about: 1. Whether opening balances contain misstatements that materially affect the current period's financial statements. 2. Whether appropriate accounting policies are consistently applied and any changes where to has been properly accounted for, presented and disclosed."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Initial audit engagement</span> — engagement where prior period was unaudited OR audited by a predecessor auditor</li>
+    <li><span class="keyword">Opening balances</span> — balances at the beginning of the period, based on prior-period closing balances &amp; accounting policies applied then</li>
+    <li><span class="keyword">Predecessor auditor</span> — auditor from a different firm who audited the prior period</li>
+  </ul>
+
+  <h4>Key Requirements</h4>
+  <ul>
+    <li><span class="keyword">Read</span> the most recent FS &amp; predecessor auditor's report for info relevant to opening balances</li>
+    <li>Determine whether prior-period <span class="keyword">closing balance has been correctly brought forward</span></li>
+    <li>Determine whether opening balances reflect appropriate accounting policies</li>
+    <li>Perform <span class="keyword">one or more</span> of: (i) review predecessor's working papers, (ii) evaluate whether current-period procedures provide evidence, (iii) specific audit procedures on opening balances. For inventory — current period's closing count provides little evidence of opening inventory → observe a current count &amp; reconcile; perform procedures on valuation of opening inventory, GP, cut-off (PDF TYK-6)</li>
+    <li>If current-period FS <span class="keyword">misstated</span> due to misstatement in opening balances → communicate with mgmt/TCWG per <span class="clause">SA 450</span>/<span class="clause">SA 250</span></li>
+  </ul>
+
+  <h4>Reporting matrix</h4>
+  <table>
+  <thead><tr><th>Condition</th><th>Opinion</th></tr></thead>
+  <tbody>
+  <tr><td>Unable to obtain SAAE re opening balances</td><td><span class="keyword">Qualified / Disclaimer</span></td></tr>
+  <tr><td>Opening balances contain misstatement materially affecting current period, not properly presented/disclosed</td><td><span class="keyword">Qualified / Adverse</span></td></tr>
+  <tr><td>Accounting policies not consistently applied or change not properly accounted for</td><td><span class="keyword">Qualified / Adverse</span></td></tr>
+  <tr><td>Predecessor's report was modified &amp; modification remains relevant &amp; material to current FS</td><td>Current report <span class="keyword">modified</span> accordingly</td></tr>
+  </tbody>
+  </table>
+
+  <h4>Auditor's Responsibilities</h4>
+  <ul>
+    <li>If prior-period unaudited → perform procedures directly on opening balances</li>
+    <li>If audited by predecessor → rely on predecessor where reliance is possible &amp; appropriate, supplemented</li>
+  </ul>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>As per matrix above — opening-balance issues flow straight into <span class="clause">SA 705</span> modifications; predecessor's modification may survive into current-period report.</p>
+</section>
+
+<!-- SA 520 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 520</span> Analytical Procedures</h3>
+  <p><strong>Scope:</strong> Use of analytical procedures as substantive procedures &amp; as part of the overall review at the end of the audit.</p>
+
+  <div class="exception">SA 520 is <strong>deferred to Intermediate level</strong> per the ICAI Final SM — it is <em>not reproduced</em> in the Ch 5 PDF (only SA 500/501/505/510/530/550 are listed). Objective and detailed requirements are not reproduced in this chapter's PDF. Refer Intermediate SM for revision. No ICAI-verbatim text fabricated here.</div>
+
+  <h4>Keywords to remember (refresher)</h4>
+  <ul>
+    <li><span class="keyword">Substantive analytical procedure</span> · predictive ratio/trend · investigate significant differences · suitability test · reliability of data · precision of expectation · acceptable difference</li>
+    <li><span class="keyword">Final-stage analytical review</span> — mandatory at end of audit to assess overall FS consistency with auditor's understanding; supports SA 700 opinion-formation</li>
+  </ul>
+</section>
+
+<!-- SA 530 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 530</span> Audit Sampling</h3>
+  <p><strong>Scope:</strong> Use of <span class="keyword">statistical &amp; non-statistical</span> sampling in designing/selecting the sample, performing TOC &amp; tests of details, and evaluating results. Applies when auditor has decided to use audit sampling. <strong>PDF status (§1.1a):</strong> Intermediate depth; Final application only.</p>
+
+  <h4>Objective (from PDF — verbatim)</h4>
+  <blockquote class="icai">"To provide a reasonable basis for the auditor to draw conclusions about the population from which the sample is selected."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Audit sampling</span> — application of audit procedures to less than 100% of items in a population of audit relevance, such that all sampling units have a chance of selection, to provide the auditor with a reasonable basis on which to draw conclusions about the entire population</li>
+    <li><span class="keyword">Sampling risk</span> — auditor's sample-based conclusion may differ from conclusion if entire population were tested</li>
+    <li><span class="keyword">Non-sampling risk</span> — risk of erroneous conclusion for reasons unrelated to sampling (inappropriate procedures, misinterpreting evidence, failing to recognise a misstatement/deviation)</li>
+    <li><span class="keyword">Anomaly</span> — a misstatement/deviation demonstrably <em>not</em> representative of the population</li>
+    <li><span class="keyword">Projected misstatement</span> — auditor's best estimate, in populations of the misstatement, extrapolated from the sample</li>
+  </ul>
+
+  <h4>Key Requirements</h4>
+  <ul>
+    <li>Consider <span class="keyword">purpose of the procedure</span> &amp; <span class="keyword">characteristics of the population</span> when designing the sample</li>
+    <li>Determine <span class="keyword">sample size</span> sufficient to reduce sampling risk to an acceptably low level</li>
+    <li>Select items such that each sampling unit has a chance of selection (random · systematic · MUS · haphazard · block — block avoided unless justified)</li>
+    <li>Perform the procedure on each selected item; if procedure inapplicable → apply on a <span class="keyword">replacement item</span>; if auditor cannot apply the procedure or suitable replacement → treat as a <span class="keyword">deviation / misstatement</span></li>
+    <li>Investigate <span class="keyword">nature &amp; cause</span> of deviations/misstatements; if treating as <span class="keyword">anomaly</span> obtain <span class="keyword">high degree of certainty</span> it is not representative</li>
+    <li>For tests of details: <span class="keyword">project misstatements</span> to the population; evaluate whether sampling provided a reasonable basis for conclusions</li>
+  </ul>
+
+  <h4>Two species of sampling risk (PDF TYK-7)</h4>
+  <table>
+  <thead><tr><th>Erroneous conclusion</th><th>Effect</th></tr></thead>
+  <tbody>
+  <tr><td>Controls <em>less</em> effective than they are · material misstatement <em>exists</em> when it doesn't</td><td>Affects <span class="keyword">audit efficiency</span> — additional work establishes initial conclusion was wrong</td></tr>
+  <tr><td>Controls <em>more</em> effective than they are · material misstatement <em>does not exist</em> when it does</td><td>Affects <span class="keyword">audit effectiveness</span> — more likely to lead to inappropriate opinion</td></tr>
+  </tbody>
+  </table>
+
+  <h4>If sampling did not provide a reasonable basis</h4>
+  <ul>
+    <li>Request management to investigate misstatements &amp; the potential for further misstatements &amp; make necessary adjustments, <strong>OR</strong></li>
+    <li>Tailor <span class="keyword">N/T/E of further procedures</span> — e.g., extend sample size, test an alternative control, modify related substantive procedures</li>
+  </ul>
+
+  <h4>Exceptions / Conditions</h4>
+  <div class="exception">"Selective examination of specific items" (auditor judgement-picks of high-value or unusual items) is <em>not</em> audit sampling. Its results cannot be projected. Only exposed to non-sampling risk.</div>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>Sample-based conclusions feed into SA 330 response adequacy; material misstatements uncovered flow into <span class="clause">SA 450</span>.</p>
+</section>
+
+<!-- SA 540 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 540</span> Auditing Accounting Estimates &amp; Related Disclosures (including Fair Value Estimates)</h3>
+  <p><strong>Scope:</strong> Auditor's responsibilities for <span class="keyword">accounting estimates</span> (including fair-value estimates) &amp; related disclosures.</p>
+
+  <div class="exception">SA 540 is <strong>deferred to Intermediate level</strong> per the ICAI Final SM — it is <em>not reproduced</em> in the Ch 5 PDF. Objective and detailed requirements are not reproduced in this chapter's PDF. Refer Intermediate SM for revision. No ICAI-verbatim text fabricated here.</div>
+
+  <h4>Keywords to remember (refresher)</h4>
+  <ul>
+    <li><span class="keyword">Inherent-risk factors</span>: <span class="keyword">estimation uncertainty</span> · <span class="keyword">complexity</span> · <span class="keyword">subjectivity</span> · other (including <em>susceptibility to management bias</em>)</li>
+    <li><span class="keyword">Risk response</span>: test how mgmt made the estimate (method, assumptions, data); develop auditor's point estimate or range; subsequent events review; <span class="keyword">auditor's expert</span> (SA 620) for complex valuations</li>
+    <li><span class="keyword">Disclosure</span> evaluation — reasonableness of key assumptions, sensitivity, range of possible outcomes</li>
+    <li><span class="keyword">Retrospective review</span> of prior-period estimates for management bias</li>
+    <li>Reporting — material misstatement / biased assumptions → modify opinion (SA 705); Key Audit Matter (SA 701) where high estimation uncertainty</li>
+  </ul>
+</section>
+
+<!-- SA 550 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 550</span> Related Parties</h3>
+  <p><strong>Scope:</strong> Auditor's responsibilities regarding <span class="keyword">related party relationships &amp; transactions</span>. Expands how <span class="clause">SA 315</span>, <span class="clause">SA 330</span>, <span class="clause">SA 240</span> are applied to RP risks. <strong>PDF status (§1.1a):</strong> Intermediate depth; Final application only.</p>
+
+  <h4>Objective (from PDF — verbatim)</h4>
+  <blockquote class="icai">"I. To obtain an understanding of the related party transactions to: 1. recognize fraud risk factors arising from such transactions. 2. conclude whether financial statements in so far as they are affected by such transactions: a) achieve a true and fair presentation. b) are not misleading. II. To obtain audit evidence as to whether the related party transactions are properly identified, accounted for, and disclosed in the financial statements."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Related party</span> — per the applicable FRF (e.g., Ind AS 24 / AS 18 / Sec 2(76) Companies Act)</li>
+    <li><span class="keyword">Arm's-length transaction</span> — conducted on terms between willing parties other than in a RP relationship, behaving independently</li>
+  </ul>
+
+  <h4>Key Requirements — six-step workflow</h4>
+  <ul>
+    <li><span class="keyword">Risk-assessment procedures</span> &amp; related activities</li>
+    <li>Understand the entity's RP relationships &amp; transactions (inquire mgmt, review supporting docs)</li>
+    <li>Maintain <span class="keyword">alertness</span> for RP info when reviewing records/documents</li>
+    <li>Share RP information with the <span class="keyword">engagement team</span></li>
+    <li>Identify &amp; assess RMM associated with RP relationships &amp; transactions</li>
+    <li>Design <span class="keyword">responses</span> to assessed RMM</li>
+  </ul>
+
+  <h4>Previously unidentified / undisclosed RPs or transactions (PDF — heightened risk)</h4>
+  <ul>
+    <li>Determine whether underlying circumstances confirm existence; <span class="keyword">communicate</span> promptly within team</li>
+    <li>Request mgmt to identify <em>all</em> transactions with the newly identified RP; inquire why controls failed</li>
+    <li>Perform additional <span class="keyword">substantive procedures</span>; reconsider risk of <em>other</em> undisclosed RPs</li>
+    <li>If non-disclosure appears <span class="keyword">intentional</span> → evaluate implications for audit; apply <span class="clause">SA 240</span> fraud procedures; re-evaluate reliability of mgmt reps &amp; prior responses</li>
+    <li>PDF Case-Study-2 (SRA JV): verify MCA website, MBP-1 data, past dealings to establish nexus (e.g., ₹20 crore paid to "Useless &amp; Sons" vs ₹5 crore equity contribution of MD)</li>
+  </ul>
+
+  <h4>Significant RP transactions outside the normal course of business</h4>
+  <ul>
+    <li><span class="keyword">Inspect underlying contracts</span> &amp; evaluate — (a) <span class="keyword">business rationale</span> (and whether it suggests fraudulent financial reporting or concealment of misappropriation); (b) whether <span class="keyword">terms consistent</span> with mgmt's explanations; (c) whether properly accounted for &amp; disclosed</li>
+    <li>Obtain evidence that the transactions were <span class="keyword">appropriately authorised &amp; approved</span></li>
+    <li>Evaluate rationale from the <em>related party's</em> perspective — absence of rationale = fraud risk factor (PDF TYK-8: sale of blanket machinery to co. that does not manufacture blankets)</li>
+  </ul>
+
+  <h4>Written Representations + TCWG communication</h4>
+  <ul>
+    <li>Obtain <span class="keyword">WR</span> that: (a) all RPs &amp; RP transactions have been disclosed to the auditor; (b) all such transactions have been properly accounted for &amp; disclosed</li>
+    <li>Communicate <span class="keyword">significant matters</span> regarding the entity's RPs to <span class="keyword">TCWG</span></li>
+    <li><span class="keyword">Documentation</span>: names of RPs &amp; nature of RP transactions</li>
+  </ul>
+
+  <h4>Exceptions / Conditions</h4>
+  <div class="exception">RP transactions can be more susceptible to <span class="keyword">management override</span>; complex structures (SPEs, off-balance-sheet, unclear governance) heighten risk. Assertions that an RP transaction is at arm's length may be a <span class="keyword">rebuttable claim</span> — obtain evidence; don't accept on face value.</div>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>Material undisclosed RPs / non-arm's-length terms not properly disclosed → modify opinion per <span class="clause">SA 705</span>. Suspicion of fraud → consider withdrawal (where legally permitted) &amp; duty to report per <span class="clause">SA 240</span>.</p>
+</section>
+
+<!-- SA 560 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 560</span> Subsequent Events</h3>
+  <p><strong>Scope:</strong> Auditor's responsibilities relating to <span class="keyword">subsequent events</span> in an FS audit.</p>
+
+  <div class="exception">SA 560 is <strong>deferred to Intermediate level</strong> per the ICAI Final SM — it is <em>not reproduced</em> in the Ch 5 PDF. Objective and detailed requirements are not reproduced in this chapter's PDF. Refer Intermediate SM for revision. No ICAI-verbatim text fabricated here. (Primary revisit point is <strong>Ch 6 Completion &amp; Review</strong> per SPEC §11.)</div>
+
+  <h4>Keywords to remember (refresher)</h4>
+  <ul>
+    <li>Two windows: <span class="keyword">date of FS → date of auditor's report</span> (active procedures) · <span class="keyword">after auditor's report → date FS issued</span> (no duty unless facts come to attention)</li>
+    <li><span class="keyword">Type I (adjusting)</span> — provide evidence of conditions existing at BS date → adjust FS</li>
+    <li><span class="keyword">Type II (non-adjusting)</span> — indicate conditions arising after BS date → disclose</li>
+    <li>Active procedures: inquiries, reading minutes, reviewing latest interim FS, obtaining WR</li>
+    <li>Facts known <em>after</em> report but <em>before</em> FS issued → discuss with mgmt, determine if FS need amendment; if mgmt declines → take action to prevent reliance on report</li>
+    <li>Facts known <em>after</em> FS issued → consider whether FS need revision; if revised, new audit report dated no earlier than revised-FS approval</li>
+  </ul>
+</section>
+
+<!-- SA 570 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 570</span> Going Concern</h3>
+  <p><strong>Scope:</strong> Auditor's responsibilities regarding management's use of the <span class="keyword">going concern basis</span> of accounting &amp; the conclusion on the appropriateness of that basis.</p>
+
+  <div class="exception">SA 570 is <strong>deferred to Intermediate level</strong> per the ICAI Final SM — it is <em>not reproduced</em> in the Ch 5 PDF. Objective and detailed requirements are not reproduced in this chapter's PDF. Refer Intermediate SM for revision. No ICAI-verbatim text fabricated here. The flowchart below is a whitelisted structural refresher (SPEC §9) — primary coverage for going-concern also recurs in <strong>Ch 6</strong>.</div>
+
+  <h4>Keywords to remember (refresher)</h4>
+  <ul>
+    <li><span class="keyword">Events or conditions</span> — financial (net liabilities, loan default, adverse ratios), operating (loss of key market/customer, labour issues), other (legal/regulatory, uninsured catastrophe)</li>
+    <li><span class="keyword">Management's assessment</span> — at least 12 months from FS date; auditor evaluates same period</li>
+    <li><span class="keyword">Material uncertainty (MUO)</span> — may cast significant doubt on ability to continue as going concern</li>
+    <li>Four reporting outcomes (see flowchart) — appropriate / MUO-adequately-disclosed / MUO-inadequately-disclosed / assumption-inappropriate</li>
+  </ul>
+
+  <h4>SA 570 decision flowchart — events → procedures → conclusion → 4 reporting branches</h4>
+  <div class="mermaid">
+flowchart TD
+    A[Events/conditions casting doubt?] --> B[Evaluate mgmt's assessment · ≥12 months]
+    B --> C{Going concern basis appropriate?}
+    C -->|No| G[Adverse opinion · basis inappropriate]
+    C -->|Yes, no MUO| D[Unmodified opinion]
+    C -->|Yes, MUO exists| E{MUO adequately disclosed in FS?}
+    E -->|Yes| F[Unmodified + Material Uncertainty Related to Going Concern section · SA 705 n/a]
+    E -->|No| H[Qualified or Adverse — depending on pervasiveness · SA 705]
+  </div>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>Four branches drive four different auditor reports; SA 570 also requires communication to TCWG &amp; obtaining management's WR on feasibility of plans. Cross-refers into <span class="clause">SA 705</span> / <span class="clause">SA 706</span> machinery.</p>
+</section>
+
+<!-- SA 580 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 580</span> Written Representations</h3>
+  <p><strong>Scope:</strong> Obtaining <span class="keyword">Written Representations</span> (WR) from management and, where appropriate, TCWG.</p>
+
+  <div class="exception">SA 580 is <strong>deferred to Intermediate level</strong> per the ICAI Final SM — it is <em>not reproduced</em> in the Ch 5 PDF. Objective and detailed requirements are not reproduced in this chapter's PDF. Refer Intermediate SM for revision. No ICAI-verbatim text fabricated here. (Primary revisit point is <strong>Ch 6 Completion &amp; Review</strong> per SPEC §11.)</div>
+
+  <h4>Keywords to remember (refresher)</h4>
+  <ul>
+    <li><span class="keyword">Addressee</span> — typically those with responsibility for FS &amp; knowledge of the matters (e.g., CEO/CFO, Board)</li>
+    <li><span class="keyword">Date</span> — as near as practicable to, but <em>not after</em>, the date of the auditor's report; period — all periods covered</li>
+    <li>Mandatory WRs — fulfilment of mgmt's responsibilities for FS preparation, internal control, providing all information &amp; access, recording of all transactions; plus WRs required by other SAs (e.g., SA 240 fraud, SA 250 NOCLAR, SA 450 uncorrected misstatements, SA 501 litigation, SA 540 estimates, SA 550 RPs, SA 560 subsequent events, SA 570 going concern)</li>
+    <li><span class="keyword">Refusal / doubt on reliability / lack of integrity of mgmt</span> → impact: evaluate effect on other reliance; re-evaluate integrity; if fundamental → <span class="keyword">disclaimer of opinion</span></li>
+    <li>WR supports — but does <em>not</em> substitute — other audit evidence</li>
+  </ul>
+</section>
+
+<h2>Cross-cutting — SA 560 vs SA 570 (distinction exam testers love)</h2>
+<table>
+<thead><tr><th>Axis</th><th>SA 560 Subsequent events</th><th>SA 570 Going concern</th></tr></thead>
+<tbody>
+<tr><td>What it addresses</td><td>Events between BS date &amp; report / after report</td><td>Appropriateness of the <em>basis</em> of accounting (ability to continue operations)</td></tr>
+<tr><td>Type I vs Type II</td><td>Type I (adjust) / Type II (disclose)</td><td>Not applicable — going-concern is an assumption test, not a dating test</td></tr>
+<tr><td>Period</td><td>From BS date through report / FS-issue date</td><td>At least 12 months from FS date (going forward)</td></tr>
+<tr><td>Reporting output</td><td>Possible FS revision + re-dated report</td><td>Possibly adverse, qualified, unmodified+MU-section, unmodified</td></tr>
+</tbody>
+</table>
+
+<h2>Relevance-vs-reliability — direction of testing quick-drill</h2>
+<ul>
+<li><span class="keyword">Existence</span> — start from the <em>book</em>, trace to the <em>physical item</em>: pick a line in the fixed-asset register → inspect the asset</li>
+<li><span class="keyword">Completeness</span> — start from the <em>source</em>, trace into the <em>book</em>: pick a GRN/challan → trace to purchase ledger</li>
+<li>Misaligning direction = procedure tests the <em>wrong</em> assertion — even with ample evidence, quality/relevance is zero</li>
+</ul>
+
+<div class="triggers">
+<h3>5 Exam Triggers — spot these phrasings, invoke these SAs</h3>
+<ol>
+<li>"Auditor chose to verify sales &gt; ₹25 lacs and all related-party transactions &amp; specific litigation claims at his judgment" (PDF vignette) → <strong>SA 500 / SA 530</strong> — <em>selective examination of specific items</em> is <span class="keyword">not</span> audit sampling; subject only to non-sampling risk; results cannot be projected.</li>
+<li>"NH-7 blockade; auditor could not attend year-end inventory count at Uttarakhand plant for one month" (PDF TYK-2) → <strong>SA 501</strong> — <em>unforeseen circumstances</em>, <span class="keyword">not</span> impracticability; make/observe count on alternate date &amp; procedures on intervening transactions; no scope limitation.</li>
+<li>"GST registrations of 25 out of 30 creditors cancelled during year; external confirmations nonetheless received within a week" (PDF TYK-5) → <strong>SA 505 / SA 500</strong> — responses not reliable; evaluate fraud-risk implications &amp; N/T/E of other procedures; response may not have come from the originally intended confirming party.</li>
+<li>"Initial audit; prior year unaudited; material inventories in opening balances" (PDF TYK-6) → <strong>SA 510</strong> — current-period closing inventory gives little evidence on opening; observe current count &amp; reconcile + procedures on opening valuation, GP, cut-off; else qualified / disclaimer.</li>
+<li>"Dominant MD's company paid ₹20 crore to 'Useless &amp; Sons' shortly before his ₹5 crore equity infusion into JV" (PDF Case-Study-2) → <strong>SA 550 + SA 240</strong> — suspected undisclosed RP masking misappropriation; MCA &amp; MBP-1 verification; substantive procedures on transaction; fraud-risk consideration; consider withdrawal if fundamental doubt on mgmt integrity (SA 580 WR reliability).</li>
+</ol>
+</div>
+
+<script>mermaid.initialize({startOnLoad:true, theme:'neutral'});</script>
+</body>
+</html>

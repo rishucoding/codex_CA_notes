@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ch 2 — General Auditing Principles & Auditor's Responsibilities · CA Final Audit</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<style>
+:root {
+  --bg: #faf8f3;
+  --ink: #1a1a1a;
+  --muted: #5b5b5b;
+  --accent: #0a4a8f;
+  --keyword-bg: #fff3d4;
+  --exception-bg: #ffe4e4;
+  --exception-border: #c33;
+  --clause-bg: #e8f2ff;
+  --table-stripe: #f5f2ea;
+  --rule: #d8d3c4;
+  --quote-bar: #0a4a8f;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Georgia, serif;
+  background: var(--bg); color: var(--ink);
+  max-width: 820px; margin: 2rem auto; padding: 0 1.25rem;
+  line-height: 1.55; font-size: 16px;
+}
+h1 { font-size: 1.9rem; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 0.4rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin-top: 2rem; border-left: 4px solid var(--accent); padding-left: 0.6rem; }
+h3 { font-size: 1.15rem; color: var(--ink); margin-top: 1.5rem; }
+h4 { font-size: 1rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1.2rem; margin-bottom: 0.3rem; }
+.meta { color: var(--muted); font-style: italic; font-size: 0.9rem; margin-top: -0.5rem; }
+.keyword { background: var(--keyword-bg); padding: 0 0.2em; border-radius: 2px; font-weight: 600; }
+.exception {
+  background: var(--exception-bg);
+  border-left: 4px solid var(--exception-border);
+  padding: 0.5rem 0.8rem; margin: 0.5rem 0; border-radius: 3px;
+}
+.exception::before { content: "⚠ "; font-weight: bold; color: var(--exception-border); }
+.clause {
+  background: var(--clause-bg); padding: 0.1rem 0.4rem;
+  border-radius: 3px; font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+}
+blockquote.icai {
+  border-left: 4px solid var(--quote-bar);
+  background: #fff; margin: 0.8rem 0; padding: 0.6rem 1rem;
+  font-style: italic; color: #333;
+}
+blockquote.icai::before { content: "ICAI verbatim · "; font-style: normal; font-weight: 600; color: var(--accent); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.95rem; }
+th, td { padding: 0.5rem 0.7rem; text-align: left; border: 1px solid var(--rule); vertical-align: top; }
+th { background: var(--accent); color: #fff; font-weight: 600; }
+tr:nth-child(even) td { background: var(--table-stripe); }
+.sa-card {
+  border: 1px solid var(--rule); border-radius: 6px;
+  padding: 1rem 1.2rem; margin: 1.5rem 0; background: #fff;
+}
+.sa-card h3 { margin-top: 0; color: var(--accent); }
+.triggers {
+  background: #fff; border: 1px dashed var(--accent);
+  padding: 1rem; border-radius: 6px; margin: 1.5rem 0;
+}
+.triggers h3 { margin-top: 0; color: var(--accent); }
+.triggers ol { margin: 0; padding-left: 1.2rem; }
+.triggers li { margin: 0.4rem 0; }
+.mermaid { background: #fff; padding: 1rem; border-radius: 6px; margin: 1rem 0; text-align: center; }
+svg.diagram { max-width: 100%; height: auto; display: block; margin: 1rem auto; background: #fff; border-radius: 6px; padding: 0.5rem; }
+ul, ol { padding-left: 1.3rem; }
+li { margin: 0.2rem 0; }
+.chip { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-right: 0.3rem; }
+.chip-sa { background: var(--accent); color: #fff; }
+.chip-marks { background: #2a7c3a; color: #fff; }
+.nav { margin: 1rem 0; font-size: 0.9rem; }
+.nav a { color: var(--accent); text-decoration: none; margin-right: 1rem; }
+.nav a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="nav">← <a href="../../index.html">All chapters</a> · <a href="onepager.html">One-pager</a></div>
+<h1>Chapter 2 — General Auditing Principles &amp; Auditor's Responsibilities</h1>
+<p class="meta">ICAI SM Final P3 May 2026 · <span class="chip chip-marks">~12–15 marks</span> Covers SA 200 (umbrella) · SA 210 · SA 230 · SA 240 · SA 250 · SA 260 · SA 265 · SA 299 · SA 402</p>
+
+<div class="exception">
+<strong>Divergence from SPEC §11 map.</strong> The ICAI SM PDF for Ch 2 gives <em>full</em> treatment only to <span class="keyword">SA 240, 250, 260, 299 and SA 402</span>. The PDF expressly notes that <span class="clause">SA 200, SA 210, SA 230</span> content is covered in depth at the Intermediate level and at Final only application/case-study is expected. <span class="keyword">SA 265</span> is <strong>not</strong> covered in this chapter's PDF. The cards below therefore give brief revision blocks for SA 200/210/230/265 (no ICAI-verbatim Objective available in <em>this</em> PDF for those four) and full treatment to SA 240/250/260/299. SA 402 has also been included because the PDF devotes an entire section to it.
+</div>
+
+<h2>Chapter map</h2>
+<p>This chapter sets the <span class="keyword">operating principles</span> of every audit. <span class="clause">SA 200</span> is the umbrella — reasonable assurance, professional skepticism, inherent limitations. <span class="clause">SA 210</span> locks the engagement <em>before</em> fieldwork; <span class="clause">SA 230</span> governs the file <em>during</em>. <span class="clause">SA 240</span> and <span class="clause">SA 250</span> are the two "watch-out" SAs — fraud and non-compliance with laws.</p>
+<p><span class="clause">SA 260</span> (communication with TCWG) and <span class="clause">SA 265</span> (deficiencies) are the outbound-communication pair. <span class="clause">SA 299</span> is the special-case SA for joint auditors. SA 402 (service organisations) appears in the PDF and is appended for completeness.</p>
+
+<h2>SA cluster overview</h2>
+<svg class="diagram" viewBox="0 0 780 360" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L8,5 L0,10 z" fill="#0a4a8f"/>
+    </marker>
+  </defs>
+  <!-- Umbrella SA 200 -->
+  <rect x="230" y="15" width="320" height="50" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="390" y="38" text-anchor="middle" font-size="14" font-weight="700" fill="#0a4a8f">SA 200 — Overall Objectives (Umbrella)</text>
+  <text x="390" y="55" text-anchor="middle" font-size="11" fill="#333">Reasonable assurance · skepticism · inherent limitations</text>
+
+  <!-- Before engagement -->
+  <rect x="20" y="105" width="170" height="60" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="105" y="128" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">SA 210</text>
+  <text x="105" y="145" text-anchor="middle" font-size="11" fill="#333">Preconditions · terms</text>
+  <text x="105" y="158" text-anchor="middle" font-size="11" fill="#333">BEFORE engagement</text>
+
+  <!-- During: documentation -->
+  <rect x="305" y="105" width="170" height="60" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="390" y="128" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">SA 230</text>
+  <text x="390" y="145" text-anchor="middle" font-size="11" fill="#333">Audit documentation</text>
+  <text x="390" y="158" text-anchor="middle" font-size="11" fill="#333">DURING engagement</text>
+
+  <!-- Joint audit special case -->
+  <rect x="590" y="105" width="170" height="60" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="675" y="128" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">SA 299</text>
+  <text x="675" y="145" text-anchor="middle" font-size="11" fill="#333">Joint audits —</text>
+  <text x="675" y="158" text-anchor="middle" font-size="11" fill="#333">division &amp; liability</text>
+
+  <!-- Watch-for cluster label -->
+  <text x="175" y="200" text-anchor="middle" font-size="11" font-style="italic" fill="#5b5b5b">Things to watch for →</text>
+  <rect x="20" y="210" width="140" height="60" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="90" y="233" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">SA 240</text>
+  <text x="90" y="250" text-anchor="middle" font-size="11" fill="#333">Fraud risks</text>
+  <text x="90" y="263" text-anchor="middle" font-size="11" fill="#333">→ designed response</text>
+
+  <rect x="180" y="210" width="140" height="60" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="250" y="233" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">SA 250</text>
+  <text x="250" y="250" text-anchor="middle" font-size="11" fill="#333">Laws &amp; regulations</text>
+  <text x="250" y="263" text-anchor="middle" font-size="11" fill="#333">direct vs other</text>
+
+  <!-- Outbound comms cluster -->
+  <text x="540" y="200" text-anchor="middle" font-size="11" font-style="italic" fill="#5b5b5b">Outbound communications →</text>
+  <rect x="440" y="210" width="140" height="60" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="510" y="233" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">SA 260</text>
+  <text x="510" y="250" text-anchor="middle" font-size="11" fill="#333">Communicate with</text>
+  <text x="510" y="263" text-anchor="middle" font-size="11" fill="#333">TCWG</text>
+
+  <rect x="600" y="210" width="160" height="60" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="680" y="233" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">SA 265</text>
+  <text x="680" y="250" text-anchor="middle" font-size="11" fill="#333">Deficiencies in IC to</text>
+  <text x="680" y="263" text-anchor="middle" font-size="11" fill="#333">TCWG &amp; management</text>
+
+  <!-- SA 402 appendix -->
+  <rect x="230" y="295" width="320" height="45" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="390" y="317" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">SA 402 — Service organisation (covered in PDF)</text>
+  <text x="390" y="333" text-anchor="middle" font-size="11" fill="#333">User auditor · Type 1 / Type 2 report</text>
+
+  <!-- arrows from umbrella to each box -->
+  <path d="M340,65 L130,105" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M390,65 L390,105" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M450,65 L650,105" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+</svg>
+
+<!-- SA 200 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 200</span> Overall Objectives of the Independent Auditor</h3>
+  <p><strong>Scope:</strong> Umbrella SA for every audit of financial statements conducted under SAs. <strong>PDF status:</strong> per the note at the end of the chapter, SA 200 is covered in depth at <em>Intermediate</em> level; at Final, only application in case studies is expected.</p>
+
+  <h4>Objective</h4>
+  <div class="exception">ICAI-verbatim Objective sentence is <strong>not reproduced</strong> in the Ch 2 Final SM PDF. The PDF only states (line 97): "SA 200 establishes the independent auditor's overall responsibilities when conducting an audit of financial statements in accordance with SAs." — not fabricating a verbatim Objective here.</div>
+
+  <h4>Key Definitions (revision)</h4>
+  <ul>
+    <li><span class="keyword">Reasonable assurance</span> — high, not absolute, level of assurance</li>
+    <li><span class="keyword">Material misstatement</span> — could influence economic decisions of users</li>
+    <li><span class="keyword">Professional skepticism</span> — questioning mind, alert to contrary evidence</li>
+    <li><span class="keyword">Professional judgment</span> — training + experience + ethical requirements applied</li>
+  </ul>
+
+  <h4>Key Requirements</h4>
+  <ul>
+    <li><span class="keyword">Ethical requirements</span> · including independence, complied throughout</li>
+    <li><span class="keyword">Professional skepticism</span> · planning and performance</li>
+    <li><span class="keyword">Sufficient appropriate audit evidence</span> · to reduce audit risk to acceptably low</li>
+    <li><span class="keyword">Conduct in accordance with SAs</span> · comply with every relevant SA in its entirety</li>
+    <li>Comply with <span class="keyword">relevant requirements</span> unless SA not relevant / no conditions addressed</li>
+  </ul>
+
+  <h4>Exceptions / Conditions</h4>
+  <div class="exception">Inherent limitations: <span class="keyword">nature of financial reporting</span>, nature of audit procedures, need for audit to be conducted within reasonable time &amp; cost — absolute assurance is <em>not</em> attainable.</div>
+
+  <h4>Auditor's Responsibilities</h4>
+  <ul>
+    <li>Obtain <span class="keyword">reasonable assurance</span> that FS are free from material misstatement (fraud or error)</li>
+    <li>Report on the FS &amp; communicate as required by SAs</li>
+    <li>Comply with <span class="keyword">Code of Ethics</span> &amp; relevant SAs</li>
+  </ul>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>Express an <span class="keyword">opinion</span> on whether the FS are prepared, in all material respects, in accordance with the applicable FRF.</p>
+</section>
+
+<!-- SA 210 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 210</span> Agreeing the Terms of Audit Engagements</h3>
+  <p><strong>Scope:</strong> Auditor's responsibilities in <em>agreeing terms</em> with management / TCWG before accepting/continuing an engagement. <strong>PDF status:</strong> deferred to Intermediate; Final tests application.</p>
+
+  <h4>Objective</h4>
+  <div class="exception">ICAI-verbatim Objective for SA 210 is <strong>not quoted</strong> in the Ch 2 Final SM PDF (deferred to Intermediate). Not fabricated here.</div>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Preconditions for an audit</span> — acceptable FRF + management acknowledgment of responsibilities</li>
+    <li><span class="keyword">Engagement letter</span> — written agreement on terms</li>
+  </ul>
+
+  <h4>Key Requirements</h4>
+  <ul>
+    <li>Confirm <span class="keyword">preconditions</span> exist · acceptable FRF · premise of responsibilities</li>
+    <li>Record agreed terms in an <span class="keyword">engagement letter</span> or other written form</li>
+    <li>For <span class="keyword">recurring audits</span> · assess if revised letter needed (change in senior management, nature/size, law/FRF)</li>
+    <li>Do <span class="keyword">not agree</span> to a change in terms where no reasonable justification</li>
+    <li>If preconditions absent · <span class="keyword">decline</span> the engagement</li>
+  </ul>
+
+  <h4>Exceptions / Conditions</h4>
+  <div class="exception">If law/regulation prescribes terms in sufficient detail, engagement letter may be recorded by way of a written statement that the law/regulation applies &amp; management acknowledges its responsibilities.</div>
+
+  <h4>Auditor's Responsibilities</h4>
+  <ul><li>Confirm preconditions; document terms; refuse unjustified scope reductions mid-engagement</li></ul>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>If terms cannot be agreed, <span class="keyword">do not accept</span> the engagement (unless required by law).</p>
+</section>
+
+<!-- SA 230 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 230</span> Audit Documentation</h3>
+  <p><strong>Scope:</strong> Auditor's responsibility to prepare the audit file. <strong>PDF status:</strong> deferred to Intermediate; Final tests application.</p>
+
+  <h4>Objective</h4>
+  <div class="exception">ICAI-verbatim Objective for SA 230 is <strong>not quoted</strong> in the Ch 2 Final SM PDF (deferred to Intermediate). Not fabricated here.</div>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Audit documentation</span> — record of procedures, evidence, conclusions (working papers)</li>
+    <li><span class="keyword">Audit file</span> — folders/storage containing records for a specific engagement</li>
+    <li><span class="keyword">Experienced auditor</span> — has practical audit experience + understanding of audit processes, SAs, regulatory environment, industry</li>
+  </ul>
+
+  <h4>Key Requirements</h4>
+  <ul>
+    <li>Documentation sufficient for an <span class="keyword">experienced auditor</span> (no prior connection) to understand N/T/E, results, conclusions, significant matters</li>
+    <li>Record <span class="keyword">identifying characteristics</span> of items tested · who performed · who reviewed · dates</li>
+    <li><span class="keyword">Assembly of the final file</span> · timely basis after report date (SQC 1: ≤ 60 days)</li>
+    <li>After assembly, <span class="keyword">no deletion/discarding</span> before retention period ends (SQC 1: ≥ 7 yrs)</li>
+    <li>Document <span class="keyword">departure from a relevant requirement</span> — reason + alternative procedures performed</li>
+  </ul>
+
+  <h4>Exceptions / Conditions</h4>
+  <div class="exception">Post-assembly modifications must record: reason, when &amp; by whom made, reviewed. Never alter / discard to conceal.</div>
+
+  <h4>Auditor's Responsibilities</h4>
+  <ul><li>Timely prep, retention, confidentiality &amp; integrity of the audit file</li></ul>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>Documentation evidences that the audit was <span class="keyword">planned and performed in accordance with SAs</span>.</p>
+</section>
+
+<!-- SA 240 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 240</span> The Auditor's Responsibilities Relating to Fraud in an Audit of Financial Statements</h3>
+  <p><strong>Scope:</strong> Auditor's responsibilities relating to fraud in an FS audit — expands SA 315 &amp; SA 330 in relation to risks of material misstatement due to fraud.</p>
+
+  <h4>Objective</h4>
+  <blockquote class="icai">"(a) To identify and assess the risks of material misstatement in the financial statements due to fraud; (b) To obtain sufficient appropriate audit evidence about the assessed risks of material misstatement due to fraud, through designing and implementing appropriate responses; and (c) To respond appropriately to identified or suspected fraud."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Fraud</span> — intentional act by management/TCWG/employees/third parties involving deception to obtain unjust or illegal advantage</li>
+    <li><span class="keyword">Fraud risk factors</span> — events/conditions indicating incentive/pressure, opportunity, or rationalization</li>
+    <li>Two species: <span class="keyword">fraudulent financial reporting</span> &amp; <span class="keyword">misappropriation of assets</span></li>
+    <li>Fraud triangle: <span class="keyword">incentive/pressure · opportunity · rationalization</span></li>
+  </ul>
+
+  <h4>Key Requirements</h4>
+  <ul>
+    <li>Maintain <span class="keyword">professional skepticism</span> throughout the audit, notwithstanding past honest dealings</li>
+    <li><span class="keyword">Engagement team discussion</span> — where FS may be susceptible to fraud, how fraud might occur</li>
+    <li>Risk assessment procedures to identify <span class="keyword">risks of material misstatement due to fraud</span>; presume risk in <span class="keyword">revenue recognition</span> (rebut with documented reasons)</li>
+    <li>Mandatory response to <span class="keyword">management override of controls</span>: test journal entries, review estimates for bias, scrutinise significant unusual transactions</li>
+    <li>Obtain <span class="keyword">written representations</span> from management &amp; TCWG on fraud prevention/detection and disclosure of known/suspected fraud</li>
+    <li>Timely <span class="keyword">communication</span> — management (operational), TCWG (management fraud / material fraud), regulators where duty arises</li>
+  </ul>
+
+  <h4>Exceptions / Conditions</h4>
+  <div class="exception">Risk of not detecting fraud &gt; risk of not detecting error. Management fraud risk &gt; employee fraud risk (override + collusion + seniority). Confidentiality duty may be overridden by law (e.g. banks must report to RBI; <span class="clause">s.143(12)</span> requires fraud &gt; ₹1 crore reported to Central Government within prescribed time).</div>
+
+  <h4>Auditor's Responsibilities vs Management / TCWG</h4>
+  <ul>
+    <li><strong>Management + TCWG:</strong> <span class="keyword">primary responsibility</span> to prevent &amp; detect fraud — culture of honesty, oversight</li>
+    <li><strong>Auditor:</strong> <span class="keyword">reasonable assurance</span> that FS are free of material misstatement (fraud or error); does <em>not</em> make legal determinations of fraud</li>
+    <li>If exceptional circumstances question ability to continue — determine legal/professional duties, consider <span class="keyword">withdrawal</span> (where permitted), report</li>
+  </ul>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>If FS materially misstated due to fraud → evaluate implications for opinion (SA 705); communicate to TCWG &amp; regulators; document risk decisions &amp; rebuttal of revenue-recognition fraud presumption.</p>
+</section>
+
+<!-- SA 250 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 250</span> Consideration of Laws and Regulations in an Audit of Financial Statements</h3>
+  <p><strong>Scope:</strong> Auditor's responsibility to consider laws &amp; regulations when performing an FS audit. Does <em>not</em> apply to assurance engagements engaged specifically to test compliance.</p>
+
+  <h4>Objective</h4>
+  <blockquote class="icai">"(a) To obtain sufficient appropriate audit evidence regarding compliance with the provisions of those laws and regulations generally recognised to have a direct effect on the determination of material amounts and disclosures in the financial statements; (b) To perform specified audit procedures to help identify instances of non-compliance with other laws and regulations that may have a material effect on the financial statements; and (c) To respond appropriately to non-compliance or suspected non-compliance with laws and regulations identified during the audit."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Non-compliance</span> — acts of omission/commission by the entity, intentional or unintentional, contrary to prevailing laws/regulations</li>
+    <li><span class="keyword">Category (a) laws</span> — direct effect on FS amounts/disclosures (e.g. tax, labour)</li>
+    <li><span class="keyword">Category (b) laws</span> — no direct effect but fundamental to operations/going concern (licences, solvency, environment)</li>
+  </ul>
+
+  <h4>Key Requirements</h4>
+  <ul>
+    <li>Obtain <span class="keyword">general understanding</span> of the legal &amp; regulatory framework &amp; how entity complies</li>
+    <li>For Category (a): obtain <span class="keyword">SAAE</span> regarding compliance</li>
+    <li>For Category (b): <span class="keyword">inquire</span> of management/TCWG + <span class="keyword">inspect correspondence</span> with regulators</li>
+    <li>Remain <span class="keyword">alert</span> that other procedures may surface non-compliance</li>
+    <li>Obtain <span class="keyword">written representations</span> on disclosure of known/suspected non-compliance</li>
+    <li>Where suspected NOCLAR: discuss with management/TCWG; <span class="keyword">legal advice</span> if needed; evaluate effect on opinion</li>
+  </ul>
+
+  <h4>Exceptions / Conditions</h4>
+  <div class="exception">Auditor is <strong>not</strong> responsible for preventing NOCLAR and cannot be expected to detect <em>all</em> NOCLAR. Whether an act constitutes non-compliance is ultimately a matter for a <span class="keyword">court of law</span>.</div>
+  <div class="exception">Confidentiality duty may be overridden where statute requires reporting to regulators (e.g. banks → RBI).</div>
+
+  <h4>Auditor's Responsibilities (three-tier reporting)</h4>
+  <ul>
+    <li><strong>To TCWG:</strong> communicate matters (other than clearly inconsequential); escalate to next-higher authority if TCWG involved</li>
+    <li><strong>In the auditor's report:</strong> material &amp; not reflected → <span class="keyword">qualified / adverse</span> per <span class="clause">SA 705</span>; precluded from SAAE → qualified / <span class="keyword">disclaimer</span></li>
+    <li><strong>To regulators / enforcement authorities:</strong> determine if reporting duty outside the entity exists</li>
+  </ul>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>Document identified/suspected NOCLAR, discussions, and conclusions. Modify opinion per SA 705 when material effect not reflected or when SAAE unobtainable.</p>
+</section>
+
+<!-- SA 260 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 260</span> Communication with Those Charged with Governance</h3>
+  <p><strong>Scope:</strong> Auditor's responsibility to communicate with TCWG in an FS audit. Two-way communication to promote oversight &amp; audit quality.</p>
+
+  <h4>Objective</h4>
+  <blockquote class="icai">"(a) To communicate clearly with those charged with governance responsibilities of the auditor in relation to the financial statement audit, and an overview of the planned scope and timing of the audit; (b) To obtain from those charged with governance information relevant to the audit; (c) To provide those charged with governance with timely observations arising from the audit that are significant and relevant to their responsibility to oversee the financial reporting process; and (d) To promote effective two-way communication between the auditor and those charged with governance."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Those charged with governance (TCWG)</span> — person(s)/organisation(s) responsible for overseeing strategic direction &amp; accountability, including oversight of financial reporting process</li>
+    <li><span class="keyword">Management</span> — executive responsibility for conduct of operations</li>
+  </ul>
+
+  <h4>Key Requirements — matters to communicate</h4>
+  <ul>
+    <li>The <span class="keyword">auditor's responsibilities</span> in relation to the FS audit (non-relieving of management's)</li>
+    <li><span class="keyword">Planned scope &amp; timing</span>, including significant risks identified</li>
+    <li><span class="keyword">Significant findings</span> — qualitative aspects of accounting practices, significant difficulties, disagreements with management, written representations sought, circumstances affecting report form/content</li>
+    <li><span class="keyword">Auditor independence</span> (listed entities) — statement + relationships &amp; fees + safeguards</li>
+    <li><span class="keyword">Form, timing, content</span> of communication agreed; written where oral inadequate</li>
+    <li>Evaluate <span class="keyword">adequacy of two-way communication</span>; if not adequate, consider impact on audit &amp; act</li>
+  </ul>
+
+  <h4>Exceptions / Conditions</h4>
+  <div class="exception">If all TCWG are involved in management, certain items (e.g. significant matters discussed with management, written reps requested) need not be re-communicated.</div>
+  <div class="exception">Care to not compromise audit effectiveness by pre-disclosing N/T/E of detailed procedures where TCWG manage the entity.</div>
+
+  <h4>Auditor's Responsibilities</h4>
+  <ul>
+    <li>Identify <span class="keyword">appropriate persons</span> within governance structure</li>
+    <li>Communicate on a <span class="keyword">timely basis</span>; document orally-made communications &amp; retain written ones</li>
+  </ul>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>Inadequate two-way communication → may modify risk assessment, obtain additional evidence, or escalate; last resort → consider withdrawal where permitted.</p>
+</section>
+
+<!-- SA 265 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 265</span> Communicating Deficiencies in Internal Control to Those Charged with Governance and Management</h3>
+  <p><strong>Scope:</strong> Outbound communication of control deficiencies identified during the audit. <strong>PDF status:</strong> SA 265 is <em>not</em> covered in the Ch 2 Final SM PDF (flagged up-top).</p>
+
+  <h4>Objective</h4>
+  <div class="exception">ICAI-verbatim Objective for SA 265 is <strong>not reproduced</strong> in the Ch 2 Final SM PDF. Not fabricated here. Treat as refresher from SA 315/Intermediate-level materials.</div>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Deficiency in internal control</span> — control missing or not designed/implemented to prevent/detect misstatements on timely basis</li>
+    <li><span class="keyword">Significant deficiency</span> — of sufficient importance to merit TCWG attention (professional judgment)</li>
+  </ul>
+
+  <h4>Key Requirements</h4>
+  <ul>
+    <li>Determine whether identified deficiencies are <span class="keyword">significant deficiencies</span></li>
+    <li>Communicate significant deficiencies <span class="keyword">in writing</span> to TCWG on timely basis</li>
+    <li>Communicate to management (appropriate level) in writing — other deficiencies meriting attention</li>
+    <li>Communication to include <span class="keyword">description</span>, potential effects, sufficient info for context, explanation that communication is for audit purposes only</li>
+  </ul>
+
+  <h4>Exceptions / Conditions</h4>
+  <div class="exception">Communication not appropriate to report directly to management if it would be inappropriate (e.g. calls into question management's integrity/competence) — then report directly to TCWG.</div>
+
+  <h4>Auditor's Responsibilities</h4>
+  <ul><li>Identify → classify → communicate (written); re-communicate if prior-period deficiencies not remediated</li></ul>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>Written communication to TCWG/management; does <em>not</em> modify the auditor's opinion unless combined effect triggers SA 705.</p>
+</section>
+
+<!-- SA 299 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 299</span> Joint Audit of Financial Statements</h3>
+  <p><strong>Scope:</strong> Principles for effective conduct of a joint audit to achieve SA 200 overall objectives. Does <em>not</em> cover principal–component auditor relationships (that is SA 600).</p>
+
+  <h4>Objective</h4>
+  <blockquote class="icai">"(a) To lay down broad principles for the joint auditors in conducting the joint audit. (b) To provide a uniform approach to the process of joint audit. (c) To identify the distinct areas of work and coverage thereof by each joint auditor. (d) To identify individual responsibility and joint responsibility of the joint auditors in relation to audit."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Joint audit</span> — audit of FS of an entity by two or more auditors appointed with the objective of issuing the audit report</li>
+    <li><span class="keyword">Joint auditors</span> — such auditors</li>
+  </ul>
+
+  <h4>Key Requirements</h4>
+  <ul>
+    <li>Engagement partner &amp; key members of each JA <span class="keyword">jointly plan</span> — establish overall audit strategy</li>
+    <li>Develop a <span class="keyword">joint audit plan</span>: identify division of areas, common areas, reporting objectives, significant factors, resources</li>
+    <li><span class="keyword">Work-allocation document</span> signed by all JAs &amp; communicated to TCWG</li>
+    <li>Obtain <span class="keyword">common engagement letter</span> &amp; <span class="keyword">common management representation letter</span></li>
+    <li>Communicate material matters between JAs <span class="keyword">in writing</span> before completion</li>
+    <li>Issue a <span class="keyword">common audit report</span>; disagreement → <span class="keyword">separate report</span>, cross-refer under <span class="clause">Other Matter Paragraph (SA 706)</span></li>
+  </ul>
+
+  <h4>Exceptions / Conditions — responsibility split</h4>
+  <div class="exception"><strong>Separate &amp; specific responsibility:</strong> for the work allocated to that JA — including obtaining info from management for that division/zone/unit.</div>
+  <div class="exception"><strong>Joint &amp; several responsibility:</strong> (a) undivided work done by all JAs; (b) decisions taken by all JAs on common areas (N/T/E); (c) matters brought to notice of any JA with agreement among JAs; (d) FS compliance with statutes; (e) presentation &amp; disclosure per FRF; (f) audit report compliance with statutes, SAs &amp; ICAI pronouncements.</div>
+  <div class="exception">A JA is entitled to assume other JAs did their part per SAs &amp; would flag departures — <em>no</em> duty to review other JAs' work.</div>
+
+  <h4>Auditor's Responsibilities</h4>
+  <ul>
+    <li>Each JA — individual study of IC &amp; risk for their allocated area; determine N/T/E of procedures for that area</li>
+    <li>All JAs — communicate jointly with TCWG on modifications / EOM / OM expected in report</li>
+  </ul>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>Common report where JAs agree; separate reports cross-referenced under "Other Matter" where they disagree. No joint auditor is bound by the majority view.</p>
+
+  <h4>SA 299 flowchart — work division &amp; liability</h4>
+  <div class="mermaid">
+flowchart TD
+    A[Joint auditors appointed] --> B[Joint planning · joint audit plan]
+    B --> C{Area of work}
+    C -->|Divided / allocated| D[Each JA — individual responsibility for own allocation]
+    C -->|Common / undivided| E[All JAs — joint &amp; several responsibility]
+    D --> F[Conclude on own work]
+    E --> F
+    F --> G{Opinion of all JAs agreed?}
+    G -->|Yes| H[Common audit report issued]
+    G -->|No — disagreement| I[Separate audit report by dissenting JA]
+    I --> J[Cross-reference under Other Matter Paragraph · SA 706]
+    H --> K[Sign &amp; deliver]
+    J --> K
+  </div>
+</section>
+
+<!-- SA 402 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 402</span> Audit Considerations Relating to an Entity Using a Service Organisation</h3>
+  <p><strong>Scope:</strong> User auditor's responsibility for SAAE when a user entity uses services of one or more service organisations. Expands how SA 315 &amp; SA 330 apply. <em>(Included because the PDF devotes §6 to it; strictly Ch 4 territory under SPEC §11.)</em></p>
+
+  <h4>Objective</h4>
+  <blockquote class="icai">"(a) To obtain an understanding of the nature and significance of the services provided by the service organisation and their effect on the user entity's internal control relevant to the audit, sufficient to identify and assess the risks of material misstatement; and (b) To design and perform audit procedures responsive to those risks."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Service organisation</span> — third party providing services that are part of user entity's info system relevant to FR</li>
+    <li><span class="keyword">User entity / user auditor</span> vs <span class="keyword">service organisation / service auditor</span></li>
+    <li><span class="keyword">Type 1 report</span> — design &amp; implementation at a date</li>
+    <li><span class="keyword">Type 2 report</span> — design + operating effectiveness over a period</li>
+    <li><span class="keyword">Complementary user entity controls</span> — controls the SO assumes user will implement</li>
+  </ul>
+
+  <h4>Key Requirements</h4>
+  <ul>
+    <li>Obtain understanding of <span class="keyword">nature &amp; significance</span> of services and their effect on user's IC</li>
+    <li>If insufficient: use Type 1 / Type 2 report, contact SO, visit SO, or use another auditor</li>
+    <li>Assess <span class="keyword">service auditor competence &amp; independence</span>; adequacy of standards under which report issued</li>
+    <li>Identify &amp; evaluate <span class="keyword">complementary user entity controls</span></li>
+    <li>Respond to assessed risks (SA 330): obtain SAAE from user records or perform further procedures / use another auditor</li>
+  </ul>
+
+  <h4>Exceptions / Conditions</h4>
+  <div class="exception">Service auditor's professional competence need not be separately evaluated if the service auditor is a member of ICAI.</div>
+
+  <h4>Auditor's Responsibilities — reporting</h4>
+  <ul>
+    <li>Unable to obtain SAAE → <span class="keyword">modify opinion</span> per SA 705</li>
+    <li><span class="keyword">Do not refer</span> to work of the service auditor in an unmodified opinion</li>
+    <li>If reference required by law/regulation to explain a modification → indicate it does not diminish user auditor's responsibility</li>
+  </ul>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>Evidence obtained via Type 1/Type 2 + direct work → form opinion on user entity's FS; reference to service auditor only if legally required &amp; with proper caveats.</p>
+</section>
+
+<div class="triggers">
+<h3>5 Exam Triggers — spot these phrasings, invoke these SAs</h3>
+<ol>
+  <li>"Management <strong>refused to allow the auditor to communicate</strong> the audit plan &amp; significant risks with the Audit Committee/Board; the MD insisted all matters be routed only through him" → <strong>SA 260</strong> — auditor must identify appropriate TCWG persons, evaluate adequacy of two-way communication, and consider impact on audit &amp; on opinion (scope limitation).</li>
+  <li>"Auditor detected an off-book sale of ₹ 43 crore with proceeds partly deposited in the CFO's personal account; CFO argues the sum is immaterial" → <strong>SA 240</strong> — management fraud / override of controls; rebutted revenue-recognition fraud risk; <span class="clause">s.143(12)</span> mandatory reporting to Central Government for fraud &gt; ₹ 1 crore.</li>
+  <li>"DGGI issues show-cause for fictitious invoicing; IRDAI also notified; management withholds documents claiming sub-judice" → <strong>SA 250</strong> — suspected NOCLAR with possible material effect; obtain legal advice, evaluate SAAE, consider qualified/adverse or disclaimer under SA 705, communicate to TCWG &amp; consider duty to report to regulator.</li>
+  <li>"Four firms appointed as joint auditors of a PSU bank; work divided zone-wise; IT general controls kept as common area; DES &amp; Associates' team fails to test batch-processing controls" → <strong>SA 299</strong> — common/undivided areas → <span class="keyword">joint &amp; several</span> liability of <em>all</em> joint auditors; allocated-zone lapses remain individual responsibility of the firm concerned.</li>
+  <li>"Joint auditors disagree on whether to modify opinion in respect of related-party disclosures; three want unmodified, one wants qualified" → <strong>SA 299</strong> — dissenting JA issues a <span class="keyword">separate audit report</span>; cross-refer via <span class="clause">Other Matter Paragraph (SA 706)</span>; majority view does <em>not</em> bind the dissenting joint auditor.</li>
+</ol>
+</div>
+
+<script>mermaid.initialize({startOnLoad:true, theme:'neutral'});</script>
+</body>
+</html>

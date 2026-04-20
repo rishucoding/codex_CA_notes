@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ch 1 — Quality Control · CA Final Audit</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<style>
+:root {
+  --bg: #faf8f3;
+  --ink: #1a1a1a;
+  --muted: #5b5b5b;
+  --accent: #0a4a8f;
+  --keyword-bg: #fff3d4;
+  --exception-bg: #ffe4e4;
+  --exception-border: #c33;
+  --clause-bg: #e8f2ff;
+  --table-stripe: #f5f2ea;
+  --rule: #d8d3c4;
+  --quote-bar: #0a4a8f;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Georgia, serif;
+  background: var(--bg); color: var(--ink);
+  max-width: 820px; margin: 2rem auto; padding: 0 1.25rem;
+  line-height: 1.55; font-size: 16px;
+}
+h1 { font-size: 1.9rem; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 0.4rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin-top: 2rem; border-left: 4px solid var(--accent); padding-left: 0.6rem; }
+h3 { font-size: 1.15rem; color: var(--ink); margin-top: 1.5rem; }
+h4 { font-size: 1rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1.2rem; margin-bottom: 0.3rem; }
+.meta { color: var(--muted); font-style: italic; font-size: 0.9rem; margin-top: -0.5rem; }
+.keyword { background: var(--keyword-bg); padding: 0 0.2em; border-radius: 2px; font-weight: 600; }
+.exception {
+  background: var(--exception-bg);
+  border-left: 4px solid var(--exception-border);
+  padding: 0.5rem 0.8rem; margin: 0.5rem 0; border-radius: 3px;
+}
+.exception::before { content: "⚠ "; font-weight: bold; color: var(--exception-border); }
+.clause {
+  background: var(--clause-bg); padding: 0.1rem 0.4rem;
+  border-radius: 3px; font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+}
+blockquote.icai {
+  border-left: 4px solid var(--quote-bar);
+  background: #fff; margin: 0.8rem 0; padding: 0.6rem 1rem;
+  font-style: italic; color: #333;
+}
+blockquote.icai::before { content: "ICAI verbatim · "; font-style: normal; font-weight: 600; color: var(--accent); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.95rem; }
+th, td { padding: 0.5rem 0.7rem; text-align: left; border: 1px solid var(--rule); vertical-align: top; }
+th { background: var(--accent); color: #fff; font-weight: 600; }
+tr:nth-child(even) td { background: var(--table-stripe); }
+.sa-card {
+  border: 1px solid var(--rule); border-radius: 6px;
+  padding: 1rem 1.2rem; margin: 1.5rem 0; background: #fff;
+}
+.sa-card h3 { margin-top: 0; color: var(--accent); }
+.triggers {
+  background: #fff; border: 1px dashed var(--accent);
+  padding: 1rem; border-radius: 6px; margin: 1.5rem 0;
+}
+.triggers h3 { margin-top: 0; color: var(--accent); }
+.triggers ol { margin: 0; padding-left: 1.2rem; }
+.triggers li { margin: 0.4rem 0; }
+.mermaid { background: #fff; padding: 1rem; border-radius: 6px; margin: 1rem 0; text-align: center; }
+svg.diagram { max-width: 100%; height: auto; display: block; margin: 1rem auto; background: #fff; border-radius: 6px; padding: 0.5rem; }
+ul, ol { padding-left: 1.3rem; }
+li { margin: 0.2rem 0; }
+.chip { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-right: 0.3rem; }
+.chip-sa { background: var(--accent); color: #fff; }
+.chip-marks { background: #2a7c3a; color: #fff; }
+.nav { margin: 1rem 0; font-size: 0.9rem; }
+.nav a { color: var(--accent); text-decoration: none; margin-right: 1rem; }
+.nav a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="nav">← <a href="../../index.html">All chapters</a> · <a href="onepager.html">One-pager</a></div>
+<h1>Chapter 1 — Quality Control</h1>
+<p class="meta">ICAI SM Final P3 May 2026 · <span class="chip chip-marks">~8–10 marks</span> Covers SQC 1 (firm level) · SA 220 (engagement level)</p>
+
+<h2>Chapter map</h2>
+<p>Two standards, one hierarchy. <span class="clause">SQC 1</span> is the <span class="keyword">firm-level umbrella</span> — the firm builds a <span class="keyword">system of quality control</span> for <em>every</em> audit, review and related-services engagement it takes. <span class="clause">SA 220</span> is the <span class="keyword">engagement-level echo</span> — the engagement partner implements those policies on a <em>specific</em> audit. SA 220 is explicitly <span class="keyword">premised on the basis that the firm is subject to SQC 1</span> — the team may rely on the firm's system unless information suggests otherwise. The PDF closes with the three review mechanisms that sit outside the firm: <span class="keyword">Peer Review Board, Quality Review Board, and NFRA</span>.</p>
+
+<h2>Standards map — SQC 1 (firm) → SA 220 (engagement)</h2>
+<svg class="diagram" viewBox="0 0 780 430" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L8,5 L0,10 z" fill="#0a4a8f"/>
+    </marker>
+  </defs>
+  <!-- SQC 1 umbrella -->
+  <rect x="40" y="15" width="700" height="58" rx="8" fill="#fff" stroke="#0a4a8f" stroke-width="2.5"/>
+  <text x="390" y="38" text-anchor="middle" font-size="15" font-weight="700" fill="#0a4a8f">SQC 1 — Firm-level system of quality control (umbrella)</text>
+  <text x="390" y="58" text-anchor="middle" font-size="11" fill="#333">Applies to audits · reviews of HFI · other assurance &amp; related-services engagements</text>
+
+  <!-- 6 element boxes in 2 rows -->
+  <rect x="30" y="105" width="230" height="58" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="145" y="126" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">1. Leadership responsibilities</text>
+  <text x="145" y="143" text-anchor="middle" font-size="10.5" fill="#333">CEO / managing partners</text>
+  <text x="145" y="156" text-anchor="middle" font-size="10.5" fill="#333">tone at top · quality paramount</text>
+
+  <rect x="275" y="105" width="230" height="58" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="390" y="126" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">2. Ethical requirements</text>
+  <text x="390" y="143" text-anchor="middle" font-size="10.5" fill="#333">Code of Ethics · independence</text>
+  <text x="390" y="156" text-anchor="middle" font-size="10.5" fill="#333">familiarity threat · 7-yr rotation</text>
+
+  <rect x="520" y="105" width="230" height="58" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="635" y="126" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">3. Acceptance &amp; continuance</text>
+  <text x="635" y="143" text-anchor="middle" font-size="10.5" fill="#333">integrity · competence</text>
+  <text x="635" y="156" text-anchor="middle" font-size="10.5" fill="#333">ethics · withdrawal</text>
+
+  <rect x="30" y="180" width="230" height="58" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="145" y="201" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">4. Human resources</text>
+  <text x="145" y="218" text-anchor="middle" font-size="10.5" fill="#333">capabilities · competence</text>
+  <text x="145" y="231" text-anchor="middle" font-size="10.5" fill="#333">CPD · engagement partner assigned</text>
+
+  <rect x="275" y="180" width="230" height="58" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="390" y="201" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">5. Engagement performance</text>
+  <text x="390" y="218" text-anchor="middle" font-size="10.5" fill="#333">consultation · EQCR · docs</text>
+  <text x="390" y="231" text-anchor="middle" font-size="10.5" fill="#333">60-day file · 7-yr retention</text>
+
+  <rect x="520" y="180" width="230" height="58" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="635" y="201" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">6. Monitoring</text>
+  <text x="635" y="218" text-anchor="middle" font-size="10.5" fill="#333">ongoing eval · inspection</text>
+  <text x="635" y="231" text-anchor="middle" font-size="10.5" fill="#333">of completed engagements</text>
+
+  <!-- Arrow bridging to SA 220 -->
+  <path d="M390,240 L390,275" stroke="#0a4a8f" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <text x="410" y="262" text-anchor="start" font-size="11" font-style="italic" fill="#5b5b5b">premised on SQC 1 →</text>
+
+  <!-- SA 220 engagement-level box -->
+  <rect x="40" y="285" width="700" height="58" rx="8" fill="#fff" stroke="#0a4a8f" stroke-width="2.5"/>
+  <text x="390" y="308" text-anchor="middle" font-size="15" font-weight="700" fill="#0a4a8f">SA 220 — Engagement-partner echo on a specific audit</text>
+  <text x="390" y="328" text-anchor="middle" font-size="11" fill="#333">Modelled on SQC 1 · six-element parallel · team may rely on firm system unless info suggests otherwise</text>
+
+  <!-- External review mechanisms -->
+  <rect x="40" y="365" width="220" height="50" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="150" y="385" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">Peer Review Board</text>
+  <text x="150" y="402" text-anchor="middle" font-size="10.5" fill="#333">ICAI · practice-unit certificate</text>
+
+  <rect x="280" y="365" width="220" height="50" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="390" y="385" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">Quality Review Board</text>
+  <text x="390" y="402" text-anchor="middle" font-size="10.5" fill="#333">Central Govt + ICAI · non-NFRA cos</text>
+
+  <rect x="520" y="365" width="220" height="50" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="630" y="385" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">NFRA · s.132</text>
+  <text x="630" y="402" text-anchor="middle" font-size="10.5" fill="#333">listed · banks · insurers · Rule 3</text>
+</svg>
+
+<h2>The six elements — firm duty (SQC 1) vs engagement-partner echo (SA 220)</h2>
+<p>This is the examiner-favourite contrast. Commit the row-pairs to memory — SA 220 is explicitly <span class="keyword">modelled on lines of SQC 1</span>.</p>
+<table>
+<thead><tr><th>Element</th><th>Firm's duty under SQC 1</th><th>Engagement-partner echo under SA 220</th></tr></thead>
+<tbody>
+<tr><td><span class="keyword">1. Leadership responsibilities for quality</span></td><td>CEO / managing partners assume ultimate responsibility; business strategy is <em>subject to</em> overriding requirement for quality; commercial considerations must not override quality; performance, compensation, promotion demonstrate commitment to quality; adequate resources.</td><td>Engagement partner takes responsibility for <em>overall quality</em> on each audit; emphasises importance of complying with standards, firm's QC policies, appropriate reports, and the team's ability to raise concerns <span class="keyword">without fear of reprisals</span>.</td></tr>
+<tr><td><span class="keyword">2. Ethical requirements</span></td><td>Reasonable assurance of compliance with ICAI Code of Ethics (integrity, objectivity, competence &amp; due care, confidentiality, professional behaviour); independence rules; annual written confirmation of independence; familiarity threat — <span class="keyword">engagement partner rotation ≤ 7 years</span> for listed entity audits.</td><td>Engagement partner identifies threats to independence; reports to relevant persons within firm; action includes eliminating the threat or <span class="keyword">withdrawing</span> where legally permitted.</td></tr>
+<tr><td><span class="keyword">3. Acceptance &amp; continuance</span></td><td>Before accepting/continuing: evaluate client integrity, competence (capabilities, time, resources), ethical compliance. Document how identified issues were resolved. Withdrawal process addressed with management, TCWG, regulators.</td><td>Same criteria on lines of SQC 1; conclusions reached on acceptance/continuance flow from integrity of principal owners, team competence, ethical compliance, significant matters from current/prior engagement.</td></tr>
+<tr><td><span class="keyword">4. Human resources / Assignment</span></td><td>Sufficient personnel with capabilities, competence &amp; commitment to ethics; recruitment, compensation, training, CPD, performance evaluation; firm assigns responsibility for each engagement to an <span class="keyword">engagement partner</span> — identity &amp; role communicated to client management/TCWG.</td><td>SQC 1 element (d) is renamed <span class="keyword">"Assignment of Engagement Teams"</span>; engagement partner satisfies that the team plus auditor's experts <em>collectively</em> have appropriate competence &amp; capabilities for the engagement.</td></tr>
+<tr><td><span class="keyword">5. Engagement performance</span></td><td>Briefing, supervision, review, documentation; <span class="keyword">consultation</span> on difficult or contentious matters; <span class="keyword">Engagement Quality Control Review (EQCR)</span> — mandatory for all listed-entity audits; differences of opinion resolved before report issued; assembly of final file within <span class="keyword">60 days</span>; retention <span class="keyword">≥ 7 years</span> for audit engagements.</td><td>Engagement partner responsible for <span class="keyword">direction, supervision, performance</span>; review of audit documentation before report; undertakes consultation; for listed-entity audits — (a) determine an EQCR has been appointed, (b) discuss significant matters with the EQCR, (c) <span class="keyword">not date the auditor's report</span> until completion of EQCR.</td></tr>
+<tr><td><span class="keyword">6. Monitoring</span></td><td>Ongoing consideration &amp; evaluation of the firm's QC system including <em>periodic inspection of a selection of completed engagements</em>; complaints &amp; allegations handled; remedial action against non-compliers.</td><td>Engagement partner considers the <em>results of the firm's monitoring process</em> in the latest information circulated, and whether deficiencies noted may affect the audit engagement.</td></tr>
+</tbody>
+</table>
+
+<!-- SQC 1 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SQC 1</span> Quality Control for Firms that Perform Audits and Reviews of Historical Financial Information, and Other Assurance and Related Services Engagements</h3>
+  <p><strong>Scope:</strong> Firm-level system of quality control. Applies to <em>all firms</em> irrespective of constitution. Covers audits, reviews of HFI, other assurance engagements, and related-services engagements (e.g. compilation).</p>
+
+  <h4>Objective</h4>
+  <blockquote class="icai">"SQC 1 requires that the firm should establish a system of quality control designed to provide it with reasonable assurance that the firm and its personnel comply with professional standards and regulatory and legal requirements and that reports issued by the firm or engagement partners are appropriate in the circumstances."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">System of quality control</span> — firm-wide policies &amp; procedures covering the six elements</li>
+    <li><span class="keyword">Engagement partner</span> — partner/other person in the firm responsible for an engagement &amp; its performance, for the report issued, and who has appropriate authority</li>
+    <li><span class="keyword">Engagement quality control review (EQCR)</span> — objective evaluation of significant judgments &amp; conclusions before report issue</li>
+    <li><span class="keyword">Suitably qualified external person</span> — individual outside firm with capabilities &amp; competence of an engagement partner (e.g. partner/experienced employee of another firm)</li>
+    <li><span class="keyword">Familiarity threat</span> — long-association risk; senior personnel on assurance engagement over prolonged period may impair quality</li>
+  </ul>
+
+  <h4>Key Requirements — six elements (must-memorise)</h4>
+  <ul>
+    <li><span class="keyword">Leadership responsibilities</span> for quality within the firm — tone at top, CEO/managing partners, commercial considerations must not override quality</li>
+    <li><span class="keyword">Ethical requirements</span> — Code of Ethics, independence, annual written confirmation, familiarity-threat safeguards</li>
+    <li><span class="keyword">Acceptance &amp; continuance</span> of client relationships &amp; specific engagements — integrity, competence, ethics; document resolution of issues; withdrawal protocol</li>
+    <li><span class="keyword">Human resources</span> — recruitment, training, CPD, performance evaluation; each engagement assigned to an engagement partner with competence/authority/time</li>
+    <li><span class="keyword">Engagement performance</span> — briefing, supervision, consultation, EQCR, differences-of-opinion resolution, 60-day assembly, ≥ 7-year retention</li>
+    <li><span class="keyword">Monitoring</span> — ongoing evaluation + periodic inspection of completed engagements; deal with complaints; remedial action</li>
+  </ul>
+
+  <h4>Ethics — independence &amp; familiarity threat</h4>
+  <ul>
+    <li>Policies must enable firm to <span class="keyword">communicate</span> independence requirements, <span class="keyword">identify &amp; evaluate</span> threats, <span class="keyword">take action</span> — eliminate, reduce via safeguards, or withdraw</li>
+    <li>All breaches of independence promptly notified to the firm</li>
+    <li><span class="keyword">At least annually</span>, written confirmation of compliance from all personnel required to be independent</li>
+    <li>Criteria for familiarity-threat safeguards consider (a) nature of engagement incl. public-interest extent, (b) length of service of senior personnel</li>
+    <li>Safeguards e.g. <span class="keyword">rotation of senior personnel</span> or requiring EQCR</li>
+  </ul>
+  <div class="exception">For financial-statement audits of <strong>listed entities</strong>, the engagement partner must be rotated after a pre-defined period — <span class="keyword">normally not more than seven years</span> (except where the audit of a listed entity is conducted by a <em>sole practitioner</em>; in that case, mandatory peer review of the firm is the safeguard).</div>
+
+  <h4>Acceptance &amp; continuance — what the firm must decide</h4>
+  <ul>
+    <li><span class="keyword">Integrity</span> of client, promoters, KMP — identity &amp; reputation of principal owners, KMP, related parties, TCWG; nature of operations; aggressive accounting interpretation / IC attitude; abnormally low-fee pressure; inappropriate scope limitation; money-laundering / criminal-activity indications; reasons for non-reappointment of previous firm</li>
+    <li><span class="keyword">Competence</span> — industry knowledge; experience with regulatory/reporting requirements; sufficient personnel; experts; EQCR-eligible individual; ability to complete within deadline</li>
+    <li><span class="keyword">Compliance with ethical requirements</span> — including independence</li>
+    <li>Conflict of interest resolved <em>before</em> acceptance</li>
+    <li>If firm learns info post-acceptance that would have caused decline → consider (a) professional/legal duties (including duty to report) &amp; (b) <span class="keyword">withdrawal</span> from engagement and/or client relationship — discuss with management &amp; TCWG, consider regulatory duty to report withdrawal, document issues, consultations, conclusions &amp; basis</li>
+  </ul>
+
+  <h4>Engagement performance — consultation, EQCR, documentation</h4>
+  <ul>
+    <li><span class="keyword">Consultation</span> on difficult/contentious matters — internal or external; document issues &amp; results; implement conclusions</li>
+    <li><span class="keyword">EQCR</span> mandatory for <em>all</em> listed-entity FS audits; firm devises criteria for other engagements requiring EQCR</li>
+    <li>EQCR for listed-entity audit evaluates: team's independence evaluation; significant risks &amp; responses; materiality &amp; significant-risk judgments; consultations on differences of opinion; significance/disposition of corrected &amp; uncorrected misstatements; matters to communicate to management/TCWG/regulators; adequacy of working papers supporting conclusions; <span class="keyword">appropriateness of the report</span></li>
+    <li>EQCR reviewer — partner, other firm member (must be ICAI member), suitably qualified external person, or a team; must maintain objectivity; <span class="keyword">does not participate</span> in engagement or make decisions for the team; may be consulted by engagement partner but significant consultation requires replacement safeguards</li>
+    <li><span class="keyword">Differences of opinion</span> — report issued only after resolution; if EQCR recommendations not accepted and not resolved, matter is resolved via firm procedures (consult another practitioner/firm or professional/regulatory body)</li>
+    <li><span class="keyword">Assembly of final file</span> on timely basis — not more than <span class="keyword">60 days</span> after auditor's report date for audits (other engagements: appropriate limits)</li>
+    <li>Where two reports issued on same subject matter, treat each as separate engagement for assembly timing</li>
+    <li><span class="keyword">Confidentiality, safe custody, integrity, accessibility, retrievability</span> of engagement documentation</li>
+    <li>EQCR documentation: (a) required procedures performed, (b) EQCR completed <em>on or before</em> date of auditor's report, (c) reviewer not aware of unresolved matters that would cause belief significant judgments/conclusions inappropriate</li>
+    <li>Engagement documentation is the <span class="keyword">property of the firm</span> (unless law specifies otherwise); retention for audits ≥ <span class="keyword">seven years</span> from date of auditor's report (or group auditor's report, if later)</li>
+  </ul>
+
+  <h4>Monitoring</h4>
+  <ul>
+    <li>Ongoing consideration &amp; evaluation + <span class="keyword">periodic inspection</span> of a selection of completed engagements</li>
+    <li>Reflect new professional standards &amp; regulatory developments in the QC policies</li>
+    <li>Entrust monitoring to a partner or other person with sufficient experience &amp; authority</li>
+    <li>Deal with complaints &amp; allegations of non-compliance; take remedial action against personnel; address design/operational deficiencies</li>
+  </ul>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>SQC 1 governs the firm's <em>system</em>, not a single report. QC policies &amp; procedures must be <span class="keyword">documented and communicated</span> to personnel; firm encourages feedback and concerns from staff.</p>
+</section>
+
+<!-- SA 220 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 220</span> Quality Control for an Audit of Financial Statements</h3>
+  <p><strong>Scope:</strong> Engagement-level quality control. Applies to audit engagements only. <span class="keyword">Premised on the basis that the firm is subject to SQC 1</span>; engagement teams are entitled to rely on the firm's system unless information suggests otherwise.</p>
+
+  <h4>Objective</h4>
+  <blockquote class="icai">"The objective of the auditor is to implement quality control procedures at the engagement level that provide the auditor with reasonable assurance that: (a) The audit complies with professional standards and regulatory and legal requirements and (b) The auditor's report issued is appropriate in the circumstances."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Engagement partner</span> — responsible for the audit engagement and its performance, and for the auditor's report issued on behalf of the firm</li>
+    <li><span class="keyword">Engagement team</span> — all personnel performing the engagement, including any auditor's experts engaged by the firm</li>
+    <li><span class="keyword">EQCR reviewer</span> — partner, other person in firm, suitably qualified external person, or team — sufficient &amp; appropriate technical expertise, experience and authority to objectively evaluate significant judgments &amp; conclusions</li>
+    <li>SA 220 is <span class="keyword">modelled on lines of SQC 1</span> — six elements: leadership · ethics · acceptance/continuance · assignment of teams · engagement performance · monitoring</li>
+  </ul>
+
+  <h4>Key Requirements — engagement partner's six responsibilities</h4>
+  <ul>
+    <li><span class="keyword">Leadership responsibilities</span> — take responsibility for overall quality; emphasise complying with standards &amp; firm policies; appropriate report; and team's ability to <span class="keyword">raise concerns without fear of reprisals</span></li>
+    <li><span class="keyword">Relevant ethical requirements</span> — identify threats to independence that safeguards may not eliminate / reduce; report to relevant persons within firm; eliminate activity/interest or withdraw (where legally permitted)</li>
+    <li><span class="keyword">Acceptance &amp; continuance</span> — satisfy that appropriate procedures under SQC 1 have been followed; conclusions are appropriate based on integrity of principal owners, team competence, ethical compliance, significant matters</li>
+    <li><span class="keyword">Assignment of engagement teams</span> — team + experts <em>collectively</em> have appropriate competence &amp; capabilities for the engagement</li>
+    <li><span class="keyword">Engagement performance</span> — direction, supervision &amp; performance; review of documentation before report; SAAE supports conclusions &amp; report; appropriate consultation on difficult/contentious matters</li>
+    <li><span class="keyword">Monitoring</span> — consider results of firm's monitoring process and whether deficiencies noted may affect the audit engagement</li>
+  </ul>
+
+  <h4>EQCR — engagement partner's listed-entity duties</h4>
+  <div class="exception">For <strong>audits of listed entities</strong> (and any other engagement the firm has determined EQCR-required), the engagement partner shall: (a) determine that an EQCR reviewer has been appointed; (b) discuss significant matters including those identified during EQCR with the reviewer; (c) <span class="keyword">not date the auditor's report until completion of the EQCR</span>.</div>
+
+  <h4>EQCR reviewer's objective evaluation — what to do</h4>
+  <ul>
+    <li>Discussion of significant matters with engagement partner</li>
+    <li>Review of the <span class="keyword">financial statements</span> and the proposed auditor's report</li>
+    <li>Review of <span class="keyword">selected audit documentation</span> relating to significant judgments and conclusions reached</li>
+    <li>Evaluation of conclusions reached in formulating the auditor's report and whether the proposed report is <span class="keyword">appropriate</span></li>
+  </ul>
+
+  <h4>Listed-entity EQCR reviewer — additional considerations</h4>
+  <ul>
+    <li>Engagement team's evaluation of firm's independence for the engagement</li>
+    <li>Whether appropriate <span class="keyword">consultation</span> occurred on differences of opinion / difficult or contentious matters, and conclusions thereon</li>
+    <li>Whether audit documentation selected reflects work performed on significant judgments and supports conclusions reached</li>
+  </ul>
+
+  <h4>Differences of Opinion</h4>
+  <div class="exception">If differences arise within team, with those consulted, or between engagement partner &amp; EQCR reviewer, team follows firm's policies/procedures (per SQC 1) to resolve. <span class="keyword">Report shall not be issued</span> until the difference is resolved — if EQCR recommendations not accepted, matter is escalated (another practitioner/firm or professional/regulatory body).</div>
+
+  <h4>Documentation — engagement partner shall document</h4>
+  <ul>
+    <li>Issues identified on ethical compliance &amp; how resolved</li>
+    <li>Conclusions on independence compliance + relevant discussions with firm</li>
+    <li>Conclusions on acceptance &amp; continuance of client relationships / audit engagements</li>
+    <li>Nature &amp; scope of, and conclusions from, <span class="keyword">consultations</span> undertaken during the engagement</li>
+  </ul>
+  <p>EQCR reviewer documents that (a) required procedures performed, (b) EQCR completed <span class="keyword">on or before</span> date of auditor's report, (c) not aware of unresolved matters causing belief that team's significant judgments/conclusions were inappropriate.</p>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>SA 220 does not produce a separate report — it shapes the single auditor's report already mandated by SA 700. Its practical effect: <span class="keyword">no listed-entity audit report is dated before EQCR completion</span>; where EQCR recommendations remain unresolved, report is withheld pending firm-level resolution.</p>
+</section>
+
+<h2>SQC 1 vs SA 220 — crisp comparison (PDF §4)</h2>
+<table>
+<thead><tr><th>#</th><th>SQC 1</th><th>SA 220</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Applies to <span class="keyword">entire firm</span>; responsibility assumed by CEO / managing partners</td><td>Applies to a <span class="keyword">particular audit engagement</span>; responsibility taken by engagement partner</td></tr>
+<tr><td>2</td><td>Applicable to audits, reviews of HFI &amp; other assurance and related-services engagements</td><td>Applicable to <span class="keyword">audit engagements only</span></td></tr>
+<tr><td>3</td><td>Relates to <span class="keyword">setting up a QC system</span> — firm-wide policies &amp; procedures</td><td>Deals with responsibilities of engagement teams to <span class="keyword">implement</span> the QC procedures applicable to audit engagements</td></tr>
+<tr><td>4</td><td>Provides firm with reasonable assurance firm &amp; personnel comply with standards &amp; legal/regulatory requirements, reports are appropriate</td><td>Premised on firm being subject to SQC 1 — <span class="keyword">SQC 1 is a sine qua non</span> for applicability of SA 220; operates within the firm's QC system</td></tr>
+</tbody>
+</table>
+
+<h2>External review mechanisms (PDF §5)</h2>
+<table>
+<thead><tr><th>Body</th><th>Constituted by</th><th>Scope of review</th><th>Outcome</th></tr></thead>
+<tbody>
+<tr><td><span class="keyword">Peer Review Board (PRB)</span></td><td>Council of ICAI</td><td>Examination &amp; review of systems/procedures of a Practice Unit for technical, professional &amp; ethical standards on assurance engagements</td><td>Peer-review <span class="keyword">certificate</span> if unqualified report; if qualified — reasons communicated + follow-on review date</td></tr>
+<tr><td><span class="keyword">Quality Review Board (QRB)</span></td><td>Central Government (members nominated by CG + Council of ICAI)</td><td>Review quality of services by ICAI members (incl. audits); recommend to Council; guide members; <span class="keyword">risk-based</span> selection of statutory auditors; technical reviewers empanelled engagement-wise</td><td>Recommendations &amp; guidance; does <em>not</em> cover entities under NFRA Rule 3 (except when referred by NFRA)</td></tr>
+<tr><td><span class="keyword">NFRA</span></td><td><span class="clause">s.132(1) Companies Act 2013</span></td><td>Monitor &amp; enforce compliance with accounting &amp; auditing standards; oversee quality of audit services (<span class="clause">s.132(2)</span>); investigate auditors of certain class of companies (<span class="clause">s.132(4)</span>) — listed, insurance, banking &amp; companies under <span class="clause">Rule 3 NFRA Rules 2018</span></td><td>Listed-company audit quality oversight squarely within NFRA's purview</td></tr>
+</tbody>
+</table>
+<div class="exception">Turf-line: <strong>QRB reviews only entities <em>not</em> specified under Rule 3 of the NFRA Rules, 2018</strong> (and those referred to QRB by NFRA). Listed companies, banks, insurance companies &amp; Rule-3 companies → NFRA. Everyone else → QRB.</div>
+
+<h2>Special focus — exam-favourite mechanics</h2>
+
+<h3>Engagement Quality Control Review (EQCR) — pocket card</h3>
+<ul>
+  <li><strong>Mandatory for:</strong> all FS audits of <span class="keyword">listed entities</span>. For other engagements — firm's own criteria.</li>
+  <li><strong>Purpose:</strong> objective evaluation of significant judgments &amp; conclusions before report issue. Does <em>not</em> reduce the engagement partner's responsibility.</li>
+  <li><strong>Who:</strong> partner / other firm member (ICAI member) / suitably qualified external person / team. For listed-entity audit — EQCR must have experience &amp; authority of an audit engagement partner on listed entities.</li>
+  <li><strong>Timing:</strong> must be <span class="keyword">completed before the report is dated</span> (SA 220). Under SA 700, report date cannot be earlier than SAAE obtained.</li>
+  <li><strong>Objectivity shield:</strong> EQCR does not participate in the engagement or make team decisions. Engagement partner may consult EQCR without compromising objectivity; where consultation becomes significant, firm may replace EQCR or the consultee.</li>
+</ul>
+
+<h3>Familiarity threat — rotation rule</h3>
+<ul>
+  <li>Using the same senior personnel on an assurance engagement over a prolonged period may impair quality.</li>
+  <li>Criteria for safeguards — (i) nature of engagement including extent to which it involves a matter of <span class="keyword">public interest</span>, (ii) length of service of senior personnel.</li>
+  <li>Safeguards — <span class="keyword">rotation of senior personnel</span> or requiring an EQCR.</li>
+  <li>For listed-entity FS audits — engagement partner rotated after pre-defined period, <span class="keyword">normally not more than 7 years</span>. Sole-practitioner listed audits → exception, but mandatory peer review applies.</li>
+</ul>
+
+<h3>File-assembly &amp; retention timelines</h3>
+<ul>
+  <li>Final engagement file assembly — not more than <span class="keyword">60 days</span> after auditor's report date for audit engagements.</li>
+  <li>Retention period for audit engagements — <span class="keyword">≥ 7 years</span> from date of auditor's report (or group auditor's report, if later).</li>
+  <li>Two reports on same subject matter → each report's assembly timing computed separately.</li>
+  <li>Post-assembly — no deletion/alteration to conceal; integrity, accessibility, retrievability preserved.</li>
+</ul>
+
+<h3>Acceptance &amp; continuance — fact-pattern checklist</h3>
+<ul>
+  <li>Principal owners / KMP / TCWG <span class="keyword">reputation &amp; integrity</span> — red flags: ED/IT searches, money-laundering leads, bogus capital-gain shelters</li>
+  <li><span class="keyword">Previous auditor</span> — reasons for non-reappointment / resignation; is there a casual vacancy engineered by fee-hikes?</li>
+  <li>Aggressive accounting attitude / inappropriate scope limitation</li>
+  <li>Abnormally <span class="keyword">low-fee pressure</span> — or abnormally high fee offered as a lure</li>
+  <li>Firm <span class="keyword">competence / capacity</span> — new industry, new geography, new regulator, experienced staff availability</li>
+  <li>Conflicts of interest / familial connections of partners with client owners — independence assessment</li>
+  <li>If accepted despite issues → <span class="keyword">document how issues were resolved</span></li>
+  <li>If later info would have caused decline → withdrawal protocol (discuss with management/TCWG, consider regulator duty, document)</li>
+</ul>
+
+<div class="triggers">
+<h3>5 Exam Triggers — spot these phrasings, invoke these standards</h3>
+<ol>
+  <li>"Managing partner's family friend is the promoter; previous auditor resigned; client offers 25% fee hike; client under regulatory inquiry — MP pushes firm to accept" → <strong>SQC 1 · Acceptance &amp; Continuance + Leadership</strong>: commercial considerations must <em>not</em> override quality; independence of MP threatened; integrity red flags; firm should <span class="keyword">decline</span> or document resolution.</li>
+  <li>"Paid-employee CA sent by firm for stock audit uses it to solicit statutory audit and promises a clean report as quid pro quo" → <strong>SQC 1 · Ethical Requirements</strong>: violates Code of Ethics; reflects failure to communicate QC policies to personnel; reports are <em>not</em> appropriate.</li>
+  <li>"Audit report of listed co. dated 15 May; EQCR completed 18 May; engagement partner had reviewed by 12 May" → <strong>SA 220 · EQCR</strong>: engagement partner must not date report until EQCR is complete; date of report is <em>incorrect</em>; contravenes SA 220 &amp; SA 700.</li>
+  <li>"EQCR reviewer disagrees with engagement partner on revenue recognition / onerous contracts provision; EP unwilling to accept recommendation" → <strong>SQC 1 &amp; SA 220 · Differences of Opinion</strong>: report issued only after resolution; escalate per firm procedure (consult another practitioner/firm or professional/regulatory body).</li>
+  <li>"CARO clause vii(a) report of listed co. says company is 'generally regular' in depositing statutory dues" → <strong>SA 220 · Objective</strong>: QC procedures at engagement level must give reasonable assurance audit complies with regulatory &amp; legal requirements; vague CARO wording fails — reporting not qualitative, audit does not comply.</li>
+</ol>
+</div>
+
+<h2>Key takeaways — 15-second recap</h2>
+<ul>
+  <li><span class="keyword">SQC 1 = firm</span> (all engagements); <span class="keyword">SA 220 = engagement partner</span> (audits only); SA 220 presupposes SQC 1.</li>
+  <li>Six-element spine — Leadership · Ethics · Acceptance &amp; Continuance · HR (Assignment) · Engagement Performance · Monitoring.</li>
+  <li>Engagement-partner rotation — <span class="keyword">≤ 7 years</span> for listed-entity audits (sole-practitioner carve-out + peer review).</li>
+  <li>EQCR mandatory for all listed-entity FS audits; <span class="keyword">report not dated until EQCR complete</span>.</li>
+  <li>File assembly ≤ 60 days; retention ≥ 7 years from auditor's report date.</li>
+  <li>External review: PRB (ICAI) · QRB (non-NFRA companies) · NFRA (listed / banks / insurers / Rule 3).</li>
+</ul>
+
+<script>mermaid.initialize({startOnLoad:true, theme:'neutral'});</script>
+</body>
+</html>

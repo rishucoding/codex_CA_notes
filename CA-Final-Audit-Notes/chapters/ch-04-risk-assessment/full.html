@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ch 4 — Materiality, Risk Assessment &amp; Internal Control · CA Final Audit</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<style>
+:root {
+  --bg: #faf8f3;
+  --ink: #1a1a1a;
+  --muted: #5b5b5b;
+  --accent: #0a4a8f;
+  --keyword-bg: #fff3d4;
+  --exception-bg: #ffe4e4;
+  --exception-border: #c33;
+  --clause-bg: #e8f2ff;
+  --table-stripe: #f5f2ea;
+  --rule: #d8d3c4;
+  --quote-bar: #0a4a8f;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Georgia, serif;
+  background: var(--bg); color: var(--ink);
+  max-width: 820px; margin: 2rem auto; padding: 0 1.25rem;
+  line-height: 1.55; font-size: 16px;
+}
+h1 { font-size: 1.9rem; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 0.4rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin-top: 2rem; border-left: 4px solid var(--accent); padding-left: 0.6rem; }
+h3 { font-size: 1.15rem; color: var(--ink); margin-top: 1.5rem; }
+h4 { font-size: 1rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1.2rem; margin-bottom: 0.3rem; }
+.meta { color: var(--muted); font-style: italic; font-size: 0.9rem; margin-top: -0.5rem; }
+.keyword { background: var(--keyword-bg); padding: 0 0.2em; border-radius: 2px; font-weight: 600; }
+.exception {
+  background: var(--exception-bg);
+  border-left: 4px solid var(--exception-border);
+  padding: 0.5rem 0.8rem; margin: 0.5rem 0; border-radius: 3px;
+}
+.exception::before { content: "⚠ "; font-weight: bold; color: var(--exception-border); }
+.clause {
+  background: var(--clause-bg); padding: 0.1rem 0.4rem;
+  border-radius: 3px; font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+}
+blockquote.icai {
+  border-left: 4px solid var(--quote-bar);
+  background: #fff; margin: 0.8rem 0; padding: 0.6rem 1rem;
+  font-style: italic; color: #333;
+}
+blockquote.icai::before { content: "ICAI verbatim · "; font-style: normal; font-weight: 600; color: var(--accent); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.95rem; }
+th, td { padding: 0.5rem 0.7rem; text-align: left; border: 1px solid var(--rule); vertical-align: top; }
+th { background: var(--accent); color: #fff; font-weight: 600; }
+tr:nth-child(even) td { background: var(--table-stripe); }
+.sa-card {
+  border: 1px solid var(--rule); border-radius: 6px;
+  padding: 1rem 1.2rem; margin: 1.5rem 0; background: #fff;
+}
+.sa-card h3 { margin-top: 0; color: var(--accent); }
+.triggers {
+  background: #fff; border: 1px dashed var(--accent);
+  padding: 1rem; border-radius: 6px; margin: 1.5rem 0;
+}
+.triggers h3 { margin-top: 0; color: var(--accent); }
+.triggers ol { margin: 0; padding-left: 1.2rem; }
+.triggers li { margin: 0.4rem 0; }
+.mermaid { background: #fff; padding: 1rem; border-radius: 6px; margin: 1rem 0; text-align: center; }
+svg.diagram { max-width: 100%; height: auto; display: block; margin: 1rem auto; background: #fff; border-radius: 6px; padding: 0.5rem; }
+ul, ol { padding-left: 1.3rem; }
+li { margin: 0.2rem 0; }
+.chip { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-right: 0.3rem; }
+.chip-sa { background: var(--accent); color: #fff; }
+.chip-marks { background: #2a7c3a; color: #fff; }
+.nav { margin: 1rem 0; font-size: 0.9rem; }
+.nav a { color: var(--accent); text-decoration: none; margin-right: 1rem; }
+.nav a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="nav">← <a href="../../index.html">All chapters</a> · <a href="onepager.html">One-pager</a></div>
+<h1>Chapter 4 — Materiality, Risk Assessment &amp; Internal Control</h1>
+<p class="meta">ICAI SM Final P3 May 2026 · <span class="chip chip-marks">~15–18 marks</span> Covers SA 315 · SA 320 · SA 330 · SA 450</p>
+
+<div class="exception">
+<strong>PDF-status notes (SPEC §1.1a).</strong> The Ch 4 SM PDF expressly states: <em>"Content of SA 315 … and SA 320 … is covered in depth at Intermediate level. Thus, application part of above SAs may be discussed in the form of Case Study at Final level."</em> Accordingly, <span class="keyword">no verbatim Objective is reproduced in the Ch 4 PDF for SA 315 or SA 320</span> — their cards below give scope + keyword refreshers only, without fabricating an ICAI-verbatim Objective. <span class="keyword">SA 330</span> and <span class="keyword">SA 450</span> are cited directly by the PDF (SA 330 text is quoted; SA 450 is referenced in Q13 answer), and their full cards are built from those PDF excerpts. <strong>SA 402 is not in this chapter's PDF</strong> — it has been moved to Ch 2 per SPEC §11. Do not look for it here.
+</div>
+
+<h2>Chapter map</h2>
+<p>This chapter wires together the <span class="keyword">risk-response pipeline</span> of every audit. <span class="clause">SA 315</span> identifies &amp; assesses risks of material misstatement (RMM) at the F/S level and at the assertion level, grounded in understanding the entity &amp; its internal control. <span class="clause">SA 320</span> sets the yardstick — materiality for the FS as a whole, performance materiality, specific materiality, clearly trivial. <span class="clause">SA 330</span> converts assessed risks into responses — overall (at F/S level) plus further procedures (tests of controls + substantive) at the assertion level. <span class="clause">SA 450</span> closes the loop — accumulate misstatements, classify, request correction, reassess materiality, evaluate effect on opinion, obtain written reps.</p>
+
+<h2>The risk-response pipeline (opening cluster)</h2>
+<svg class="diagram" viewBox="0 0 780 360" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L8,5 L0,10 z" fill="#0a4a8f"/>
+    </marker>
+  </defs>
+  <!-- SA 315 box (2 sub-levels) -->
+  <rect x="15" y="40" width="200" height="110" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="115" y="62" text-anchor="middle" font-size="14" font-weight="700" fill="#0a4a8f">SA 315 — Identify &amp; assess RMM</text>
+  <line x1="25" y1="72" x2="205" y2="72" stroke="#d8d3c4"/>
+  <text x="115" y="92" text-anchor="middle" font-size="11" fill="#333">F/S level — pervasive risks</text>
+  <text x="115" y="108" text-anchor="middle" font-size="11" fill="#333">(e.g. weak control environment)</text>
+  <text x="115" y="128" text-anchor="middle" font-size="11" fill="#333">Assertion level — C, E, A, V, etc.</text>
+  <text x="115" y="144" text-anchor="middle" font-size="11" fill="#333">flag <tspan font-weight="700" fill="#c33">significant risks</tspan></text>
+
+  <!-- SA 320 box -->
+  <rect x="240" y="40" width="170" height="110" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="325" y="62" text-anchor="middle" font-size="14" font-weight="700" fill="#0a4a8f">SA 320 — Materiality</text>
+  <line x1="250" y1="72" x2="400" y2="72" stroke="#d8d3c4"/>
+  <text x="325" y="92" text-anchor="middle" font-size="11" fill="#333">FS as a whole</text>
+  <text x="325" y="108" text-anchor="middle" font-size="11" fill="#333">Performance materiality</text>
+  <text x="325" y="124" text-anchor="middle" font-size="11" fill="#333">Specific (CoT / balance /</text>
+  <text x="325" y="138" text-anchor="middle" font-size="11" fill="#333">disclosure) · clearly trivial</text>
+
+  <!-- SA 330 box -->
+  <rect x="435" y="40" width="170" height="110" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="520" y="62" text-anchor="middle" font-size="14" font-weight="700" fill="#0a4a8f">SA 330 — Responses</text>
+  <line x1="445" y1="72" x2="595" y2="72" stroke="#d8d3c4"/>
+  <text x="520" y="92" text-anchor="middle" font-size="11" fill="#333">Overall responses</text>
+  <text x="520" y="108" text-anchor="middle" font-size="11" fill="#333">(F/S level)</text>
+  <text x="520" y="126" text-anchor="middle" font-size="11" fill="#333">Further procedures</text>
+  <text x="520" y="140" text-anchor="middle" font-size="11" fill="#333">TOC + Substantive (assertion)</text>
+
+  <!-- SA 450 box -->
+  <rect x="630" y="40" width="140" height="110" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="700" y="62" text-anchor="middle" font-size="14" font-weight="700" fill="#0a4a8f">SA 450 — Evaluate</text>
+  <line x1="640" y1="72" x2="760" y2="72" stroke="#d8d3c4"/>
+  <text x="700" y="92" text-anchor="middle" font-size="11" fill="#333">Accumulate,</text>
+  <text x="700" y="108" text-anchor="middle" font-size="11" fill="#333">classify, communicate</text>
+  <text x="700" y="126" text-anchor="middle" font-size="11" fill="#333">Reassess materiality</text>
+  <text x="700" y="140" text-anchor="middle" font-size="11" fill="#333">Effect on opinion · WR</text>
+
+  <!-- flow arrows -->
+  <path d="M215,95 L238,95" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M410,95 L433,95" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M605,95 L628,95" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+  <!-- Feedback loop (SA 450 -> SA 320 re-assess) -->
+  <path d="M700,150 C700,230 330,250 325,150" stroke="#c33" stroke-width="1.3" fill="none" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+  <text x="500" y="245" text-anchor="middle" font-size="11" fill="#c33" font-style="italic">Feedback: SA 450 requires reassessing SA 320 materiality before concluding</text>
+
+  <!-- Bottom axis labels -->
+  <rect x="15" y="285" width="755" height="55" rx="6" fill="#f5f2ea" stroke="#d8d3c4"/>
+  <text x="390" y="305" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">Audit Risk = Inherent Risk × Control Risk × Detection Risk</text>
+  <text x="390" y="323" text-anchor="middle" font-size="11" fill="#333">RMM = IR × CR (set by the entity &amp; its environment) · DR is the auditor's lever</text>
+  <text x="390" y="337" text-anchor="middle" font-size="10" fill="#5b5b5b" font-style="italic">Combined IR &amp; CR inversely related to DR; materiality inversely related to audit risk</text>
+</svg>
+
+<h2>Foundation — Audit risk model &amp; assertions (from PDF)</h2>
+<p><span class="keyword">Audit risk</span> is the risk of expressing an inappropriate audit opinion on FS that are materially misstated. Two components: <span class="keyword">Risk of Material Misstatement</span> (IR × CR — exists before the audit starts) and <span class="keyword">Detection Risk</span> (auditor's failure to detect despite procedures). Combined IR+CR is <em>inversely</em> related to DR, and materiality is <em>inversely</em> related to audit risk.</p>
+<table>
+<thead><tr><th>Component</th><th>Core</th><th>Level addressed</th></tr></thead>
+<tbody>
+<tr><td><span class="keyword">Inherent Risk</span></td><td>Susceptibility of an assertion to material misstatement assuming no related controls</td><td>F/S level + assertion level</td></tr>
+<tr><td><span class="keyword">Control Risk</span></td><td>Risk that entity's IC will not prevent or timely detect &amp; correct a material misstatement</td><td>Primarily assertion level (entity-level pervasive)</td></tr>
+<tr><td><span class="keyword">Detection Risk</span></td><td>Risk that auditor will not detect an existing misstatement</td><td>Assertion level — inverse to assessed RMM</td></tr>
+</tbody>
+</table>
+<p>Assertions tested (SA 315 taxonomy): <span class="keyword">CoT &amp; events</span> — occurrence, completeness, accuracy, cut-off, classification. <span class="keyword">Account balances</span> — existence, rights &amp; obligations, completeness, valuation &amp; allocation. <span class="keyword">Presentation &amp; disclosure</span> — occurrence &amp; R&amp;O, completeness, classification &amp; understandability, accuracy &amp; valuation.</p>
+
+<!-- SA 315 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 315</span> Identifying and Assessing the Risks of Material Misstatement Through Understanding the Entity and Its Environment</h3>
+  <p><strong>Scope:</strong> Auditor's responsibility to identify &amp; assess RMM at the <span class="keyword">F/S level</span> and <span class="keyword">assertion level</span> via understanding the entity, its environment, and its system of internal control. <strong>PDF status (§1.1a):</strong> deferred to Intermediate; at Final only application/case-study is expected.</p>
+
+  <h4>Objective</h4>
+  <div class="exception">ICAI-verbatim Objective sentence for SA 315 is <strong>not reproduced</strong> in the Ch 4 Final SM PDF (expressly deferred to Intermediate, per note on p. 4.72 of the PDF). Not fabricated here — refer Intermediate SM for the full Objective clause.</div>
+
+  <h4>Key Definition (ICAI verbatim — from PDF)</h4>
+  <blockquote class="icai">"SA 315 defines the system of internal control as the process designed, implemented and maintained by those charged with governance, management and other personnel to provide reasonable assurance about the achievement of an entity's objectives with regard to reliability of financial reporting, effectiveness and efficiency of operations, safeguarding of assets, and compliance with applicable laws and regulations."</blockquote>
+
+  <h4>Key Definitions (revision)</h4>
+  <ul>
+    <li><span class="keyword">Risk of material misstatement (RMM)</span> = Inherent Risk × Control Risk — the risk the FS are misstated prior to audit</li>
+    <li><span class="keyword">Significant risk</span> — an identified &amp; assessed RMM that requires special audit consideration (presumption: revenue recognition fraud, management override)</li>
+    <li><span class="keyword">Assertion-level risk</span> vs <span class="keyword">F/S-level risk</span> — the foundational split of SA 315</li>
+    <li><span class="keyword">Business risk</span> — resulting from significant conditions/events that adversely affect the entity's objectives; most business risks eventually have FR consequences</li>
+  </ul>
+
+  <h4>F/S-level RMM vs Assertion-level RMM (the distinction SA 315 drives)</h4>
+  <table>
+  <thead><tr><th>Dimension</th><th>F/S level</th><th>Assertion level</th></tr></thead>
+  <tbody>
+  <tr><td>Nature</td><td>Pervasive to FS as a whole — affects many assertions</td><td>Specific to a CoT, balance or disclosure's assertion (C/E/A/V/R&amp;O/Cut-off)</td></tr>
+  <tr><td>PDF example</td><td>Incompetent senior accountant → errors spread across balances &amp; assertions</td><td>Obsolescence in inventory → valuation assertion high; in payables low</td></tr>
+  <tr><td>Response (→ SA 330)</td><td><span class="keyword">Overall responses</span> — skepticism emphasis, more experienced staff, added supervision, unpredictability, change in N/T/E</td><td><span class="keyword">Further audit procedures</span> — tests of controls + substantive (tests of details + analytical)</td></tr>
+  </tbody>
+  </table>
+
+  <h4>Key Requirements (auditor's risk-assessment workflow)</h4>
+  <ul>
+    <li>Perform <span class="keyword">risk assessment procedures</span> — inquiries (of management, TCWG, internal audit, others), analytical procedures, observation &amp; inspection</li>
+    <li>Understand the entity &amp; environment — industry/regulatory/external factors, nature of entity, accounting policies, objectives &amp; strategies, measurement &amp; review of FP</li>
+    <li>Understand the <span class="keyword">system of internal control</span> — five components: control environment · entity's risk assessment process · control activities · information system &amp; communication · monitoring</li>
+    <li>Evaluate <span class="keyword">design &amp; implementation</span> of relevant controls (whether capable of preventing, or detecting-and-correcting, material misstatements)</li>
+    <li>Identify risks throughout the process of obtaining understanding &amp; relate each to what can go wrong at the assertion level</li>
+    <li>Determine whether any identified risk is a <span class="keyword">significant risk</span> requiring special audit consideration (and test those controls at least once in the period if reliance placed)</li>
+  </ul>
+
+  <h4>Entity-level components of IC (COSO-aligned, per PDF)</h4>
+  <ul>
+    <li><span class="keyword">Control environment</span> — integrity &amp; ethics, commitment to competence, TCWG participation, management philosophy, org structure, authority/responsibility, HR policies (tone at the top)</li>
+    <li><span class="keyword">Entity's risk assessment process</span> — how management identifies, estimates significance &amp; likelihood, and responds to business risks</li>
+    <li><span class="keyword">Control activities</span> — performance reviews, information processing (IT general + application controls), physical controls, segregation of duties</li>
+    <li><span class="keyword">Information system &amp; communication</span> — initiate, record, process, report transactions; policy/procedure manuals, memoranda, electronic</li>
+    <li><span class="keyword">Monitoring of controls</span> — ongoing activities, separate evaluations, internal audit, external communications (regulators, customers)</li>
+  </ul>
+
+  <h4>Exceptions / Conditions</h4>
+  <div class="exception">Risk assessment is <strong>iterative &amp; dynamic</strong> — as further procedures yield information, original assessments may need revision (e.g., control deviations discovered during TOC may raise CR and force modification of N/T/E of substantive procedures). Per PDF: development of overall audit plan does <em>not</em> require an understanding of control procedures for <em>every</em> assertion in each balance.</div>
+  <div class="exception"><strong>Inherent limitations of any IC:</strong> cost-benefit constraints, human error, management override, collusion, controls not directed at unusual transactions. Hence reasonable — not absolute — assurance.</div>
+
+  <h4>Auditor's Responsibilities</h4>
+  <ul>
+    <li>Document: discussions among engagement team, understanding of entity &amp; IC, risks identified at both levels, significant risks &amp; related controls</li>
+    <li>Communicate to TCWG &amp; management — <span class="keyword">significant deficiencies</span> in IC identified (<span class="clause">SA 265</span> hand-off)</li>
+    <li>Revise risk assessment if new information indicates assessed level is inappropriate</li>
+  </ul>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>Identified &amp; assessed RMMs — at F/S level and at assertion level, with significant risks flagged — feed directly into <span class="clause">SA 330</span> responses. No separate report output from SA 315 itself.</p>
+</section>
+
+<!-- SA 320 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 320</span> Materiality in Planning and Performing an Audit</h3>
+  <p><strong>Scope:</strong> Auditor's responsibility to apply the concept of materiality when planning, performing &amp; evaluating. <strong>PDF status (§1.1a):</strong> deferred to Intermediate; at Final only application/case-study is expected. The PDF's Q13, Q14 answers and Q1 set out the operational mechanics reproduced below.</p>
+
+  <h4>Objective</h4>
+  <div class="exception">ICAI-verbatim Objective sentence for SA 320 is <strong>not reproduced</strong> in the Ch 4 Final SM PDF (expressly deferred to Intermediate). Not fabricated here — refer Intermediate SM for the exact Objective clause.</div>
+
+  <h4>Key Definitions (revision from PDF's application sections)</h4>
+  <ul>
+    <li><span class="keyword">Materiality (FS as a whole)</span> — threshold above which misstatements could reasonably be expected to influence economic decisions of users</li>
+    <li><span class="keyword">Performance materiality</span> — lower amount(s) set by the auditor to reduce to an appropriately low level the probability that the aggregate of uncorrected + undetected misstatements exceeds materiality for FS as a whole</li>
+    <li><span class="keyword">Specific materiality</span> — separate lower level(s) for <em>particular</em> classes of transactions, account balances or disclosures where misstatements of lesser amounts could influence users</li>
+    <li><span class="keyword">Clearly trivial threshold</span> — amount below which misstatements need not be accumulated (well below FS materiality; any doubt → not clearly trivial)</li>
+  </ul>
+
+  <h4>Four levels of materiality (the SA 320 hierarchy)</h4>
+  <table>
+  <thead><tr><th>Level</th><th>Purpose</th><th>Where used</th></tr></thead>
+  <tbody>
+  <tr><td>FS as a whole</td><td>Overall threshold for the audit</td><td>Planning, forming opinion</td></tr>
+  <tr><td>Specific (CoT/balance/disclosure)</td><td>Sensitive items — related-party txns, mgmt remuneration, covenants, segment disclosures</td><td>Planning &amp; evaluation for those items</td></tr>
+  <tr><td>Performance materiality</td><td>Buffer below FS materiality for planning &amp; performing</td><td>Sample sizes, scope of substantive</td></tr>
+  <tr><td>Clearly trivial</td><td>De-minimis accumulation cut-off</td><td>SA 450 accumulation decision</td></tr>
+  </tbody>
+  </table>
+
+  <h4>Benchmark selection factors (Q1 of PDF)</h4>
+  <ul>
+    <li>Elements of FS (assets, liabilities, equity, revenue, expenses)</li>
+    <li>Items on which users focus (profit, revenue, net assets)</li>
+    <li>Nature of entity · lifecycle stage · industry &amp; economic environment</li>
+    <li>Ownership structure &amp; financing (debt-financed → asset-focused users)</li>
+    <li><span class="keyword">Relative volatility</span> of the benchmark</li>
+  </ul>
+  <div class="exception"><strong>Application tip (PDF):</strong> profitable mfr → PBT / Earnings. Loss-making infra with erratic profits → Revenue or Gross profit. Public-utility/NFP or custodians → Total cost / net cost / assets.</div>
+
+  <h4>Key Requirements</h4>
+  <ul>
+    <li>Determine materiality for FS as a whole when establishing <span class="keyword">overall audit strategy</span></li>
+    <li>Determine specific materiality levels where misstatements of lesser amount could influence users</li>
+    <li>Determine <span class="keyword">performance materiality</span> for planning &amp; performing</li>
+    <li><span class="keyword">Revise</span> materiality if new information would have led to a different initial amount; if revised lower, <span class="keyword">reconsider performance materiality</span> &amp; whether N/T/E of further procedures remain appropriate</li>
+    <li>Document all four amounts + any subsequent revisions with reasons</li>
+  </ul>
+
+  <h4>Exceptions / Conditions</h4>
+  <div class="exception">Materiality involves <strong>quantitative &amp; qualitative</strong> considerations — a small amount affecting a debt-covenant breach, regulatory threshold, or trend can be material irrespective of size.</div>
+  <div class="exception">Where actual results are materially different from planning estimates (e.g., Q13 PDF case — construction co., last-month revenue 30% of estimate) → revise materiality and reconsider performance materiality before evaluating uncorrected misstatements under <span class="clause">SA 450</span>.</div>
+
+  <h4>Auditor's Responsibilities</h4>
+  <ul>
+    <li>Apply materiality throughout — plan, perform, evaluate misstatements, form opinion</li>
+    <li>Coordinate with <span class="clause">SA 315</span> (RMM assessment) and <span class="clause">SA 330</span> (sample sizes ↔ performance materiality)</li>
+  </ul>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>Material uncorrected misstatements at the close of the audit → drive opinion modification under <span class="clause">SA 705</span>; re-feed into <span class="clause">SA 450</span> evaluation.</p>
+</section>
+
+<!-- SA 330 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 330</span> The Auditor's Responses to Assessed Risks</h3>
+  <p><strong>Scope:</strong> Auditor's responsibility to design &amp; implement responses to the RMM identified &amp; assessed under <span class="clause">SA 315</span>. The PDF devotes §7 of the chapter to SA 330 and quotes its text directly.</p>
+
+  <h4>Objective (ICAI verbatim — from PDF)</h4>
+  <blockquote class="icai">"The objective of the auditor in accordance with SA 330 is to obtain sufficient appropriate audit evidence about the assessed risks of material misstatement, through designing and implementing appropriate responses to those risks."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Overall response</span> — addresses RMM at the <span class="keyword">F/S level</span>: emphasise skepticism, assign more experienced staff, use experts, add supervision, incorporate unpredictability, change N/T/E</li>
+    <li><span class="keyword">Further audit procedures</span> — addresses RMM at the <span class="keyword">assertion level</span>: tests of controls + substantive procedures (tests of details + substantive analytical)</li>
+    <li><span class="keyword">Test of controls (TOC)</span> — tests the operating effectiveness of relevant controls</li>
+    <li><span class="keyword">Substantive procedures</span> — designed to detect material misstatements at the assertion level</li>
+  </ul>
+
+  <h4>Key Requirements (two-level response, per PDF §7)</h4>
+  <ul>
+    <li><strong>At F/S level:</strong> design &amp; implement overall responses to assessed RMM</li>
+    <li><strong>At assertion level:</strong> design &amp; perform further procedures — N/T/E responsive to assessed RMM, considering reasons for assessment (IR + CR) and whether the auditor intends to rely on controls</li>
+    <li>Obtain <span class="keyword">more persuasive evidence</span> the higher the assessed risk</li>
+    <li>Design &amp; perform TOC when (a) assessment includes an <span class="keyword">expectation controls operate effectively</span> (reliance), <strong>or</strong> (b) <span class="keyword">substantive procedures alone cannot</span> provide SAAE (e.g., highly automated processing with no manual audit trail)</li>
+    <li>Obtain more persuasive evidence the greater the reliance placed on a control</li>
+    <li>Irrespective of assessed RMM, perform substantive procedures for <span class="keyword">each material class of transactions, account balance &amp; disclosure</span> (minimum substantive floor)</li>
+  </ul>
+
+  <h4>Assertion-level mix (the PDF's planning considerations)</h4>
+  <ul>
+    <li>Assertions that <span class="keyword">cannot be addressed by substantive alone</span> — highly automated processing → rely on controls</li>
+    <li>Where testing controls would reduce the need/scope of substantive → TOC leveraged</li>
+    <li>Potential for <span class="keyword">substantive analytical procedures</span> to reduce other procedures</li>
+    <li>Build in an element of <span class="keyword">unpredictability</span></li>
+    <li>Address <span class="keyword">management override of controls</span> (SA 240 overlap) and other fraud scenarios</li>
+    <li>Specific procedures for identified <span class="keyword">significant risks</span></li>
+  </ul>
+
+  <h4>Exceptions / Conditions</h4>
+  <div class="exception">If results of substantive procedures contradict the preliminary CR assessment → make specific inquiries; if supported, revise CR upwards and <span class="keyword">modify N/T/E</span> of further substantive procedures accordingly.</div>
+  <div class="exception">Evidence about the <strong>operating effectiveness</strong> obtained by observation is point-in-time only — supplement with other TOC covering the period of intended reliance.</div>
+
+  <h4>Auditor's Responsibilities</h4>
+  <ul>
+    <li>Evaluate whether assessed RMMs are appropriately responded to; if evidence is insufficient, perform additional procedures</li>
+    <li>Communicate <span class="keyword">significant deficiencies</span> surfaced during responses to TCWG/management (link to SA 265)</li>
+    <li>Document overall responses, N/T/E of further procedures, linkage to assessed risks, conclusions</li>
+  </ul>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>Feeds into <span class="clause">SA 450</span> evaluation and ultimately into the auditor's opinion — modification under <span class="clause">SA 705</span> if SAAE not obtained or misstatements material.</p>
+
+  <h4>SA 315 → SA 330 flowchart (risk ID to tailored response)</h4>
+  <div class="mermaid">
+flowchart TD
+    A[Understand entity + IC · SA 315] --> B[Identify risks at F/S level &amp; assertion level]
+    B --> C{Significant risk?}
+    C -->|Yes| D[Special consideration: test controls at least once · designed substantive procedures]
+    C -->|No| E[Standard assessment]
+    D --> F{Intend to rely on controls OR substantive alone insufficient?}
+    E --> F
+    F -->|Yes| G[Tests of Controls + residual Substantive]
+    F -->|No| H[Substantive-only approach]
+    G --> I[Mandatory substantive for each material CoT / balance / disclosure]
+    H --> I
+    I --> J[Conclude N/T/E sufficient → to SA 450]
+  </div>
+</section>
+
+<!-- SA 450 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 450</span> Evaluation of Misstatements Identified during the Audit</h3>
+  <p><strong>Scope:</strong> Auditor's responsibility to evaluate the effect of identified misstatements on the audit and of uncorrected misstatements, if any, on the FS. Cited in the PDF at Q13 answer.</p>
+
+  <h4>Objective</h4>
+  <div class="exception">ICAI-verbatim Objective sentence of SA 450 is <strong>not reproduced</strong> in the Ch 4 Final SM PDF (only the title &amp; operational requirement are cited at Q13). Not fabricated here. Per the PDF's own words (Q13 answer): <em>"the auditor is required to reassess materiality, in accordance with SA 320 … before evaluating the impact of uncorrected misstatements."</em></div>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Misstatement</span> — difference between reported amount/classification/presentation/disclosure and what is required under the FRF</li>
+    <li><span class="keyword">Uncorrected misstatements</span> — those accumulated during the audit that management has not corrected</li>
+    <li><span class="keyword">Factual misstatement</span> — about which there is no doubt (e.g., a mis-posted entry)</li>
+    <li><span class="keyword">Judgmental misstatement</span> — arising from unreasonable accounting estimates or inappropriate accounting policy selection/application</li>
+    <li><span class="keyword">Projected misstatement</span> — auditor's best estimate of misstatement in populations, extrapolated from samples</li>
+    <li><span class="keyword">Clearly trivial</span> — amount below which misstatements need not be accumulated (not merely small — well below SA 320 materiality)</li>
+  </ul>
+
+  <h4>Key Requirements</h4>
+  <ul>
+    <li><span class="keyword">Accumulate</span> all identified misstatements other than those clearly trivial</li>
+    <li><span class="keyword">Communicate on a timely basis</span> all accumulated misstatements to the appropriate level of management and <span class="keyword">request correction</span></li>
+    <li>Reassess whether the overall audit strategy and plan need revision if (a) nature of misstatements &amp; circumstances suggest others may exist that, combined, could be material, or (b) aggregate approaches materiality</li>
+    <li>Before evaluating effect of uncorrected misstatements: <span class="keyword">reassess materiality under SA 320</span> — if revised lower, reconsider performance materiality &amp; N/T/E of further procedures</li>
+    <li>Determine whether uncorrected misstatements are material — <em>individually or in aggregate</em> — considering size, nature &amp; particular circumstances (qualitative)</li>
+    <li>Communicate uncorrected misstatements &amp; their effect to TCWG, request correction; obtain <span class="keyword">written representation</span> from management &amp; TCWG that they believe the effects of uncorrected misstatements are immaterial (list attached)</li>
+  </ul>
+
+  <h4>Classification that drives action</h4>
+  <table>
+  <thead><tr><th>Type</th><th>Source</th><th>Action</th></tr></thead>
+  <tbody>
+  <tr><td>Factual</td><td>Specific, verifiable error</td><td>Corrected 1:1 — quantum certain</td></tr>
+  <tr><td>Judgmental</td><td>Unreasonable estimate / inappropriate policy</td><td>Discuss with mgmt; if not corrected → carry to aggregation</td></tr>
+  <tr><td>Projected</td><td>Sample extrapolation across population</td><td>Investigate causes; extend testing if out of expectation</td></tr>
+  </tbody>
+  </table>
+
+  <h4>Exceptions / Conditions</h4>
+  <div class="exception">Even if total uncorrected misstatements are below FS materiality, <span class="keyword">qualitative factors</span> (e.g., affect covenant compliance, reverse a loss to a profit, change earnings-per-share trend, management compensation trigger, regulatory threshold) may make them material.</div>
+  <div class="exception">If management refuses to correct some/all uncorrected misstatements → understand reasons &amp; consider implications for the opinion; if uncorrected misstatements remain material → modification under <span class="clause">SA 705</span> (qualified / adverse).</div>
+
+  <h4>Auditor's Responsibilities — written representations</h4>
+  <ul>
+    <li>Obtain <span class="keyword">WR</span> from management &amp; TCWG confirming: uncorrected misstatements (listed in an attachment) are immaterial individually &amp; in aggregate</li>
+    <li>If WR refused / qualified → consider impact on evidence &amp; opinion (link to <span class="clause">SA 580</span>)</li>
+    <li>Document: clearly trivial threshold, all accumulated misstatements, conclusion on uncorrected (material or not) with basis, written representation obtained</li>
+  </ul>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>Uncorrected misstatements material individually/aggregated → <span class="keyword">qualified / adverse</span> opinion per <span class="clause">SA 705</span>. If evidence inadequate → qualified/disclaimer. Communicate to TCWG.</p>
+
+  <h4>SA 450 flowchart — accumulate → classify → reassess → opinion</h4>
+  <div class="mermaid">
+flowchart TD
+    A[Identify misstatements during audit] --> B{Clearly trivial?}
+    B -->|Yes| C[Ignore - no accumulation]
+    B -->|No| D[Accumulate · classify: Factual / Judgmental / Projected]
+    D --> E[Communicate to management · request correction]
+    E --> F{Corrected?}
+    F -->|Yes| G[Remove from schedule]
+    F -->|No| H[Reassess SA 320 materiality - revise performance materiality if lower]
+    H --> I{Uncorrected material individually or aggregated - qualitative + quantitative?}
+    I -->|No| J[Communicate to TCWG · obtain WR on immateriality]
+    I -->|Yes| K[Modify opinion · SA 705 qualified or adverse]
+    J --> L[Unmodified opinion - document]
+    K --> L
+  </div>
+</section>
+
+<h2>Internal control — auditor's evaluation (bridge from SA 315 into the audit plan)</h2>
+<p>The PDF (§3–§6) develops the IC angle at length. Revision essentials:</p>
+<ul>
+<li><span class="keyword">Five components</span> (above). <strong>Objective of IC:</strong> reliability of FR · effectiveness &amp; efficiency of operations · safeguarding of assets · compliance with laws &amp; regulations.</li>
+<li><span class="keyword">Inherent limitations of IC:</span> cost-benefit, human error, management override, collusion, unusual transactions outside routine, manipulation of estimates. Hence only <em>reasonable</em> assurance.</li>
+<li><span class="keyword">Structure of IC:</span> segregation of duties (authorisation · execution · custody · records), authorisation of transactions, adequacy of records &amp; documents, accountability &amp; safeguarding of assets, independent checks. Apart from SoD — <span class="keyword">periodic rotation of duties</span>, annual leave, custody-vs-books separation, mechanical cash devices, budgetary control.</li>
+<li><span class="keyword">Techniques of evaluating IC:</span> Internal Control Questionnaire · Check List · Flow chart. ICQ is answered by client executives; Check List by the auditor/staff. ICQ Yes/No → weakness; Check List prompts narrative where a weakness may be material.</li>
+<li><span class="keyword">Letter of Weakness (Management Letter):</span> lists weaknesses + suggested improvements; states scope not designed to determine IC adequacy; serves as reference for mgmt revision; may minimise legal liability (<em>Re S.P. Catterson &amp; Ltd.</em> defence). Does <em>not</em> absolve the auditor from qualifying opinion where uncorrected defects are material.</li>
+<li><span class="keyword">Global frameworks</span> (coverage-only): COSO (5 components, 17 principles, 3 objective categories) · CoCo (Canadian — Purpose, Commitment, Capability, Monitoring &amp; Learning; 20 criteria) · COBIT (ISACA IT governance; 4 domains: PO, AI, DS, ME) · Turnbull (UK directors' guidance) · SOX §404 (management ICFR assessment + auditor opinion on ICFR &amp; FS — integrated audit; PCAOB oversight).</li>
+<li><span class="keyword">Risk-Based Audit:</span> three phases — Risk Assessment · Risk Response · Reporting — collapses directly onto SA 315 → SA 330 → SA 450 pipeline.</li>
+</ul>
+
+<div class="triggers">
+<h3>5 Exam Triggers — spot these phrasings, invoke these SAs</h3>
+<ol>
+<li>"Auditor of a PSU insurance divisional office finds surveyors appointed by <em>Divisional Manager</em> for &gt; ₹30 lakh claims when SOP mandates <em>Divisional Claims Committee</em> approval — had initially assessed RMM as low" → <strong>SA 315</strong>: controls not operating as laid down → revise <span class="keyword">control risk</span> upwards → revise assessed RMM → under <strong>SA 330</strong> modify <span class="keyword">N/T/E</span> of substantive procedures (Test Your Understanding 1 of PDF).</li>
+<li>"Newly-appointed auditor of an NGO in the political/social field, first-year, FCRA cancellable, crowd-funded, prior year unaudited, foreign funds received" → <strong>SA 315</strong>: <span class="keyword">high inherent risk</span> (nature of activity, foreign funds, lack of integrity benchmarks), <span class="keyword">high control risk</span> (no formal controls given prior small scale), <span class="keyword">high detection risk</span> (first-year, unfamiliar procedures) — respond per <strong>SA 330</strong> with more persuasive evidence &amp; experienced team (Test Your Understanding 2).</li>
+<li>"Construction company extrapolated 11-month sales to estimate full year; last-month actual only 30% of estimate; auditor had set materiality on estimated revenue" → <strong>SA 450</strong> requires <span class="keyword">reassessment of materiality under SA 320</span> before evaluating uncorrected misstatements; if revised lower, reconsider performance materiality &amp; N/T/E of further procedures (Q13 of PDF).</li>
+<li>"Listed-co auditor suspects company's IC may <em>fail to capture</em> insurance premiums falling due on company assets" → significant deficiency under <strong>SA 315</strong>/SA 265 (susceptibility of asset to loss is a deficiency factor even absent actual misstatement); <span class="keyword">communicate in writing</span> to TCWG with description &amp; potential effects (Test Your Understanding 5).</li>
+<li>"Head of procurement has complete control over purchasing + goods receipt + supplier payment approval with no review; staff not rotated for 5 yrs; store manager both holds inventory and maintains records" → <strong>SA 315</strong> control-environment / control-activities deficiencies: breach of <span class="keyword">segregation of duties</span>, no job rotation, custodian-with-records → high control risk; communicate to TCWG; under <strong>SA 330</strong> respond with heavier substantive testing on purchases/payables/inventory (Q15 of PDF).</li>
+</ol>
+</div>
+
+<script>mermaid.initialize({startOnLoad:true, theme:'neutral'});</script>
+</body>
+</html>

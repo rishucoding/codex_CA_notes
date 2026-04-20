@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ch 3 — Audit Planning, Strategy &amp; Execution (incl. SA 600/610/620) · CA Final Audit</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<style>
+:root {
+  --bg: #faf8f3;
+  --ink: #1a1a1a;
+  --muted: #5b5b5b;
+  --accent: #0a4a8f;
+  --keyword-bg: #fff3d4;
+  --exception-bg: #ffe4e4;
+  --exception-border: #c33;
+  --clause-bg: #e8f2ff;
+  --table-stripe: #f5f2ea;
+  --rule: #d8d3c4;
+  --quote-bar: #0a4a8f;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Georgia, serif;
+  background: var(--bg); color: var(--ink);
+  max-width: 820px; margin: 2rem auto; padding: 0 1.25rem;
+  line-height: 1.55; font-size: 16px;
+}
+h1 { font-size: 1.9rem; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 0.4rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin-top: 2rem; border-left: 4px solid var(--accent); padding-left: 0.6rem; }
+h3 { font-size: 1.15rem; color: var(--ink); margin-top: 1.5rem; }
+h4 { font-size: 1rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1.2rem; margin-bottom: 0.3rem; }
+.meta { color: var(--muted); font-style: italic; font-size: 0.9rem; margin-top: -0.5rem; }
+.keyword { background: var(--keyword-bg); padding: 0 0.2em; border-radius: 2px; font-weight: 600; }
+.exception {
+  background: var(--exception-bg);
+  border-left: 4px solid var(--exception-border);
+  padding: 0.5rem 0.8rem; margin: 0.5rem 0; border-radius: 3px;
+}
+.exception::before { content: "⚠ "; font-weight: bold; color: var(--exception-border); }
+.clause {
+  background: var(--clause-bg); padding: 0.1rem 0.4rem;
+  border-radius: 3px; font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+}
+blockquote.icai {
+  border-left: 4px solid var(--quote-bar);
+  background: #fff; margin: 0.8rem 0; padding: 0.6rem 1rem;
+  font-style: italic; color: #333;
+}
+blockquote.icai::before { content: "ICAI verbatim · "; font-style: normal; font-weight: 600; color: var(--accent); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.95rem; }
+th, td { padding: 0.5rem 0.7rem; text-align: left; border: 1px solid var(--rule); vertical-align: top; }
+th { background: var(--accent); color: #fff; font-weight: 600; }
+tr:nth-child(even) td { background: var(--table-stripe); }
+.sa-card {
+  border: 1px solid var(--rule); border-radius: 6px;
+  padding: 1rem 1.2rem; margin: 1.5rem 0; background: #fff;
+}
+.sa-card h3 { margin-top: 0; color: var(--accent); }
+.triggers {
+  background: #fff; border: 1px dashed var(--accent);
+  padding: 1rem; border-radius: 6px; margin: 1.5rem 0;
+}
+.triggers h3 { margin-top: 0; color: var(--accent); }
+.triggers ol { margin: 0; padding-left: 1.2rem; }
+.triggers li { margin: 0.4rem 0; }
+.mermaid { background: #fff; padding: 1rem; border-radius: 6px; margin: 1rem 0; text-align: center; }
+svg.diagram { max-width: 100%; height: auto; display: block; margin: 1rem auto; background: #fff; border-radius: 6px; padding: 0.5rem; }
+ul, ol { padding-left: 1.3rem; }
+li { margin: 0.2rem 0; }
+.chip { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-right: 0.3rem; }
+.chip-sa { background: var(--accent); color: #fff; }
+.chip-marks { background: #2a7c3a; color: #fff; }
+.nav { margin: 1rem 0; font-size: 0.9rem; }
+.nav a { color: var(--accent); text-decoration: none; margin-right: 1rem; }
+.nav a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="nav">← <a href="../../index.html">All chapters</a> · <a href="onepager.html">One-pager</a></div>
+<h1>Chapter 3 — Audit Planning, Strategy &amp; Execution</h1>
+<p class="meta">ICAI SM Final P3 May 2026 · <span class="chip chip-marks">~8–10 marks</span> Primary: SA 300 · SA 600 · SA 610 · SA 620 · Linkage: SA 315, SA 320 (Ch 4)</p>
+
+<div class="exception">
+<strong>Scope correction to SPEC §11 map.</strong> The Ch 3 SM PDF gives <em>full</em> treatment (not refresher) to <span class="keyword">SA 600, SA 610 and SA 620</span> in §4.5.1 / §4.5.2 / §4.5.3 — these are primary-covered here, not in Ch 8. The chapter thus has <strong>four full-SA cards</strong>: SA 300 (planning) and SA 600/610/620 (execution-stage reliance on other-auditor / internal-audit / expert work). SA 315 and SA 320 remain Ch 4. SA 540 / 520 remain Ch 5, SA 450 remains Ch 4.
+</div>
+
+<h2>Chapter map</h2>
+<p>Three ideas run the chapter. <strong>Plan early, plan continually:</strong> planning is not a discrete phase but a <span class="keyword">continual &amp; iterative process</span> beginning right after the prior year's audit. <strong>Strategy vs plan:</strong> the <span class="keyword">overall audit strategy</span> sets <em>scope, timing, direction</em>; the <span class="keyword">audit plan</span> is more detailed and sets <em>nature, timing, extent</em> of risk-assessment &amp; further audit procedures. <strong>Execution flows from the plan:</strong> execution = planning → risk &amp; control evaluation → testing → reporting. SA 315 (risk) and SA 320 (materiality) are the two feeder SAs that parameterise the plan and are treated in depth in Ch 4.</p>
+
+<h2>Planning phase — timeline &amp; linkages</h2>
+<svg class="diagram" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L8,5 L0,10 z" fill="#0a4a8f"/>
+    </marker>
+  </defs>
+
+  <!-- Stage 1 Preliminary engagement activities -->
+  <rect x="20" y="20" width="180" height="80" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="110" y="42" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">1. Preliminary</text>
+  <text x="110" y="58" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">engagement activities</text>
+  <text x="110" y="75" text-anchor="middle" font-size="10" fill="#333">· Continuance (SA 220)</text>
+  <text x="110" y="88" text-anchor="middle" font-size="10" fill="#333">· Ethics/independence · Terms (SA 210)</text>
+
+  <!-- Stage 2 Strategy -->
+  <rect x="220" y="20" width="180" height="80" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="310" y="42" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">2. Overall audit</text>
+  <text x="310" y="58" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">STRATEGY</text>
+  <text x="310" y="75" text-anchor="middle" font-size="10" fill="#333">Scope · Timing · Direction</text>
+  <text x="310" y="88" text-anchor="middle" font-size="10" fill="#333">Characteristics · Reporting</text>
+
+  <!-- Stage 3 Plan -->
+  <rect x="420" y="20" width="180" height="80" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="510" y="42" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">3. Audit PLAN</text>
+  <text x="510" y="58" text-anchor="middle" font-size="10" fill="#333">N / T / E of procedures</text>
+  <text x="510" y="73" text-anchor="middle" font-size="10" fill="#333">Risk assessment (SA 315)</text>
+  <text x="510" y="87" text-anchor="middle" font-size="10" fill="#333">Further audit proc. (SA 330)</text>
+
+  <!-- Stage 4 Documentation -->
+  <rect x="620" y="20" width="160" height="80" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="700" y="42" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">4. Documentation</text>
+  <text x="700" y="60" text-anchor="middle" font-size="10" fill="#333">· Strategy · Plan</text>
+  <text x="700" y="75" text-anchor="middle" font-size="10" fill="#333">· Significant changes</text>
+  <text x="700" y="90" text-anchor="middle" font-size="10" fill="#333">· Reasons for changes</text>
+
+  <!-- arrows horizontal -->
+  <path d="M200,60 L220,60" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M400,60 L420,60" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M600,60 L620,60" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+  <!-- Iterative arrow -->
+  <path d="M700,100 Q700,150 400,150 Q100,150 110,100" stroke="#0a4a8f" stroke-width="1.2" fill="none" stroke-dasharray="4,3" marker-end="url(#arr)"/>
+  <text x="400" y="143" text-anchor="middle" font-size="10" font-style="italic" fill="#5b5b5b">Iterative · continual · update strategy &amp; plan as audit progresses</text>
+
+  <!-- Feeder SAs -->
+  <text x="400" y="195" text-anchor="middle" font-size="11" font-style="italic" fill="#5b5b5b">↑ feeds into planning ↑</text>
+
+  <rect x="200" y="210" width="200" height="60" rx="6" fill="#e8f2ff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="300" y="232" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">SA 315 — Risk assessment</text>
+  <text x="300" y="250" text-anchor="middle" font-size="10" fill="#333">Identify &amp; assess RoMM at</text>
+  <text x="300" y="263" text-anchor="middle" font-size="10" fill="#333">FS &amp; assertion level (Ch 4)</text>
+
+  <rect x="420" y="210" width="200" height="60" rx="6" fill="#e8f2ff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="520" y="232" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">SA 320 — Materiality</text>
+  <text x="520" y="250" text-anchor="middle" font-size="10" fill="#333">Materiality for FS-as-whole</text>
+  <text x="520" y="263" text-anchor="middle" font-size="10" fill="#333">&amp; performance materiality (Ch 4)</text>
+
+  <path d="M300,210 L310,100" stroke="#0a4a8f" stroke-width="1.2" fill="none" marker-end="url(#arr)"/>
+  <path d="M520,210 L510,100" stroke="#0a4a8f" stroke-width="1.2" fill="none" marker-end="url(#arr)"/>
+
+  <!-- Execution phase -->
+  <text x="400" y="300" text-anchor="middle" font-size="11" font-style="italic" fill="#5b5b5b">↓ plan drives execution ↓</text>
+
+  <rect x="60" y="320" width="150" height="55" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="135" y="342" text-anchor="middle" font-size="11" font-weight="700" fill="#0a4a8f">Execution planning</text>
+  <text x="135" y="360" text-anchor="middle" font-size="10" fill="#333">Roadmap · audit programme</text>
+
+  <rect x="230" y="320" width="150" height="55" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="305" y="342" text-anchor="middle" font-size="11" font-weight="700" fill="#0a4a8f">Risk &amp; control eval</text>
+  <text x="305" y="360" text-anchor="middle" font-size="10" fill="#333">Per segment · linked to materiality</text>
+
+  <rect x="400" y="320" width="150" height="55" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="475" y="342" text-anchor="middle" font-size="11" font-weight="700" fill="#0a4a8f">Testing</text>
+  <text x="475" y="360" text-anchor="middle" font-size="10" fill="#333">Operating effectiveness · ToD</text>
+
+  <rect x="570" y="320" width="150" height="55" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="645" y="342" text-anchor="middle" font-size="11" font-weight="700" fill="#0a4a8f">Reporting</text>
+  <text x="645" y="360" text-anchor="middle" font-size="10" fill="#333">SA 700 · opinion</text>
+
+  <path d="M210,347 L230,347" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M380,347 L400,347" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M550,347 L570,347" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+</svg>
+
+<!-- SA 300 Full Card -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 300</span> Planning an Audit of Financial Statements</h3>
+  <p><strong>Scope:</strong> Auditor's responsibility to plan an audit of FS — the context is a recurring audit; additional considerations for an initial audit engagement are separately identified. <strong>Core proposition:</strong> without a careful plan, the overall audit objective may not be achieved.</p>
+
+  <h4>Objective / Core Requirement (verbatim from Ch 3 PDF)</h4>
+  <blockquote class="icai">"The auditor shall establish an overall audit strategy that sets the scope, timing and direction of the audit, and that guides the development of the audit plan."</blockquote>
+  <div class="exception">The Ch 3 Final SM PDF narrates SA 300 through its requirements (strategy, plan, changes, documentation) but does <strong>not</strong> reproduce a separately labelled "Objective of the auditor" paragraph. The sentence above is the PDF's prose-list core requirement for SA 300 and is reproduced verbatim. No training-fill substitution was made.</div>
+
+  <h4>Key Definitions &amp; Distinctions</h4>
+  <ul>
+    <li><span class="keyword">Overall audit strategy</span> — sets <em>scope, timing, direction</em>; guides the plan; prepared <strong>first</strong></li>
+    <li><span class="keyword">Audit plan</span> — more detailed than the strategy; sets <em>nature, timing, extent</em> of (a) risk-assessment procedures (<span class="clause">SA 315</span>), (b) further audit procedures at assertion level (<span class="clause">SA 330</span>), (c) other procedures required by SAs</li>
+    <li><span class="keyword">Audit programme</span> — operational instructions to assistants; list of procedures + time estimates; allocates work</li>
+    <li><span class="keyword">Preliminary engagement activities</span> — three activities undertaken at the beginning of the current engagement (see below)</li>
+    <li><span class="keyword">Planning — continual &amp; iterative</span> — begins shortly after completion of prior audit; continues until completion of current audit</li>
+  </ul>
+
+  <h4>Benefits of Planning (PDF §1.1)</h4>
+  <ul>
+    <li>Attention to <span class="keyword">important areas</span></li>
+    <li><span class="keyword">Timely resolution</span> of potential problems</li>
+    <li>Proper organisation &amp; management of the engagement</li>
+    <li>Proper <span class="keyword">selection</span> of engagement team</li>
+    <li>Effective <span class="keyword">direction &amp; supervision</span> of team</li>
+    <li>Easy coordination with <span class="keyword">auditors of components</span> &amp; experts</li>
+  </ul>
+
+  <h4>Nature &amp; Extent of Planning — drivers</h4>
+  <ul>
+    <li><span class="keyword">Size &amp; complexity</span> of the auditee</li>
+    <li>Team's <span class="keyword">past experience &amp; expertise</span></li>
+    <li><span class="keyword">Change in circumstances</span> during the engagement</li>
+  </ul>
+
+  <h4>Preliminary Engagement Activities — the mandatory three</h4>
+  <p>At the beginning of the current audit engagement the auditor shall undertake:</p>
+  <ol>
+    <li>Procedures required by <span class="clause">SA 220</span> regarding <span class="keyword">continuance</span> of the client relationship &amp; the specific engagement — integrity of owners/mgmt/TCWG; team competence &amp; capabilities; compliance with ethics; significant matters from current/previous engagement</li>
+    <li>Evaluate <span class="keyword">compliance with ethical requirements, including independence</span> (SA 220)</li>
+    <li>Establish an <span class="keyword">understanding of the terms of the engagement</span> (<span class="clause">SA 210</span>)</li>
+  </ol>
+  <p class="meta">Detailed treatment of SA 220 is in Ch 1; SA 210 is in Ch 2 — not repeated here per SPEC §10.</p>
+
+  <h4>Overall Audit Strategy — factors while establishing (PDF §2.1)</h4>
+  <ul>
+    <li><span class="keyword">Characteristics of the engagement</span> — defines scope (FRF, industry reporting, component coverage, parent-component control, other auditors, service orgs, use of prior-audit evidence, IT, client personnel &amp; data availability)</li>
+    <li><span class="keyword">Reporting objectives</span> — timetable, meetings with management, type/timing of reports, component-auditor communications, statutory/contractual reporting</li>
+    <li><span class="keyword">Team's efforts</span> — significant factors directing the engagement team's efforts</li>
+    <li>Results of <span class="keyword">preliminary engagement activities</span> &amp; knowledge from other engagements for the entity</li>
+    <li><span class="keyword">Nature, timing &amp; extent of resources</span> — selection &amp; assignment of team; budgeting</li>
+  </ul>
+
+  <h4>Benefits of the Strategy — it helps the auditor decide</h4>
+  <ul>
+    <li><span class="keyword">Qualitative resources</span> — experienced members on high-risk areas; experts on complex items (e.g. valuation, hedging)</li>
+    <li><span class="keyword">Quantitative allocation</span> — number of team members, extent of review of other auditors' work, budget hours to high-risk areas</li>
+    <li><span class="keyword">Timing of deployment</span> — interim vs year-end vs close-to-cut-off</li>
+    <li><span class="keyword">Management of resources</span> — briefings, partner &amp; manager reviews, EQCR where applicable</li>
+  </ul>
+
+  <h4>Significant Factors &amp; Preliminary Activities — matters to consider</h4>
+  <ul>
+    <li>Determination of <span class="keyword">materiality</span> per <span class="clause">SA 320</span></li>
+    <li><span class="keyword">Preliminary identification</span> of higher-risk areas for material misstatement</li>
+    <li>Impact of overall-FS-level RoMM on <span class="keyword">direction, supervision, review</span></li>
+    <li>Maintaining an <span class="keyword">inquisitive/questioning mind</span>, professional skepticism, and <span class="keyword">unpredictability</span> of procedures</li>
+    <li>Prior-audit deficiencies &amp; corrective actions; discussion with other-service firm personnel</li>
+    <li>Management's commitment to sound internal controls; transaction volume; industry/economic/FRF developments</li>
+  </ul>
+
+  <h4>Contents of the Audit Plan — what the plan <em>shall</em> describe</h4>
+  <ul>
+    <li>N/T/E of planned <span class="keyword">risk assessment procedures</span> (<span class="clause">SA 315</span>)</li>
+    <li>N/T/E of planned <span class="keyword">further audit procedures</span> at the assertion level (<span class="clause">SA 330</span>)</li>
+    <li>Other planned procedures required for compliance with SAs</li>
+  </ul>
+  <div class="exception">Planning the N/T/E of <em>specific</em> further audit procedures depends on the <strong>outcome</strong> of risk-assessment procedures — the auditor may begin executing further procedures for some balances/transactions before planning all remaining procedures. <span class="keyword">Sample size</span> determination is part of "Extent" — must be decided in the plan, not at the moment of execution (TYU 2).</div>
+
+  <h4>Changes to Planning Decisions — when must strategy &amp; plan be revised?</h4>
+  <ul>
+    <li>Result of <span class="keyword">unexpected events</span></li>
+    <li><span class="keyword">Changes in conditions</span> (including law/notifications/policy changes)</li>
+    <li>Audit evidence obtained from results of procedures (e.g. substantive evidence contradicts tests-of-controls evidence)</li>
+  </ul>
+  <div class="exception">Strategy change → plan change. When materiality is revised downward mid-audit because of newly-identified IC weakness, the strategy is modified <strong>first</strong>, then the plan (TYU-4 in PDF).</div>
+
+  <h4>Strategy vs Plan — examiner-favorite distinction</h4>
+  <table>
+    <thead><tr><th>Dimension</th><th>Overall Audit Strategy</th><th>Audit Plan</th></tr></thead>
+    <tbody>
+      <tr><td>Level</td><td>Top-level · directional</td><td>Detailed · operational</td></tr>
+      <tr><td>Sets</td><td><span class="keyword">Scope, timing, direction</span></td><td><span class="keyword">Nature, timing, extent</span> of procedures</td></tr>
+      <tr><td>Prepared</td><td>First — guides plan development</td><td>After strategy; developed as audit progresses</td></tr>
+      <tr><td>Inter-relation</td><td>Change in strategy → change in plan</td><td>Change in plan &gt; threshold → strategy revisited</td></tr>
+      <tr><td>Primary content</td><td>Characteristics · reporting obj. · resources · significant factors</td><td>N/T/E of risk-assessment &amp; further audit procedures (SA 315/330)</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Discussion with management — watch-out</h4>
+  <div class="exception">Elements of planning may be discussed with management for coordination. However, overall audit strategy &amp; audit plan remain the <span class="keyword">auditor's responsibility</span>. Discussing N/T/E of detailed procedures with management may compromise effectiveness by making procedures <span class="keyword">too predictable</span>.</div>
+
+  <h4>Involvement of Engagement Partner &amp; Key Members</h4>
+  <ul>
+    <li>Engagement partner and key team members <span class="keyword">shall be involved</span> in planning the audit — draws on experience, enhances effectiveness &amp; efficiency</li>
+  </ul>
+
+  <h4>Documenting the Audit Plan — three items</h4>
+  <ul>
+    <li>The <span class="keyword">overall audit strategy</span> — record of key decisions, communicates significant matters to the team</li>
+    <li>The <span class="keyword">audit plan</span> — record of planned N/T/E of RAP &amp; further audit procedures; reviewable &amp; approvable prior to performance; standard programs/checklists may be tailored</li>
+    <li><span class="keyword">Significant changes</span> to strategy/plan &amp; <em>reasons</em> — why changes were made; final strategy &amp; plan adopted; appropriate response to events in the audit</li>
+  </ul>
+
+  <h4>Audit Programme — formulation considerations (PDF §3)</h4>
+  <ul>
+    <li>(a) <span class="keyword">Nature of business</span> — visit client/factory on first appointment; understand processes, records, statistics</li>
+    <li>(b) <span class="keyword">Overall plan</span> — programme adheres to plan; divergence from plan → modify plan first, then programme</li>
+    <li>(c) <span class="keyword">System of internal control &amp; accounting procedures</span> — review &amp; preliminary evaluation, compliance testing, evaluation</li>
+    <li>(d) <span class="keyword">Size of organisation &amp; management structure</span> — branches, products, turnover affect complexity</li>
+    <li>(e) <span class="keyword">Information on organisation</span> — history, nature, purpose of engagement, time schedule</li>
+    <li>(f) <span class="keyword">Accounting &amp; management policies</span> — review prior-year FS for consistency</li>
+  </ul>
+
+  <h4>First-time appointment — three stages</h4>
+  <ol>
+    <li>Draw a <span class="keyword">broad outline</span> of the programme</li>
+    <li>After reviewing IC &amp; accounting procedures, <span class="keyword">fill in details</span> based on IC deficiencies</li>
+    <li>After detailed checking, determine extent of <span class="keyword">special/opening-balance procedures</span> — independent confirmation of debtors/creditors, physical inspection of FA, inventory counts</li>
+  </ol>
+
+  <h4>Circumstances requiring programme alteration</h4>
+  <ul>
+    <li>Substantial change in <span class="keyword">volume of turnover</span> or in accounting organisation/procedures/personnel</li>
+    <li>IC procedures found <span class="keyword">less effective</span> than assumed at design time</li>
+    <li>Extraordinary increase in <span class="keyword">book debts or inventory values</span> vs prior year</li>
+    <li>Suspicion of <span class="keyword">misappropriation of assets</span> discovered during audit</li>
+  </ul>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>Non-planning = violation of SA 300. Failure to understand the business &amp; document the plan exposes the auditor to professional-standards non-compliance (PDF answer to TYU-1). The plan and programme are reconsidered <em>as the audit progresses</em>, informed by IC evaluation and compliance/substantive results.</p>
+</section>
+
+<!-- SA 315 / SA 320 linkage cards -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 315</span> Linkage only — Identifying &amp; Assessing Risks of Material Misstatement</h3>
+  <p><strong>Why it appears here:</strong> the Ch 3 PDF cites SA 315 four times — the audit plan's N/T/E of risk-assessment procedures is <em>determined under</em> SA 315; analytical procedures performed near audit-end may revise risk assessment under SA 315; management's failure to identify accounting-estimate RoMM triggers a significant-deficiency evaluation under SA 315. <strong>Full treatment: Chapter 4.</strong></p>
+  <div class="exception">Per SPEC §10 (no SA duplicated across chapters), Objective, Definitions and Requirements of SA 315 are <strong>not reproduced here</strong>. Refer Ch 4 for verbatim Objective and full card. In Ch 3 context, SA 315 feeds the <em>plan's</em> risk-assessment-procedure design.</div>
+
+  <h4>Planning-stage linkage points</h4>
+  <ul>
+    <li>Plan's first content-element = N/T/E of <span class="keyword">planned risk assessment procedures</span> per SA 315</li>
+    <li>Preliminary identification of higher-risk areas feeds into the strategy's "significant factors"</li>
+    <li>Results of <span class="keyword">analytical procedures</span> at audit-end may require revising SA 315 risk assessment &amp; <em>modifying the plan</em> accordingly</li>
+    <li>When the auditor identifies RoMM that management failed to identify, consider <span class="keyword">significant deficiency</span> in IC over risk assessment</li>
+  </ul>
+</section>
+
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 320</span> Linkage only — Materiality in Planning &amp; Performing an Audit</h3>
+  <p><strong>Why it appears here:</strong> the Ch 3 PDF flags materiality determination as a "significant factor" in establishing the overall audit strategy; risk-and-control evaluation in execution is "linked to Audit Risks"; SA 450 on misstatement evaluation explicitly invokes the SA 320 benchmark for "clearly trivial" vs material. <strong>Full treatment: Chapter 4.</strong></p>
+  <div class="exception">Per SPEC §10, Objective, Definitions and Requirements of SA 320 are <strong>not reproduced here</strong>. Refer Ch 4 for verbatim Objective and full card. In Ch 3 context, SA 320 is the calibration instrument for the plan.</div>
+
+  <h4>Planning-stage linkage points</h4>
+  <ul>
+    <li>Determination of materiality is an input into the <span class="keyword">overall audit strategy</span></li>
+    <li>Strategy &amp; plan "take into consideration the element of materiality &amp; its relationship with risks &amp; procedures"</li>
+    <li>Materiality is <span class="keyword">reassessed</span> for evaluating uncorrected misstatements (link to SA 450)</li>
+    <li>Lowering materiality mid-audit (e.g. weak IC surfaces) may require strategy revision <em>before</em> plan revision</li>
+  </ul>
+</section>
+
+<!-- SA 600 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 600</span> Using the Work of Another Auditor</h3>
+  <p><strong>Scope (PDF §4.5.1):</strong> establishes standards where the <span class="keyword">principal auditor</span> uses the work of <span class="keyword">another auditor</span> in respect of one or more components included in the financial information of the entity. Does <em>not</em> deal with joint auditors (SA 299) or predecessor-auditor relationship.</p>
+
+  <h4>Objective / Purpose (verbatim from PDF §4.5.1)</h4>
+  <blockquote class="icai">"The purpose of SA 600, 'Using the Work of Another Auditor' is to: establish standards to be applied in situations where Principal auditor, uses the work of other auditor with respect to the financial information of one or more components included in the financial information of the entity."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Principal auditor</span> — auditor with responsibility for reporting on FS of an entity when that FS includes FS of one or more components audited by another auditor</li>
+    <li><span class="keyword">Other auditor</span> — auditor other than the principal auditor, with responsibility for reporting on FS of a component</li>
+    <li><span class="keyword">Component</span> — division, branch, subsidiary, joint venture, associated enterprise or other entity whose FS is included in the FS audited by the principal auditor</li>
+  </ul>
+
+  <h4>Acceptance as Principal Auditor — factors to consider</h4>
+  <ul>
+    <li><span class="keyword">Materiality</span> of the portion the principal auditor audits</li>
+    <li>Principal auditor's <span class="keyword">knowledge of the business</span> of the components</li>
+    <li><span class="keyword">Risk of material misstatement</span> in FS of components audited by other auditors</li>
+    <li>Performance of additional procedures per SA 600 resulting in <span class="keyword">significant participation</span> in such audit</li>
+  </ul>
+
+  <h4>Principal Auditor's Procedures</h4>
+  <ul>
+    <li><span class="keyword">Right to visit</span> &amp; examine component books where statute confers — but ordinarily entitled to rely on other auditor unless special circumstances</li>
+    <li>Consider <span class="keyword">professional competence</span> of other auditor if not an ICAI member</li>
+    <li>Obtain SAAE that other auditor's work is adequate; advise other auditor of use of his work, significant accounting / auditing / reporting requirements, time-table, areas requiring special consideration, inter-component transactions requiring disclosure</li>
+    <li>Discuss procedures with other auditor or review <span class="keyword">written summary</span> (questionnaire/check-list) of procedures &amp; findings</li>
+    <li>Consider <span class="keyword">significant findings</span> of other auditor; apply supplementary procedures if deemed necessary</li>
+    <li><span class="keyword">Document</span> components audited by other auditors, procedures performed, conclusions; document how qualifications/adverse remarks in other auditor's report were dealt with</li>
+  </ul>
+
+  <h4>Exceptions / Conditions</h4>
+  <div class="exception">Other auditor may be a person <strong>other than a professionally qualified auditor</strong> (e.g. foreign-country component where law permits) — principal auditor must form his own view of the work.</div>
+  <div class="exception">No duty to document reasons for limiting procedures where SAAE previously obtained that <span class="keyword">quality-control policies</span> of other auditor's practice were complied with.</div>
+
+  <h4>Reporting — division of responsibility</h4>
+  <ul>
+    <li><span class="keyword">Limitation on scope</span> — if other auditor's work cannot be used and principal auditor cannot perform additional procedures → <span class="keyword">qualified opinion / disclaimer</span></li>
+    <li>If other auditor issues a <span class="keyword">modified report</span> — consider whether subject matter requires modification of principal auditor's report</li>
+    <li>Principal auditor <span class="keyword">not responsible</span> for work entrusted to other auditor — <em>except</em> in circumstances that should have aroused suspicion about reliability</li>
+    <li>Report states <span class="keyword">division of responsibility</span> — extent to which components' FS audited by other auditors are included in entity's FS</li>
+    <li>Statutory branch-auditor reliance (Companies Act) — auditor's report shall expressly state the fact of reliance</li>
+  </ul>
+
+  <h4>Principal–Component decision flow (Mermaid)</h4>
+  <div class="mermaid">
+flowchart TD
+    A[Entity FS includes financial info of component] --> B{Component audited by another auditor?}
+    B -->|No — only me| Z[Regular single-auditor audit · SA 600 not invoked]
+    B -->|Yes| C[Accept role of principal auditor — weigh materiality, RoMM, knowledge, additional procedures]
+    C --> D{Other auditor an ICAI member?}
+    D -->|Yes| F[Rely; advise on significant requirements &amp; time-table]
+    D -->|No| E[Assess professional competence in context of assignment]
+    E --> F
+    F --> G[Review written summary of procedures &amp; findings · discuss significant findings]
+    G --> H{Other auditor's report modified?}
+    H -->|Yes| I[Consider whether to modify principal's report]
+    H -->|No| J{Special circumstances requiring visit / additional procedures?}
+    I --> K{Able to obtain SAAE on component?}
+    J -->|No| L[Report states division of responsibility · extent of components audited by others]
+    J -->|Yes| M[Principal auditor visits · performs additional procedures]
+    M --> K
+    K -->|Yes| L
+    K -->|No — scope limitation| N[Qualified opinion or Disclaimer · SA 705]
+  </div>
+
+  <h4>Conclusion</h4>
+  <p>Principal auditor retains opinion-level accountability; reliance on other auditor is <em>structured</em> — consider competence, coordinate, review, document. Report clearly indicates division of responsibility when basing opinion on others' reports.</p>
+</section>
+
+<!-- SA 610 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 610</span> Using the Work of Internal Auditors</h3>
+  <p><strong>Scope (PDF §4.5.2):</strong> external auditor's responsibilities when (a) <span class="keyword">using the work of the internal audit function</span> for audit evidence and (b) using internal auditors to provide <span class="keyword">direct assistance</span>. Does not apply if entity has no internal audit function.</p>
+
+  <h4>Objectives (verbatim from PDF §4.5.2)</h4>
+  <blockquote class="icai">"To determine whether the work of the internal audit function or direct assistance from internal auditors can be used; if using the work of the internal audit function, to determine whether that work is adequate for purposes of the audit; if using internal auditors to provide direct assistance, to appropriately direct, supervise and review their work."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Internal audit function</span> — function of an entity performing assurance &amp; consulting activities designed to evaluate &amp; improve governance, risk management and internal control</li>
+    <li><span class="keyword">Direct assistance</span> — use of internal auditors to perform audit procedures under the direction, supervision and review of the external auditor</li>
+  </ul>
+
+  <h4>External Auditor's Sole Responsibility</h4>
+  <div class="exception">External auditor's <span class="keyword">sole responsibility</span> for the audit opinion is <strong>not reduced</strong> by use of work of IA function or internal auditors giving direct assistance. Neither IA function nor internal auditors are independent of the entity as SA 200 requires of the external auditor.</div>
+
+  <h4>Evaluating Whether IA Function's Work Can Be Used — three-pronged test</h4>
+  <ul>
+    <li>Extent to which IA function's <span class="keyword">organisational status</span> &amp; relevant policies/procedures support <span class="keyword">objectivity</span> of internal auditors</li>
+    <li>Level of <span class="keyword">competence</span> of IA function</li>
+    <li>Whether IA function applies a <span class="keyword">systematic and disciplined approach</span>, including quality control</li>
+  </ul>
+  <div class="exception">External auditor <strong>shall not use</strong> the IA function's work if any one of these three tests fails.</div>
+
+  <h4>Nature and Extent of Work That Can Be Used — plan <em>less</em> use where:</h4>
+  <ul>
+    <li>More <span class="keyword">judgment</span> is involved in planning / performing procedures or evaluating evidence</li>
+    <li>Higher <span class="keyword">assessed RoMM</span> at assertion level — special consideration to significant risks</li>
+    <li>Lower organisational support for objectivity of internal auditors</li>
+    <li>Lower competence of IA function</li>
+  </ul>
+  <p>External auditor must make <span class="keyword">all significant judgments</span> in the engagement. Evaluate, in aggregate, whether planned use still leaves external auditor sufficiently involved given sole responsibility.</p>
+  <p>Communicate planned use of IA function's work to TCWG as part of <span class="clause">SA 260</span> overview of scope &amp; timing.</p>
+
+  <h4>Using the Work — procedures</h4>
+  <ul>
+    <li>Discuss planned use with IA function; coordinate activities</li>
+    <li>Read IA reports of the work planned to be used</li>
+    <li>Evaluate whether IA work was properly <span class="keyword">planned, performed, supervised, reviewed, documented</span>; sufficient evidence obtained; conclusions appropriate &amp; consistent</li>
+    <li>Nature/extent of external auditor's own procedures responsive to judgment involved, RoMM, objectivity support &amp; competence</li>
+  </ul>
+
+  <h4>Direct Assistance — conditions &amp; limits</h4>
+  <ul>
+    <li>Evaluate <span class="keyword">threats to objectivity</span> &amp; competence of individual internal auditor — inquire of internal auditor regarding interests/relationships (family, financial, departmental association)</li>
+    <li>Shall <strong>not</strong> use internal auditor for direct assistance where significant threats to objectivity or lacks sufficient competence</li>
+    <li>Shall <strong>not</strong> assign procedures involving: significant judgment · higher assessed RoMM with more than limited judgment · matters reported by IA to management/TCWG · decisions the external auditor makes under SAs</li>
+    <li>External auditor shall <span class="keyword">direct, supervise and review</span> IA-assistance work per SA 220; recognise internal auditors are not independent; review includes checking back to underlying audit evidence</li>
+  </ul>
+
+  <h4>Exception — law or regulation prohibiting direct assistance</h4>
+  <div class="exception">Where law/regulation <strong>prohibits</strong> the external auditor from using internal auditors for direct assistance, the principal auditor should consider whether the prohibition extends to component auditors and, if so, address in communication to them (link to SA 600).</div>
+
+  <h4>Conclusion</h4>
+  <p>Framework prevents over-/undue use of IA work: <em>use less of their work and do more directly</em> as judgment &amp; risk rise; responsibility for the opinion is undiluted.</p>
+</section>
+
+<!-- SA 620 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 620</span> Using the Work of an Auditor's Expert</h3>
+  <p><strong>Scope (PDF §4.5.3):</strong> auditor's responsibilities regarding use of the work of an individual/organisation possessing expertise in a <span class="keyword">field other than accounting or auditing</span> — valuations, actuarial liabilities, oil/gas reserves, complex tax, contract/law interpretation, complex FI valuation. Does not deal with: engagement-team member with accounting/auditing speciality; management's expert (SA 500).</p>
+
+  <h4>Objectives (verbatim from PDF §4.5.3)</h4>
+  <blockquote class="icai">"(a) To determine whether to use the work of an auditor's expert; and (b) If using the work of an auditor's expert, to determine whether that work is adequate for the auditor's purposes."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Auditor's expert</span> — individual/organisation with expertise in a field other than accounting/auditing whose work assists the auditor in obtaining SAAE; may be <em>internal</em> (firm/network partner or staff) or <em>external</em></li>
+    <li><span class="keyword">Management's expert</span> — expertise used by the entity in preparing FS (SA 500, not SA 620)</li>
+  </ul>
+
+  <h4>Auditor's Sole Responsibility</h4>
+  <div class="exception">Auditor's sole responsibility for the opinion is <strong>not reduced</strong> by use of an expert's work. If, after applying SA 620, the auditor concludes the expert's work is adequate, the expert's findings/conclusions in that field may be accepted as appropriate audit evidence.</div>
+
+  <h4>Determining the Need for an Expert</h4>
+  <ul>
+    <li>May be needed to: understand entity &amp; environment · assess RoMM · design further procedures at assertion level · evaluate SAAE for opinion</li>
+    <li>Auditor not an expert in the field may still obtain sufficient understanding through experience, education/CPD, or discussion with peers — <em>no</em> auditor's expert needed in that case</li>
+  </ul>
+
+  <h4>N/T/E of Procedures — factors</h4>
+  <ul>
+    <li>Nature of the matter · <span class="keyword">RoMM</span> · significance of expert's work in audit · prior experience with expert · firm QC coverage (esp. <em>external</em> experts)</li>
+  </ul>
+
+  <h4>Competence, Capabilities &amp; Objectivity</h4>
+  <ul>
+    <li>Evaluate expert's <span class="keyword">competence, capabilities and objectivity</span> for the auditor's purposes</li>
+    <li>For external experts: inquire regarding interests/relationships creating threats to objectivity; inquire of entity about known interests; discuss safeguards; consider written representation from external expert</li>
+    <li>Obtain understanding of the <span class="keyword">field of expertise</span> sufficient to scope the work and evaluate its adequacy</li>
+  </ul>
+
+  <h4>Agreement in Writing — mandatory matters</h4>
+  <ul>
+    <li><span class="keyword">Nature, scope &amp; objectives</span> of expert's work</li>
+    <li>Respective <span class="keyword">roles &amp; responsibilities</span> of auditor and expert</li>
+    <li><span class="keyword">N/T/E of communication</span> — including form of expert's report (formal written report for significant-risk matters; oral interim updates)</li>
+    <li>Expert to observe <span class="keyword">confidentiality</span> — ethical requirements apply; additional legal/entity requirements may be imposed</li>
+  </ul>
+
+  <h4>Evaluating Adequacy of Expert's Work</h4>
+  <ul>
+    <li><span class="keyword">Findings/conclusions</span> — relevance, reasonableness, consistency with other audit evidence (inquiries, review of working papers, corroborative procedures, re-performance, discussion with another expert)</li>
+    <li><span class="keyword">Assumptions &amp; methods</span> — generally accepted in the field, consistent with FRF, appropriate where specialised models used, consistent with management's (or reason for differences)</li>
+    <li><span class="keyword">Source data</span> — relevance, completeness, accuracy; verify origin, test IC over data, review for internal consistency</li>
+  </ul>
+
+  <h4>When Expert's Work Is Not Adequate</h4>
+  <div class="exception">Agree on further work with the expert <em>or</em> perform further audit procedures (which may include engaging another expert). If matter cannot be resolved → <span class="keyword">modified opinion</span> per SA 705 (insufficient SAAE).</div>
+
+  <h4>Reference to Expert in the Auditor's Report</h4>
+  <ul>
+    <li><span class="keyword">Do not refer</span> to expert's work in an auditor's report with an <em>unmodified</em> opinion unless required by law/regulation (and then with a caveat that reference does not reduce auditor's responsibility)</li>
+    <li>Where reference is made to explain a <em>modification</em> → same caveat applies — responsibility for the opinion remains entirely with the auditor</li>
+  </ul>
+
+  <h4>Conclusion</h4>
+  <p>Expert work is an evidence input, not an accountability transfer. Evaluate &amp; document competence, objectivity, agreement terms and adequacy; modify opinion where inadequate.</p>
+</section>
+
+<!-- Remaining execution-stage cross-references -->
+<h2>Other execution-stage cross-references (PDF §4.5)</h2>
+<p>SA 540, SA 520 and SA 450 are narrated in Ch 3 execution but are <em>primary-covered in other chapters</em>. Per SPEC §10, only the Ch-3-specific linkage is captured below.</p>
+
+<table>
+<thead><tr><th>SA</th><th>Title</th><th>Ch-3 execution linkage</th><th>Primary</th></tr></thead>
+<tbody>
+<tr><td>SA 540</td><td>Accounting Estimates &amp; FV</td><td>Understand FRF &amp; management's estimation process; prior-period outcome review; significant-risk estimates → evaluate alternatives, assumptions, intent; <span class="keyword">management bias</span> (aggregate).</td><td>Ch 5</td></tr>
+<tr><td>SA 520</td><td>Analytical Procedures</td><td>End-of-audit overall-conclusion APs; inconsistencies investigated by inquiry + other procedures; may surface new RoMM → revise SA 315 &amp; modify plan.</td><td>Ch 5</td></tr>
+<tr><td>SA 450</td><td>Evaluation of Misstatements</td><td>Accumulate non-<span class="keyword">clearly trivial</span> misstatements; reassess SA 320 materiality; revise strategy/plan if aggregate approaches materiality; communicate to mgmt &amp; TCWG (SA 260).</td><td>Ch 4</td></tr>
+<tr><td>SA 220 / SQC 1</td><td>Engagement QC</td><td>Team implements QC aligned with firm SQC 1; partner owns independence; EQCR for listed.</td><td>Ch 1</td></tr>
+</tbody>
+</table>
+
+<h2>Test-Your-Understanding takeaways (PDF)</h2>
+<ul>
+  <li><strong>TYU-1 (XWL · commodity-futures audit without a visit):</strong> blatant violation of SA 300 — failure to plan effectively and to document understanding of the business; generic checklist ≠ tailored plan.</li>
+  <li><strong>TYU-2 (sample size decided during execution):</strong> improper — "extent" of procedures <em>includes sample size</em> and must be in the audit plan.</li>
+  <li><strong>TYU-3 (FCRA society · extended foreign-contribution procedures, not documented):</strong> failure to document the plan &amp; changes violates SA 300 documentation requirement; risk of non-qualitative audit.</li>
+  <li><strong>TYU-4 (bank branch audit · errors missed by branch auditor):</strong> principal auditor not liable where no circumstance aroused suspicion; report must state division of responsibility naming branches audited by branch auditors (SA 600 linkage).</li>
+  <li><strong>TYU-5 (niche-products listed co · inventory held long · IA silent on obsolescence):</strong> higher RoMM + significant judgment → <span class="keyword">less</span> reliance on internal audit, external auditor performs direct procedures (SA 610 linkage).</li>
+</ul>
+
+<div class="triggers">
+<h3>5 Exam Triggers — spot these phrasings, invoke these SAs</h3>
+<ol>
+  <li>"Auditor in Delhi never visited the Surat office; generic checklist; no business understanding documented; sample size deferred to execution" → <strong>SA 300</strong> — failure to plan effectively, document the strategy/plan, and fix <span class="keyword">extent</span> (incl. sample size) at planning stage.</li>
+  <li>"Mid-audit IC weakness surfaces; materiality to be lowered" → <strong>SA 300</strong> — modify <span class="keyword">strategy first, then plan</span>; document change &amp; reason; link to <span class="clause">SA 320</span> reassessment and <span class="clause">SA 450</span> aggregate impact.</li>
+  <li>"Principal auditor of a group: a large subsidiary's auditor issues a modified report on revenue recognition; principal auditor disagrees and refuses to modify his report" → <strong>SA 600</strong> — principal auditor must <em>consider</em> whether subject of modification requires modification of his own report; if work of other auditor cannot be used and no additional procedures possible → <span class="keyword">qualified / disclaimer</span>; report must state <span class="keyword">division of responsibility</span>.</li>
+  <li>"Listed co. has a well-functioning IA department; IA has valued closing inventory but missed obsolescence of long-held niche stock; engagement partner plans to rely" → <strong>SA 610</strong> — higher judgment + higher RoMM → plan <em>less</em> reliance, perform more direct procedures; even so, sole responsibility is undiminished; communicate planned use to TCWG via SA 260.</li>
+  <li>"Actuary engaged for gratuity valuation is the CFO's cousin; no written engagement terms; auditor plans to rely on the valuation in an unmodified opinion and cite the actuary in the report" → <strong>SA 620</strong> — significant <span class="keyword">objectivity threat</span> (external-expert relationship); no <span class="keyword">written agreement</span> on nature/scope/roles/communications/confidentiality; <span class="keyword">no reference</span> to expert in an unmodified report unless required by law (with caveat).</li>
+</ol>
+</div>
+
+<script>mermaid.initialize({startOnLoad:true, theme:'neutral'});</script>
+</body>
+</html>

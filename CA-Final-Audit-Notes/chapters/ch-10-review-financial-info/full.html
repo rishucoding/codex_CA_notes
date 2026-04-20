@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ch 10 — Review of Financial Information · CA Final Audit</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<style>
+:root {
+  --bg: #faf8f3;
+  --ink: #1a1a1a;
+  --muted: #5b5b5b;
+  --accent: #0a4a8f;
+  --keyword-bg: #fff3d4;
+  --exception-bg: #ffe4e4;
+  --exception-border: #c33;
+  --clause-bg: #e8f2ff;
+  --table-stripe: #f5f2ea;
+  --rule: #d8d3c4;
+  --quote-bar: #0a4a8f;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Georgia, serif;
+  background: var(--bg); color: var(--ink);
+  max-width: 820px; margin: 2rem auto; padding: 0 1.25rem;
+  line-height: 1.55; font-size: 16px;
+}
+h1 { font-size: 1.9rem; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 0.4rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin-top: 2rem; border-left: 4px solid var(--accent); padding-left: 0.6rem; }
+h3 { font-size: 1.15rem; color: var(--ink); margin-top: 1.5rem; }
+h4 { font-size: 1rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1.2rem; margin-bottom: 0.3rem; }
+.meta { color: var(--muted); font-style: italic; font-size: 0.9rem; margin-top: -0.5rem; }
+.keyword { background: var(--keyword-bg); padding: 0 0.2em; border-radius: 2px; font-weight: 600; }
+.exception {
+  background: var(--exception-bg);
+  border-left: 4px solid var(--exception-border);
+  padding: 0.5rem 0.8rem; margin: 0.5rem 0; border-radius: 3px;
+}
+.exception::before { content: "⚠ "; font-weight: bold; color: var(--exception-border); }
+.clause {
+  background: var(--clause-bg); padding: 0.1rem 0.4rem;
+  border-radius: 3px; font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+}
+blockquote.icai {
+  border-left: 4px solid var(--quote-bar);
+  background: #fff; margin: 0.8rem 0; padding: 0.6rem 1rem;
+  font-style: italic; color: #333;
+}
+blockquote.icai::before { content: "ICAI verbatim · "; font-style: normal; font-weight: 600; color: var(--accent); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.95rem; }
+th, td { padding: 0.5rem 0.7rem; text-align: left; border: 1px solid var(--rule); vertical-align: top; }
+th { background: var(--accent); color: #fff; font-weight: 600; }
+tr:nth-child(even) td { background: var(--table-stripe); }
+.sa-card {
+  border: 1px solid var(--rule); border-radius: 6px;
+  padding: 1rem 1.2rem; margin: 1.5rem 0; background: #fff;
+}
+.sa-card h3 { margin-top: 0; color: var(--accent); }
+.triggers {
+  background: #fff; border: 1px dashed var(--accent);
+  padding: 1rem; border-radius: 6px; margin: 1.5rem 0;
+}
+.triggers h3 { margin-top: 0; color: var(--accent); }
+.triggers ol { margin: 0; padding-left: 1.2rem; }
+.triggers li { margin: 0.4rem 0; }
+.mermaid { background: #fff; padding: 1rem; border-radius: 6px; margin: 1rem 0; text-align: center; }
+svg.diagram { max-width: 100%; height: auto; display: block; margin: 1rem auto; background: #fff; border-radius: 6px; padding: 0.5rem; }
+ul, ol { padding-left: 1.3rem; }
+li { margin: 0.2rem 0; }
+.chip { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-right: 0.3rem; }
+.chip-sa { background: var(--accent); color: #fff; }
+.chip-marks { background: #2a7c3a; color: #fff; }
+.nav { margin: 1rem 0; font-size: 0.9rem; }
+.nav a { color: var(--accent); text-decoration: none; margin-right: 1rem; }
+.nav a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="nav">← <a href="../../index.html">All chapters</a> · <a href="onepager.html">One-pager</a></div>
+<h1>Chapter 10 — Review of Financial Information</h1>
+<p class="meta">ICAI SM Final P3 May 2026 · <span class="chip chip-marks">~6–8 marks</span> Covers SRE 2400 · SRE 2410</p>
+
+<h2>Chapter map</h2>
+<p>A <span class="keyword">review</span> is a <span class="keyword">limited assurance</span> engagement — lower than audit. The practitioner performs <span class="keyword">inquiry and analytical procedures</span> (no tests of controls, no substantive tests as default), gathers sufficient appropriate evidence for a <em>limited</em> conclusion, and reports in <span class="keyword">negative wording</span>: "<em>nothing has come to our attention</em>". Expect around 6–8 marks combined on this chapter, where the MCQ-plus-descriptive pattern tests both the SRE 2400 vs SRE 2410 distinction and the exact negative-form conclusion language.</p>
+<p>Two SREs: <span class="clause">SRE 2400</span> — historical FS review by a practitioner who is <strong>not</strong> the entity's auditor; <span class="clause">SRE 2410</span> — interim FI review by the <strong>entity's own independent auditor</strong> (think SEBI LODR Reg 33 quarterly review). SQC 1 applies.</p>
+
+<h2>Assurance spectrum — where review sits</h2>
+<svg class="diagram" viewBox="0 0 780 220" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="spec" x1="0" x2="1">
+      <stop offset="0%" stop-color="#c33"/>
+      <stop offset="50%" stop-color="#e8a13a"/>
+      <stop offset="100%" stop-color="#2a7c3a"/>
+    </linearGradient>
+  </defs>
+  <rect x="30" y="70" width="720" height="30" rx="4" fill="url(#spec)" opacity="0.25" stroke="#0a4a8f"/>
+  <text x="60" y="55" font-size="12" font-weight="700" fill="#c33">NO ASSURANCE</text>
+  <text x="335" y="55" font-size="12" font-weight="700" fill="#a06010">LIMITED ASSURANCE</text>
+  <text x="620" y="55" font-size="12" font-weight="700" fill="#2a7c3a">REASONABLE ASSURANCE</text>
+  <!-- markers -->
+  <circle cx="90" cy="85" r="7" fill="#c33"/>
+  <text x="90" y="125" text-anchor="middle" font-size="11" fill="#333">Compilation /</text>
+  <text x="90" y="138" text-anchor="middle" font-size="11" fill="#333">Agreed procedures</text>
+  <text x="90" y="152" text-anchor="middle" font-size="10" fill="#5b5b5b">(SRS 4400, 4410)</text>
+
+  <circle cx="390" cy="85" r="9" fill="#e8a13a" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="390" y="125" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">REVIEW</text>
+  <text x="390" y="140" text-anchor="middle" font-size="11" fill="#333">SRE 2400 / 2410</text>
+  <text x="390" y="154" text-anchor="middle" font-size="10" fill="#5b5b5b">Inquiry + Analytical</text>
+  <text x="390" y="168" text-anchor="middle" font-size="10" fill="#5b5b5b">"nothing has come to our attention"</text>
+
+  <circle cx="690" cy="85" r="7" fill="#2a7c3a"/>
+  <text x="690" y="125" text-anchor="middle" font-size="11" fill="#333">Audit</text>
+  <text x="690" y="138" text-anchor="middle" font-size="11" fill="#333">(SAs · SAAE)</text>
+  <text x="690" y="152" text-anchor="middle" font-size="10" fill="#5b5b5b">Positive opinion</text>
+
+  <!-- bottom label -->
+  <text x="390" y="200" text-anchor="middle" font-size="11" font-style="italic" fill="#5b5b5b">Engagement risk: high ← → low · Procedures: few ← → many · Wording: negative ← → positive</text>
+</svg>
+
+<h2>Audit vs SRE 2400 vs SRE 2410 — the comparison that is examined</h2>
+<table>
+<thead><tr><th>Dimension</th><th>Audit (SAs)</th><th>SRE 2400</th><th>SRE 2410</th></tr></thead>
+<tbody>
+<tr><td>Who performs</td><td>Entity's statutory auditor</td><td>Practitioner who is <strong>NOT</strong> the entity's auditor</td><td>The entity's <strong>own independent auditor</strong></td></tr>
+<tr><td>Subject matter</td><td>Historical FS</td><td>Historical FS (general / special purpose)</td><td><span class="keyword">Interim</span> FI — complete or condensed, shorter than a year</td></tr>
+<tr><td>Level of assurance</td><td><span class="keyword">Reasonable</span> (high, not absolute)</td><td><span class="keyword">Limited</span></td><td><span class="keyword">Limited</span> (moderate risk of inappropriate conclusion)</td></tr>
+<tr><td>Procedures</td><td>Risk assessment + tests of controls + substantive (incl. inspection, observation, confirmation)</td><td>Primarily <span class="keyword">inquiry + analytical</span>; additional procedures if misstatement suspected</td><td>Primarily <span class="keyword">inquiry + analytical + other review</span>; ordinarily no tests of accounting records</td></tr>
+<tr><td>Evidence</td><td>Sufficient appropriate — corroborated</td><td>Sufficient appropriate for a limited conclusion</td><td>Sufficient for limited conclusion; inquiries primarily of persons responsible for finance &amp; accounting</td></tr>
+<tr><td>Report output</td><td><span class="keyword">Opinion</span> — positively worded</td><td><span class="keyword">Conclusion</span> — negatively worded</td><td><span class="keyword">Conclusion</span> — negatively worded</td></tr>
+<tr><td>Going concern — disclosed uncertainty</td><td>Separate "Material Uncertainty" section</td><td>Inquire; evaluate; add EOM or modify</td><td>Add <span class="keyword">Emphasis of Matter</span> paragraph</td></tr>
+<tr><td>Litigation / lawyer letter</td><td>Sent routinely (SA 501)</td><td>Not ordinarily; inquiry based</td><td>Not ordinarily required</td></tr>
+<tr><td>Subsequent events</td><td>Full SA 560 procedures</td><td>Inquire; request correction if FS need amendment</td><td>Inquire up to report date; no procedures after report date</td></tr>
+</tbody>
+</table>
+
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SRE 2400</span> Engagements to Review Historical Financial Statements</h3>
+  <p><strong>Scope:</strong> Practitioner's responsibilities when engaged to review historical FS and the practitioner is <strong>not the auditor</strong> of the entity's FS. Also covers form and content of the review report. FS may be under general- or special-purpose framework.</p>
+
+  <h4>Objective</h4>
+  <blockquote class="icai">"(a) Obtain limited assurance, primarily by making an inquiry and performing analytical procedures, about whether the financial statements as a whole are free from material misstatement, thereby enabling the practitioner to express a conclusion on whether anything has come to his attention that causes him to believe the financial statements are not prepared, in all material respects, in accordance with an applicable financial reporting framework; (b) Report on the financial statements as a whole and communicate, as required by this SRE."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Review</span> — a limited assurance engagement; engagement risk reduced to acceptable, but greater than reasonable assurance</li>
+    <li><span class="keyword">Limited assurance</span> — meaningful level; procedures at least sufficient to enhance intended users' confidence</li>
+    <li><span class="keyword">Practitioner</span> — professional accountant in practice performing the review; here, <em>not</em> the entity's auditor</li>
+  </ul>
+
+  <h4>Pre-acceptance — Preconditions</h4>
+  <ul>
+    <li><span class="keyword">Acceptable FRF</span> applied in preparation of FS (understand purpose &amp; users for special-purpose FS)</li>
+    <li>Management <span class="keyword">acknowledges responsibility</span> — for FS preparation &amp; for internal control</li>
+    <li>Management to provide <span class="keyword">access</span> to all relevant info, additional info on request, and unrestricted access to persons within the entity</li>
+    <li>Rational purpose exists; ethical requirements incl. independence will be met; information available &amp; reliable; management integrity not in doubt; no crippling scope limitation</li>
+  </ul>
+
+  <h4>Key Requirements — performance</h4>
+  <ul>
+    <li><span class="keyword">Materiality</span> for FS as a whole — same concept as in audit, independent of assurance level; revise if new info emerges</li>
+    <li>Obtain <span class="keyword">understanding of entity &amp; FRF</span> to identify where material misstatements likely</li>
+    <li>Design &amp; perform <span class="keyword">inquiry + analytical procedures</span> — address all material items and focus on risk areas</li>
+    <li>Procedures for <span class="keyword">specific circumstances</span>: related parties, fraud / NOCLAR, going concern, use of others' work, group FS</li>
+    <li>If matters suggest possible material misstatement → <span class="keyword">additional procedures</span> (deeper inquiry / analytics, or substantive tests of detail / external confirmations)</li>
+    <li>Obtain <span class="keyword">written representations</span> from management — responsibilities fulfilled, all transactions recorded, related parties, fraud, NOCLAR, going concern, subsequent events, commitments, non-monetary transactions</li>
+  </ul>
+
+  <h4>Exceptions / Conditions</h4>
+  <div class="exception">Do <strong>not</strong> accept if: no rational purpose (e.g. law requires audit, not review); ethical/independence requirements will not be met; information unavailable/unreliable; doubts on management integrity; management imposes scope limitation likely to result in disclaimer.</div>
+  <div class="exception">If preconditions not met but engagement proceeds under law/regulation → do <strong>not</strong> reference "conducted in accordance with SRE 2400" in the report.</div>
+  <div class="exception">If management does not provide the mandatory written representations (responsibility for FS &amp; that all transactions recorded) or integrity doubt arises → <span class="keyword">disclaim conclusion</span> or withdraw.</div>
+
+  <h4>Subsequent events</h4>
+  <ul>
+    <li>Events between FS date &amp; report date requiring adjustment/disclosure → request management to correct</li>
+    <li>After report date, before FS issued: if fact would have changed report → discuss, determine whether amendment needed, inquire management's course</li>
+    <li>If management refuses after report issued → notify management &amp; TCWG not to issue; if issued anyway, take steps to prevent reliance</li>
+  </ul>
+
+  <h4>Conclusion / Reporting — negative wording (ICAI verbatim)</h4>
+  <blockquote class="icai">"Based on our review, nothing has come to our attention that causes us to believe that the financial statements do not give a true and fair view (or do not present fairly, in all material respects), in accordance with the applicable financial reporting framework" (fair presentation framework); or "…that the financial statements are not prepared, in all material respects, in accordance with the applicable financial reporting framework" (compliance framework).</blockquote>
+  <p>Modifications: use heading <span class="keyword">"Qualified Conclusion"</span>, <span class="keyword">"Adverse Conclusion"</span> or <span class="keyword">"Disclaimer of Conclusion"</span>; precede with a "Basis for …" paragraph that <em>describes &amp; quantifies</em> the effect (or states impracticability). Material + not pervasive → qualified; material + pervasive → adverse (misstatement) or disclaimer (cannot obtain evidence).</p>
+
+  <h4>Report — mandatory elements (short list)</h4>
+  <ul>
+    <li>Title identifying "independent practitioner" + review engagement; addressee; intro para identifying FS &amp; period</li>
+    <li>Management's responsibility; practitioner's responsibility referencing SRE 2400</li>
+    <li>Description of review &amp; its limitations — "limited assurance engagement", "inquiries + analytical", "substantially less than an audit under SAs", "no audit opinion expressed"</li>
+    <li>"Conclusion" heading with conclusion + reference to FRF; EOM / OM paragraphs as appropriate; date (not earlier than SAAE); signature; place</li>
+  </ul>
+
+  <h4>Documentation</h4>
+  <p>Sufficient for an <span class="keyword">experienced practitioner</span> with no prior connection to understand N/T/E of procedures, results &amp; conclusions, significant matters &amp; judgments, who-did-what-when, and how any inconsistent information was addressed.</p>
+</section>
+
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SRE 2410</span> Review of Interim Financial Information Performed by the Independent Auditor of the Entity</h3>
+  <p><strong>Scope:</strong> Auditor's professional responsibilities when the <strong>independent auditor of the entity</strong> is engaged to review <span class="keyword">interim financial information</span> of that audit client, plus form &amp; content of the review report. Key use-case in India: SEBI LODR quarterly review of listed companies.</p>
+
+  <h4>Objective</h4>
+  <blockquote class="icai">"The objective of an engagement to review interim financial information is to enable the auditor to express a conclusion whether, on the basis of the review, anything has come to the auditor's attention that causes the auditor to believe that the interim financial information is not prepared, in all material respects, in accordance with an applicable financial reporting framework."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Interim financial information</span> — FI prepared &amp; presented per applicable FRF; complete or <span class="keyword">condensed</span> set of FS for a period <strong>shorter than the entity's financial year</strong> (e.g. a quarter)</li>
+    <li>Risk is reduced to a <span class="keyword">moderate level</span> (not low as in audit) of expressing an inappropriate conclusion</li>
+  </ul>
+
+  <h4>Key Requirements — performance</h4>
+  <ul>
+    <li><span class="keyword">Agree terms</span> in engagement letter — scope, management &amp; auditor responsibilities, assurance level, report form</li>
+    <li><span class="keyword">Update understanding</span> of entity &amp; IC relating to <em>both</em> annual and interim FI — read prior audit &amp; interim docs, consider significant risks (incl. management override), materiality, prior misstatements, internal audit results, management's fraud risk assessment, changes in business / IC</li>
+    <li>Perform <span class="keyword">inquiry + analytical + other review</span> procedures — read minutes; inquire re changes in accounting policies, new transactions, uncorrected misstatements, unusual/complex situations, fair-value assumptions, related parties, commitments, contingencies, debt covenants, transactions near period-end, fraud/suspected fraud, NOCLAR; apply analytics to interim FI; read interim FI</li>
+    <li>Reconcile interim FI to <span class="keyword">accounting records</span> (general ledger / consolidating schedule) and other supporting data</li>
+    <li>Inquire re <span class="keyword">subsequent events</span> up to report date (no obligation post report-date)</li>
+    <li>Inquire re <span class="keyword">going concern</span> assessment; if doubt arises, inquire about plans, their feasibility, and adequacy of disclosure</li>
+    <li>Obtain <span class="keyword">written representations</span> — responsibility for IC to prevent/detect fraud-error; FI per FRF; uncorrected misstatements immaterial; disclosure of fraud, fraud-risk assessment, NOCLAR, subsequent events</li>
+  </ul>
+
+  <h4>Exceptions / Conditions</h4>
+  <div class="exception">A review is <strong>not</strong> designed to obtain reasonable assurance. Ordinarily <strong>no</strong> tests of records by inspection, observation or confirmation. A lawyer inquiry letter is ordinarily <strong>not</strong> needed — but send one if something material surfaces and the lawyer would have pertinent info.</div>
+  <div class="exception">Do <strong>not accept</strong> the engagement if preliminary knowledge indicates management will impose a scope limitation preventing completion of the review.</div>
+  <div class="exception">If management does <strong>not</strong> respond appropriately to a required material adjustment → inform TCWG. If TCWG also do not respond → consider modifying the report, withdrawing from the engagement, and possibility of <span class="keyword">resigning from the annual audit</span> appointment.</div>
+
+  <h4>Evaluation of misstatements &amp; accompanying information</h4>
+  <ul>
+    <li>Evaluate uncorrected misstatements — individually &amp; in aggregate — against interim FI materiality</li>
+    <li>Read <span class="keyword">accompanying information</span> for material inconsistency with interim FI; if inconsistency or misstatement of fact, discuss with management; if refused, consider additional paragraph, withholding report, or withdrawing</li>
+  </ul>
+
+  <h4>Conclusion / Reporting</h4>
+  <ul>
+    <li><strong>Unmodified:</strong> "<em>nothing has come to our attention</em> that causes us to believe that the interim financial information does not give a true and fair view / is not prepared, in all material respects, in accordance with the applicable FRF"</li>
+    <li><strong>Qualified / Adverse:</strong> when material adjustment needed and management does not correct — qualified (material); adverse (material &amp; pervasive, qualified not adequate)</li>
+    <li><strong>Disclaimer:</strong> limitation on scope preventing completion; if report required by law/regulation, disclaim and state reasons</li>
+    <li><strong>EOM paragraph</strong>: material uncertainty on going concern where adequately disclosed; if <strong>not</strong> disclosed → qualified or adverse with specific reference to uncertainty</li>
+    <li>Report states: conducted under <span class="clause">SRE 2410</span>; inquiries + analytical + other review; <span class="keyword">"substantially less in scope than an audit conducted in accordance with SAs"</span>; no audit opinion expressed</li>
+    <li>Include auditor's <span class="keyword">membership number</span>, firm's <span class="keyword">registration number</span>, and <span class="keyword">UDIN</span> (mandatory for both SRE 2400 &amp; 2410)</li>
+  </ul>
+
+  <h4>Other considerations</h4>
+  <p>If management issues interim FI without the auditor's (especially modified) review report, consider legal advice and possibility of resigning from the annual audit. Condensed interim FI presumes users have access to latest audited FS — discuss with management the need to state that interim FI "to be read in conjunction with" the latest audited FS.</p>
+
+  <h4>Documentation</h4>
+  <p>Sufficient &amp; appropriate to (i) provide basis for the conclusion and (ii) evidence that the review was performed per SRE 2410 and legal / regulatory requirements.</p>
+</section>
+
+<h2>Procedure flow inside a review (common to 2400 &amp; 2410)</h2>
+<p><strong>Accept</strong> → <strong>determine materiality</strong> → <strong>understand entity &amp; FRF</strong> → <strong>inquiry + analytical</strong> → <strong>specific-circumstance procedures</strong> (related parties, fraud/NOCLAR, going concern) → if something flags risk of misstatement → <strong>additional procedures</strong> → <strong>written reps</strong> → <strong>evaluate evidence</strong> → <strong>conclude</strong> (unmodified / qualified / adverse / disclaim) → <strong>report</strong>.</p>
+
+<h2>Modification decision — when &amp; how</h2>
+<table>
+<thead><tr><th>Situation</th><th>Conclusion heading</th><th>Wording hook</th></tr></thead>
+<tbody>
+<tr><td>FS materially misstated — material but not pervasive</td><td>Qualified Conclusion</td><td>"<em>except for</em> the effects of the matter(s)… <em>nothing has come to our attention</em>…"</td></tr>
+<tr><td>FS materially misstated — material &amp; pervasive</td><td>Adverse Conclusion</td><td>"…<em>due to the significance of</em> the matter(s)… FS do not give a true &amp; fair view / are not prepared…"</td></tr>
+<tr><td>Unable to obtain SAAE — material not pervasive</td><td>Qualified Conclusion</td><td>"<em>except for the possible effects</em>… nothing has come to our attention…"</td></tr>
+<tr><td>Unable to obtain SAAE — material &amp; pervasive</td><td>Disclaimer of Conclusion</td><td>"…unable to obtain sufficient appropriate evidence… accordingly, we do not express a conclusion"</td></tr>
+<tr><td>Going concern uncertainty — adequately disclosed</td><td>Unmodified + EOM</td><td>EOM referencing the disclosure note</td></tr>
+<tr><td>Going concern uncertainty — not disclosed</td><td>Qualified / Adverse</td><td>Specific reference to the material uncertainty</td></tr>
+</tbody>
+</table>
+
+<h2>Reporting elements — at a glance</h2>
+<table>
+<thead><tr><th>Element</th><th>SRE 2400 report</th><th>SRE 2410 report</th></tr></thead>
+<tbody>
+<tr><td>Title</td><td>"Independent Practitioner's Review Report"</td><td>"Independent Auditor's Review Report"</td></tr>
+<tr><td>Description of review</td><td>Limited assurance · inquiries + analytical · substantially less than audit · no audit opinion</td><td>Inquiries (primarily finance &amp; accounting personnel) + analytical + other review · substantially less in scope than an audit under SAs · no audit opinion</td></tr>
+<tr><td>Conclusion heading</td><td>"Conclusion"</td><td>Conclusion (para 4 of SEBI-format report)</td></tr>
+<tr><td>Negative wording</td><td>"nothing has come to our attention…"</td><td>"nothing has come to our attention…"</td></tr>
+<tr><td>Date</td><td>Not earlier than SAAE; FS prepared; responsible authority has taken responsibility</td><td>Date of report; no procedures thereafter</td></tr>
+<tr><td>Sign-off extras</td><td>Signature + place</td><td>Signature + membership no. + FRN + <span class="keyword">UDIN</span> + place</td></tr>
+</tbody>
+</table>
+
+<h2>Why inquiry &amp; analytical procedures are central</h2>
+<p><strong>Inquiry</strong> is the principal source of evidence about <span class="keyword">management intent</span>. Because corroborating evidence for intent is often limited, the practitioner leans on management's past history of carrying out stated intentions, the reasons for a chosen course of action, and the ability to pursue it. <span class="keyword">Professional skepticism</span> in evaluating management's responses is essential to flag anything suggesting material misstatement.</p>
+<p><strong>Analytical procedures</strong> assist the practitioner in updating entity understanding, identifying inconsistencies / variances from expected trends or KPIs, providing corroborative evidence, and serving as additional procedures when misstatement is suspected. Methods range from simple comparisons to complex statistical techniques — e.g. comparative analysis of monthly revenue &amp; cost across profit centres / branches / components.</p>
+
+<h2>Materiality in a review — the trap</h2>
+<p>Materiality for FS as a whole is determined and applied the <strong>same way</strong> as in an audit — the concept does not change with the assurance level. The practitioner uses it to <em>design</em> procedures and to <em>evaluate</em> results. If new information during the review would have led to a different initial amount, materiality is <span class="keyword">revised</span>. Students often wrongly state that "review materiality is higher" — it is not; the procedures are fewer, not the yardstick.</p>
+
+<h2>Key takeaways (PDF §Key Takeaways)</h2>
+<ul>
+  <li>Review = limited assurance = fewer procedures, lower level than audit, <span class="keyword">negatively worded</span> conclusion</li>
+  <li>SQC 1 applies; engagement partner is responsible for quality of each review engagement</li>
+  <li><span class="clause">SRE 2400</span> — practitioner <em>not</em> the entity's auditor; <span class="clause">SRE 2410</span> — entity's <em>own</em> auditor; procedures similar in spirit, but 2410 leans on the auditor's pre-existing understanding of the entity</li>
+  <li>Inquiry is principal source of evidence about management intent; analytical procedures identify inconsistencies &amp; corroborate inquiries</li>
+  <li>Additional procedures kick in the moment the practitioner suspects material misstatement — can include <span class="keyword">substantive test of details / external confirmations</span></li>
+  <li>UDIN is mandatory for engagements under both SRE 2400 and SRE 2410</li>
+  <li>SEBI (LODR) Reg 33 mandates quarterly review of listed-company financial results by the statutory auditor — the canonical SRE 2410 use-case in India</li>
+</ul>
+
+<div class="triggers">
+<h3>5 Exam Triggers — spot these phrasings, invoke these SREs</h3>
+<ol>
+  <li>"Roma Ltd's contract with Dorma Ltd requires <strong>quarterly review</strong> of Roma's FS per the contract's financial reporting provisions; Roma is <strong>not</strong> audited by that practitioner" → <strong>SRE 2400</strong> — review of special-purpose historical FS by a practitioner who is not the entity's auditor; issue review report with limited-assurance / negative-wording conclusion.</li>
+  <li>"CA Aditya is <strong>statutory auditor</strong> of a listed company and is asked to perform the <strong>SEBI LODR quarterly review</strong> of its financial results" → <strong>SRE 2410</strong> — update understanding using prior audit work; inquiries + analytical + other review procedures; report with "nothing has come to our attention" conclusion; include UDIN.</li>
+  <li>"During review of Q2 results, analysis shows material past-due receivables with no allowance; management response unclear — practitioner cannot yet conclude whether FS are misstated or not" → <strong>SRE 2400 / 2410</strong> <span class="keyword">additional procedures</span> (deeper inquiry/analytics, substantive test of details, external confirmations); if still cannot conclude → <span class="keyword">scope limitation</span> → qualified / disclaimer.</li>
+  <li>"Quarterly review: major fire, machinery &amp; inventory uninsured, massive disruption; matter <strong>adequately disclosed</strong> as a going-concern uncertainty in the interim FI" → <strong>SRE 2410</strong> — add <span class="keyword">Emphasis of Matter</span> paragraph; if <em>not</em> adequately disclosed → qualified or adverse conclusion with specific reference to the material uncertainty.</li>
+  <li>"CA Seerat (auditor + reviewer) believes a material adjustment to quarterly FI is needed; communicated to CFO &amp; Audit Committee; <strong>no response</strong> within reasonable time" → <strong>SRE 2410</strong> options: (a) modify the review report, (b) withdraw from the review engagement, (c) consider <span class="keyword">resigning from the appointment to audit the annual FS</span>.</li>
+</ol>
+</div>
+
+<script>mermaid.initialize({startOnLoad:true, theme:'neutral'});</script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ch 7a — CARO 2020 · CA Final Audit</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<style>
+:root {
+  --bg: #faf8f3;
+  --ink: #1a1a1a;
+  --muted: #5b5b5b;
+  --accent: #0a4a8f;
+  --keyword-bg: #fff3d4;
+  --exception-bg: #ffe4e4;
+  --exception-border: #c33;
+  --clause-bg: #e8f2ff;
+  --table-stripe: #f5f2ea;
+  --rule: #d8d3c4;
+  --quote-bar: #0a4a8f;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Georgia, serif;
+  background: var(--bg); color: var(--ink);
+  max-width: 820px; margin: 2rem auto; padding: 0 1.25rem;
+  line-height: 1.55; font-size: 16px;
+}
+h1 { font-size: 1.9rem; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 0.4rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin-top: 2rem; border-left: 4px solid var(--accent); padding-left: 0.6rem; }
+h3 { font-size: 1.15rem; color: var(--ink); margin-top: 1.5rem; }
+h4 { font-size: 1rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1.2rem; margin-bottom: 0.3rem; }
+.meta { color: var(--muted); font-style: italic; font-size: 0.9rem; margin-top: -0.5rem; }
+.keyword { background: var(--keyword-bg); padding: 0 0.2em; border-radius: 2px; font-weight: 600; }
+.exception {
+  background: var(--exception-bg);
+  border-left: 4px solid var(--exception-border);
+  padding: 0.5rem 0.8rem; margin: 0.5rem 0; border-radius: 3px;
+}
+.exception::before { content: "⚠ "; font-weight: bold; color: var(--exception-border); }
+.clause {
+  background: var(--clause-bg); padding: 0.1rem 0.4rem;
+  border-radius: 3px; font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+}
+blockquote.icai {
+  border-left: 4px solid var(--quote-bar);
+  background: #fff; margin: 0.8rem 0; padding: 0.6rem 1rem;
+  font-style: italic; color: #333;
+}
+blockquote.icai::before { content: "ICAI verbatim · "; font-style: normal; font-weight: 600; color: var(--accent); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.95rem; }
+th, td { padding: 0.5rem 0.7rem; text-align: left; border: 1px solid var(--rule); vertical-align: top; }
+th { background: var(--accent); color: #fff; font-weight: 600; }
+tr:nth-child(even) td { background: var(--table-stripe); }
+.sa-card {
+  border: 1px solid var(--rule); border-radius: 6px;
+  padding: 1rem 1.2rem; margin: 1.5rem 0; background: #fff;
+}
+.sa-card h3 { margin-top: 0; color: var(--accent); }
+.triggers {
+  background: #fff; border: 1px dashed var(--accent);
+  padding: 1rem; border-radius: 6px; margin: 1.5rem 0;
+}
+.triggers h3 { margin-top: 0; color: var(--accent); }
+.triggers ol { margin: 0; padding-left: 1.2rem; }
+.triggers li { margin: 0.4rem 0; }
+.mermaid { background: #fff; padding: 1rem; border-radius: 6px; margin: 1rem 0; text-align: center; }
+svg.diagram { max-width: 100%; height: auto; display: block; margin: 1rem auto; background: #fff; border-radius: 6px; padding: 0.5rem; }
+ul, ol { padding-left: 1.3rem; }
+li { margin: 0.2rem 0; }
+.chip { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-right: 0.3rem; }
+.chip-sa { background: var(--accent); color: #fff; }
+.chip-marks { background: #2a7c3a; color: #fff; }
+.nav { margin: 1rem 0; font-size: 0.9rem; }
+.nav a { color: var(--accent); text-decoration: none; margin-right: 1rem; }
+.nav a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="nav">← <a href="../../index.html">All chapters</a> · <a href="onepager.html">One-pager</a></div>
+<h1>Chapter 7a — CARO 2020 (Companies (Auditor's Report) Order)</h1>
+<p class="meta">ICAI SM Final P3 May 2026 · <span class="chip chip-marks">~6–10 marks</span> · 21 clauses under <span class="clause">s.143(11)</span> of Companies Act, 2013</p>
+
+<h2>Chapter map</h2>
+<p>CARO 2020 is an <span class="keyword">additional reporting requirement</span> attached to every statutory audit of companies to which the Order applies. It is <em>not</em> an SA — it is a Central Government Order issued under <span class="clause">s.143(11)</span>, Companies Act, 2013, dated <span class="keyword">25 Feb 2020</span>, after consultation with NFRA (<span class="clause">s.132</span>). The output of CARO is a <span class="keyword">separate statement</span> annexed to the main audit report under the head <em>"Report on Other Legal and Regulatory Requirements"</em>.</p>
+<p>The Order has 21 clauses in <span class="clause">Para 3</span> plus a reason-to-state requirement in <span class="clause">Para 4</span> for every unfavourable/qualified answer. The student's job at Final: know which clauses apply to which fact pattern, the <span class="keyword">reporting keyword</span>, and the common trap — especially title deeds, related-party loans, statutory dues, default in repayment, cash losses, CSR unspent, and the CFS-only clause (xxi).</p>
+
+<h2>1. Source hook — s.143(11) and the Order</h2>
+<blockquote class="icai">"In exercise of the powers conferred by section 143(11) of the Companies Act, 2013, the Central Government, after consultation with the National Financial Reporting Authority constituted under section 132 of the Companies Act, 2013, has issued the Companies (Auditor's Report) Order, 2020, (CARO, 20) dated 25th February, 2020."</blockquote>
+<ul>
+  <li>Power source: <span class="clause">s.143(11)</span> — Central Govt may direct auditor's report to include additional matters</li>
+  <li>Consultation: <span class="keyword">NFRA</span> (<span class="clause">s.132</span>)</li>
+  <li>Structure: <span class="clause">Para 1</span> applicability · <span class="clause">Para 2</span> hook to s.143 · <span class="clause">Para 3</span> 21 clauses · <span class="clause">Para 4</span> reasons for unfavourable/qualified answers</li>
+</ul>
+
+<h2>2. Applicability — who is in, who is out</h2>
+<p>The Order applies to <span class="keyword">every company</span> including a <span class="keyword">foreign company</span> (<span class="clause">s.2(42)</span>) audited under <span class="clause">s.143</span>, <em>except</em> five exempted classes. Exemption is not a blanket company-size test — conditions matter (especially for private limited).</p>
+
+<svg class="diagram" viewBox="0 0 780 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CARO 2020 applicability decision tree">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L8,5 L0,10 z" fill="#0a4a8f"/>
+    </marker>
+  </defs>
+  <rect x="280" y="10" width="220" height="42" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="390" y="30" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">Is the entity a company</text>
+  <text x="390" y="46" text-anchor="middle" font-size="12" fill="#333">(incl. foreign co. u/s 2(42))?</text>
+
+  <polygon points="390,80 500,125 390,170 280,125" fill="#fff3d4" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="390" y="120" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">Falls in any</text>
+  <text x="390" y="136" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">exempt class?</text>
+
+  <path d="M390,52 L390,80" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+  <!-- No branch -> applies -->
+  <rect x="560" y="105" width="200" height="40" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="660" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">CARO 2020 applies</text>
+  <path d="M500,125 L560,125" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <text x="530" y="118" text-anchor="middle" font-size="11" fill="#5b5b5b">No</text>
+
+  <!-- Yes branch -> exempt -->
+  <rect x="20" y="105" width="200" height="40" rx="6" fill="#fff" stroke="#c33" stroke-width="2"/>
+  <text x="120" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#c33">Exempt — no CARO report</text>
+  <path d="M280,125 L220,125" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <text x="250" y="118" text-anchor="middle" font-size="11" fill="#5b5b5b">Yes</text>
+
+  <!-- Exempt classes -->
+  <rect x="10" y="175" width="220" height="175" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="120" y="195" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">5 Exempt classes</text>
+  <text x="20" y="215" font-size="11" fill="#333">(i) Banking co. (BR Act s.5(c))</text>
+  <text x="20" y="233" font-size="11" fill="#333">(ii) Insurance co. (Ins. Act 1938)</text>
+  <text x="20" y="251" font-size="11" fill="#333">(iii) Sec. 8 licensed co.</text>
+  <text x="20" y="269" font-size="11" fill="#333">(iv) OPC &amp; Small co.</text>
+  <text x="20" y="287" font-size="11" fill="#333">(v) Small Pvt Ltd meeting ALL</text>
+  <text x="30" y="303" font-size="10.5" fill="#333">· not subsidiary/holding of public</text>
+  <text x="30" y="318" font-size="10.5" fill="#333">· paid-up + R&amp;S ≤ ₹1 cr</text>
+  <text x="30" y="333" font-size="10.5" fill="#333">· borrowings ≤ ₹1 cr · revenue ≤ ₹10 cr</text>
+
+  <!-- CFS note -->
+  <rect x="280" y="200" width="480" height="120" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="1"/>
+  <text x="520" y="220" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">Standalone vs Consolidated FS</text>
+  <text x="290" y="243" font-size="11" fill="#333">· Standalone FS of applicable co. → full CARO (clauses i–xx)</text>
+  <text x="290" y="262" font-size="11" fill="#333">· Consolidated FS → Order does NOT apply EXCEPT</text>
+  <text x="290" y="281" font-size="11" fill="#333">  clause (xxi) — qualifications/adverse remarks in</text>
+  <text x="290" y="300" font-size="11" fill="#333">  component-company CARO reports included in CFS.</text>
+  <text x="290" y="316" font-size="11" font-style="italic" fill="#c33">  → Clause (xxi) is the ONE CFS-reporting clause.</text>
+</svg>
+
+<h3>Exempted classes — Para 1 of the Order</h3>
+<ol>
+  <li><span class="keyword">Banking company</span> as defined in <span class="clause">s.5(c) BR Act, 1949</span></li>
+  <li><span class="keyword">Insurance company</span> as defined in the Insurance Act, 1938</li>
+  <li>Company licensed to operate under <span class="clause">s.8</span> of the Companies Act</li>
+  <li><span class="keyword">One Person Company</span> (<span class="clause">s.2(62)</span>) and <span class="keyword">small company</span> (<span class="clause">s.2(85)</span>)</li>
+  <li>A <span class="keyword">private limited company</span>, not being a subsidiary or holding of a public company, satisfying <em>all</em> of: paid-up capital + reserves &amp; surplus ≤ ₹1 crore on BS date · total borrowings from any bank/FI at no point during the FY &gt; ₹1 crore · total revenue (incl. discontinuing) as per Sch III ≤ ₹10 crore during the FY</li>
+</ol>
+<div class="exception">Private Ltd test is <strong>cumulative</strong> — failing any one of the three limits (capital, borrowings, revenue) means CARO applies. And a private limited co. that is a <em>subsidiary or holding of a public company</em> is <strong>never</strong> eligible for this exemption.</div>
+
+<h2>3. Hook to the audit report — Para 2</h2>
+<blockquote class="icai">"Every report made by the auditor under section 143 of the Companies Act, 2013 on the accounts of every company audited by him, to which this Order applies, for the financial year, shall in addition, contain the matters specified in paragraphs 3 and 4, as may be applicable."</blockquote>
+<p>The CARO statement is therefore <em>attached to</em> the main s.143 report, typically under <span class="keyword">"Report on Other Legal and Regulatory Requirements"</span>.</p>
+<blockquote class="icai">"It may be noted that the Order shall not apply to the auditor's report on consolidated financial statements except clause (xxi) of paragraph 3."</blockquote>
+
+<h2>4. Para 3 — all 21 clauses at a glance</h2>
+<table>
+<thead><tr><th>Cl.</th><th>Heading</th><th>Reporting keyword / 1-line duty</th><th>⚠ Common trigger</th></tr></thead>
+<tbody>
+<tr><td>(i)</td><td>PPE &amp; Intangibles</td><td>Records · physical verification · <span class="keyword">title deeds</span> in company's name · revaluation by Reg. Valuer · benami proceedings</td><td>Title deed in promoter/director's name; revaluation ≥10% without valuer</td></tr>
+<tr><td>(ii)</td><td>Inventory</td><td>Physical verification at reasonable intervals · discrepancies <span class="keyword">≥10%</span> · WC limits &gt; <span class="keyword">₹5 cr</span> → quarterly returns vs books</td><td>Stock statements to bank disagree with books</td></tr>
+<tr><td>(iii)</td><td>Investments / loans / guarantees</td><td>Loans/advances/guarantees to <span class="keyword">related parties</span> — amounts, prejudice to interest, repayment schedule, overdue &gt; <span class="keyword">90 days</span>, evergreening, demand/no-term loans</td><td>Loan to promoter with no repayment schedule</td></tr>
+<tr><td>(iv)</td><td>Sections 185 &amp; 186 compliance</td><td>Loans/investments/guarantees/security — compliance with <span class="clause">s.185</span> (loans to directors) and <span class="clause">s.186</span> (inter-corporate)</td><td>Loan to director's firm without member approval</td></tr>
+<tr><td>(v)</td><td>Deposits &amp; deemed deposits</td><td>Compliance with RBI directives &amp; <span class="clause">s.73–76</span>; any CLB/NCLT/RBI/court order — complied?</td><td>Money accepted from shareholders beyond limit</td></tr>
+<tr><td>(vi)</td><td>Cost records</td><td>Whether <span class="keyword">cost records</span> specified u/s <span class="clause">148(1)</span> are made &amp; maintained</td><td>Manufacturing co. skipping cost records</td></tr>
+<tr><td>(vii)</td><td>Statutory dues</td><td>(a) Regularity of undisputed dues (GST, PF, ESI, IT, etc.) — arrears &gt; <span class="keyword">6 months</span>; (b) <span class="keyword">disputed dues</span> — amount &amp; forum (mere representation ≠ dispute)</td><td>TDS demand under appeal — report as disputed</td></tr>
+<tr><td>(viii)</td><td>Surrendered income / IT assessments</td><td>Any transactions <span class="keyword">not recorded in books</span> surrendered/disclosed as income in IT assessments — recorded now?</td><td>Undisclosed cash sales surfaced in IT survey</td></tr>
+<tr><td>(ix)</td><td>Default in repayment</td><td>(a) Default in loan/borrowing repayment — lender-wise, period, amount; (b) <span class="keyword">wilful defaulter</span>; (c) term loan diversion; (d) short-term used for long-term; (e) funds taken for subsidiary/associate's obligations; (f) loans on pledge of subsidiary securities</td><td>CC account overdrawn &gt; 30 days; LT capex funded from WC</td></tr>
+<tr><td>(x)</td><td>IPO/FPO &amp; preferential allotment</td><td>(a) IPO/FPO — money used for stated purpose; (b) preferential allotment / private placement — <span class="clause">s.42</span>, <span class="clause">s.62</span> compliance &amp; end-use</td><td>QIP proceeds diverted to general corporate</td></tr>
+<tr><td>(xi)</td><td>Fraud reporting</td><td>(a) Fraud by/on co. noticed; (b) auditor's <span class="clause">s.143(12)</span> Form ADT-4 filed; (c) consideration of <span class="keyword">whistle-blower</span> complaints</td><td>Fraud &gt; ₹1 cr reported to CG — ADT-4 trail</td></tr>
+<tr><td>(xii)</td><td>Nidhi Company</td><td>(a) NOF:Deposits <span class="keyword">1:20</span>; (b) <span class="keyword">10% unencumbered</span> term deposits; (c) default in interest/repayment</td><td>Nidhi with under-10% reserve</td></tr>
+<tr><td>(xiii)</td><td>Related party transactions</td><td>RPTs compliant with <span class="clause">s.177</span> (Audit Committee) &amp; <span class="clause">s.188</span>, and disclosed per Accounting Standards</td><td>Director's property swap without s.188 disclosure</td></tr>
+<tr><td>(xiv)</td><td>Internal audit</td><td>(a) IA system <span class="keyword">commensurate</span> with size/nature; (b) statutory auditor considered IA reports</td><td>IA outsourced but reports never reviewed</td></tr>
+<tr><td>(xv)</td><td>Non-cash transactions with directors</td><td>Compliance with <span class="clause">s.192</span> on <span class="keyword">non-cash</span> transactions with directors/connected persons</td><td>Asset swap with director — member approval?</td></tr>
+<tr><td>(xvi)</td><td>NBFC / Core Investment Company</td><td>(a) Registration u/s <span class="clause">45-IA RBI Act</span> obtained; (b) NBFI/Housing Fin without CoR; (c) <span class="keyword">CIC</span> criteria fulfilled; (d) group CIC count</td><td>Investment co. meeting CIC thresholds unregistered</td></tr>
+<tr><td>(xvii)</td><td>Cash losses</td><td>Whether co. incurred <span class="keyword">cash losses</span> in current &amp; immediately preceding FY — state amount</td><td>Loss before depreciation both years — quantify</td></tr>
+<tr><td>(xviii)</td><td>Resignation of auditors</td><td>Any <span class="keyword">resignation</span> of statutory auditors during year — whether incoming auditor considered issues/objections of outgoing</td><td>Predecessor raised concerns; successor silent</td></tr>
+<tr><td>(xix)</td><td>Financial position / going concern capability</td><td>Based on financial ratios, ageing, realisation/payment dates, other information &amp; Board/mgmt plans — whether <span class="keyword">no material uncertainty</span> that co. can meet liabilities due within 1 year of BS date</td><td>Going-concern doubt → SA 570 + clause (xix)</td></tr>
+<tr><td>(xx)</td><td>CSR — <span class="clause">s.135</span></td><td>(a) <span class="keyword">Other than ongoing</span> — unspent transferred to Sch VII Fund within 6 months; (b) <span class="keyword">Ongoing project</span> — unspent to Special Account u/s 135(6)</td><td>CSR unspent lying in general bank account</td></tr>
+<tr><td>(xxi)</td><td>CFS — component CARO remarks</td><td>Whether any qualifications/adverse remarks in respective auditors' CARO of component companies included in CFS — give details &amp; para numbers</td><td>Only clause of CARO applicable to CFS</td></tr>
+</tbody>
+</table>
+
+<h2>5. Para 4 — reasons for unfavourable / qualified answers</h2>
+<blockquote class="icai">"Where, in the auditor's report, the answer to any of the questions referred to in paragraph 3 is unfavourable or qualified, the auditor's report shall also state the basis for such unfavourable or qualified answer, as the case may be."</blockquote>
+<blockquote class="icai">"Where the auditor is unable to express any opinion on any specified matter, his report shall indicate such fact together with the reasons as to why it is not possible for him to give his opinion on the same."</blockquote>
+<div class="exception">CARO answers are not "Yes/No" — every unfavourable / qualified / unable-to-opine answer must carry the <span class="keyword">reason</span>. Bare adverse comments without basis = non-compliance with <span class="clause">Para 4</span>.</div>
+
+<h2>6. CARO vs CFS — the clause (xxi) rule</h2>
+<p>The Order's default is that CARO does <em>not</em> apply to the auditor's report on consolidated financial statements. The sole exception is <span class="clause">clause (xxi)</span>, which requires the <em>holding company's</em> auditor to report — in the CFS CARO — any qualifications or adverse remarks found in the respective CARO reports of the companies included in the CFS, and to list:</p>
+<ul>
+  <li>Names of the companies concerned</li>
+  <li>The paragraph number(s) of the relevant CARO report containing the qualification / adverse remark</li>
+</ul>
+<div class="exception">No need to <em>re-examine</em> the component's facts — pick up the component auditor's qualifications from their CARO reports. But if component CARO is unavailable, disclose that fact.</div>
+
+<h2>7. Clause drill-downs — exam favourites</h2>
+
+<section class="sa-card">
+  <h3>Clause (i) — PPE, intangibles, title deeds, revaluation, benami</h3>
+  <ul>
+    <li>(a) Records with quantitative details &amp; situation of PPE; records of <span class="keyword">intangible assets</span></li>
+    <li>(b) <span class="keyword">Physical verification</span> at reasonable intervals; material discrepancies dealt with in books</li>
+    <li>(c) <span class="keyword">Title deeds</span> of all immovable properties (other than where company is lessee with duly executed lease) in company's name; if not, disclose in prescribed <em>table</em> — description, gross carrying value, name held, whether promoter/director/relative/employee, period held, reason, dispute flag</li>
+    <li>(d) If PPE (incl. ROU) or intangibles <span class="keyword">revalued</span> — whether by <span class="keyword">Registered Valuer</span>; state amount of change where aggregate change ≥ 10% of each class</li>
+    <li>(e) <span class="keyword">Benami</span> proceedings initiated / pending — whether properly disclosed in FS</li>
+  </ul>
+  <div class="exception">Fact-pattern hint: director "exchanges" his land with company land twice the size → clause (i)(c) title-deed disclosure + clause (xiii) s.188 RPT + clause (xv) s.192 non-cash with director.</div>
+</section>
+
+<section class="sa-card">
+  <h3>Clause (iii) — Loans, investments, guarantees, security</h3>
+  <ul>
+    <li>(a) Loans / advances / guarantees / security to entities — aggregate &amp; outstanding split between <span class="keyword">subsidiaries, JVs, associates</span> vs <span class="keyword">others</span> [not applicable if principal business is lending]</li>
+    <li>(b) Terms <span class="keyword">not prejudicial</span> to company's interest</li>
+    <li>(c) Repayment schedule <span class="keyword">stipulated</span>; receipts regular</li>
+    <li>(d) Overdue &gt; <span class="keyword">90 days</span>; reasonable steps for recovery</li>
+    <li>(e) <span class="keyword">Evergreening</span> — loans renewed / extended / fresh loans to settle existing overdues to same parties; state aggregate &amp; % of total [lender-companies excluded]</li>
+    <li>(f) Loans repayable on <span class="keyword">demand</span> / without specifying any terms — aggregate &amp; % &amp; amount to <span class="keyword">promoters &amp; related parties</span> (<span class="clause">s.2(76)</span>)</li>
+  </ul>
+</section>
+
+<section class="sa-card">
+  <h3>Clause (vii) — Statutory dues</h3>
+  <ul>
+    <li>(a) <span class="keyword">Undisputed dues</span> — GST, PF, ESI, income-tax, sales-tax, service-tax, customs, excise, VAT, cess &amp; any other statutory dues; arrears outstanding &gt; <span class="keyword">6 months</span> from due date — state extent as on last day of FY</li>
+    <li>(b) <span class="keyword">Disputed dues</span> — amounts &amp; forum where dispute pending; <em>"a mere representation to the concerned Department shall not be treated as a dispute"</em></li>
+  </ul>
+  <div class="exception">A TDS demand of ₹25 lacs raised by DCIT(TDS), not paid, appeal filed under e-appeals with JCIT(Appeals) → <em>is</em> a dispute pending in a legitimate forum → report under clause (vii)(b) with amount &amp; forum.</div>
+</section>
+
+<section class="sa-card">
+  <h3>Clause (ix) — Default in repayment &amp; allied fund-use</h3>
+  <ul>
+    <li>(a) Default in repayment of loans / other borrowings / interest — report in prescribed format (nature, lender-wise for banks/FIs/Govt., amount, principal/interest, days of delay, remarks)</li>
+    <li>(b) Whether declared <span class="keyword">wilful defaulter</span> by any bank / FI / lender</li>
+    <li>(c) <span class="keyword">Term loan</span> applied for stated purpose; if diverted, amount and actual purpose</li>
+    <li>(d) <span class="keyword">Short-term</span> funds used for <span class="keyword">long-term</span> purposes — nature &amp; amount</li>
+    <li>(e) Funds taken to meet obligations of <span class="keyword">subsidiaries / associates / JVs</span> — nature &amp; amount</li>
+    <li>(f) Loans raised on <span class="keyword">pledge of securities</span> held in subsidiaries / JVs / associates — details &amp; default, if any</li>
+  </ul>
+</section>
+
+<section class="sa-card">
+  <h3>Clause (xvii) — Cash losses</h3>
+  <p>Whether the company has incurred <span class="keyword">cash losses</span> in the financial year and in the <span class="keyword">immediately preceding financial year</span>; if so, state the amount of cash losses.</p>
+  <div class="exception">"Cash loss" here = loss <em>before</em> non-cash items (chiefly depreciation &amp; amortisation). Report only if losses in <strong>both</strong> years — current and prior.</div>
+</section>
+
+<section class="sa-card">
+  <h3>Clause (xix) — Ability to meet liabilities within 1 year</h3>
+  <p>On the basis of (a) financial ratios, (b) ageing and expected dates of realisation of financial assets and payment of financial liabilities, (c) other information accompanying the FS, (d) auditor's knowledge of Board &amp; management plans — whether the auditor is of the opinion that <span class="keyword">no material uncertainty</span> exists as on the date of the audit report that the company is capable of meeting its liabilities existing at the BS date as &amp; when they fall due within <span class="keyword">1 year</span> from BS date.</p>
+  <div class="exception">Clause (xix) is <em>not</em> a substitute for SA 570 (Revised) going-concern procedures. Going-concern inappropriate → SA 705 adverse opinion + clause (xix) negative report + SA 570 material-uncertainty paragraph.</div>
+</section>
+
+<section class="sa-card">
+  <h3>Clause (xx) — CSR unspent amounts</h3>
+  <ul>
+    <li>(a) In respect of <span class="keyword">other than ongoing projects</span> — whether unspent amount transferred to a Fund specified in <span class="keyword">Schedule VII</span> within <span class="keyword">6 months</span> of expiry of FY per second proviso to <span class="clause">s.135(5)</span></li>
+    <li>(b) In respect of <span class="keyword">ongoing projects</span> — whether unspent amount transferred to <span class="keyword">Special Account</span> per <span class="clause">s.135(6)</span></li>
+  </ul>
+  <div class="exception">Clause (xx) does <em>not</em> ask whether the 2%-of-avg-profit spend itself was met — only whether <em>unspent</em> amounts were routed correctly. Substantive non-spending is a <span class="clause">s.135</span> board-report matter.</div>
+</section>
+
+<section class="sa-card">
+  <h3>Clause (xxi) — CFS CARO remarks</h3>
+  <p>In the <em>CFS</em> CARO — indicate details of companies (names) and the paragraph numbers of the CARO reports of those companies containing <span class="keyword">qualifications or adverse remarks</span>.</p>
+  <div class="exception">Only clause of CARO applicable on CFS. Not-in-SM flag: if component auditor's CARO is unavailable / not yet issued, SM does not prescribe the exact template — refer bare Order for practitioner guidance.</div>
+</section>
+
+<h2>8. Reporting language — sample skeletons</h2>
+<ul>
+  <li><strong>Clean answer:</strong> "In our opinion and according to the information and explanations given to us, <em>clause is not applicable</em> / the company is regular / the records are adequate."</li>
+  <li><strong>Qualified answer:</strong> state facts → state the deviation → quantify → reference Para 4 basis.</li>
+  <li><strong>Unable to opine:</strong> state fact + reasons why no opinion possible (Para 4(b)).</li>
+</ul>
+<div class="exception">CARO statement sits inside the audit report under <em>"Report on Other Legal and Regulatory Requirements"</em>. Signature block, UDIN &amp; date flow from the main SA 700 report — not signed separately.</div>
+
+<div class="triggers">
+<h3>📌 5 Exam Triggers — CARO 2020</h3>
+<ol>
+  <li>"Director's adjacent plot swapped for company plot of double size, deed registered by company representatives" → <strong>CARO (i)(c)</strong> title-deed disclosure of immovable property held not in company's name + <strong>(xiii)</strong> <span class="clause">s.188</span> RPT + <strong>(xv)</strong> <span class="clause">s.192</span> non-cash with director.</li>
+  <li>"TDS survey → ₹25 lacs demand as assessee-in-default; company filed appeal with JCIT(A)" → <strong>CARO (vii)(b)</strong> disputed statutory dues — report amount &amp; forum (appeal pending); <em>not</em> clause (vii)(a) arrears.</li>
+  <li>"Holding company's CFS includes subsidiary whose CARO carries an adverse remark on clause (ix) default" → <strong>CARO (xxi)</strong> — holding co. auditor must name the subsidiary &amp; cite the clause-(ix) para number in the CFS CARO; other CARO clauses don't apply on CFS.</li>
+  <li>"Private Ltd co. (not subsidiary of public co.): paid-up + R&amp;S ₹80 lakh, borrowings ₹90 lakh at peak, revenue ₹9.5 cr — but during year borrowings touched ₹1.2 cr for 2 days" → <strong>CARO applies</strong> — the ₹1 cr borrowing limit is tested "at any point during the FY"; breach on any day defeats exemption.</li>
+  <li>"Going-concern basis found inappropriate, management refuses to reflect → SA 705 adverse" → additionally <strong>CARO (xix)</strong> — report that a material uncertainty exists and the company is <em>not</em> capable of meeting its liabilities due within 1 year; clause (xix) + SA 570 + SA 705 ride together.</li>
+</ol>
+</div>
+
+<script>mermaid.initialize({startOnLoad:true, theme:'neutral'});</script>
+</body>
+</html>

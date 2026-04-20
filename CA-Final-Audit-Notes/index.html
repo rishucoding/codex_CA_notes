@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CA Final Paper 3 — Advanced Auditing, Assurance & Professional Ethics · May 2026</title>
+<style>
+:root {
+  --bg: #faf8f3;
+  --ink: #1a1a1a;
+  --muted: #5b5b5b;
+  --accent: #0a4a8f;
+  --accent-soft: #e8f2ff;
+  --keyword-bg: #fff3d4;
+  --exception-bg: #ffe4e4;
+  --exception-border: #c33;
+  --clause-bg: #e8f2ff;
+  --table-stripe: #f5f2ea;
+  --rule: #d8d3c4;
+  --quote-bar: #0a4a8f;
+  --card-shadow: 0 1px 3px rgba(10, 74, 143, 0.08);
+  --green: #2a7c3a;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Georgia, serif;
+  background: var(--bg); color: var(--ink);
+  max-width: 1080px; margin: 2rem auto; padding: 0 1.25rem;
+  line-height: 1.55; font-size: 16px;
+}
+header.page-head {
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 1rem; margin-bottom: 1.5rem;
+}
+h1 {
+  font-size: 2rem; color: var(--accent);
+  margin: 0 0 0.3rem 0; line-height: 1.2;
+}
+h1 .paper {
+  display: block; font-size: 0.95rem; font-weight: 400;
+  color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 0.3rem;
+}
+.subtitle {
+  color: var(--muted); font-style: italic; font-size: 1rem;
+  margin: 0.2rem 0 0.8rem 0;
+}
+h2 {
+  font-size: 1.35rem; color: var(--accent);
+  margin-top: 2.5rem; border-left: 4px solid var(--accent);
+  padding-left: 0.6rem;
+}
+h3 { font-size: 1.1rem; color: var(--ink); margin-top: 1.2rem; }
+
+.chip {
+  display: inline-block; padding: 0.15rem 0.55rem; border-radius: 12px;
+  font-size: 0.75rem; font-weight: 600; margin-right: 0.35rem;
+  margin-bottom: 0.3rem;
+}
+.chip-sa { background: var(--accent); color: #fff; }
+.chip-marks { background: var(--green); color: #fff; }
+.chip-caro { background: #7a3a9a; color: #fff; }
+.chip-ethics { background: #b35c00; color: #fff; }
+.chip-status { background: #fff; color: var(--accent); border: 1px solid var(--accent); }
+
+.chip-row { margin: 0.5rem 0 1rem 0; }
+
+/* How to use box */
+.how-to {
+  background: #fff; border: 1px dashed var(--accent);
+  padding: 0.9rem 1.1rem; border-radius: 6px; margin: 1rem 0 1.5rem 0;
+  font-size: 0.96rem;
+}
+.how-to strong { color: var(--accent); }
+
+/* Sticky jump nav */
+.jump-nav {
+  position: fixed; top: 1rem; right: 1rem;
+  background: #fff; border: 1px solid var(--rule); border-radius: 6px;
+  padding: 0.6rem 0.7rem; font-size: 0.78rem; line-height: 1.4;
+  box-shadow: var(--card-shadow); max-width: 180px;
+  z-index: 50;
+}
+.jump-nav h4 {
+  margin: 0 0 0.4rem 0; font-size: 0.72rem; text-transform: uppercase;
+  letter-spacing: 0.05em; color: var(--accent); font-weight: 700;
+}
+.jump-nav a {
+  display: block; color: var(--ink); text-decoration: none;
+  padding: 0.1rem 0; border-left: 2px solid transparent; padding-left: 0.4rem;
+}
+.jump-nav a:hover { color: var(--accent); border-left-color: var(--accent); background: var(--accent-soft); }
+
+/* Weightage visual */
+.weight-wrap {
+  background: #fff; border: 1px solid var(--rule); border-radius: 6px;
+  padding: 1rem 1.2rem; margin: 1rem 0;
+}
+.weight-wrap h3 { margin-top: 0; color: var(--accent); }
+svg.bar-chart { width: 100%; height: auto; display: block; }
+.weight-legend {
+  display: flex; flex-wrap: wrap; gap: 0.8rem;
+  margin-top: 0.6rem; font-size: 0.85rem; color: var(--muted);
+}
+.weight-legend .sw {
+  display: inline-block; width: 12px; height: 12px; border-radius: 2px;
+  vertical-align: middle; margin-right: 0.3rem;
+}
+
+/* Chapter grid */
+.ch-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem; margin: 1rem 0;
+}
+.ch-card {
+  background: #fff; border: 1px solid var(--rule); border-radius: 6px;
+  padding: 1rem 1.1rem; box-shadow: var(--card-shadow);
+  display: flex; flex-direction: column;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.ch-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(10, 74, 143, 0.15);
+}
+.ch-num {
+  font-size: 0.75rem; font-weight: 700; color: var(--accent);
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.ch-title {
+  font-size: 1.1rem; font-weight: 700; color: var(--ink);
+  margin: 0.15rem 0 0.5rem 0; line-height: 1.25;
+}
+.ch-sas { margin: 0.3rem 0 0.6rem 0; }
+.ch-sas .chip {
+  font-size: 0.68rem; padding: 0.1rem 0.45rem;
+  background: var(--clause-bg); color: var(--accent); border: 1px solid #c7dcf3;
+  margin-bottom: 0.25rem;
+}
+.ch-trigger {
+  font-size: 0.88rem; color: #333; margin: 0.4rem 0 0.7rem 0;
+  border-left: 3px solid var(--keyword-bg); padding-left: 0.6rem;
+  font-style: italic;
+}
+.ch-meta {
+  font-size: 0.78rem; color: var(--muted); margin-top: auto;
+  padding-top: 0.6rem; border-top: 1px dashed var(--rule);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.ch-buttons {
+  display: flex; gap: 0.5rem; margin-top: 0.5rem;
+}
+.btn {
+  flex: 1; text-align: center; padding: 0.45rem 0.6rem;
+  border-radius: 4px; text-decoration: none; font-size: 0.85rem;
+  font-weight: 600; transition: background 0.15s, color 0.15s;
+}
+.btn-primary {
+  background: var(--accent); color: #fff; border: 1px solid var(--accent);
+}
+.btn-primary:hover { background: #083968; }
+.btn-outline {
+  background: #fff; color: var(--accent); border: 1px solid var(--accent);
+}
+.btn-outline:hover { background: var(--accent-soft); }
+
+/* SA lookup table */
+table.sa-lookup {
+  width: 100%; border-collapse: collapse; margin: 1rem 0;
+  font-size: 0.92rem; background: #fff;
+}
+table.sa-lookup th, table.sa-lookup td {
+  padding: 0.5rem 0.7rem; text-align: left;
+  border: 1px solid var(--rule); vertical-align: top;
+}
+table.sa-lookup th {
+  background: var(--accent); color: #fff; font-weight: 600;
+}
+table.sa-lookup tr:nth-child(even) td { background: var(--table-stripe); }
+table.sa-lookup a { color: var(--accent); text-decoration: none; font-weight: 600; }
+table.sa-lookup a:hover { text-decoration: underline; }
+table.sa-lookup .sa-code {
+  font-family: ui-monospace, monospace; background: var(--clause-bg);
+  padding: 0.05rem 0.35rem; border-radius: 3px; font-size: 0.88em;
+}
+
+footer.page-foot {
+  margin-top: 3rem; padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  color: var(--muted); font-size: 0.85rem; text-align: center;
+}
+
+/* Print / small screen */
+@media (max-width: 900px) {
+  .jump-nav { display: none; }
+  body { margin: 1rem auto; }
+}
+@media print {
+  .jump-nav, .ch-buttons { display: none; }
+  body { max-width: 100%; margin: 0; padding: 0.5rem; }
+  .ch-card { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<nav class="jump-nav" aria-label="Quick jump">
+  <h4>Jump</h4>
+  <a href="#weightage">Weightage</a>
+  <a href="#chapters">Chapters</a>
+  <a href="#sa-lookup">SA lookup</a>
+  <a href="#ch-01-quality-control">Ch 1 QC</a>
+  <a href="#ch-05-audit-evidence">Ch 5 Evidence</a>
+  <a href="#ch-07-reporting">Ch 7 Reporting</a>
+  <a href="#ch-07a-caro-2020">Ch 7A CARO</a>
+  <a href="#ch-19-ethics">Ch 19 Ethics</a>
+</nav>
+
+<header class="page-head">
+  <h1>
+    <span class="paper">CA Final · Paper 3 · May 2026</span>
+    Advanced Auditing, Assurance &amp; Professional Ethics
+  </h1>
+  <p class="subtitle">ICAI Study Material aligned notes — revision dashboard</p>
+  <div class="chip-row">
+    <span class="chip chip-sa">35+ SAs</span>
+    <span class="chip chip-marks">100 marks total</span>
+    <span class="chip chip-caro">CARO 2020</span>
+    <span class="chip chip-ethics">Ethics · 20 marks</span>
+    <span class="chip chip-status">13 chapters</span>
+    <span class="chip chip-status">ICAI verbatim Objectives where available</span>
+  </div>
+</header>
+
+<div class="how-to">
+  <strong>How to use these notes.</strong> Open the <em>full note</em> of a chapter once, end-to-end — it carries every SA Objective (ICAI-verbatim where reproduced in the SM PDF), definitions, requirements, exceptions, responsibilities, and 5 exam triggers per chapter. In the final week before the exam, drop the full note and revise only from the one-pager — a dense, printable cheat-sheet that mirrors the same structure. Treat the SA-lookup table at the bottom of this page as your panic-index during the paper.
+</div>
+
+<h2 id="weightage">Mark weightage — at a glance</h2>
+<div class="weight-wrap">
+  <h3>Approximate marks per chapter cluster (100 marks, May 2026)</h3>
+  <svg class="bar-chart" viewBox="0 0 780 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mark weightage bar chart">
+    <!-- grid -->
+    <g stroke="#e0dccf" stroke-width="1">
+      <line x1="200" y1="20" x2="200" y2="360"/>
+      <line x1="320" y1="20" x2="320" y2="360"/>
+      <line x1="440" y1="20" x2="440" y2="360"/>
+      <line x1="560" y1="20" x2="560" y2="360"/>
+      <line x1="680" y1="20" x2="680" y2="360"/>
+    </g>
+    <g font-size="10" fill="#5b5b5b" text-anchor="middle">
+      <text x="200" y="375">5</text>
+      <text x="320" y="375">10</text>
+      <text x="440" y="375">15</text>
+      <text x="560" y="375">20</text>
+      <text x="680" y="375">25</text>
+    </g>
+    <text x="440" y="15" text-anchor="middle" font-size="11" fill="#5b5b5b" font-style="italic">marks (approx.)</text>
+
+    <!-- rows: label x=190 right-align; bar starts x=200; scale 24 px = 1 mark -->
+    <!-- Ch 1 QC: 8 -->
+    <text x="190" y="40" text-anchor="end" font-size="12" fill="#1a1a1a" font-weight="600">Ch 1 · Quality Control</text>
+    <rect x="200" y="28" width="192" height="18" fill="#0a4a8f"/>
+    <text x="400" y="42" font-size="11" fill="#0a4a8f" font-weight="600">~8</text>
+
+    <!-- Ch 2 Gen Principles: 12 -->
+    <text x="190" y="65" text-anchor="end" font-size="12" fill="#1a1a1a" font-weight="600">Ch 2 · General Principles</text>
+    <rect x="200" y="53" width="288" height="18" fill="#0a4a8f"/>
+    <text x="496" y="67" font-size="11" fill="#0a4a8f" font-weight="600">~12</text>
+
+    <!-- Ch 3 Planning: 6 -->
+    <text x="190" y="90" text-anchor="end" font-size="12" fill="#1a1a1a" font-weight="600">Ch 3 · Planning</text>
+    <rect x="200" y="78" width="144" height="18" fill="#0a4a8f"/>
+    <text x="352" y="92" font-size="11" fill="#0a4a8f" font-weight="600">~6</text>
+
+    <!-- Ch 4 Risk: 8 -->
+    <text x="190" y="115" text-anchor="end" font-size="12" fill="#1a1a1a" font-weight="600">Ch 4 · Risk &amp; IC</text>
+    <rect x="200" y="103" width="192" height="18" fill="#0a4a8f"/>
+    <text x="400" y="117" font-size="11" fill="#0a4a8f" font-weight="600">~8</text>
+
+    <!-- Ch 5 Evidence: 10 -->
+    <text x="190" y="140" text-anchor="end" font-size="12" fill="#1a1a1a" font-weight="600">Ch 5 · Audit Evidence</text>
+    <rect x="200" y="128" width="240" height="18" fill="#0a4a8f"/>
+    <text x="448" y="142" font-size="11" fill="#0a4a8f" font-weight="600">~10</text>
+
+    <!-- Ch 6 Completion: 5 -->
+    <text x="190" y="165" text-anchor="end" font-size="12" fill="#1a1a1a" font-weight="600">Ch 6 · Completion</text>
+    <rect x="200" y="153" width="120" height="18" fill="#0a4a8f"/>
+    <text x="328" y="167" font-size="11" fill="#0a4a8f" font-weight="600">~5</text>
+
+    <!-- Ch 7 Reporting: 10 -->
+    <text x="190" y="190" text-anchor="end" font-size="12" fill="#1a1a1a" font-weight="600">Ch 7 · Reporting (700s)</text>
+    <rect x="200" y="178" width="240" height="18" fill="#0a4a8f"/>
+    <text x="448" y="192" font-size="11" fill="#0a4a8f" font-weight="600">~10</text>
+
+    <!-- Ch 7A CARO: 8 recurring -->
+    <text x="190" y="215" text-anchor="end" font-size="12" fill="#1a1a1a" font-weight="600">Ch 7A · CARO 2020</text>
+    <rect x="200" y="203" width="192" height="18" fill="#7a3a9a"/>
+    <text x="400" y="217" font-size="11" fill="#7a3a9a" font-weight="600">~8 (recurring)</text>
+
+    <!-- Ch 8 Specialised: 4 -->
+    <text x="190" y="240" text-anchor="end" font-size="12" fill="#1a1a1a" font-weight="600">Ch 8 · Specialised (800s)</text>
+    <rect x="200" y="228" width="96" height="18" fill="#0a4a8f"/>
+    <text x="304" y="242" font-size="11" fill="#0a4a8f" font-weight="600">~4</text>
+
+    <!-- Ch 9 Related Services: 3 -->
+    <text x="190" y="265" text-anchor="end" font-size="12" fill="#1a1a1a" font-weight="600">Ch 9 · Related Services</text>
+    <rect x="200" y="253" width="72" height="18" fill="#0a4a8f"/>
+    <text x="280" y="267" font-size="11" fill="#0a4a8f" font-weight="600">~3</text>
+
+    <!-- Ch 10 Review: 3 -->
+    <text x="190" y="290" text-anchor="end" font-size="12" fill="#1a1a1a" font-weight="600">Ch 10 · Review (SREs)</text>
+    <rect x="200" y="278" width="72" height="18" fill="#0a4a8f"/>
+    <text x="280" y="292" font-size="11" fill="#0a4a8f" font-weight="600">~3</text>
+
+    <!-- Ch 11 PFI: 3 -->
+    <text x="190" y="315" text-anchor="end" font-size="12" fill="#1a1a1a" font-weight="600">Ch 11 · Prospective FI</text>
+    <rect x="200" y="303" width="72" height="18" fill="#0a4a8f"/>
+    <text x="280" y="317" font-size="11" fill="#0a4a8f" font-weight="600">~3</text>
+
+    <!-- Ch 19 Ethics: 20 -->
+    <text x="190" y="340" text-anchor="end" font-size="12" fill="#1a1a1a" font-weight="600">Ch 19 · Professional Ethics</text>
+    <rect x="200" y="328" width="480" height="18" fill="#b35c00"/>
+    <text x="688" y="342" font-size="11" fill="#b35c00" font-weight="600">~20</text>
+  </svg>
+  <div class="weight-legend">
+    <span><span class="sw" style="background:#0a4a8f"></span>SAs &amp; core engagements (Ch 1-11)</span>
+    <span><span class="sw" style="background:#7a3a9a"></span>CARO 2020 (recurring in reporting Qs)</span>
+    <span><span class="sw" style="background:#b35c00"></span>Professional Ethics (Ch 19)</span>
+  </div>
+  <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0;margin-top:0.6rem;">
+    <strong>Rough split:</strong> Chapters 1-11 (SAs &amp; engagements) ≈ 50 marks · Ch 19 Ethics ≈ 20 marks · Ch 7A CARO 2020 appears inside Ch 7-style reporting questions and can account for another ~8 marks. The remainder (≈ 22 marks) is typically case-study cross-chapter application.
+  </p>
+</div>
+
+<h2 id="chapters">Chapters</h2>
+<div class="ch-grid">
+
+  <article class="ch-card" id="ch-01-quality-control">
+    <span class="ch-num">Chapter 1</span>
+    <h3 class="ch-title">Quality Control</h3>
+    <div class="ch-sas">
+      <span class="chip">SQC 1</span>
+      <span class="chip">SA 220</span>
+    </div>
+    <p class="ch-trigger">Firm-level system + engagement-level QC: leadership tone, independence, HR, client acceptance, EQCR, monitoring; 60-day assembly, 7-year retention.</p>
+    <div class="ch-meta">
+      <span>full: 3,220 words</span>
+      <span>1-pager: 374 words</span>
+    </div>
+    <div class="ch-buttons">
+      <a class="btn btn-primary" href="chapters/ch-01-quality-control/full.html">Full note →</a>
+      <a class="btn btn-outline" href="chapters/ch-01-quality-control/onepager.html">One-pager →</a>
+    </div>
+  </article>
+
+  <article class="ch-card" id="ch-02-general-principles">
+    <span class="ch-num">Chapter 2</span>
+    <h3 class="ch-title">General Auditing Principles &amp; Auditor's Responsibilities</h3>
+    <div class="ch-sas">
+      <span class="chip">SA 200</span>
+      <span class="chip">SA 210</span>
+      <span class="chip">SA 230</span>
+      <span class="chip">SA 240</span>
+      <span class="chip">SA 250</span>
+      <span class="chip">SA 260</span>
+      <span class="chip">SA 265</span>
+      <span class="chip">SA 299</span>
+      <span class="chip">SA 402</span>
+    </div>
+    <p class="ch-trigger">Umbrella (SA 200) · engagement terms · documentation · fraud &amp; NOCLAR · TCWG communication · joint audits · service organisations.</p>
+    <div class="ch-meta">
+      <span>full: 3,099 words</span>
+      <span>1-pager: 378 words</span>
+    </div>
+    <div class="ch-buttons">
+      <a class="btn btn-primary" href="chapters/ch-02-general-principles/full.html">Full note →</a>
+      <a class="btn btn-outline" href="chapters/ch-02-general-principles/onepager.html">One-pager →</a>
+    </div>
+  </article>
+
+  <article class="ch-card" id="ch-03-audit-planning">
+    <span class="ch-num">Chapter 3</span>
+    <h3 class="ch-title">Audit Planning</h3>
+    <div class="ch-sas">
+      <span class="chip">SA 300</span>
+      <span class="chip">SA 315 link</span>
+      <span class="chip">SA 320 link</span>
+      <span class="chip">SA 600</span>
+      <span class="chip">SA 610</span>
+      <span class="chip">SA 620</span>
+    </div>
+    <p class="ch-trigger">Strategy vs plan · using work of another / internal / auditor's expert · sole responsibility stays with principal auditor.</p>
+    <div class="ch-meta">
+      <span>full: 4,397 words</span>
+      <span>1-pager: 365 words</span>
+    </div>
+    <div class="ch-buttons">
+      <a class="btn btn-primary" href="chapters/ch-03-audit-planning/full.html">Full note →</a>
+      <a class="btn btn-outline" href="chapters/ch-03-audit-planning/onepager.html">One-pager →</a>
+    </div>
+  </article>
+
+  <article class="ch-card" id="ch-04-risk-assessment">
+    <span class="ch-num">Chapter 4</span>
+    <h3 class="ch-title">Risk Assessment &amp; Internal Control</h3>
+    <div class="ch-sas">
+      <span class="chip">SA 315</span>
+      <span class="chip">SA 320</span>
+      <span class="chip">SA 330</span>
+      <span class="chip">SA 450</span>
+    </div>
+    <p class="ch-trigger">ROMM identification · materiality (overall, performance, SUBTS) · responses to assessed risks · evaluation of misstatements.</p>
+    <div class="ch-meta">
+      <span>full: 3,289 words</span>
+      <span>1-pager: 378 words</span>
+    </div>
+    <div class="ch-buttons">
+      <a class="btn btn-primary" href="chapters/ch-04-risk-assessment/full.html">Full note →</a>
+      <a class="btn btn-outline" href="chapters/ch-04-risk-assessment/onepager.html">One-pager →</a>
+    </div>
+  </article>
+
+  <article class="ch-card" id="ch-05-audit-evidence">
+    <span class="ch-num">Chapter 5</span>
+    <h3 class="ch-title">Audit Evidence</h3>
+    <div class="ch-sas">
+      <span class="chip">SA 500</span>
+      <span class="chip">SA 501</span>
+      <span class="chip">SA 505</span>
+      <span class="chip">SA 510</span>
+      <span class="chip">SA 520</span>
+      <span class="chip">SA 530</span>
+      <span class="chip">SA 540</span>
+      <span class="chip">SA 550</span>
+      <span class="chip">SA 560</span>
+      <span class="chip">SA 570</span>
+      <span class="chip">SA 580</span>
+    </div>
+    <p class="ch-trigger">Sufficient appropriate evidence · inventory &amp; litigation · external confirmations · opening balances · analytical · sampling · estimates · related parties · subsequent events · going concern · written reps.</p>
+    <div class="ch-meta">
+      <span>full: 4,403 words</span>
+      <span>1-pager: 493 words</span>
+    </div>
+    <div class="ch-buttons">
+      <a class="btn btn-primary" href="chapters/ch-05-audit-evidence/full.html">Full note →</a>
+      <a class="btn btn-outline" href="chapters/ch-05-audit-evidence/onepager.html">One-pager →</a>
+    </div>
+  </article>
+
+  <article class="ch-card" id="ch-06-completion-review">
+    <span class="ch-num">Chapter 6</span>
+    <h3 class="ch-title">Completion &amp; Review</h3>
+    <div class="ch-sas">
+      <span class="chip">SA 560</span>
+      <span class="chip">SA 570</span>
+      <span class="chip">SA 580</span>
+      <span class="chip">SA 260 rev.</span>
+      <span class="chip">SA 450 rev.</span>
+      <span class="chip">SA 710/720 rev.</span>
+    </div>
+    <p class="ch-trigger">Subsequent events windows · going concern evaluation · written representations · overall review · communicating with TCWG before sign-off.</p>
+    <div class="ch-meta">
+      <span>full: 2,654 words</span>
+      <span>1-pager: 399 words</span>
+    </div>
+    <div class="ch-buttons">
+      <a class="btn btn-primary" href="chapters/ch-06-completion-review/full.html">Full note →</a>
+      <a class="btn btn-outline" href="chapters/ch-06-completion-review/onepager.html">One-pager →</a>
+    </div>
+  </article>
+
+  <article class="ch-card" id="ch-07-reporting">
+    <span class="ch-num">Chapter 7</span>
+    <h3 class="ch-title">Reporting</h3>
+    <div class="ch-sas">
+      <span class="chip">SA 700</span>
+      <span class="chip">SA 701</span>
+      <span class="chip">SA 705</span>
+      <span class="chip">SA 706</span>
+      <span class="chip">SA 710</span>
+      <span class="chip">SA 720</span>
+      <span class="chip">CARO</span>
+    </div>
+    <p class="ch-trigger">Form &amp; content of the report · KAM · modifications (qualified / adverse / disclaimer) · EOM vs OM · comparatives · other info; CARO overview here, full clause list in Ch 7A.</p>
+    <div class="ch-meta">
+      <span>full: 3,522 words</span>
+      <span>1-pager: 383 words</span>
+    </div>
+    <div class="ch-buttons">
+      <a class="btn btn-primary" href="chapters/ch-07-reporting/full.html">Full note →</a>
+      <a class="btn btn-outline" href="chapters/ch-07-reporting/onepager.html">One-pager →</a>
+    </div>
+  </article>
+
+  <article class="ch-card" id="ch-07a-caro-2020">
+    <span class="ch-num">Chapter 7A</span>
+    <h3 class="ch-title">CARO 2020</h3>
+    <div class="ch-sas">
+      <span class="chip">s.143(11)</span>
+      <span class="chip">21 clauses</span>
+    </div>
+    <p class="ch-trigger">Applicability carve-outs · 21 clauses (PPE to whistle-blower to resignation) · drafting of affirmative vs negative reports · interplay with main auditor's report.</p>
+    <div class="ch-meta">
+      <span>full: 2,533 words</span>
+      <span>1-pager: 392 words</span>
+    </div>
+    <div class="ch-buttons">
+      <a class="btn btn-primary" href="chapters/ch-07a-caro-2020/full.html">Full note →</a>
+      <a class="btn btn-outline" href="chapters/ch-07a-caro-2020/onepager.html">One-pager →</a>
+    </div>
+  </article>
+
+  <article class="ch-card" id="ch-08-specialised-areas">
+    <span class="ch-num">Chapter 8</span>
+    <h3 class="ch-title">Specialised Areas</h3>
+    <div class="ch-sas">
+      <span class="chip">SA 800</span>
+      <span class="chip">SA 805</span>
+      <span class="chip">SA 810</span>
+    </div>
+    <p class="ch-trigger">Special-purpose frameworks · single FS or element · summary FS — distinguishing applicable FRF and the auditor's reporting obligations.</p>
+    <div class="ch-meta">
+      <span>full: 3,073 words</span>
+      <span>1-pager: 386 words</span>
+    </div>
+    <div class="ch-buttons">
+      <a class="btn btn-primary" href="chapters/ch-08-specialised-areas/full.html">Full note →</a>
+      <a class="btn btn-outline" href="chapters/ch-08-specialised-areas/onepager.html">One-pager →</a>
+    </div>
+  </article>
+
+  <article class="ch-card" id="ch-09-related-services">
+    <span class="ch-num">Chapter 9</span>
+    <h3 class="ch-title">Related Services</h3>
+    <div class="ch-sas">
+      <span class="chip">SRS 4400</span>
+      <span class="chip">SRS 4410</span>
+    </div>
+    <p class="ch-trigger">Agreed-upon procedures (no assurance, factual findings) vs compilation engagements — distinguishing both from assurance engagements.</p>
+    <div class="ch-meta">
+      <span>full: 2,537 words</span>
+      <span>1-pager: 311 words</span>
+    </div>
+    <div class="ch-buttons">
+      <a class="btn btn-primary" href="chapters/ch-09-related-services/full.html">Full note →</a>
+      <a class="btn btn-outline" href="chapters/ch-09-related-services/onepager.html">One-pager →</a>
+    </div>
+  </article>
+
+  <article class="ch-card" id="ch-10-review-financial-info">
+    <span class="ch-num">Chapter 10</span>
+    <h3 class="ch-title">Review of Financial Information</h3>
+    <div class="ch-sas">
+      <span class="chip">SRE 2400</span>
+      <span class="chip">SRE 2410</span>
+    </div>
+    <p class="ch-trigger">Limited assurance via inquiry + analytical procedures · practitioner vs independent auditor of the entity · negative-form conclusion.</p>
+    <div class="ch-meta">
+      <span>full: 2,709 words</span>
+      <span>1-pager: 354 words</span>
+    </div>
+    <div class="ch-buttons">
+      <a class="btn btn-primary" href="chapters/ch-10-review-financial-info/full.html">Full note →</a>
+      <a class="btn btn-outline" href="chapters/ch-10-review-financial-info/onepager.html">One-pager →</a>
+    </div>
+  </article>
+
+  <article class="ch-card" id="ch-11-prospective-financial-info">
+    <span class="ch-num">Chapter 11</span>
+    <h3 class="ch-title">Prospective Financial Info &amp; Assurance Engagements</h3>
+    <div class="ch-sas">
+      <span class="chip">SAE 3400</span>
+      <span class="chip">SAE 3402</span>
+      <span class="chip">SAE 3420</span>
+      <span class="chip">SAE 3410 flagged</span>
+    </div>
+    <p class="ch-trigger">Examination of PFI (best-estimate vs hypothetical assumptions) · service-org assurance reports · pro-forma financial information in prospectuses.</p>
+    <div class="ch-meta">
+      <span>full: 3,222 words</span>
+      <span>1-pager: 341 words</span>
+    </div>
+    <div class="ch-buttons">
+      <a class="btn btn-primary" href="chapters/ch-11-prospective-financial-info/full.html">Full note →</a>
+      <a class="btn btn-outline" href="chapters/ch-11-prospective-financial-info/onepager.html">One-pager →</a>
+    </div>
+  </article>
+
+  <article class="ch-card" id="ch-19-ethics">
+    <span class="ch-num">Chapter 19</span>
+    <h3 class="ch-title">Professional Ethics</h3>
+    <div class="ch-sas">
+      <span class="chip">CA Act Sch I</span>
+      <span class="chip">CA Act Sch II</span>
+      <span class="chip">Council Guidelines</span>
+      <span class="chip">Code of Ethics</span>
+      <span class="chip">Liabilities</span>
+    </div>
+    <p class="ch-trigger">Schedules of misconduct · tax-audit/statutory-audit ceilings · fees-related directives · fundamental principles &amp; threats · civil/criminal/disciplinary liability.</p>
+    <div class="ch-meta">
+      <span>full: 4,714 words</span>
+      <span>1-pager: 487 words</span>
+    </div>
+    <div class="ch-buttons">
+      <a class="btn btn-primary" href="chapters/ch-19-ethics/full.html">Full note →</a>
+      <a class="btn btn-outline" href="chapters/ch-19-ethics/onepager.html">One-pager →</a>
+    </div>
+  </article>
+
+</div>
+
+<h2 id="sa-lookup">Quick SA-number lookup</h2>
+<p style="font-size:0.9rem;color:var(--muted);">In SA-number order — click the chapter link to jump to its card, then into the full note.</p>
+<table class="sa-lookup">
+  <thead>
+    <tr><th>Standard</th><th>Title (short)</th><th>Home chapter</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><span class="sa-code">SQC 1</span></td><td>Quality Control — firm level</td><td><a href="#ch-01-quality-control">Ch 1 · Quality Control</a></td></tr>
+    <tr><td><span class="sa-code">SA 200</span></td><td>Overall objectives of the independent auditor</td><td><a href="#ch-02-general-principles">Ch 2 · General Principles</a></td></tr>
+    <tr><td><span class="sa-code">SA 210</span></td><td>Agreeing the terms of audit engagements</td><td><a href="#ch-02-general-principles">Ch 2 · General Principles</a></td></tr>
+    <tr><td><span class="sa-code">SA 220</span></td><td>Quality Control for an audit of FS</td><td><a href="#ch-01-quality-control">Ch 1 · Quality Control</a></td></tr>
+    <tr><td><span class="sa-code">SA 230</span></td><td>Audit documentation</td><td><a href="#ch-02-general-principles">Ch 2 · General Principles</a></td></tr>
+    <tr><td><span class="sa-code">SA 240</span></td><td>Auditor's responsibilities relating to fraud</td><td><a href="#ch-02-general-principles">Ch 2 · General Principles</a></td></tr>
+    <tr><td><span class="sa-code">SA 250</span></td><td>Consideration of laws &amp; regulations</td><td><a href="#ch-02-general-principles">Ch 2 · General Principles</a></td></tr>
+    <tr><td><span class="sa-code">SA 260</span></td><td>Communication with TCWG</td><td><a href="#ch-02-general-principles">Ch 2 · General Principles</a></td></tr>
+    <tr><td><span class="sa-code">SA 265</span></td><td>Communicating deficiencies in IC</td><td><a href="#ch-02-general-principles">Ch 2 · General Principles</a></td></tr>
+    <tr><td><span class="sa-code">SA 299</span></td><td>Joint audit of FS</td><td><a href="#ch-02-general-principles">Ch 2 · General Principles</a></td></tr>
+    <tr><td><span class="sa-code">SA 300</span></td><td>Planning an audit of FS</td><td><a href="#ch-03-audit-planning">Ch 3 · Audit Planning</a></td></tr>
+    <tr><td><span class="sa-code">SA 315</span></td><td>Identifying &amp; assessing ROMM</td><td><a href="#ch-04-risk-assessment">Ch 4 · Risk &amp; IC</a></td></tr>
+    <tr><td><span class="sa-code">SA 320</span></td><td>Materiality in planning &amp; performing an audit</td><td><a href="#ch-04-risk-assessment">Ch 4 · Risk &amp; IC</a></td></tr>
+    <tr><td><span class="sa-code">SA 330</span></td><td>Auditor's responses to assessed risks</td><td><a href="#ch-04-risk-assessment">Ch 4 · Risk &amp; IC</a></td></tr>
+    <tr><td><span class="sa-code">SA 402</span></td><td>Service organisations</td><td><a href="#ch-02-general-principles">Ch 2 · General Principles</a></td></tr>
+    <tr><td><span class="sa-code">SA 450</span></td><td>Evaluation of misstatements</td><td><a href="#ch-04-risk-assessment">Ch 4 · Risk &amp; IC</a></td></tr>
+    <tr><td><span class="sa-code">SA 500</span></td><td>Audit evidence</td><td><a href="#ch-05-audit-evidence">Ch 5 · Audit Evidence</a></td></tr>
+    <tr><td><span class="sa-code">SA 501</span></td><td>Specific considerations — inventory, litigation, segments</td><td><a href="#ch-05-audit-evidence">Ch 5 · Audit Evidence</a></td></tr>
+    <tr><td><span class="sa-code">SA 505</span></td><td>External confirmations</td><td><a href="#ch-05-audit-evidence">Ch 5 · Audit Evidence</a></td></tr>
+    <tr><td><span class="sa-code">SA 510</span></td><td>Initial engagements — opening balances</td><td><a href="#ch-05-audit-evidence">Ch 5 · Audit Evidence</a></td></tr>
+    <tr><td><span class="sa-code">SA 520</span></td><td>Analytical procedures</td><td><a href="#ch-05-audit-evidence">Ch 5 · Audit Evidence</a></td></tr>
+    <tr><td><span class="sa-code">SA 530</span></td><td>Audit sampling</td><td><a href="#ch-05-audit-evidence">Ch 5 · Audit Evidence</a></td></tr>
+    <tr><td><span class="sa-code">SA 540</span></td><td>Accounting estimates &amp; disclosures</td><td><a href="#ch-05-audit-evidence">Ch 5 · Audit Evidence</a></td></tr>
+    <tr><td><span class="sa-code">SA 550</span></td><td>Related parties</td><td><a href="#ch-05-audit-evidence">Ch 5 · Audit Evidence</a></td></tr>
+    <tr><td><span class="sa-code">SA 560</span></td><td>Subsequent events</td><td><a href="#ch-05-audit-evidence">Ch 5 · Evidence</a> · revisited in <a href="#ch-06-completion-review">Ch 6 · Completion</a></td></tr>
+    <tr><td><span class="sa-code">SA 570</span></td><td>Going concern</td><td><a href="#ch-05-audit-evidence">Ch 5 · Evidence</a> · revisited in <a href="#ch-06-completion-review">Ch 6 · Completion</a></td></tr>
+    <tr><td><span class="sa-code">SA 580</span></td><td>Written representations</td><td><a href="#ch-05-audit-evidence">Ch 5 · Evidence</a> · revisited in <a href="#ch-06-completion-review">Ch 6 · Completion</a></td></tr>
+    <tr><td><span class="sa-code">SA 600</span></td><td>Using the work of another auditor</td><td><a href="#ch-03-audit-planning">Ch 3 · Audit Planning</a></td></tr>
+    <tr><td><span class="sa-code">SA 610</span></td><td>Using the work of internal auditors</td><td><a href="#ch-03-audit-planning">Ch 3 · Audit Planning</a></td></tr>
+    <tr><td><span class="sa-code">SA 620</span></td><td>Using the work of an auditor's expert</td><td><a href="#ch-03-audit-planning">Ch 3 · Audit Planning</a></td></tr>
+    <tr><td><span class="sa-code">SA 700</span></td><td>Forming an opinion &amp; reporting on FS</td><td><a href="#ch-07-reporting">Ch 7 · Reporting</a></td></tr>
+    <tr><td><span class="sa-code">SA 701</span></td><td>Key Audit Matters</td><td><a href="#ch-07-reporting">Ch 7 · Reporting</a></td></tr>
+    <tr><td><span class="sa-code">SA 705</span></td><td>Modifications to the opinion</td><td><a href="#ch-07-reporting">Ch 7 · Reporting</a></td></tr>
+    <tr><td><span class="sa-code">SA 706</span></td><td>Emphasis of Matter &amp; Other Matter paragraphs</td><td><a href="#ch-07-reporting">Ch 7 · Reporting</a></td></tr>
+    <tr><td><span class="sa-code">SA 710</span></td><td>Comparative information</td><td><a href="#ch-07-reporting">Ch 7 · Reporting</a></td></tr>
+    <tr><td><span class="sa-code">SA 720</span></td><td>Other information in annual reports</td><td><a href="#ch-07-reporting">Ch 7 · Reporting</a></td></tr>
+    <tr><td><span class="sa-code">SA 800</span></td><td>Special-purpose frameworks</td><td><a href="#ch-08-specialised-areas">Ch 8 · Specialised Areas</a></td></tr>
+    <tr><td><span class="sa-code">SA 805</span></td><td>Single FS / specific element</td><td><a href="#ch-08-specialised-areas">Ch 8 · Specialised Areas</a></td></tr>
+    <tr><td><span class="sa-code">SA 810</span></td><td>Summary financial statements</td><td><a href="#ch-08-specialised-areas">Ch 8 · Specialised Areas</a></td></tr>
+    <tr><td><span class="sa-code">SRE 2400</span></td><td>Review of historical FS — independent practitioner</td><td><a href="#ch-10-review-financial-info">Ch 10 · Review of FI</a></td></tr>
+    <tr><td><span class="sa-code">SRE 2410</span></td><td>Review of interim FI by entity's auditor</td><td><a href="#ch-10-review-financial-info">Ch 10 · Review of FI</a></td></tr>
+    <tr><td><span class="sa-code">SAE 3400</span></td><td>Examination of prospective financial information</td><td><a href="#ch-11-prospective-financial-info">Ch 11 · Prospective FI</a></td></tr>
+    <tr><td><span class="sa-code">SAE 3402</span></td><td>Assurance reports on controls at a service org</td><td><a href="#ch-11-prospective-financial-info">Ch 11 · Prospective FI</a></td></tr>
+    <tr><td><span class="sa-code">SAE 3410</span></td><td>Assurance on GHG statements <em>(flagged)</em></td><td><a href="#ch-11-prospective-financial-info">Ch 11 · Prospective FI</a></td></tr>
+    <tr><td><span class="sa-code">SAE 3420</span></td><td>Assurance on compilation of pro-forma FI in prospectus</td><td><a href="#ch-11-prospective-financial-info">Ch 11 · Prospective FI</a></td></tr>
+    <tr><td><span class="sa-code">SRS 4400</span></td><td>Agreed-upon procedures</td><td><a href="#ch-09-related-services">Ch 9 · Related Services</a></td></tr>
+    <tr><td><span class="sa-code">SRS 4410</span></td><td>Compilation engagements</td><td><a href="#ch-09-related-services">Ch 9 · Related Services</a></td></tr>
+    <tr><td><span class="sa-code">CARO 2020</span></td><td>Companies (Auditor's Report) Order — 21 clauses, s.143(11)</td><td><a href="#ch-07a-caro-2020">Ch 7A · CARO 2020</a></td></tr>
+    <tr><td><span class="sa-code">CA Act</span></td><td>Schedules I &amp; II · Council Guidelines · Code of Ethics · Liabilities</td><td><a href="#ch-19-ethics">Ch 19 · Professional Ethics</a></td></tr>
+  </tbody>
+</table>
+
+<footer class="page-foot">
+  CA Final · Paper 3 · Advanced Auditing, Assurance &amp; Professional Ethics — May 2026 attempt.
+  Notes aligned to ICAI Study Material PDFs. Built for single-screen revision.
+</footer>
+
+</body>
+</html>

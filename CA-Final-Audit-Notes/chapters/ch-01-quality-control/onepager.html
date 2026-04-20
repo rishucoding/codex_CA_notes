@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ch 1 — Quality Control · One-Pager · CA Final Audit</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<style>
+:root {
+  --bg: #faf8f3;
+  --ink: #1a1a1a;
+  --muted: #5b5b5b;
+  --accent: #0a4a8f;
+  --keyword-bg: #fff3d4;
+  --exception-bg: #ffe4e4;
+  --exception-border: #c33;
+  --clause-bg: #e8f2ff;
+  --table-stripe: #f5f2ea;
+  --rule: #d8d3c4;
+  --quote-bar: #0a4a8f;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Georgia, serif;
+  background: var(--bg); color: var(--ink);
+  max-width: 820px; margin: 2rem auto; padding: 0 1.25rem;
+  line-height: 1.55; font-size: 16px;
+}
+h1 { font-size: 1.9rem; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 0.4rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin-top: 2rem; border-left: 4px solid var(--accent); padding-left: 0.6rem; }
+h3 { font-size: 1.15rem; color: var(--ink); margin-top: 1.5rem; }
+h4 { font-size: 1rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1.2rem; margin-bottom: 0.3rem; }
+.meta { color: var(--muted); font-style: italic; font-size: 0.9rem; margin-top: -0.5rem; }
+.keyword { background: var(--keyword-bg); padding: 0 0.2em; border-radius: 2px; font-weight: 600; }
+.exception {
+  background: var(--exception-bg);
+  border-left: 4px solid var(--exception-border);
+  padding: 0.5rem 0.8rem; margin: 0.5rem 0; border-radius: 3px;
+}
+.exception::before { content: "⚠ "; font-weight: bold; color: var(--exception-border); }
+.clause {
+  background: var(--clause-bg); padding: 0.1rem 0.4rem;
+  border-radius: 3px; font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+}
+blockquote.icai {
+  border-left: 4px solid var(--quote-bar);
+  background: #fff; margin: 0.8rem 0; padding: 0.6rem 1rem;
+  font-style: italic; color: #333;
+}
+blockquote.icai::before { content: "ICAI verbatim · "; font-style: normal; font-weight: 600; color: var(--accent); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.95rem; }
+th, td { padding: 0.5rem 0.7rem; text-align: left; border: 1px solid var(--rule); vertical-align: top; }
+th { background: var(--accent); color: #fff; font-weight: 600; }
+tr:nth-child(even) td { background: var(--table-stripe); }
+.sa-card {
+  border: 1px solid var(--rule); border-radius: 6px;
+  padding: 1rem 1.2rem; margin: 1.5rem 0; background: #fff;
+}
+.sa-card h3 { margin-top: 0; color: var(--accent); }
+.triggers {
+  background: #fff; border: 1px dashed var(--accent);
+  padding: 1rem; border-radius: 6px; margin: 1.5rem 0;
+}
+.triggers h3 { margin-top: 0; color: var(--accent); }
+.triggers ol { margin: 0; padding-left: 1.2rem; }
+.triggers li { margin: 0.4rem 0; }
+.mermaid { background: #fff; padding: 1rem; border-radius: 6px; margin: 1rem 0; text-align: center; }
+svg.diagram { max-width: 100%; height: auto; display: block; margin: 1rem auto; background: #fff; border-radius: 6px; padding: 0.5rem; }
+ul, ol { padding-left: 1.3rem; }
+li { margin: 0.2rem 0; }
+.chip { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-right: 0.3rem; }
+.chip-sa { background: var(--accent); color: #fff; }
+.chip-marks { background: #2a7c3a; color: #fff; }
+.nav { margin: 1rem 0; font-size: 0.9rem; }
+.nav a { color: var(--accent); text-decoration: none; margin-right: 1rem; }
+.nav a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="nav">← <a href="../../index.html">All chapters</a> · <a href="full.html">Full note</a></div>
+<h1>Ch 1 — Quality Control · One-Pager</h1>
+<p class="meta">ICAI SM Final P3 May 2026 · <span class="chip chip-marks">~8–10 marks</span> · SQC 1 (firm) · SA 220 (engagement)</p>
+
+<h2>Standards at a glance</h2>
+<table>
+<thead><tr><th>Std</th><th>Level</th><th>Core trigger</th><th>⚠ Key exception</th></tr></thead>
+<tbody>
+<tr><td>SQC 1</td><td>Firm-wide</td><td>6-element system · all engagements</td><td>Commercial considerations must not override quality</td></tr>
+<tr><td>SA 220</td><td>Engagement partner</td><td>Listed-entity EQCR · 6-element echo</td><td>Report <em>not dated</em> before EQCR complete</td></tr>
+</tbody>
+</table>
+
+<h2>Six elements — firm vs EP</h2>
+<table>
+<thead><tr><th>Element</th><th>SQC 1 (firm)</th><th>SA 220 (EP)</th></tr></thead>
+<tbody>
+<tr><td>Leadership</td><td>CEO/MP · tone at top</td><td>EP · no-reprisal culture</td></tr>
+<tr><td>Ethics</td><td>Code · indep. · 7-yr rotation</td><td>Identify threat · withdraw</td></tr>
+<tr><td>Acceptance</td><td>Integrity · competence · ethics</td><td>Conclusions appropriate</td></tr>
+<tr><td>HR / Assignment</td><td>Recruit · train · assign EP</td><td>Team + experts competent</td></tr>
+<tr><td>Performance</td><td>Consult · EQCR · 60-day · 7-yr</td><td>Direct · supervise · review</td></tr>
+<tr><td>Monitoring</td><td>Ongoing eval + inspection</td><td>Use firm monitoring results</td></tr>
+</tbody>
+</table>
+
+<h2>Must-remember keywords</h2>
+<ul>
+<li><strong>SQC 1:</strong> <span class="keyword">6 elements · CEO ultimate · 60-day file · 7-yr retention · EQCR (listed) · rotation ≤ 7 yr</span></li>
+<li><strong>SA 220:</strong> <span class="keyword">premised on SQC 1 · sine qua non · EP overall quality · report not dated till EQCR done</span></li>
+<li><strong>EQCR:</strong> <span class="keyword">partner / ICAI member / external · objective · no participation</span></li>
+<li><strong>Red flags:</strong> <span class="keyword">ED/IT search · previous auditor resigned · fee hike · family link · aggressive accounting</span></li>
+<li><strong>Oversight:</strong> <span class="keyword">PRB (ICAI) · QRB (non-NFRA) · NFRA (listed/bank/insurer/Rule 3)</span></li>
+</ul>
+
+<div class="triggers">
+<h3>5 Exam Triggers</h3>
+<ol>
+<li>MP's family friend is promoter; prev. auditor resigned; 25% fee hike → <strong>SQC 1</strong> Acceptance &amp; Leadership.</li>
+<li>Paid-employee CA solicits statutory audit during stock audit + clean-report quid pro quo → <strong>SQC 1</strong> Ethics.</li>
+<li>Listed-co report dated 15 May; EQCR completed 18 May → <strong>SA 220</strong>: report not dated before EQCR complete.</li>
+<li>EQCR disagrees with EP on revenue / onerous contracts → <strong>SQC 1 &amp; SA 220</strong>: resolve before report; escalate.</li>
+<li>CARO vii(a) "generally regular" for listed co. → <strong>SA 220</strong>: fails regulatory-compliance objective.</li>
+</ol>
+</div>
+
+<h2>Reporting bottom-lines</h2>
+<ul>
+<li><strong>SQC 1:</strong> firm <em>system</em>; documented &amp; communicated.</li>
+<li><strong>SA 220:</strong> <span class="keyword">listed-entity report not dated until EQCR complete</span>.</li>
+<li><strong>Rotation:</strong> listed-entity EP ≤ 7 yrs (sole-practitioner → peer review).</li>
+<li><strong>Files:</strong> assemble ≤ 60 days · retain ≥ 7 yrs from report date.</li>
+</ul>
+
+<script>mermaid.initialize({startOnLoad:true, theme:'neutral'});</script>
+</body>
+</html>

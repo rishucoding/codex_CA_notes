@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ch 10 — Review of Financial Information · One-Pager · CA Final Audit</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<style>
+:root {
+  --bg: #faf8f3;
+  --ink: #1a1a1a;
+  --muted: #5b5b5b;
+  --accent: #0a4a8f;
+  --keyword-bg: #fff3d4;
+  --exception-bg: #ffe4e4;
+  --exception-border: #c33;
+  --clause-bg: #e8f2ff;
+  --table-stripe: #f5f2ea;
+  --rule: #d8d3c4;
+  --quote-bar: #0a4a8f;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Georgia, serif;
+  background: var(--bg); color: var(--ink);
+  max-width: 820px; margin: 2rem auto; padding: 0 1.25rem;
+  line-height: 1.55; font-size: 16px;
+}
+h1 { font-size: 1.9rem; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 0.4rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin-top: 2rem; border-left: 4px solid var(--accent); padding-left: 0.6rem; }
+h3 { font-size: 1.15rem; color: var(--ink); margin-top: 1.5rem; }
+h4 { font-size: 1rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1.2rem; margin-bottom: 0.3rem; }
+.meta { color: var(--muted); font-style: italic; font-size: 0.9rem; margin-top: -0.5rem; }
+.keyword { background: var(--keyword-bg); padding: 0 0.2em; border-radius: 2px; font-weight: 600; }
+.exception {
+  background: var(--exception-bg);
+  border-left: 4px solid var(--exception-border);
+  padding: 0.5rem 0.8rem; margin: 0.5rem 0; border-radius: 3px;
+}
+.exception::before { content: "⚠ "; font-weight: bold; color: var(--exception-border); }
+.clause {
+  background: var(--clause-bg); padding: 0.1rem 0.4rem;
+  border-radius: 3px; font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+}
+blockquote.icai {
+  border-left: 4px solid var(--quote-bar);
+  background: #fff; margin: 0.8rem 0; padding: 0.6rem 1rem;
+  font-style: italic; color: #333;
+}
+blockquote.icai::before { content: "ICAI verbatim · "; font-style: normal; font-weight: 600; color: var(--accent); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.95rem; }
+th, td { padding: 0.5rem 0.7rem; text-align: left; border: 1px solid var(--rule); vertical-align: top; }
+th { background: var(--accent); color: #fff; font-weight: 600; }
+tr:nth-child(even) td { background: var(--table-stripe); }
+.sa-card {
+  border: 1px solid var(--rule); border-radius: 6px;
+  padding: 1rem 1.2rem; margin: 1.5rem 0; background: #fff;
+}
+.sa-card h3 { margin-top: 0; color: var(--accent); }
+.triggers {
+  background: #fff; border: 1px dashed var(--accent);
+  padding: 1rem; border-radius: 6px; margin: 1.5rem 0;
+}
+.triggers h3 { margin-top: 0; color: var(--accent); }
+.triggers ol { margin: 0; padding-left: 1.2rem; }
+.triggers li { margin: 0.4rem 0; }
+.mermaid { background: #fff; padding: 1rem; border-radius: 6px; margin: 1rem 0; text-align: center; }
+svg.diagram { max-width: 100%; height: auto; display: block; margin: 1rem auto; background: #fff; border-radius: 6px; padding: 0.5rem; }
+ul, ol { padding-left: 1.3rem; }
+li { margin: 0.2rem 0; }
+.chip { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-right: 0.3rem; }
+.chip-sa { background: var(--accent); color: #fff; }
+.chip-marks { background: #2a7c3a; color: #fff; }
+.nav { margin: 1rem 0; font-size: 0.9rem; }
+.nav a { color: var(--accent); text-decoration: none; margin-right: 1rem; }
+.nav a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="nav">← <a href="../../index.html">All chapters</a> · <a href="full.html">Full note</a></div>
+<h1>Ch 10 — Review of Financial Information · One-Pager</h1>
+<p class="meta">ICAI SM Final P3 May 2026 · <span class="chip chip-marks">~6–8 marks</span> · SRE 2400 · SRE 2410</p>
+
+<h2>SREs at a glance</h2>
+<table>
+<thead><tr><th>SRE</th><th>Name</th><th>Core trigger</th><th>⚠ Key exception</th></tr></thead>
+<tbody>
+<tr><td>2400</td><td>Review of historical FS</td><td>Practitioner <strong>NOT</strong> the auditor · limited assurance · inquiry + analytical</td><td>No rational purpose / integrity doubt / scope limit → do not accept</td></tr>
+<tr><td>2410</td><td>Review of interim FI</td><td>Entity's own auditor · SEBI LODR quarterly review · update prior understanding</td><td>Ordinarily no tests of records, no lawyer letter, no post-report procedures</td></tr>
+</tbody>
+</table>
+
+<h2>Must-remember keywords</h2>
+<ul>
+<li><strong>2400:</strong> <span class="keyword">limited assurance, preconditions, inquiry+analytical, additional procedures, written reps, disclaim/withdraw</span></li>
+<li><strong>2410:</strong> <span class="keyword">interim FI (shorter than year), update understanding, moderate risk, EOM for going concern, UDIN, resign from annual audit</span></li>
+<li><strong>Audit vs Review:</strong> <span class="keyword">reasonable vs limited · opinion vs conclusion · positive vs negative wording · SAAE all vs inquiry+analytical</span></li>
+</ul>
+
+<h2>ICAI negative-assurance phrase</h2>
+<blockquote class="icai">"Based on our review, nothing has come to our attention that causes us to believe that the financial statements do not give a true and fair view (or do not present fairly, in all material respects), in accordance with the applicable financial reporting framework."</blockquote>
+
+<div class="triggers">
+<h3>5 Exam Triggers</h3>
+<ol>
+<li>Contract requires quarterly review; practitioner <em>not</em> the auditor → <strong>SRE 2400</strong> (special purpose FRF ok).</li>
+<li>Statutory auditor doing SEBI LODR quarterly review → <strong>SRE 2410</strong>; UDIN mandatory.</li>
+<li>Suspected misstatement during review → <strong>additional procedures</strong> (detail tests / confirmations); else scope limit → qualified / disclaimer.</li>
+<li>Fire, uninsured assets, going-concern uncertainty <em>disclosed</em> in interim FI → <strong>SRE 2410 EOM</strong>; if not disclosed → qualified / adverse.</li>
+<li>Material adjustment needed; CFO &amp; AC silent → <strong>SRE 2410</strong>: modify report / withdraw / <span class="keyword">resign from annual audit</span>.</li>
+</ol>
+</div>
+
+<h2>Reporting bottom-lines</h2>
+<ul>
+<li><strong>Unmodified (2400/2410):</strong> "nothing has come to our attention…" per FRF.</li>
+<li><strong>Qualified:</strong> "except for…" — material, not pervasive.</li>
+<li><strong>Adverse:</strong> "due to the significance of…" — material &amp; pervasive misstatement.</li>
+<li><strong>Disclaimer:</strong> unable to obtain SAAE — material &amp; pervasive.</li>
+<li><strong>EOM:</strong> going-concern uncertainty adequately disclosed.</li>
+<li><strong>2410 extras:</strong> membership no. + FRN + UDIN + place.</li>
+</ul>
+
+<script>mermaid.initialize({startOnLoad:true, theme:'neutral'});</script>
+</body>
+</html>

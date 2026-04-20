@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ch 9 — Related Services (SRS 4400, SRS 4410) · CA Final Audit</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<style>
+:root {
+  --bg: #faf8f3;
+  --ink: #1a1a1a;
+  --muted: #5b5b5b;
+  --accent: #0a4a8f;
+  --keyword-bg: #fff3d4;
+  --exception-bg: #ffe4e4;
+  --exception-border: #c33;
+  --clause-bg: #e8f2ff;
+  --table-stripe: #f5f2ea;
+  --rule: #d8d3c4;
+  --quote-bar: #0a4a8f;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Georgia, serif;
+  background: var(--bg); color: var(--ink);
+  max-width: 820px; margin: 2rem auto; padding: 0 1.25rem;
+  line-height: 1.55; font-size: 16px;
+}
+h1 { font-size: 1.9rem; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 0.4rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin-top: 2rem; border-left: 4px solid var(--accent); padding-left: 0.6rem; }
+h3 { font-size: 1.15rem; color: var(--ink); margin-top: 1.5rem; }
+h4 { font-size: 1rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1.2rem; margin-bottom: 0.3rem; }
+.meta { color: var(--muted); font-style: italic; font-size: 0.9rem; margin-top: -0.5rem; }
+.keyword { background: var(--keyword-bg); padding: 0 0.2em; border-radius: 2px; font-weight: 600; }
+.exception {
+  background: var(--exception-bg);
+  border-left: 4px solid var(--exception-border);
+  padding: 0.5rem 0.8rem; margin: 0.5rem 0; border-radius: 3px;
+}
+.exception::before { content: "⚠ "; font-weight: bold; color: var(--exception-border); }
+.clause {
+  background: var(--clause-bg); padding: 0.1rem 0.4rem;
+  border-radius: 3px; font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+}
+blockquote.icai {
+  border-left: 4px solid var(--quote-bar);
+  background: #fff; margin: 0.8rem 0; padding: 0.6rem 1rem;
+  font-style: italic; color: #333;
+}
+blockquote.icai::before { content: "ICAI verbatim · "; font-style: normal; font-weight: 600; color: var(--accent); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.95rem; }
+th, td { padding: 0.5rem 0.7rem; text-align: left; border: 1px solid var(--rule); vertical-align: top; }
+th { background: var(--accent); color: #fff; font-weight: 600; }
+tr:nth-child(even) td { background: var(--table-stripe); }
+.sa-card {
+  border: 1px solid var(--rule); border-radius: 6px;
+  padding: 1rem 1.2rem; margin: 1.5rem 0; background: #fff;
+}
+.sa-card h3 { margin-top: 0; color: var(--accent); }
+.triggers {
+  background: #fff; border: 1px dashed var(--accent);
+  padding: 1rem; border-radius: 6px; margin: 1.5rem 0;
+}
+.triggers h3 { margin-top: 0; color: var(--accent); }
+.triggers ol { margin: 0; padding-left: 1.2rem; }
+.triggers li { margin: 0.4rem 0; }
+.mermaid { background: #fff; padding: 1rem; border-radius: 6px; margin: 1rem 0; text-align: center; }
+svg.diagram { max-width: 100%; height: auto; display: block; margin: 1rem auto; background: #fff; border-radius: 6px; padding: 0.5rem; }
+ul, ol { padding-left: 1.3rem; }
+li { margin: 0.2rem 0; }
+.chip { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-right: 0.3rem; }
+.chip-sa { background: var(--accent); color: #fff; }
+.chip-marks { background: #2a7c3a; color: #fff; }
+.nav { margin: 1rem 0; font-size: 0.9rem; }
+.nav a { color: var(--accent); text-decoration: none; margin-right: 1rem; }
+.nav a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="nav">← <a href="../../index.html">All chapters</a> · <a href="onepager.html">One-pager</a></div>
+<h1>Chapter 9 — Related Services (SRS 4400, SRS 4410)</h1>
+<p class="meta">ICAI SM Final P3 May 2026 · <span class="chip chip-marks">~6–8 marks</span> Covers SRS 4400 (Agreed-Upon Procedures) · SRS 4410 (Compilation Engagements)</p>
+
+<h2>Chapter map</h2>
+<p>Related Services are the <em>non-assurance</em> siblings of audit/review. CAs are often asked to do work that does <strong>not</strong> involve an opinion on truth &amp; fairness. The AASB has issued two SRSs for such work: <span class="clause">SRS 4400</span> (Agreed-Upon Procedures on financial information — "<span class="keyword">AUP</span>") and <span class="clause">SRS 4410</span> (Compilation Engagements).</p>
+<p>Both are <span class="keyword">non-assurance</span> engagements: no opinion, no conclusion, no verification of accuracy/completeness. The practitioner either <em>reports factual findings</em> (4400) or <em>assists in preparation &amp; presentation</em> of financial information and issues a compilation report (4410). Independence is <strong>not</strong> a precondition (disclose if not independent under 4400).</p>
+
+<h2>Related Services overview</h2>
+<svg class="diagram" viewBox="0 0 780 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr9" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L8,5 L0,10 z" fill="#0a4a8f"/>
+    </marker>
+  </defs>
+  <!-- Umbrella -->
+  <rect x="230" y="15" width="320" height="55" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="390" y="38" text-anchor="middle" font-size="14" font-weight="700" fill="#0a4a8f">Related Services (non-assurance)</text>
+  <text x="390" y="58" text-anchor="middle" font-size="11" fill="#333">No opinion · No conclusion · Report issued</text>
+
+  <!-- SRS 4400 -->
+  <rect x="40" y="110" width="320" height="80" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="200" y="135" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">SRS 4400 — Agreed-Upon Procedures</text>
+  <text x="200" y="155" text-anchor="middle" font-size="11" fill="#333">Procedures of an audit nature</text>
+  <text x="200" y="170" text-anchor="middle" font-size="11" fill="#333">Report on factual findings</text>
+  <text x="200" y="185" text-anchor="middle" font-size="11" font-style="italic" fill="#5b5b5b">Restricted distribution</text>
+
+  <!-- SRS 4410 -->
+  <rect x="420" y="110" width="320" height="80" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="580" y="135" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">SRS 4410 — Compilation Engagements</text>
+  <text x="580" y="155" text-anchor="middle" font-size="11" fill="#333">Assist mgmt with preparation &amp;</text>
+  <text x="580" y="170" text-anchor="middle" font-size="11" fill="#333">presentation of historical FI</text>
+  <text x="580" y="185" text-anchor="middle" font-size="11" font-style="italic" fill="#5b5b5b">No verification required</text>
+
+  <!-- Contrast strip -->
+  <rect x="40" y="220" width="700" height="60" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="390" y="243" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">Distinguish from ASSURANCE engagements</text>
+  <text x="390" y="262" text-anchor="middle" font-size="11" fill="#333">Audit (SA 700 · reasonable) · Review (SRE 2400/2410 · limited) · Other (SAE 3400 series)</text>
+  <text x="390" y="275" text-anchor="middle" font-size="10" font-style="italic" fill="#5b5b5b">Related Services give NO assurance — users draw their own conclusions</text>
+
+  <!-- arrows -->
+  <path d="M340,70 L230,110" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr9)"/>
+  <path d="M450,70 L560,110" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr9)"/>
+</svg>
+
+<h2>Comparison — AUP vs Compilation vs Audit vs Review</h2>
+<p>The single most examinable table for Ch 9. Memorise the columns — case-studies routinely ask you to <em>identify</em> which engagement fits a fact pattern and then apply the corresponding report language.</p>
+
+<table>
+<thead>
+<tr><th>Dimension</th><th>AUP · SRS 4400</th><th>Compilation · SRS 4410</th><th>Audit · SA 700</th><th>Review · SRE 2400/2410</th></tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Nature</strong></td>
+  <td>Non-assurance</td>
+  <td>Non-assurance</td>
+  <td>Reasonable assurance</td>
+  <td>Limited assurance</td>
+</tr>
+<tr>
+  <td><strong>Output</strong></td>
+  <td><span class="keyword">Report of factual findings</span></td>
+  <td><span class="keyword">Compilation report</span></td>
+  <td>Opinion on FS</td>
+  <td>Negative-form conclusion</td>
+</tr>
+<tr>
+  <td><strong>Evidence</strong></td>
+  <td>Procedures agreed; evidence supports findings</td>
+  <td><em>No</em> verification of accuracy/completeness</td>
+  <td>SAAE → reduce audit risk to low</td>
+  <td>Inquiry + analytical procedures</td>
+</tr>
+<tr>
+  <td><strong>Independence</strong></td>
+  <td><span class="keyword">Not mandatory</span>; disclose if not independent</td>
+  <td>Not required (laws may add)</td>
+  <td>Mandatory</td>
+  <td>Mandatory</td>
+</tr>
+<tr>
+  <td><strong>Users</strong></td>
+  <td>Parties that <span class="keyword">agreed to procedures</span> (restricted)</td>
+  <td>Mgmt / TCWG / specified users</td>
+  <td>Wide — shareholders, public</td>
+  <td>Intended users per engagement</td>
+</tr>
+<tr>
+  <td><strong>Key phrase in report</strong></td>
+  <td>"<span class="keyword">no assurance is expressed</span>"</td>
+  <td>"does not express an audit opinion or a review conclusion"</td>
+  <td>"true and fair view"</td>
+  <td>"nothing has come to our attention"</td>
+</tr>
+<tr>
+  <td><strong>Who draws conclusions?</strong></td>
+  <td><span class="keyword">Users themselves</span> from factual findings</td>
+  <td>Users; practitioner gives no conclusion</td>
+  <td>Auditor expresses the opinion</td>
+  <td>Practitioner expresses limited conclusion</td>
+</tr>
+</tbody>
+</table>
+
+<!-- SRS 4400 -->
+<section class="sa-card">
+<h3><span class="chip chip-sa">SRS 4400</span> Engagements to Perform Agreed-Upon Procedures Regarding Financial Information</h3>
+<p><strong>Scope:</strong> Guidance on the auditor's professional responsibilities when engaged to perform agreed-upon procedures regarding financial information, and on the form and content of the report issued. Person performing related services <em>need not</em> be the entity's FS auditor.</p>
+
+<h4>Objective (ICAI verbatim)</h4>
+<blockquote class="icai">"The objective of an agreed-upon procedures engagement is for the auditor to carry out procedures of an audit nature to which the auditor and the entity and any appropriate third parties have agreed and to report on factual findings."</blockquote>
+<blockquote class="icai">"As the auditor simply provides a report of the factual findings of agreed upon procedures, no assurance is provided by him in his report. Instead, users of the report assess for themselves the procedures and the findings reported by the auditor and draw their own conclusions from the work done by the auditor."</blockquote>
+
+<h4>Key Definitions</h4>
+<ul>
+  <li><span class="keyword">Agreed-upon procedures engagement</span> — auditor issues a report of <em>factual findings</em>, based on specified procedures performed on specified subject matter of specified elements, accounts or items of an FS</li>
+  <li><span class="keyword">Factual findings</span> — results of the specific procedures; reported <em>as such</em> without assurance</li>
+  <li><span class="keyword">Specified parties</span> — entity + any appropriate third parties who agreed the procedures; recipients of the restricted report</li>
+</ul>
+
+<h4>General Principles</h4>
+<ul>
+  <li>Comply with <span class="keyword">ICAI Code of Ethics</span>: integrity · objectivity · professional competence &amp; due care · confidentiality · professional conduct · technical standards</li>
+  <li><span class="keyword">Independence not required</span> — but if terms/objective mandate it, comply; if <em>not</em> independent, state so in the report of factual findings</li>
+  <li><span class="keyword">Plan</span> the work so effective engagement is performed</li>
+  <li>Carry out the agreed procedures and use evidence obtained as the basis for factual findings</li>
+  <li><span class="keyword">Document</span> matters supporting the findings &amp; showing engagement was per SRS + terms</li>
+</ul>
+
+<h4>Defining the Terms — matters to agree</h4>
+<ul>
+  <li>(a) <span class="keyword">Nature</span> of engagement — procedures do <em>not</em> constitute an audit or review and <em>no assurance</em> will be expressed</li>
+  <li>(b) <span class="keyword">Stated purpose</span> of the engagement</li>
+  <li>(c) <span class="keyword">Identification</span> of the financial information to which AUP applied</li>
+  <li>(d) <span class="keyword">Nature, timing &amp; extent</span> (N/T/E) of specific procedures</li>
+  <li>(e) <span class="keyword">Limitations on distribution</span> of the report; if such limitation conflicts with legal requirements → <span class="keyword">do not accept</span> the engagement</li>
+</ul>
+<p>Send an <span class="keyword">engagement letter</span> listing the procedures, and a statement that distribution of the report will be restricted to specified parties.</p>
+
+<h4>Procedures &amp; Evidence — typical techniques</h4>
+<ul>
+  <li><span class="keyword">Inquiry &amp; analysis</span></li>
+  <li><span class="keyword">Recomputation, comparison</span> &amp; other clerical-accuracy checks</li>
+  <li><span class="keyword">Observation · inspection · obtaining confirmations</span></li>
+</ul>
+
+<h4>Reporting — required contents of the report of factual findings</h4>
+<ul>
+  <li>(a) Title; (b) addressee (ordinarily the appointing authority);</li>
+  <li>(c) Identification of specific financial or non-financial info to which AUP applied;</li>
+  <li>(d) Statement that procedures performed were those <span class="keyword">agreed-upon with the recipient</span>;</li>
+  <li>(e) Statement that engagement was performed per the SRS applicable to AUP;</li>
+  <li>(f) Identification of the <span class="keyword">purpose</span> for which AUP were performed;</li>
+  <li>(g) <span class="keyword">Listing</span> of the specific procedures performed;</li>
+  <li>(h) Description of <span class="keyword">factual findings</span>, with sufficient details of errors &amp; exceptions found;</li>
+  <li>(i) Statement that the procedures do not constitute an audit or review and, as such, <span class="keyword">no assurance is expressed</span>;</li>
+  <li>(j) Statement that had additional procedures / an audit / a review been performed, <span class="keyword">other matters might have come to light</span> that would have been reported;</li>
+  <li>(k) Statement that the report is <span class="keyword">restricted</span> to parties that agreed to the procedures;</li>
+  <li>(l) Statement (when applicable) that report relates only to specified elements / accounts / items / information and <em>does not extend to the FS taken as a whole</em>;</li>
+  <li>(m) Date; (n) place of signature; (o) auditor's signature.</li>
+</ul>
+
+<h4>Exceptions / Conditions</h4>
+<div class="exception">Independence is <strong>not</strong> a requirement, but where the auditor is <em>not</em> independent and terms do not require it, a <span class="keyword">statement to that effect</span> must be made in the report.</div>
+<div class="exception">If distribution restriction would conflict with legal requirements → the auditor <span class="keyword">would not accept</span> the engagement.</div>
+<div class="exception">"Auditor" in SRS 4400 does <strong>not</strong> imply the person be the entity's FS auditor — any appropriately qualified practitioner may undertake AUP.</div>
+
+<h4>Conclusion / Reporting</h4>
+<p>Deliver a factual-findings report with the 15 elements above. Users read the procedures &amp; findings and draw <em>their own</em> conclusions. The engagement is <span class="keyword">non-assurance</span>; misuse (read as audit/review) is avoided by the restricted-distribution &amp; "no assurance" statements.</p>
+</section>
+
+<!-- SRS 4410 -->
+<section class="sa-card">
+<h3><span class="chip chip-sa">SRS 4410</span> Compilation Engagements</h3>
+<p><strong>Scope:</strong> Practitioner's responsibilities when engaged to <em>assist management</em> with preparation &amp; presentation of <span class="keyword">historical financial information</span> without obtaining any assurance on that information, and to report on the engagement per this SRS. Non-historical / non-financial compilations — apply this SRS with necessary adaptation.</p>
+
+<h4>Objectives (ICAI verbatim)</h4>
+<blockquote class="icai">"The practitioner's objectives in a compilation engagement under this SRS are to: (a) Apply accounting and financial reporting expertise to assist management in the preparation and presentation of financial information in accordance with an applicable financial reporting framework based on information provided by management; and (b) Report in accordance with the requirements of this SRS."</blockquote>
+<blockquote class="icai">"A compilation engagement is not an assurance engagement. A compilation engagement does not require the practitioner to verify the accuracy or completeness of the information provided by management for the compilation, or otherwise to gather evidence to express an audit opinion or a review conclusion on the preparation of the financial information."</blockquote>
+
+<h4>Key Definitions</h4>
+<ul>
+  <li><span class="keyword">Compilation engagement</span> — practitioner applies accounting &amp; FR expertise to assist management in preparation &amp; presentation of FI per an applicable FRF, and issues a report</li>
+  <li><span class="keyword">Applicable FRF</span> — may range from simple entity-specific basis to established FR standards; chosen per entity nature &amp; intended use</li>
+  <li><span class="keyword">Special purpose FRF</span> — used where FI prepared for a specific purpose; report includes an explanatory paragraph</li>
+</ul>
+
+<h4>Scope — intended purposes</h4>
+<ul>
+  <li>Mandatory periodic financial reporting under law/regulation, if any</li>
+  <li>Non-mandatory: (i) for mgmt / TCWG <span class="keyword">internal use</span>; (ii) for <span class="keyword">external parties under contract</span> (e.g. grant funding body); (iii) for <span class="keyword">transactional</span> purposes — M&amp;A, changes in ownership/financing structure</li>
+</ul>
+
+<h4>Ethical Requirements</h4>
+<ul>
+  <li>Comply with <span class="keyword">relevant ethical requirements</span>; identify &amp; address threats per Code of Ethics</li>
+  <li><span class="keyword">Independence not required</span> (non-assurance), unless laws/regulations specify</li>
+</ul>
+
+<h4>Engagement Acceptance &amp; Continuance</h4>
+<p>Do not accept unless terms are agreed with mgmt (and engaging party if different), including:</p>
+<ul>
+  <li>(a) Intended use &amp; <span class="keyword">distribution restrictions</span>;</li>
+  <li>(b) Identification of the <span class="keyword">applicable FRF</span>;</li>
+  <li>(c) Objective &amp; scope of the compilation;</li>
+  <li>(d) Practitioner's responsibilities — including ethical compliance;</li>
+  <li>(e) Mgmt's responsibilities — FI &amp; its preparation; internal control; accuracy &amp; completeness of records/information; judgments (even where practitioner assisted);</li>
+  <li>(f) Expected <span class="keyword">form and content</span> of the report.</li>
+</ul>
+<p>Record terms in an <span class="keyword">engagement letter</span> or other written agreement before performing. For <span class="keyword">recurring engagements</span>: reassess whether terms need revision and whether to remind mgmt of existing terms.</p>
+
+<h4>Performing the Engagement</h4>
+<ul>
+  <li>Obtain sufficient <span class="keyword">understanding</span> of (a) entity's business, operations, accounting system &amp; records; (b) applicable FRF and its industry application</li>
+  <li>Compile FI using records, documents, explanations &amp; significant <span class="keyword">judgments provided by management</span></li>
+  <li>Discuss significant judgments (where practitioner assisted) with mgmt / TCWG</li>
+  <li>Before completion, <span class="keyword">read the compiled FI</span> in light of understanding of entity &amp; FRF</li>
+  <li>If information is <span class="keyword">incomplete, inaccurate or unsatisfactory</span> → bring to mgmt's attention; request additional / corrected information</li>
+  <li>If mgmt <span class="keyword">fails to provide</span> records/info/judgments → <span class="keyword">withdraw</span> and inform mgmt &amp; TCWG of reasons</li>
+  <li>If during engagement practitioner becomes aware that: (a) FI does <em>not</em> adequately refer to / describe FRF; (b) amendments required for FI not to be <span class="keyword">materially misstated</span>; (c) FI is <span class="keyword">otherwise misleading</span> → propose appropriate amendments</li>
+  <li>If mgmt <span class="keyword">declines</span> proposed amendments → withdraw; if withdrawal not possible → determine professional &amp; legal responsibilities</li>
+  <li>Obtain mgmt's (or TCWG's) <span class="keyword">acknowledgement</span> of responsibility for the final version of the compiled FI</li>
+</ul>
+
+<h4>The Practitioner's Report — mandatory contents</h4>
+<ul>
+  <li>(a) Title; (b) addressee(s) per engagement terms;</li>
+  <li>(c) Statement that practitioner has <span class="keyword">compiled the FI based on information provided by management</span>;</li>
+  <li>(d) Description of <span class="keyword">management's responsibilities</span> (compilation &amp; FI);</li>
+  <li>(e) Identification of <span class="keyword">applicable FRF</span>; if special purpose FRF — reference to its description;</li>
+  <li>(f) Identification of the FI — titles of elements, date/period;</li>
+  <li>(g) Description of <span class="keyword">practitioner's responsibilities</span>, including engagement per this SRS and compliance with ethical requirements;</li>
+  <li>(h) Description of what a compilation entails per this SRS;</li>
+  <li>(i) Explanations that — (i) since compilation is <em>not</em> an assurance engagement, practitioner is not required to <span class="keyword">verify accuracy/completeness</span>; (ii) accordingly, practitioner <span class="keyword">does not express an audit opinion or a review conclusion</span>;</li>
+  <li>(j) If special purpose FRF — explanatory paragraph: (i) purpose &amp; intended users (or reference to a note); (ii) caution that FI <em>may not be suitable for other purposes</em>;</li>
+  <li>(k) Date; (l) practitioner's signature; (m) place of signature.</li>
+</ul>
+
+<h4>Engagement-Level Quality Control &amp; Documentation</h4>
+<ul>
+  <li>Engagement partner takes responsibility for <span class="keyword">overall quality</span> and for performance per firm's QC policies/procedures</li>
+  <li><span class="clause">SQC 1</span> applies to firms in respect of compilation engagements (SRS 4410 is an Engagement Standard)</li>
+  <li>Document: (a) significant matters &amp; how addressed; (b) record of how compiled FI <span class="keyword">reconciles</span> with underlying records; (c) final compiled FI + acknowledged responsibility + the report</li>
+</ul>
+
+<h4>Exceptions / Conditions</h4>
+<div class="exception">Compilation is <strong>not</strong> an assurance engagement — practitioner does <em>not</em> verify accuracy/completeness and does <em>not</em> gather evidence to express an opinion/conclusion.</div>
+<div class="exception">If mgmt refuses amendments for FI that is materially misstated or misleading → <span class="keyword">withdraw</span>. If withdrawal impossible → determine applicable professional / legal responsibilities.</div>
+<div class="exception">Management retains <span class="keyword">responsibility for the FI</span> and the basis of preparation — including accounting policies, estimates, and application of judgment. Practitioner's assistance does not shift that responsibility.</div>
+
+<h4>Communication with Management &amp; TCWG</h4>
+<ul>
+  <li>Communicate <span class="keyword">timely</span> all matters that, in the practitioner's professional judgment, merit attention of management or TCWG</li>
+  <li>Discuss significant judgments where practitioner assisted; obtain management's acknowledgement on the final version</li>
+</ul>
+
+<h4>Conclusion / Reporting</h4>
+<p>Issue a compilation report in writing with the 13 elements above. The report is <span class="keyword">not a vehicle</span> to express an opinion or conclusion. Where FI cannot be corrected — withdraw; if withdrawal not possible, act on professional / legal duties and document the rationale in the engagement file.</p>
+</section>
+
+<h2>Integrated case-scenario — key answers (from PDF §3.7, §3.5)</h2>
+<p>The Ch 9 PDF runs one MCQ scenario (KM Ltd) — memorise these outcomes. They recur as "most appropriate" MCQs.</p>
+<table>
+<thead><tr><th>Fact pattern</th><th>Correct answer &amp; reasoning</th></tr></thead>
+<tbody>
+<tr><td>Errors in opening balances (swapped, no current-year credit activity)</td><td>Bring to <strong>management's knowledge</strong> — not auto-qualification; amendments to be proposed per §3.5.</td></tr>
+<tr><td>Team member wants to <em>verify</em> all revenues</td><td>Improper — verification of <span class="keyword">accuracy/completeness</span> is <em>not</em> required in a compilation engagement.</td></tr>
+<tr><td>Quality-control Standards applicable</td><td><span class="clause">SQC 1</span> applies (SRS 4410 is an Engagement Standard). SA 220 is <em>not</em> triggered.</td></tr>
+<tr><td>Omission of Rourkela-unit expenditure — material disclosure</td><td>Misleading → violates fundamental principle of <span class="keyword">integrity</span>; engagement cannot be performed per ethical requirements unless amended.</td></tr>
+<tr><td>Final engagement-file assembly timing</td><td>"Timely basis after engagement report is finalised, per time limits set by the firm." (No fixed 60/120-day cap applicable via SRS 4410 text itself; follow firm's QC policies under SQC 1.)</td></tr>
+</tbody>
+</table>
+
+<h2>Decision triage — which SRS fits?</h2>
+<svg class="diagram" viewBox="0 0 780 290" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr9b" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L8,5 L0,10 z" fill="#0a4a8f"/>
+    </marker>
+  </defs>
+  <!-- Start -->
+  <rect x="280" y="10" width="220" height="45" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="390" y="30" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">Client asks for a "report"</text>
+  <text x="390" y="46" text-anchor="middle" font-size="11" fill="#333">— but not an audit/review opinion</text>
+
+  <!-- Decision 1 -->
+  <polygon points="390,85 560,125 390,165 220,125" fill="#fff3d4" stroke="#0a4a8f" stroke-width="1.5"/>
+  <text x="390" y="120" text-anchor="middle" font-size="11" font-weight="700" fill="#0a4a8f">Is the deliverable</text>
+  <text x="390" y="135" text-anchor="middle" font-size="11" font-weight="700" fill="#0a4a8f">factual findings on specified items?</text>
+
+  <!-- Yes → SRS 4400 -->
+  <rect x="40" y="195" width="330" height="75" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="205" y="220" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">SRS 4400 — AUP</text>
+  <text x="205" y="238" text-anchor="middle" font-size="11" fill="#333">Procedures agreed · Factual findings</text>
+  <text x="205" y="253" text-anchor="middle" font-size="11" fill="#333">Restricted distribution · No assurance</text>
+  <text x="205" y="266" text-anchor="middle" font-size="10" font-style="italic" fill="#5b5b5b">e.g. AR confirmation · supplier reconciliation</text>
+
+  <!-- No → SRS 4410 -->
+  <rect x="410" y="195" width="330" height="75" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="575" y="220" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">SRS 4410 — Compilation</text>
+  <text x="575" y="238" text-anchor="middle" font-size="11" fill="#333">Assist prep &amp; presentation of FI</text>
+  <text x="575" y="253" text-anchor="middle" font-size="11" fill="#333">No verification · No opinion/conclusion</text>
+  <text x="575" y="266" text-anchor="middle" font-size="10" font-style="italic" fill="#5b5b5b">e.g. drafting FS from trial balance</text>
+
+  <!-- arrows -->
+  <path d="M390,55 L390,85" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr9b)"/>
+  <path d="M290,145 L205,195" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr9b)"/>
+  <text x="230" y="175" text-anchor="middle" font-size="11" font-weight="700" fill="#0a4a8f">YES</text>
+  <path d="M490,145 L575,195" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr9b)"/>
+  <text x="560" y="175" text-anchor="middle" font-size="11" font-weight="700" fill="#0a4a8f">NO — assist in prep</text>
+</svg>
+
+<div class="triggers">
+<h3>5 Exam Triggers — spot these phrasings, invoke these SRSs</h3>
+<ol>
+  <li>"Management requests CA to <strong>evaluate validity of accounts receivables / trade receivables</strong> — prepare &amp; send confirmations, analyse variations, submit a report per professional standards; CA is not the statutory auditor" → <strong>SRS 4400 AUP</strong>. Report must contain: procedures agreed with recipient, factual findings, "<span class="keyword">no assurance is expressed</span>", "had additional procedures / an audit / a review been performed, other matters might have come to light", <span class="keyword">restricted-distribution</span> statement, and "does not extend to the FS taken as a whole".</li>
+  <li>"Client provides <strong>trial balance</strong> and asks for assistance in <strong>preparation &amp; presentation</strong> of FS plus a report" → <strong>SRS 4410 Compilation</strong>. Not an assurance engagement; practitioner does not verify accuracy/completeness; report states "<span class="keyword">does not express an audit opinion or a review conclusion</span>".</li>
+  <li>"During compilation, CA finds inventory <strong>grossly understated</strong>; applicable standards not applied; partners say 'outside your scope — accept our certified figures'" → <strong>SRS 4410</strong> §3.5. Propose amendments; if management <em>declines</em> → <span class="keyword">withdraw</span> and inform mgmt/TCWG; if withdrawal impossible → determine professional &amp; legal responsibilities.</li>
+  <li>"AUP terms require that <strong>distribution of the report</strong> be unrestricted, conflicting with legal disclosure requirements" OR "the CA is <em>not</em> independent of the entity" → <strong>SRS 4400</strong>. If restriction would conflict with law → <span class="keyword">do not accept</span>. If not independent → explicit <span class="keyword">statement of non-independence</span> in the report.</li>
+  <li>"During compilation, CA notices <strong>opening-balance errors</strong> / <strong>omission of material expenditure</strong> (e.g. new-unit costs) from compiled FI" → <strong>SRS 4410</strong>. First bring to management's attention &amp; propose amendments (§3.5). Omission → FI otherwise misleading → <span class="keyword">integrity</span> principle; if uncorrected → withdraw. <span class="clause">SQC 1</span> applies; <span class="clause">SA 220</span> does not.</li>
+</ol>
+</div>
+
+<script>mermaid.initialize({startOnLoad:true, theme:'neutral'});</script>
+</body>
+</html>

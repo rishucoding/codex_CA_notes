@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ch 2 — General Auditing Principles · One-Pager · CA Final Audit</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<style>
+:root {
+  --bg: #faf8f3;
+  --ink: #1a1a1a;
+  --muted: #5b5b5b;
+  --accent: #0a4a8f;
+  --keyword-bg: #fff3d4;
+  --exception-bg: #ffe4e4;
+  --exception-border: #c33;
+  --clause-bg: #e8f2ff;
+  --table-stripe: #f5f2ea;
+  --rule: #d8d3c4;
+  --quote-bar: #0a4a8f;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Georgia, serif;
+  background: var(--bg); color: var(--ink);
+  max-width: 820px; margin: 2rem auto; padding: 0 1.25rem;
+  line-height: 1.55; font-size: 16px;
+}
+h1 { font-size: 1.9rem; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 0.4rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin-top: 2rem; border-left: 4px solid var(--accent); padding-left: 0.6rem; }
+h3 { font-size: 1.15rem; color: var(--ink); margin-top: 1.5rem; }
+h4 { font-size: 1rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1.2rem; margin-bottom: 0.3rem; }
+.meta { color: var(--muted); font-style: italic; font-size: 0.9rem; margin-top: -0.5rem; }
+.keyword { background: var(--keyword-bg); padding: 0 0.2em; border-radius: 2px; font-weight: 600; }
+.exception {
+  background: var(--exception-bg);
+  border-left: 4px solid var(--exception-border);
+  padding: 0.5rem 0.8rem; margin: 0.5rem 0; border-radius: 3px;
+}
+.exception::before { content: "⚠ "; font-weight: bold; color: var(--exception-border); }
+.clause {
+  background: var(--clause-bg); padding: 0.1rem 0.4rem;
+  border-radius: 3px; font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+}
+blockquote.icai {
+  border-left: 4px solid var(--quote-bar);
+  background: #fff; margin: 0.8rem 0; padding: 0.6rem 1rem;
+  font-style: italic; color: #333;
+}
+blockquote.icai::before { content: "ICAI verbatim · "; font-style: normal; font-weight: 600; color: var(--accent); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.95rem; }
+th, td { padding: 0.5rem 0.7rem; text-align: left; border: 1px solid var(--rule); vertical-align: top; }
+th { background: var(--accent); color: #fff; font-weight: 600; }
+tr:nth-child(even) td { background: var(--table-stripe); }
+.sa-card {
+  border: 1px solid var(--rule); border-radius: 6px;
+  padding: 1rem 1.2rem; margin: 1.5rem 0; background: #fff;
+}
+.sa-card h3 { margin-top: 0; color: var(--accent); }
+.triggers {
+  background: #fff; border: 1px dashed var(--accent);
+  padding: 1rem; border-radius: 6px; margin: 1.5rem 0;
+}
+.triggers h3 { margin-top: 0; color: var(--accent); }
+.triggers ol { margin: 0; padding-left: 1.2rem; }
+.triggers li { margin: 0.4rem 0; }
+.mermaid { background: #fff; padding: 1rem; border-radius: 6px; margin: 1rem 0; text-align: center; }
+svg.diagram { max-width: 100%; height: auto; display: block; margin: 1rem auto; background: #fff; border-radius: 6px; padding: 0.5rem; }
+ul, ol { padding-left: 1.3rem; }
+li { margin: 0.2rem 0; }
+.chip { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-right: 0.3rem; }
+.chip-sa { background: var(--accent); color: #fff; }
+.chip-marks { background: #2a7c3a; color: #fff; }
+.nav { margin: 1rem 0; font-size: 0.9rem; }
+.nav a { color: var(--accent); text-decoration: none; margin-right: 1rem; }
+.nav a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="nav">← <a href="../../index.html">All chapters</a> · <a href="full.html">Full note</a></div>
+<h1>Ch 2 — General Auditing Principles · One-Pager</h1>
+<p class="meta">ICAI SM Final P3 May 2026 · <span class="chip chip-marks">~12–15 marks</span> · SA 200 · 210 · 230 · 240 · 250 · 260 · 265 · 299 · 402</p>
+
+<h2>SAs at a glance</h2>
+<table>
+<thead><tr><th>SA</th><th>Name</th><th>Core trigger</th><th>⚠ Key exception</th></tr></thead>
+<tbody>
+<tr><td>200</td><td>Overall objectives</td><td>Reasonable assurance · skepticism</td><td>Absolute assurance not attainable (inherent limits)</td></tr>
+<tr><td>210</td><td>Terms of engagement</td><td>Preconditions · engagement letter</td><td>Decline if preconditions absent / scope curtailed</td></tr>
+<tr><td>230</td><td>Audit documentation</td><td>Experienced-auditor test</td><td>No post-retention deletion; ≥ 7 yr (SQC 1)</td></tr>
+<tr><td>240</td><td>Fraud</td><td>Revenue-recognition fraud presumption</td><td>Mgmt fraud risk &gt; employee; <span class="clause">s.143(12)</span> &gt; ₹1 cr</td></tr>
+<tr><td>250</td><td>Laws &amp; regulations</td><td>Direct-effect vs other laws</td><td>Auditor not responsible to prevent NOCLAR</td></tr>
+<tr><td>260</td><td>Communicate with TCWG</td><td>Two-way communication timely</td><td>Listed entities — independence + fees disclosure</td></tr>
+<tr><td>265</td><td>Deficiencies in IC</td><td>Written to TCWG &amp; mgmt</td><td>Not in Ch 2 PDF — refer SA 315 / Intermediate</td></tr>
+<tr><td>299</td><td>Joint audit</td><td>Divided vs common areas</td><td>Disagreement → separate report (SA 706 OM)</td></tr>
+<tr><td>402</td><td>Service organisation</td><td>Type 1 / Type 2 report</td><td>ICAI service auditor — competence assumed</td></tr>
+</tbody>
+</table>
+
+<h2>Must-remember keywords</h2>
+<ul>
+<li><strong>200:</strong> <span class="keyword">reasonable assurance, skepticism, SAAE</span></li>
+<li><strong>210:</strong> <span class="keyword">preconditions, FRF, engagement letter</span></li>
+<li><strong>230:</strong> <span class="keyword">experienced auditor, 60-day, 7-yr</span></li>
+<li><strong>240:</strong> <span class="keyword">fraud triangle, revenue, override, s.143(12)</span></li>
+<li><strong>250:</strong> <span class="keyword">direct, other, inquire, legal advice</span></li>
+<li><strong>260:</strong> <span class="keyword">scope, findings, independence, two-way</span></li>
+<li><strong>265:</strong> <span class="keyword">significant deficiency, written, TCWG</span></li>
+<li><strong>299:</strong> <span class="keyword">joint plan, allocation, several, OM</span></li>
+<li><strong>402:</strong> <span class="keyword">user/service, Type 1/2, CUECs</span></li>
+</ul>
+
+<div class="triggers">
+<h3>5 Exam Triggers</h3>
+<ol>
+<li>MD blocks communication of audit plan / significant risks to Audit Committee → <strong>SA 260</strong>.</li>
+<li>Off-book sale; proceeds to CFO's personal account; mgmt pleads immateriality → <strong>SA 240</strong> + <span class="clause">s.143(12)</span>.</li>
+<li>DGGI/IRDAI notices for fictitious invoicing; mgmt withholds info → <strong>SA 250</strong> → SA 705.</li>
+<li>Joint-auditor team fails on a <em>common</em> area (IT controls) → <strong>SA 299</strong> joint &amp; several.</li>
+<li>Joint auditors disagree on modification → <strong>SA 299</strong> separate report + <span class="clause">SA 706 OM</span>.</li>
+</ol>
+</div>
+
+<h2>Reporting bottom-lines</h2>
+<ul>
+<li><strong>200:</strong> opinion on FS/FRF.</li>
+<li><strong>210:</strong> accept if preconditions met.</li>
+<li><strong>230:</strong> supports opinion; no tampering.</li>
+<li><strong>240:</strong> SA 705; fraud &gt;₹1 cr → CG.</li>
+<li><strong>250:</strong> NOCLAR → qualified; no SAAE → disclaimer.</li>
+<li><strong>260:</strong> findings &amp; independence.</li>
+<li><strong>265:</strong> written to TCWG; opinion unchanged.</li>
+<li><strong>299:</strong> common report; else separate+OM.</li>
+<li><strong>402:</strong> no reference unless required.</li>
+</ul>
+
+<script>mermaid.initialize({startOnLoad:true, theme:'neutral'});</script>
+</body>
+</html>

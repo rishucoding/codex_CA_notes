@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ch 19 — Professional Ethics &amp; Liabilities of Auditors · CA Final Audit</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<style>
+:root {
+  --bg: #faf8f3;
+  --ink: #1a1a1a;
+  --muted: #5b5b5b;
+  --accent: #0a4a8f;
+  --keyword-bg: #fff3d4;
+  --exception-bg: #ffe4e4;
+  --exception-border: #c33;
+  --clause-bg: #e8f2ff;
+  --table-stripe: #f5f2ea;
+  --rule: #d8d3c4;
+  --quote-bar: #0a4a8f;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Georgia, serif;
+  background: var(--bg); color: var(--ink);
+  max-width: 860px; margin: 2rem auto; padding: 0 1.25rem;
+  line-height: 1.55; font-size: 16px;
+}
+h1 { font-size: 1.9rem; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 0.4rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin-top: 2rem; border-left: 4px solid var(--accent); padding-left: 0.6rem; scroll-margin-top: 1rem; }
+h3 { font-size: 1.15rem; color: var(--ink); margin-top: 1.5rem; }
+h4 { font-size: 1rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1.2rem; margin-bottom: 0.3rem; }
+.meta { color: var(--muted); font-style: italic; font-size: 0.9rem; margin-top: -0.5rem; }
+.keyword { background: var(--keyword-bg); padding: 0 0.2em; border-radius: 2px; font-weight: 600; }
+.exception {
+  background: var(--exception-bg);
+  border-left: 4px solid var(--exception-border);
+  padding: 0.5rem 0.8rem; margin: 0.5rem 0; border-radius: 3px;
+}
+.exception::before { content: "⚠ "; font-weight: bold; color: var(--exception-border); }
+.clause {
+  background: var(--clause-bg); padding: 0.1rem 0.4rem;
+  border-radius: 3px; font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+}
+blockquote.icai {
+  border-left: 4px solid var(--quote-bar);
+  background: #fff; margin: 0.8rem 0; padding: 0.6rem 1rem;
+  font-style: italic; color: #333;
+}
+blockquote.icai::before { content: "ICAI verbatim · "; font-style: normal; font-weight: 600; color: var(--accent); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.93rem; }
+th, td { padding: 0.5rem 0.7rem; text-align: left; border: 1px solid var(--rule); vertical-align: top; }
+th { background: var(--accent); color: #fff; font-weight: 600; }
+tr:nth-child(even) td { background: var(--table-stripe); }
+.sa-card {
+  border: 1px solid var(--rule); border-radius: 6px;
+  padding: 1rem 1.2rem; margin: 1.5rem 0; background: #fff;
+}
+.sa-card h3 { margin-top: 0; color: var(--accent); }
+.skeleton {
+  border: 2px solid var(--accent); border-radius: 6px;
+  padding: 1rem 1.2rem; margin: 1.5rem 0; background: #fff;
+}
+.skeleton h3 { margin-top: 0; color: var(--accent); }
+.skeleton ol { margin: 0.4rem 0 0; padding-left: 1.3rem; }
+.skeleton li { margin: 0.35rem 0; }
+.triggers {
+  background: #fff; border: 1px dashed var(--accent);
+  padding: 1rem; border-radius: 6px; margin: 1.5rem 0;
+}
+.triggers h3 { margin-top: 0; color: var(--accent); }
+.triggers ol { margin: 0; padding-left: 1.2rem; }
+.triggers li { margin: 0.4rem 0; }
+.mermaid { background: #fff; padding: 1rem; border-radius: 6px; margin: 1rem 0; text-align: center; }
+svg.diagram { max-width: 100%; height: auto; display: block; margin: 1rem auto; background: #fff; border-radius: 6px; padding: 0.5rem; }
+ul, ol { padding-left: 1.3rem; }
+li { margin: 0.2rem 0; }
+.chip { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-right: 0.3rem; }
+.chip-sa { background: var(--accent); color: #fff; }
+.chip-marks { background: #2a7c3a; color: #fff; }
+.nav { margin: 1rem 0; font-size: 0.9rem; }
+.nav a { color: var(--accent); text-decoration: none; margin-right: 1rem; }
+.nav a:hover { text-decoration: underline; }
+.toc { position: sticky; top: 0.5rem; background: #fff; border: 1px solid var(--rule); border-radius: 6px; padding: 0.6rem 0.9rem; font-size: 0.85rem; margin: 1rem 0; }
+.toc strong { color: var(--accent); }
+.toc a { color: var(--accent); text-decoration: none; margin-right: 0.7rem; white-space: nowrap; }
+.toc a:hover { text-decoration: underline; }
+.penalty { font-weight: 600; color: #8a1a1a; }
+</style>
+</head>
+<body>
+<div class="nav">← <a href="../../index.html">All chapters</a> · <a href="onepager.html">One-pager</a></div>
+<h1>Chapter 19 — Professional Ethics &amp; Liabilities of Auditors</h1>
+<p class="meta">ICAI SM Final P3 May 2026 · <span class="chip chip-marks">~20 marks · highest-weight chapter</span> CA Act 1949 Schedules I &amp; II · Council Guidelines 2008 · Code of Ethics · NOCLAR · Civil/Criminal/Statutory liability</p>
+
+<div class="toc">
+<strong>Jump:</strong>
+<a href="#map">Map</a>
+<a href="#skeleton">Case skeleton</a>
+<a href="#principles">5 Principles</a>
+<a href="#threats">Threats &amp; safeguards</a>
+<a href="#noclar">NOCLAR</a>
+<a href="#member">Membership (s.8/19/24)</a>
+<a href="#disc">Discipline</a>
+<a href="#fs1">FS Part I</a>
+<a href="#fs2">FS Part II</a>
+<a href="#fs3">FS Part III</a>
+<a href="#fs4">FS Part IV</a>
+<a href="#ss1">SS Part I</a>
+<a href="#ss2">SS Part II</a>
+<a href="#ss3">SS Part III</a>
+<a href="#guidelines">Council Guidelines</a>
+<a href="#ads">Ads Guidelines</a>
+<a href="#liab">Liabilities</a>
+<a href="#triggers">5 Exam triggers</a>
+</div>
+
+<h2 id="map">Chapter map — how the ethics regime fits together</h2>
+<p>The examinable ethics universe has <em>four</em> layers. Every fact-pattern must be slotted into one of them. The <span class="clause">CA Act 1949</span> sets <strong>membership, practice and discipline</strong>; the <strong>Schedules</strong> attached to it codify <em>what is misconduct</em>; the <strong>Council Guidelines 2008</strong> operationalise limits and standards (tax audit 60, company audit 30, indebtedness ₹1 lakh, UDIN, logo, networking, corporate form); the <strong>Code of Ethics</strong> overlays the five fundamental principles plus the threats-and-safeguards framework and NOCLAR. The liability layer then pulls in the <em>Companies Act 2013</em> (s.139 appointment, s.141 eligibility, s.143(12) fraud reporting, s.147 punishment, s.132 NFRA) plus civil/criminal law.</p>
+
+<svg class="diagram" viewBox="0 0 820 360" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L8,5 L0,10 z" fill="#0a4a8f"/>
+    </marker>
+  </defs>
+  <rect x="260" y="10" width="300" height="46" rx="6" fill="#0a4a8f"/>
+  <text x="410" y="32" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Chartered Accountants Act, 1949</text>
+  <text x="410" y="48" text-anchor="middle" font-size="11" fill="#fff">Membership · Practice · Discipline (s.21)</text>
+
+  <rect x="20" y="100" width="180" height="70" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="110" y="122" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">First Schedule</text>
+  <text x="110" y="140" text-anchor="middle" font-size="11" fill="#333">Parts I–IV · 19 clauses</text>
+  <text x="110" y="156" text-anchor="middle" font-size="11" fill="#333">→ Board of Discipline</text>
+  <text x="110" y="168" text-anchor="middle" font-size="10" fill="#8a1a1a">Fine up to ₹1,00,000</text>
+
+  <rect x="220" y="100" width="180" height="70" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="310" y="122" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">Second Schedule</text>
+  <text x="310" y="140" text-anchor="middle" font-size="11" fill="#333">Parts I–III · 16 clauses</text>
+  <text x="310" y="156" text-anchor="middle" font-size="11" fill="#333">→ Disciplinary Committee</text>
+  <text x="310" y="168" text-anchor="middle" font-size="10" fill="#8a1a1a">Fine up to ₹5,00,000</text>
+
+  <rect x="420" y="100" width="180" height="70" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="510" y="122" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">Council Guidelines</text>
+  <text x="510" y="140" text-anchor="middle" font-size="11" fill="#333">2008 · Chapters V–XVII</text>
+  <text x="510" y="156" text-anchor="middle" font-size="11" fill="#333">Tax audit 60 · Audit 30</text>
+  <text x="510" y="168" text-anchor="middle" font-size="10" fill="#333">Indebtedness ₹1L · UDIN</text>
+
+  <rect x="620" y="100" width="180" height="70" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="710" y="122" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">Code of Ethics</text>
+  <text x="710" y="140" text-anchor="middle" font-size="11" fill="#333">5 Principles · Threats</text>
+  <text x="710" y="156" text-anchor="middle" font-size="11" fill="#333">NOCLAR (s.260 / s.360)</text>
+  <text x="710" y="168" text-anchor="middle" font-size="10" fill="#333">Conceptual framework</text>
+
+  <line x1="410" y1="56" x2="110" y2="100" stroke="#0a4a8f" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="410" y1="56" x2="310" y2="100" stroke="#0a4a8f" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="410" y1="56" x2="510" y2="100" stroke="#0a4a8f" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="410" y1="56" x2="710" y2="100" stroke="#0a4a8f" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <rect x="100" y="220" width="620" height="56" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="410" y="242" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">Liabilities of Auditors</text>
+  <text x="410" y="260" text-anchor="middle" font-size="11" fill="#333">Civil (damages) · Criminal (IPC) · CA Act s.21/24 · Companies Act s.147 · s.143(12) · NFRA s.132</text>
+
+  <line x1="110" y1="170" x2="260" y2="220" stroke="#0a4a8f" stroke-width="1.2" marker-end="url(#arr)"/>
+  <line x1="310" y1="170" x2="360" y2="220" stroke="#0a4a8f" stroke-width="1.2" marker-end="url(#arr)"/>
+  <line x1="510" y1="170" x2="460" y2="220" stroke="#0a4a8f" stroke-width="1.2" marker-end="url(#arr)"/>
+  <line x1="710" y1="170" x2="560" y2="220" stroke="#0a4a8f" stroke-width="1.2" marker-end="url(#arr)"/>
+
+  <rect x="260" y="305" width="300" height="40" rx="6" fill="#fff3d4" stroke="#0a4a8f" stroke-width="1"/>
+  <text x="410" y="328" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">Outcome · Reprimand · Remove name · Fine</text>
+</svg>
+
+<h2 id="skeleton">Case-study answer skeleton — the 5-step template</h2>
+<div class="skeleton">
+<h3>Every ethics fact-pattern must be answered in these five moves</h3>
+<ol>
+<li><strong>Provision</strong> — name the source with clause number: <span class="clause">First Schedule · Part I · Clause (X)</span> / <span class="clause">Second Schedule · Part I · Clause (Y)</span> / <span class="clause">Council Guideline Chapter ___</span> / <span class="clause">Code of Ethics · Subsection ___</span>.</li>
+<li><strong>Content</strong> — one line of the verbatim prohibition (quote the operative verb: "advertises", "accepts", "charges", "permits").</li>
+<li><strong>Exception / carve-out</strong> — Council resolution, existing partner, regulatory body tender with minimum fee, UDIN exemption, statutory fee, etc.</li>
+<li><strong>Analysis</strong> — apply facts to provision: is there a fee link, did communication happen, is turnover above threshold, is there a substantial interest, was Council permission obtained?</li>
+<li><strong>Conclusion</strong> — guilty / not guilty of <em>professional misconduct</em>, and state the forum (Board of Discipline for First Schedule; Disciplinary Committee for Second Schedule) and likely penalty band.</li>
+</ol>
+<p style="margin-bottom:0"><em>Never skip step 1 — examiner awards marks only when the clause number is cited with the <span class="clause">.clause</span> tag. Never write "guilty" without saying <em>of professional misconduct under [clause]</em>.</em></p>
+</div>
+
+<h2 id="principles">Code of Ethics — 5 Fundamental Principles (Subsections 111–115)</h2>
+<p>These five principles sit at the top of Part 1 of the Code of Ethics. They are not themselves enforceable as misconduct — breach is routed through the CA Act Schedules — but every threats-and-safeguards evaluation starts by asking <em>which principle is at risk</em>.</p>
+<table>
+<thead><tr><th style="width:18%">Principle · Subsection</th><th>Core duty (ICAI verbatim)</th><th style="width:24%">Practical hook</th></tr></thead>
+<tbody>
+<tr><td><span class="clause">Integrity · 111</span></td><td>An accountant shall be "<em>straightforward and honest in all professional and business relationships</em>"; must not knowingly be associated with information that is materially false, misleading, negligently provided or that omits/obscures required information.</td><td>Qualify or withdraw if associated with misleading FS.</td></tr>
+<tr><td><span class="clause">Objectivity · 112</span></td><td>"<em>Not to compromise professional or business judgment because of bias, conflict of interest or undue influence of others.</em>" Do not undertake the activity if a circumstance unduly influences judgment.</td><td>Decline if there is a financial stake or family tie.</td></tr>
+<tr><td><span class="clause">Professional Competence &amp; Due Care · 113</span></td><td>Attain and maintain knowledge at the level required to give competent service, based on current technical/professional standards; act diligently, carefully, thoroughly and timely; supervise staff; be aware of limitations of services.</td><td>CPE hours; refuse out-of-depth niche work.</td></tr>
+<tr><td><span class="clause">Confidentiality · 114</span></td><td>Respect confidentiality of information acquired in professional/employment relationships; do not disclose without proper and specific authority unless there is a legal/professional duty or right; do not use for personal or third-party advantage; duty continues after the relationship ends.</td><td>Interplay with <span class="clause">SS · Part I · Cl (1)</span> (practice) and <span class="clause">SS · Part II · Cl (2)</span> (employment).</td></tr>
+<tr><td><span class="clause">Professional Behaviour · 115</span></td><td>Comply with relevant laws and regulations; avoid any conduct that "<em>might discredit the profession</em>"; no exaggerated claims, no disparaging references, no advertising in violation of Council guidelines.</td><td>Social-media posts, logos, solicitation.</td></tr>
+</tbody>
+</table>
+
+<blockquote class="icai">A professional accountant shall comply with each of the fundamental principles. The fundamental principles of ethics establish the standard of behaviour expected of a professional accountant.</blockquote>
+
+<p><strong>Conflict between principles.</strong> Where complying with one principle conflicts with another, the Code requires the accountant to consider consulting with others within the firm, those charged with governance, the Institute, or legal counsel — and, if necessary, <span class="keyword">disassociate from the matter</span>. The substance of the issue and rationale should be documented.</p>
+
+<h2 id="threats">Threats &amp; Safeguards — conceptual framework</h2>
+<p>The Code prescribes a three-step approach: <span class="keyword">Identify → Evaluate → Address</span>. Evaluation uses the <em>reasonable and informed third-party test</em> — would another informed person likely reach the same conclusion? Threats must be reduced to an <em>acceptable level</em>; if not, eliminate the circumstance or end the engagement.</p>
+
+<svg class="diagram" viewBox="0 0 800 270" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="150" height="80" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="85" y="34" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">Self-interest</text>
+  <text x="85" y="54" text-anchor="middle" font-size="10" fill="#333">Financial interest</text>
+  <text x="85" y="68" text-anchor="middle" font-size="10" fill="#333">Low-ball fee</text>
+  <text x="85" y="82" text-anchor="middle" font-size="10" fill="#333">Close biz relationship</text>
+
+  <rect x="170" y="10" width="150" height="80" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="245" y="34" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">Self-review</text>
+  <text x="245" y="54" text-anchor="middle" font-size="10" fill="#333">Audit own work</text>
+  <text x="245" y="68" text-anchor="middle" font-size="10" fill="#333">Implemented FS system</text>
+  <text x="245" y="82" text-anchor="middle" font-size="10" fill="#333">Prepared source data</text>
+
+  <rect x="330" y="10" width="150" height="80" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="405" y="34" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">Advocacy</text>
+  <text x="405" y="54" text-anchor="middle" font-size="10" fill="#333">Promote client shares</text>
+  <text x="405" y="68" text-anchor="middle" font-size="10" fill="#333">Act as advocate</text>
+  <text x="405" y="82" text-anchor="middle" font-size="10" fill="#333">Lobby legislation</text>
+
+  <rect x="490" y="10" width="150" height="80" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="565" y="34" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">Familiarity</text>
+  <text x="565" y="54" text-anchor="middle" font-size="10" fill="#333">Close/family tie</text>
+  <text x="565" y="68" text-anchor="middle" font-size="10" fill="#333">Long audit tenure</text>
+  <text x="565" y="82" text-anchor="middle" font-size="10" fill="#333">Ex-EP now at client</text>
+
+  <rect x="650" y="10" width="140" height="80" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="720" y="34" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">Intimidation</text>
+  <text x="720" y="54" text-anchor="middle" font-size="10" fill="#333">Dismissal threat</text>
+  <text x="720" y="68" text-anchor="middle" font-size="10" fill="#333">Gift-linked pressure</text>
+  <text x="720" y="82" text-anchor="middle" font-size="10" fill="#333">Promotion blocked</text>
+
+  <rect x="60" y="120" width="680" height="40" rx="6" fill="#fff3d4" stroke="#0a4a8f" stroke-width="1"/>
+  <text x="400" y="144" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">Evaluate against "acceptable level" using reasonable and informed third-party test</text>
+
+  <rect x="20" y="185" width="245" height="70" rx="6" fill="#fff" stroke="#2a7c3a" stroke-width="2"/>
+  <text x="142" y="210" text-anchor="middle" font-size="12" font-weight="700" fill="#2a7c3a">Eliminate</text>
+  <text x="142" y="228" text-anchor="middle" font-size="10" fill="#333">Remove the circumstance</text>
+  <text x="142" y="244" text-anchor="middle" font-size="10" fill="#333">interest/relationship</text>
+
+  <rect x="280" y="185" width="240" height="70" rx="6" fill="#fff" stroke="#2a7c3a" stroke-width="2"/>
+  <text x="400" y="210" text-anchor="middle" font-size="12" font-weight="700" fill="#2a7c3a">Apply Safeguards</text>
+  <text x="400" y="228" text-anchor="middle" font-size="10" fill="#333">EQCR review · different teams</text>
+  <text x="400" y="244" text-anchor="middle" font-size="10" fill="#333">Another firm re-performs</text>
+
+  <rect x="535" y="185" width="245" height="70" rx="6" fill="#fff" stroke="#c33" stroke-width="2"/>
+  <text x="657" y="210" text-anchor="middle" font-size="12" font-weight="700" fill="#c33">Decline / End</text>
+  <text x="657" y="228" text-anchor="middle" font-size="10" fill="#333">Withdraw from engagement</text>
+  <text x="657" y="244" text-anchor="middle" font-size="10" fill="#333">when safeguards inadequate</text>
+</svg>
+
+<h4>Safeguard examples from the Code</h4>
+<ul>
+<li>Assigning additional time and qualified personnel to required tasks (addresses <span class="keyword">self-interest</span>).</li>
+<li>Having an appropriate reviewer who was not a member of the team review the work (addresses <span class="keyword">self-review</span>).</li>
+<li>Using different partners and engagement teams with separate reporting lines for provision of non-assurance services to an assurance client (addresses self-review, advocacy or familiarity).</li>
+<li>Involving another firm to perform or re-perform part of the engagement (addresses self-interest, self-review, advocacy, familiarity, intimidation).</li>
+<li>Separating teams when dealing with confidential matters (addresses self-interest).</li>
+</ul>
+
+<h2 id="noclar">NOCLAR — Non-Compliance with Laws and Regulations</h2>
+<p>NOCLAR comprises "<em>acts of omission or commission, intentional or unintentional, which are contrary to the prevailing laws or regulations</em>" committed by the client/employer or those charged with governance, management or employees. It does <em>not</em> address personal misconduct unrelated to business activities.</p>
+<table>
+<thead><tr><th style="width:22%">Applicability in India</th><th>Trigger / Coverage</th></tr></thead>
+<tbody>
+<tr><td><span class="clause">Section 260</span> — Accountants in service</td><td>Applicable to <span class="keyword">Senior Professional Accountants</span> (KMP-level directors / officers / senior employees able to exert significant influence) who are employees of <span class="keyword">listed entities</span>.</td></tr>
+<tr><td><span class="clause">Section 360</span> — Accountants in public practice</td><td>Applicable to audit engagements of entities whose shares are listed on a recognised Indian stock exchange <em>and</em> having <span class="keyword">net worth ≥ ₹250 crore</span>. "Audit" means a reasonable-assurance engagement giving an opinion on true-and-fair view.</td></tr>
+</tbody>
+</table>
+
+<h4>NOCLAR vs SA 250</h4>
+<ul>
+<li>SA 250 applies only to audits; NOCLAR applies to accountants in service <em>and</em> in practice.</li>
+<li>SA 250 distinguishes direct-effect vs other laws; NOCLAR additionally covers non-compliance causing <em>substantial harm</em> (financial or non-financial).</li>
+<li>NOCLAR defines stakeholders (investors, creditors, employees, general public) — SA 250 does not.</li>
+<li>NOCLAR permits <em>immediate disclosure to an appropriate authority</em> to prevent/mitigate an imminent breach; SA 250 has no equivalent.</li>
+</ul>
+
+<div class="exception"><strong>Confidentiality interplay.</strong> Disclosure under NOCLAR is read with <span class="clause">SS · Part I · Cl (1)</span> (practice) and <span class="clause">SS · Part II · Cl (2)</span> (employment) — disclosure is permitted where required by law for the time being in force, or otherwise with consent. Where disclosure would be contrary to law, IESBA precludes it.</div>
+
+<h4>Responding to NOCLAR — steps</h4>
+<ol>
+<li>Obtain an understanding of the matter.</li>
+<li>Address the matter with management / TCWG.</li>
+<li>Seek advice.</li>
+<li>Determine whether further action is needed.</li>
+<li>Determine whether to disclose to an appropriate authority (e.g. SEBI for fraudulent FR).</li>
+<li>Handle imminent breach — disclose immediately if substantial harm to stakeholders is imminent.</li>
+<li>Document: management's response, judgments, decisions, how public-interest responsibility has been fulfilled.</li>
+</ol>
+
+<h2 id="member">Membership &amp; Practice — CA Act 1949</h2>
+<h3>Section 8 — Disabilities for membership</h3>
+<p>Name cannot be entered/borne on the Register if the person:</p>
+<ul>
+<li>has not attained <span class="keyword">21 years</span> at the time of application;</li>
+<li>is of <span class="keyword">unsound mind</span> and so adjudged by a competent court;</li>
+<li>is an <span class="keyword">undischarged insolvent</span>;</li>
+<li>being a discharged insolvent, has not obtained a certificate that insolvency was caused by misfortune without misconduct;</li>
+<li>has been convicted of an offence involving <span class="keyword">moral turpitude</span> punishable with imprisonment, or of an offence committed in professional capacity (pardon/quashing excepted);</li>
+<li>has been removed from membership on disciplinary grounds (for the period of removal).</li>
+</ul>
+
+<h3>Section 19 — Particulars in the Register</h3>
+<p>Full name · date of birth · domicile · residential and professional address · date of entry · qualifications · whether holds COP · any other prescribed particulars.</p>
+
+<h3>Section 5 — Associate vs Fellow; Section 6 — Certificate of Practice</h3>
+<p>An <span class="keyword">Associate</span> member can prefix "<em>ACA</em>"; after <span class="keyword">5 continuous years</span> in practice (or other prescribed qualification), an associate may be admitted as a <span class="keyword">Fellow</span> ("<em>FCA</em>"). Only a member holding a <span class="keyword">Certificate of Practice</span> (s.6) may be in practice; COP has to be renewed annually.</p>
+
+<h3>Section 25 — Companies not to engage in practice</h3>
+<p>No company, whether incorporated in India or elsewhere, shall practice as chartered accountants. Any director/officer knowingly a party to such contravention is <span class="penalty">punishable with fine</span>.</p>
+
+<h3>Section 27 — Branch offices</h3>
+<p>Each branch office requires a separate member-in-charge resident at the branch. A member can be in-charge of an article's branch only if <span class="keyword">resident ≥ 182 days</span>. A member in practice within <span class="keyword">50 km</span> of HO and engaged in the HO for ≥ 182 days may be deemed in-charge without a separate COP.</p>
+
+<h3>Section 24 — Penalty for falsely claiming to be a member</h3>
+<ul>
+<li>First conviction: fine which may extend to <span class="penalty">₹1,000</span>.</li>
+<li>Subsequent conviction: imprisonment up to 6 months <em>or</em> fine up to <span class="penalty">₹5,000</span>, or both.</li>
+</ul>
+
+<h2 id="disc">Disciplinary Procedure — s.21, 21A, 21B (Amendment Act 2006)</h2>
+<p>Section 21 makes a member liable to disciplinary action if he is guilty of professional or other misconduct defined in s.22 read with the Schedules or <em>any other misconduct</em>.</p>
+
+<table>
+<thead><tr><th>Stage</th><th>First Schedule route</th><th>Second Schedule (or Both) route</th></tr></thead>
+<tbody>
+<tr><td>Director (Discipline) forms prima-facie view</td><td>Place before <span class="keyword">Board of Discipline</span> (s.21A)</td><td>Place before <span class="keyword">Disciplinary Committee</span> (s.21B)</td></tr>
+<tr><td>If accepted</td><td>Conduct enquiry</td><td>Conduct enquiry</td></tr>
+<tr><td>If rejected</td><td>Close the matter</td><td>Close the matter</td></tr>
+<tr><td>If found guilty — penalties</td><td>(i) reprimand; (ii) remove name up to <span class="keyword">3 months</span>; (iii) <span class="penalty">fine up to ₹1,00,000</span></td><td>(i) reprimand; (ii) remove name <span class="keyword">permanently or for any duration</span>; (iii) <span class="penalty">fine up to ₹5,00,000</span></td></tr>
+<tr><td>Appeal</td><td colspan="2">Within <span class="keyword">90 days</span> to the <span class="keyword">Appellate Authority</span> — may confirm / modify / set aside; impose, reduce or enhance penalty; remit for reconsideration; or pass such order as it thinks fit.</td></tr>
+</tbody>
+</table>
+
+<p>Complaints not falling under either Schedule are referred back to the Director (Discipline) for further investigation; the Board may still proceed if allied to the First Schedule, and refer to the Disciplinary Committee if allied to the Second Schedule or both.</p>
+
+<h2 id="fs1">First Schedule · Part I — Professional misconduct by <em>members in practice</em> (12 clauses)</h2>
+<p>Forum: <span class="keyword">Board of Discipline</span> · Penalty cap <span class="penalty">₹1,00,000</span>.</p>
+<table>
+<thead><tr><th style="width:9%">Clause</th><th>Prohibition (verbatim verb)</th><th>Key exception / Council carve-out</th></tr></thead>
+<tbody>
+<tr><td><span class="clause">FS-I · Cl (1)</span></td><td><em>Allows any person to practice in his name</em> as a CA unless such person is also a CA in practice and in partnership with him / his employee.</td><td>Permitted if the other person is a CA in practice &amp; in partnership / employment.</td></tr>
+<tr><td><span class="clause">FS-I · Cl (2)</span></td><td><em>Pays/allows or agrees to pay, directly or indirectly, any share, commission or brokerage</em> in fees or profits of professional business to any person other than a member of the Institute or a partner/retired partner/legal representative of a deceased partner.</td><td>Partners / retired partner / LR of deceased partner exempted.</td></tr>
+<tr><td><span class="clause">FS-I · Cl (3)</span></td><td><em>Accepts or agrees to accept any part of the profits of the professional work of a person who is not a member of the Institute.</em></td><td>Sharing with Council-prescribed other professional bodies / categories permitted.</td></tr>
+<tr><td><span class="clause">FS-I · Cl (4)</span></td><td><em>Enters into partnership, in or outside India, with any person other than a CA in practice</em> or such other persons as the Council may prescribe.</td><td>MDP permitted with 8 notified professionals (CS, CMA, Advocate, Engineer, Architect, Actuary, CFA, MBA from recognised institute).</td></tr>
+<tr><td><span class="clause">FS-I · Cl (5)</span></td><td><em>Secures, through the services of a person not an employee/partner, or by means not open to a CA, any professional business.</em></td><td>Council-approved referral through another member.</td></tr>
+<tr><td><span class="clause">FS-I · Cl (6)</span></td><td><em>Solicits clients or professional work either directly or indirectly by circular, advertisement, personal communication or interview or by any other means.</em></td><td>Response to tender where minimum fee is prescribed / area open to other professionals; applying for empanelment with statutory bodies; writing articles; advertisement guidelines 2008 compliant write-ups.</td></tr>
+<tr><td><span class="clause">FS-I · Cl (7)</span></td><td><em>Advertises his professional attainments or services, or uses any designation or expressions other than "Chartered Accountant"</em> on professional documents, visiting cards, letterheads or signboards.</td><td>Degrees recognised by Central/State Government or the Institute; permitted Council-approved writings; website as per Council guidelines.</td></tr>
+<tr><td><span class="clause">FS-I · Cl (8)</span></td><td><em>Accepts a position as auditor previously held by another CA or by a certified auditor in practice without first communicating with him in writing.</em></td><td>Communication by registered post acknowledgement due / recorded delivery is mandatory; acceptance before receipt of reply is misconduct even if audit later reversed.</td></tr>
+<tr><td><span class="clause">FS-I · Cl (9)</span></td><td><em>Accepts an appointment as auditor of a company without first ascertaining from it whether the requirements of Sections 139 and 140 of the Companies Act, 2013 have been complied with.</em></td><td>Reliance on written confirmation from the company that s.139/140 have been complied with.</td></tr>
+<tr><td><span class="clause">FS-I · Cl (10)</span></td><td><em>Charges or offers to charge, accepts or offers to accept in respect of any professional employment, fees which are based on a percentage of profits or which are contingent upon the findings, or results of such employment.</em></td><td>Receiver's/liquidator's fees fixed by court; auditor of a cooperative society's fee as a % of paid-up capital / turnover; valuer's fee on a % of asset value; certain insolvency professional fees as per IBC.</td></tr>
+<tr><td><span class="clause">FS-I · Cl (11)</span></td><td><em>Engages in any business or occupation other than the profession of chartered accountants</em> unless permitted by the Council.</td><td>Director (not MD/WTD) of a company unless interested; honorary offices; authorship; general-permission list (Regulation 190A Appendix 9).</td></tr>
+<tr><td><span class="clause">FS-I · Cl (12)</span></td><td><em>Allows a person not being a member of the Institute in practice, or a member not being his partner, to sign</em> on his behalf or on behalf of his firm any balance sheet, profit and loss account, report or financial statements.</td><td>Partner of the firm may sign; otherwise signing must be by the member personally.</td></tr>
+</tbody>
+</table>
+
+<h2 id="fs2">First Schedule · Part II — Members in service (2 clauses)</h2>
+<table>
+<thead><tr><th style="width:9%">Clause</th><th>Prohibition</th><th>Exception</th></tr></thead>
+<tbody>
+<tr><td><span class="clause">FS-II · Cl (1)</span></td><td><em>Pays or allows, directly or indirectly, to any person any share in the emoluments of the employment</em> undertaken by him.</td><td>Partners / bona-fide recognised pay-out structure.</td></tr>
+<tr><td><span class="clause">FS-II · Cl (2)</span></td><td><em>Accepts or agrees to accept any part of fees, profits or gains from a lawyer, a CA or a broker</em> engaged by such company, firm or person as commission or gratification.</td><td>Nil — strict bar.</td></tr>
+</tbody>
+</table>
+
+<h2 id="fs3">First Schedule · Part III — Members generally (3 clauses)</h2>
+<table>
+<thead><tr><th style="width:9%">Clause</th><th>Prohibition</th></tr></thead>
+<tbody>
+<tr><td><span class="clause">FS-III · Cl (1)</span></td><td><em>Not being a fellow of the Institute, acts as a fellow of the Institute.</em></td></tr>
+<tr><td><span class="clause">FS-III · Cl (2)</span></td><td><em>Does not supply the information called for, or does not comply with the requirements asked for</em> by the Institute, Council or any of its Committees, Director (Discipline), Board of Discipline, Disciplinary Committee, Quality Review Board or the Appellate Authority.</td></tr>
+<tr><td><span class="clause">FS-III · Cl (3)</span></td><td><em>While inviting professional work from another CA or while responding to tenders/enquiries or while advertising through a write-up, gives any information knowing it to be false.</em></td></tr>
+</tbody>
+</table>
+
+<h2 id="fs4">First Schedule · Part IV — Other misconduct in relation to members generally (2 clauses)</h2>
+<table>
+<thead><tr><th style="width:9%">Clause</th><th>Test</th></tr></thead>
+<tbody>
+<tr><td><span class="clause">FS-IV · Cl (1)</span></td><td>Held guilty by any civil or criminal court for an offence <em>punishable with imprisonment for a term <strong>not exceeding six months</strong></em>.</td></tr>
+<tr><td><span class="clause">FS-IV · Cl (2)</span></td><td><em>In the opinion of the Council, brings disrepute to the profession or the Institute as a result of his action</em>, whether or not related to professional work.</td></tr>
+</tbody>
+</table>
+
+<h2 id="ss1">Second Schedule · Part I — Members in practice (10 clauses)</h2>
+<p>Forum: <span class="keyword">Disciplinary Committee</span> · Penalty cap <span class="penalty">₹5,00,000</span>.</p>
+<table>
+<thead><tr><th style="width:9%">Clause</th><th>Prohibition (verbatim verb)</th><th>Typical fact-pattern trigger</th></tr></thead>
+<tbody>
+<tr><td><span class="clause">SS-I · Cl (1)</span></td><td><em>Discloses information acquired in the course of his professional engagement</em> to any person other than his client so engaging him, without his consent or otherwise than as required by law.</td><td>CA shares draft FS with a competitor; gossip at a club.</td></tr>
+<tr><td><span class="clause">SS-I · Cl (2)</span></td><td><em>Certifies or submits in his name or in the name of his firm a report of an examination of financial statements unless the examination has been made by him, a partner or an employee in his firm or by another CA in practice.</em></td><td>Signing a report on unexamined branch accounts; rubber-stamping.</td></tr>
+<tr><td><span class="clause">SS-I · Cl (3)</span></td><td><em>Permits his name or the name of his firm to be used in connection with an estimate of earnings contingent upon future transactions in a manner which may lead to the belief that he vouches for the accuracy of the forecast.</em></td><td>Signing projections as "accurate" for an IPO pitch.</td></tr>
+<tr><td><span class="clause">SS-I · Cl (4)</span></td><td><em>Expresses his opinion on financial statements of any business or enterprise in which he, his firm, a partner in his firm has a substantial interest.</em></td><td>Auditor is also a director/shareholder of the auditee.</td></tr>
+<tr><td><span class="clause">SS-I · Cl (5)</span></td><td><em>Fails to disclose a material fact known to him which is not disclosed in a financial statement, but disclosure of which is necessary in making such financial statement not misleading.</em></td><td>Silent on pending litigation / contingency.</td></tr>
+<tr><td><span class="clause">SS-I · Cl (6)</span></td><td><em>Fails to report a material misstatement known to him to appear in a financial statement with which he is concerned in a professional capacity.</em></td><td>Knows inventory is overstated but signs clean.</td></tr>
+<tr><td><span class="clause">SS-I · Cl (7)</span></td><td><em>Does not exercise due diligence, or is grossly negligent in the conduct of his professional duties.</em></td><td>Skipped confirmations; no test-checks.</td></tr>
+<tr><td><span class="clause">SS-I · Cl (8)</span></td><td><em>Fails to obtain sufficient information which is necessary for expression of an opinion or its exceptions are sufficiently material to negate the expression of an opinion.</em></td><td>Forms opinion on incomplete records without qualification.</td></tr>
+<tr><td><span class="clause">SS-I · Cl (9)</span></td><td><em>Fails to invite attention to any material departure from the generally accepted procedure of audit applicable to the circumstances.</em></td><td>Omits mandatory SA steps without disclosure.</td></tr>
+<tr><td><span class="clause">SS-I · Cl (10)</span></td><td><em>Fails to keep moneys of his client other than fees or remuneration or money meant to be expended in a separate banking account</em> or to use such moneys for purposes for which they are intended.</td><td>Pooled client funds with own account.</td></tr>
+</tbody>
+</table>
+
+<h2 id="ss2">Second Schedule · Part II — Members generally (5 clauses)</h2>
+<table>
+<thead><tr><th style="width:9%">Clause</th><th>Prohibition</th></tr></thead>
+<tbody>
+<tr><td><span class="clause">SS-II · Cl (1)</span></td><td><em>Contravenes any of the provisions of this Act or the Regulations made thereunder or any guidelines issued by the Council.</em></td></tr>
+<tr><td><span class="clause">SS-II · Cl (2)</span></td><td><em>Being an employee of any company, firm or person, discloses confidential information acquired in the course of his employment</em> except as and when required by law or as permitted by the employer.</td></tr>
+<tr><td><span class="clause">SS-II · Cl (3)</span></td><td><em>Includes in any information, statement, return or form to be submitted to the Institute, Council or its Committees, Director (Discipline), Board of Discipline, Disciplinary Committee, Quality Review Board or the Appellate Authority any particulars knowing them to be false.</em></td></tr>
+<tr><td><span class="clause">SS-II · Cl (4)</span></td><td><em>Defalcates or embezzles money received in his professional capacity.</em></td></tr>
+<tr><td><span class="clause">SS-II · Cl (5)</span></td><td><em>Acts as an auditor of the company in contravention of the provisions of the Companies Act, 2013.</em></td></tr>
+</tbody>
+</table>
+
+<h2 id="ss3">Second Schedule · Part III — Other misconduct (1 clause)</h2>
+<table>
+<thead><tr><th style="width:9%">Clause</th><th>Test</th></tr></thead>
+<tbody>
+<tr><td><span class="clause">SS-III · Cl (1)</span></td><td>Member is held guilty by any civil or criminal court for an offence <em>punishable with imprisonment for a term <strong>exceeding six months</strong></em>.</td></tr>
+</tbody>
+</table>
+
+<h2 id="guidelines">Council General Guidelines, 2008 — numeric and conduct thresholds</h2>
+<p>Breach of any Council Guideline is routed through <span class="clause">SS-II · Cl (1)</span>.</p>
+<table>
+<thead><tr><th style="width:12%">Chapter</th><th>Subject</th><th>Key figure / rule</th></tr></thead>
+<tbody>
+<tr><td><span class="clause">Chapter V</span></td><td>Maintenance of books of account by a CA in practice</td><td>Cash book, ledger, fee book, bill register, asset register etc. — compulsorily for every practitioner.</td></tr>
+<tr><td><span class="clause">Chapter VI</span></td><td>Tax audit ceiling — s.44AB Income-tax Act</td><td><span class="keyword">60 tax audits per CA / per partner per FY</span>. Firm of 10 partners → 600 aggregate; distributable in any proportion. HO + branches = 1 assignment; audit of one firm/return = 1 assignment. Part-time partners not counted.</td></tr>
+<tr><td><span class="clause">Chapter VII</span></td><td>Appointment of an auditor — undisputed audit fees</td><td>An auditor shall not accept appointment if the previous audit fee is undisputed and unpaid (barring sick unit). Loan/guarantee security exception applies.</td></tr>
+<tr><td><span class="clause">Chapter VIII</span></td><td>Company audit ceiling — s.141 Companies Act, 2013</td><td><span class="keyword">30 company audits per CA / per partner</span>, excluding one-person companies and dormant companies. HO + branches of same company = 1 assignment.</td></tr>
+<tr><td><span class="clause">Chapter IX</span></td><td>Appointment as statutory auditor of PSU / Govt / Listed / public company with turnover ≥ ₹50 crore</td><td>Statutory auditor + associate concern cannot accept other work (MCS + permitted services under s.2(2)(iv)) where <em>aggregate remuneration exceeds the statutory audit fee</em>. Excludes audit under other statute, certification work required of statutory auditor, and representation.</td></tr>
+<tr><td><span class="clause">Chapter X</span></td><td>Indebtedness to a concern</td><td>Auditor (member / partner / firm / relative) cannot accept audit if indebted / has given guarantee / security for limits prescribed in the statute, or in other cases <span class="keyword">for amount exceeding ₹1,00,000</span>. Progressive fees already earned are <em>not</em> indebtedness.</td></tr>
+<tr><td><span class="clause">Chapter XI</span></td><td>Directions on unjustified removal of auditor</td><td>Incoming auditor shall comply with Council directions not to accept appointment where the previous auditor was removed unjustifiably.</td></tr>
+<tr><td><span class="clause">Chapter XIII</span></td><td>Tenders</td><td>CA in practice shall <em>not</em> respond to tenders in exclusively-reserved areas (audit &amp; attestation). <span class="exception">Exception — minimum fee prescribed in tender, or area open to other professionals along with CAs.</span></td></tr>
+<tr><td><span class="clause">Chapter XIV</span></td><td>UDIN</td><td>Mandatory UDIN for: all certificates (w.e.f. 1 Feb 2019); GST &amp; Tax Audit Reports (w.e.f. 1 Apr 2019); all other audit/assurance/attestation functions (w.e.f. 1 Jul 2019).</td></tr>
+<tr><td><span class="clause">Chapter XV</span></td><td>Networking</td><td>Name ends "<em>&amp; Affiliates</em>" (not "&amp; Co." / "&amp; Associates"). A firm may join only one network. Partnership network capped at 20 partners. Registration in Form B mandatory within 3 months. Non-audit fee ceiling for other network firms = 3 × statutory audit fee.</td></tr>
+<tr><td><span class="clause">Chapter XVI</span></td><td>Logo</td><td>2023 CA India logo — blue "CA" + upside-down tri-colour tick + "India"; no alteration of font, colour, spacing, or orientation; 1-year transition for old stationery.</td></tr>
+<tr><td><span class="clause">Chapter XVII</span></td><td>Corporate form of practice</td><td>Member in practice may be MD/WTD/Manager of a body corporate <em>exclusively</em> engaged in MCS under s.2(2)(iv). Full-time COP retained; no cap on equity holding. Firm name subject to Institute approval.</td></tr>
+</tbody>
+</table>
+
+<h2 id="ads">Advertisement Guidelines, 2008 — permissible write-up</h2>
+<p>A Write-up is permitted subject to these limits (breach → <span class="clause">FS-I · Cl (6)</span>/(7)):</p>
+<ul>
+<li>Contents must be <span class="keyword">true to the knowledge and belief</span> of the member/firm; no false, untrue, objectionable or unethical content.</li>
+<li>No exaggerated claims; no disparaging references or unsubstantiated comparisons.</li>
+<li>No testimonials or endorsements; no solicitation of clients.</li>
+<li>No reference to fees, nor to ranking, size of firm, or list of clients.</li>
+<li>Permissible content — firm's name &amp; year of establishment, name &amp; qualification of members, address, telephone/fax/email, services offered, areas of specialisation (generic terms), photograph, partners' CV.</li>
+<li>Size, layout and medium limits prescribed by the Institute. Website must be on a "pull" basis (no push advertisements); compliant with the Council's website guidelines.</li>
+</ul>
+
+<div class="exception"><strong>Social-media hook.</strong> Posts on LinkedIn/Twitter/Instagram announcing "empanelled auditor of X Bank" or "now auditing listed Y Ltd." cross into solicitation (<span class="clause">FS-I · Cl (6)</span>) and self-advertisement (<span class="clause">FS-I · Cl (7)</span>). Congratulatory posts by third parties that a member re-shares are also examined.</div>
+
+<h2 id="liab">Liabilities of Auditors — civil · criminal · statutory</h2>
+
+<div class="sa-card">
+<h3>Civil liability</h3>
+<p>Arises out of <em>negligence</em> in the performance of duties — damages measured by the loss caused to the client / third-party user of FS who reasonably relied. Flows primarily from SS-I Cl (5) – (9) (non-disclosure, failure to report, due diligence, sufficient info, GAAP departure). Third-party liability (Candler → Caparo line) depends on proximity + foreseeability.</p>
+</div>
+
+<div class="sa-card">
+<h3>Criminal liability — IPC &amp; special statutes</h3>
+<p>IPC 463/464 — forgery of a valuable security; IPC 477A — falsification of accounts; IPC 420 — cheating. Also PMLA, Income-tax s.277/278, SEBI Act s.24. Moral-turpitude conviction also triggers <span class="clause">s.8</span> disability and <span class="clause">FS-IV · Cl (1)</span> or <span class="clause">SS-III · Cl (1)</span>.</p>
+</div>
+
+<div class="sa-card">
+<h3>Liability under the CA Act, 1949</h3>
+<ul>
+<li><span class="clause">s.21</span> read with Schedules — professional/other misconduct (quasi-criminal): reprimand, removal of name, fine up to ₹1L (BoD) / ₹5L (DC).</li>
+<li><span class="clause">s.24</span> — falsely claiming to be a member: <span class="penalty">₹1,000 first conviction; ₹5,000 or 6 months or both on subsequent</span>.</li>
+<li><span class="clause">s.24A</span> — penalty for using name/designation "CA" when not a member.</li>
+<li><span class="clause">s.25</span> — companies practising as CAs: fine on directors/officers knowingly party (<span class="penalty">₹1,000 first; ₹5,000 subsequent</span>).</li>
+</ul>
+</div>
+
+<div class="sa-card">
+<h3>Liability under the Companies Act, 2013</h3>
+<ul>
+<li><span class="clause">s.139 &amp; 140</span> — appointment / removal / rotation: non-compliance attracts <span class="clause">FS-I · Cl (9)</span> for the auditor.</li>
+<li><span class="clause">s.141</span> — eligibility / disqualifications: breach triggers <span class="clause">SS-II · Cl (5)</span> as well.</li>
+<li><span class="clause">s.143(12)</span> — auditor to report suspected fraud involving ≥ ₹1 crore to the Central Government within <span class="keyword">60 days</span>; less than ₹1 crore → to Audit Committee / Board.</li>
+<li><span class="clause">s.147</span> — punishment for contravention of s.139–s.146. Fine on auditor of <span class="penalty">₹25,000 – ₹5,00,000</span> or 4 times remuneration (whichever is less); if willful with intent to deceive — imprisonment up to 1 year <em>and</em> fine <span class="penalty">₹50,000 – ₹25,00,000</span> or 8× remuneration. Firm-level joint &amp; several civil and criminal liability on the erring partner.</li>
+<li><span class="clause">s.245</span> — class action by members/depositors against auditor for wrongful acts.</li>
+</ul>
+</div>
+
+<div class="sa-card">
+<h3>Liability under s.132 — NFRA</h3>
+<p>NFRA has power to investigate professional/other misconduct of any member/firm auditing listed companies, large unlisted public companies, specified classes. Penalties under <span class="clause">s.132(4)</span>: (a) fine — individual <span class="penalty">₹1 lakh up to 5× fees</span>; firm <span class="penalty">₹5 lakh up to 10× fees</span>; (b) debarment from audit/internal audit/any valuation for <span class="keyword">6 months to 10 years</span>. Concurrent jurisdiction with ICAI. Recent NFRA orders (Ch scenarios) illustrate findings on SA 230 documentation, SA 240 fraud risk and SA 700 modified opinion.</p>
+</div>
+
+<h2 id="triggers">5 exam triggers specific to ethics</h2>
+<div class="triggers">
+<h3>What the examiner plants in a fact-pattern — and the clause you must cite</h3>
+<ol>
+<li><strong>Fee accepted from the auditee as percentage / commission / contingent on findings</strong> → <span class="clause">FS-I · Cl (10)</span>. Apply exception only for receiver / cooperative society / valuer / insolvency professional. Conclude: guilty, Board of Discipline, fine up to ₹1L.</li>
+<li><strong>Tax-audit count crosses 60 per partner, or the firm's aggregate exceeds 600</strong> → Council Guideline <span class="clause">Chapter VI</span> read with <span class="clause">SS-II · Cl (1)</span> (Council Guidelines breach). Remember: HO + branch = 1; part-time partners not counted.</li>
+<li><strong>Member advertises on LinkedIn / Instagram / newspaper / radio or hosts congratulatory posts on empanelment</strong> → <span class="clause">FS-I · Cl (6)</span> solicitation + <span class="clause">FS-I · Cl (7)</span> advertisement. Test against Advertisement Guidelines 2008 limits — any ranking / fee / testimonial reference clinches guilt.</li>
+<li><strong>Auditor accepts appointment without writing to the previous auditor</strong> (or signs before reply received, or uses unrecorded e-mail only) → <span class="clause">FS-I · Cl (8)</span>. Communication must be by RPAD / recorded delivery with acknowledgement; polite reminder after reasonable time mandatory.</li>
+<li><strong>Auditor is indebted to the auditee beyond ₹1,00,000 / has given guarantee</strong>, or <strong>company turnover ≥ ₹50 crore and non-audit fee exceeds statutory audit fee</strong> → <span class="clause">Chapter X</span> / <span class="clause">Chapter IX</span> + <span class="clause">SS-II · Cl (1)</span>; parallel <span class="clause">SS-II · Cl (5)</span> if s.141 is breached. Progressive fee already earned is not "indebtedness".</li>
+</ol>
+</div>
+
+<h2>Sanity coda</h2>
+<p>Every answer — at the Final level, in this chapter — must: (i) cite the <span class="clause">clause number</span>; (ii) quote the operative verb; (iii) identify the forum (BoD or DC); (iv) state the penalty band. Omitting any one loses marks even where the conclusion is right.</p>
+
+<div class="nav" style="margin-top:2rem;">← <a href="../../index.html">All chapters</a> · <a href="onepager.html">One-pager</a></div>
+
+<script>mermaid.initialize({startOnLoad:true, theme:"default"});</script>
+</body>
+</html>

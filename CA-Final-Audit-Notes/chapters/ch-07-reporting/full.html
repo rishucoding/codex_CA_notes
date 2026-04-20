@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ch 7 — Reporting · CA Final Audit</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<style>
+:root {
+  --bg: #faf8f3;
+  --ink: #1a1a1a;
+  --muted: #5b5b5b;
+  --accent: #0a4a8f;
+  --keyword-bg: #fff3d4;
+  --exception-bg: #ffe4e4;
+  --exception-border: #c33;
+  --clause-bg: #e8f2ff;
+  --table-stripe: #f5f2ea;
+  --rule: #d8d3c4;
+  --quote-bar: #0a4a8f;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Georgia, serif;
+  background: var(--bg); color: var(--ink);
+  max-width: 820px; margin: 2rem auto; padding: 0 1.25rem;
+  line-height: 1.55; font-size: 16px;
+}
+h1 { font-size: 1.9rem; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 0.4rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin-top: 2rem; border-left: 4px solid var(--accent); padding-left: 0.6rem; }
+h3 { font-size: 1.15rem; color: var(--ink); margin-top: 1.5rem; }
+h4 { font-size: 1rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1.2rem; margin-bottom: 0.3rem; }
+.meta { color: var(--muted); font-style: italic; font-size: 0.9rem; margin-top: -0.5rem; }
+.keyword { background: var(--keyword-bg); padding: 0 0.2em; border-radius: 2px; font-weight: 600; }
+.exception {
+  background: var(--exception-bg);
+  border-left: 4px solid var(--exception-border);
+  padding: 0.5rem 0.8rem; margin: 0.5rem 0; border-radius: 3px;
+}
+.exception::before { content: "⚠ "; font-weight: bold; color: var(--exception-border); }
+.clause {
+  background: var(--clause-bg); padding: 0.1rem 0.4rem;
+  border-radius: 3px; font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+}
+blockquote.icai {
+  border-left: 4px solid var(--quote-bar);
+  background: #fff; margin: 0.8rem 0; padding: 0.6rem 1rem;
+  font-style: italic; color: #333;
+}
+blockquote.icai::before { content: "ICAI verbatim · "; font-style: normal; font-weight: 600; color: var(--accent); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.95rem; }
+th, td { padding: 0.5rem 0.7rem; text-align: left; border: 1px solid var(--rule); vertical-align: top; }
+th { background: var(--accent); color: #fff; font-weight: 600; }
+tr:nth-child(even) td { background: var(--table-stripe); }
+.sa-card {
+  border: 1px solid var(--rule); border-radius: 6px;
+  padding: 1rem 1.2rem; margin: 1.5rem 0; background: #fff;
+}
+.sa-card h3 { margin-top: 0; color: var(--accent); }
+.triggers {
+  background: #fff; border: 1px dashed var(--accent);
+  padding: 1rem; border-radius: 6px; margin: 1.5rem 0;
+}
+.triggers h3 { margin-top: 0; color: var(--accent); }
+.triggers ol { margin: 0; padding-left: 1.2rem; }
+.triggers li { margin: 0.4rem 0; }
+.mermaid { background: #fff; padding: 1rem; border-radius: 6px; margin: 1rem 0; text-align: center; }
+svg.diagram { max-width: 100%; height: auto; display: block; margin: 1rem auto; background: #fff; border-radius: 6px; padding: 0.5rem; }
+ul, ol { padding-left: 1.3rem; }
+li { margin: 0.2rem 0; }
+.chip { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-right: 0.3rem; }
+.chip-sa { background: var(--accent); color: #fff; }
+.chip-marks { background: #2a7c3a; color: #fff; }
+.nav { margin: 1rem 0; font-size: 0.9rem; }
+.nav a { color: var(--accent); text-decoration: none; margin-right: 1rem; }
+.nav a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="nav">← <a href="../../index.html">All chapters</a> · <a href="onepager.html">One-pager</a> · <a href="../ch-07a-caro-2020/full.html">CARO 2020 detail →</a></div>
+<h1>Chapter 7 — Reporting</h1>
+<p class="meta">ICAI SM Final P3 May 2026 · <span class="chip chip-marks">~15–20 marks</span> SA 700 · 701 · 705 · 706 · 710 (revisit) · 720 (revisit) · CARO overview</p>
+
+<h2>Chapter map</h2>
+<p>Reporting is the <span class="keyword">culmination</span> of the audit. SA 700 is the core — how to form the opinion and what the report must contain, with SA 701 bolting on <span class="keyword">Key Audit Matters</span> for listed entities. SA 705 tells you <em>how</em> to modify when things are wrong, and SA 706 lets you add <span class="keyword">Emphasis of Matter</span> or <span class="keyword">Other Matter</span> paragraphs without modifying. SA 710 &amp; SA 720 are primary in <a href="../ch-06-completion-review/full.html">Ch 6</a> — brief revisit only. Finally, CARO 2020 (under <span class="clause">s.143(11)</span>) is an <em>additional</em> reporting duty — overview here, 21-clause detail lives in <a href="../ch-07a-caro-2020/full.html">Ch 7a</a>.</p>
+
+<h2>From opinion to report — SA cluster</h2>
+<svg class="diagram" viewBox="0 0 780 430" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L8,5 L0,10 z" fill="#0a4a8f"/>
+    </marker>
+  </defs>
+  <!-- Start: form opinion -->
+  <rect x="270" y="10" width="240" height="55" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="390" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">SA 700 — Form the opinion</text>
+  <text x="390" y="49" text-anchor="middle" font-size="11" fill="#333">SAAE · free from MM · FRF appropriate</text>
+
+  <!-- Decision: unmodified? -->
+  <polygon points="390,95 510,135 390,175 270,135" fill="#fff3d4" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="390" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">Unmodified?</text>
+  <text x="390" y="147" text-anchor="middle" font-size="10" fill="#333">(FS free of MM, SAAE obtained)</text>
+
+  <!-- Yes branch: standard report + KAM if listed -->
+  <rect x="550" y="195" width="220" height="65" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="660" y="218" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">Standard "clean" report</text>
+  <text x="660" y="236" text-anchor="middle" font-size="10" fill="#333">+ KAM (SA 701) if listed,</text>
+  <text x="660" y="250" text-anchor="middle" font-size="10" fill="#333">required by law, or voluntary</text>
+
+  <!-- No branch: SA 705 modification type -->
+  <rect x="10" y="195" width="220" height="65" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="120" y="218" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">SA 705 — Modify</text>
+  <text x="120" y="236" text-anchor="middle" font-size="10" fill="#333">Qualified · Adverse ·</text>
+  <text x="120" y="250" text-anchor="middle" font-size="10" fill="#333">Disclaimer (see 2×2 matrix)</text>
+
+  <!-- Optional SA 706 -->
+  <rect x="280" y="195" width="220" height="65" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="390" y="218" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">SA 706 — Optional add-on</text>
+  <text x="390" y="236" text-anchor="middle" font-size="10" fill="#333">EoM (matter IN FS) · OM</text>
+  <text x="390" y="250" text-anchor="middle" font-size="10" fill="#333">(matter NOT in FS)</text>
+
+  <!-- Cross-reference branches -->
+  <rect x="10" y="290" width="370" height="55" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2" stroke-dasharray="4,2"/>
+  <text x="195" y="313" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">SA 710 — Comparatives (→ Ch 6)</text>
+  <text x="195" y="330" text-anchor="middle" font-size="10" fill="#333">Corresponding figures vs Comparative FS</text>
+
+  <rect x="400" y="290" width="370" height="55" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2" stroke-dasharray="4,2"/>
+  <text x="585" y="313" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">SA 720 — Other Information (→ Ch 6)</text>
+  <text x="585" y="330" text-anchor="middle" font-size="10" fill="#333">Annual report · material inconsistency check</text>
+
+  <!-- CARO box -->
+  <rect x="230" y="365" width="320" height="55" rx="6" fill="#fff" stroke="#c33" stroke-width="2"/>
+  <text x="390" y="388" text-anchor="middle" font-size="12" font-weight="700" fill="#c33">CARO 2020 — s.143(11) additional report</text>
+  <text x="390" y="405" text-anchor="middle" font-size="10" fill="#333">Overview only; 21 clauses → Ch 7a</text>
+
+  <!-- arrows -->
+  <path d="M390,65 L390,95" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M500,140 L600,195" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <text x="555" y="170" font-size="11" font-style="italic" fill="#5b5b5b">Yes</text>
+  <path d="M280,140 L170,195" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <text x="215" y="170" font-size="11" font-style="italic" fill="#5b5b5b">No</text>
+  <path d="M390,175 L390,195" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)" stroke-dasharray="3,2"/>
+</svg>
+
+<!-- SA 700 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 700</span> Forming an Opinion &amp; Reporting on Financial Statements</h3>
+  <p><strong>Scope:</strong> Auditor's responsibility to <em>form</em> an opinion on a complete set of general-purpose FS, and the form &amp; content of the report. Applies to every audit conducted under SAs.</p>
+
+  <h4>Objective</h4>
+  <blockquote class="icai">"(a) To form an opinion on the financial statements based on an evaluation of the conclusions drawn from the audit evidence obtained; and (b) To express clearly that opinion through a written report."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Unmodified opinion</span> — FS prepared, in all material respects, per applicable FRF</li>
+    <li><span class="keyword">General-purpose FS</span> — prepared per a general-purpose framework (fair presentation or compliance)</li>
+    <li><span class="keyword">Fair-presentation framework</span> — "present fairly" / "true and fair view" phrasing required</li>
+  </ul>
+
+  <h4>Forming the opinion — what the auditor concludes</h4>
+  <ul>
+    <li>Obtained <span class="keyword">reasonable assurance</span> FS as a whole are free from material misstatement (fraud or error)</li>
+    <li>Evaluated: accounting policies selected &amp; applied, reasonableness of estimates, <span class="keyword">adequacy of disclosures</span></li>
+    <li>For fair-presentation framework: also evaluate <span class="keyword">overall presentation, structure, content</span> &amp; whether FS achieve fair presentation</li>
+    <li>Sufficient appropriate <span class="keyword">audit evidence</span> obtained; uncorrected misstatements material individually or aggregate?</li>
+  </ul>
+
+  <h4>Basic Elements of the Auditor's Report (ICAI-prescribed order)</h4>
+  <ol>
+    <li><span class="keyword">Title</span> — "Independent Auditor's Report"</li>
+    <li><span class="keyword">Addressee</span> — Members (statutory) / Board (special purpose)</li>
+    <li><span class="keyword">Opinion</span> section — identifies entity, FS audited, period, FRF; uses "present fairly" / "true and fair view"</li>
+    <li><span class="keyword">Basis for Opinion</span> — conducted per SAs · independence per ICAI Code of Ethics · SAAE obtained</li>
+    <li><span class="keyword">Going Concern</span> (where applicable, per SA 570)</li>
+    <li><span class="keyword">Key Audit Matters</span> (if SA 701 applies)</li>
+    <li><span class="keyword">Other Information</span> (per SA 720)</li>
+    <li><span class="keyword">Responsibilities of Management &amp; TCWG</span> for the FS</li>
+    <li><span class="keyword">Auditor's Responsibilities</span> for the audit of the FS</li>
+    <li>Location of description of auditor's responsibilities (body · appendix · website where permitted)</li>
+    <li><span class="keyword">Other Reporting Responsibilities</span> — "Report on Other Legal and Regulatory Requirements" (CARO, s.143(3))</li>
+    <li><span class="keyword">Signature</span> of the auditor (personal name; firm name + FRN; membership no.; UDIN)</li>
+    <li><span class="keyword">Place</span> of Signature</li>
+    <li><span class="keyword">Date</span> — not earlier than date SAAE obtained &amp; FS approved</li>
+  </ol>
+
+  <h4>Going Concern reporting (SA 570) — implications</h4>
+  <ul>
+    <li>Use of GC basis <span class="keyword">inappropriate</span> → <span class="keyword">Adverse</span> opinion</li>
+    <li>GC appropriate + <span class="keyword">material uncertainty</span>, <em>adequate</em> disclosure → unmodified + separate section "<span class="keyword">Material Uncertainty Related to Going Concern</span>"</li>
+    <li>Material uncertainty + <em>inadequate</em> disclosure → <span class="keyword">Qualified / Adverse</span> with basis paragraph</li>
+    <li>Management unwilling to make/extend assessment → consider implications for report</li>
+  </ul>
+
+  <h4>Exceptions / Conditions</h4>
+  <div class="exception">Signature on audit report — only the appointed auditor (engagement partner) may sign, per <span class="clause">s.145</span> r/w <span class="clause">s.141(2)</span>. <span class="clause">Cl. 12 Part I Sch. I of CA Act 1949</span> bars a CA from letting a non-member / non-partner sign on his behalf.</div>
+  <div class="exception"><span class="keyword">UDIN</span> mandatory (w.e.f. 1 July 2019) — manual &amp; digital reports/certificates.</div>
+  <div class="exception">Supplementary information: if an <em>integral part</em> of FS → covered by opinion; if <em>not</em> an integral part, must be clearly differentiated, else auditor identifies the unaudited supplementary info in the report.</div>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>Written report expressing <span class="keyword">unmodified opinion</span> if FS prepared in all material respects per FRF; else modify per SA 705.</p>
+</section>
+
+<!-- SA 701 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 701</span> Communicating Key Audit Matters in the Independent Auditor's Report</h3>
+  <p><strong>Scope:</strong> Communication of <span class="keyword">KAM</span> in the auditor's report — deals with the auditor's judgment on <em>what</em> to communicate and the <em>form/content</em> of that communication.</p>
+
+  <h4>Objective</h4>
+  <blockquote class="icai">"To enhance the communicative value of the auditor's report by providing greater transparency about the audit that was performed. To assist the user in understanding those matters that, in the auditor's professional judgment, were of most significance in the audit of the financial statements of the current period."</blockquote>
+
+  <h4>Key Definition</h4>
+  <ul>
+    <li><span class="keyword">Key Audit Matters</span> — matters that, in the auditor's professional judgment, were of <em>most significance</em> in the audit of FS of the current period; selected from matters communicated with TCWG.</li>
+  </ul>
+
+  <h4>Applicability</h4>
+  <ul>
+    <li>Mandatory: complete sets of general-purpose FS of <span class="keyword">listed entities</span></li>
+    <li>When <span class="keyword">law or regulation</span> requires KAM</li>
+    <li>When the auditor otherwise <span class="keyword">decides voluntarily</span> to communicate KAM</li>
+  </ul>
+
+  <h4>Determining KAM — 3-step funnel</h4>
+  <ol>
+    <li>Matters communicated with TCWG →</li>
+    <li>Those requiring <span class="keyword">significant auditor attention</span> — considering: (a) areas of higher assessed RoMM / significant risks per SA 315; (b) significant auditor judgments re: areas of significant management judgment &amp; high-estimation-uncertainty estimates; (c) effect of significant events/transactions →</li>
+    <li>From the above, those of <span class="keyword">most significance</span> in the current-period audit = KAM</li>
+  </ol>
+
+  <h4>Key Requirements</h4>
+  <ul>
+    <li>Introductory language: KAM are matters of most significance in the current-period audit · addressed in context of audit as a whole · auditor does <em>not</em> provide a separate opinion on them</li>
+    <li>Each KAM: <span class="keyword">description</span> + <span class="keyword">why it was a KAM</span> + how the auditor addressed it in the audit</li>
+    <li>Communicate with <span class="keyword">TCWG</span> on matters determined to be KAM</li>
+    <li>If no KAM to communicate → say so explicitly in a KAM section</li>
+  </ul>
+
+  <h4>What KAM is NOT (four negatives)</h4>
+  <div class="exception">
+  KAM is <strong>not</strong>:
+  (a) a substitute for disclosures in the FS required by the FRF;
+  (b) a substitute for a <span class="keyword">modified opinion</span> when SA 705 requires one;
+  (c) a substitute for reporting per SA 570 when a material uncertainty on going concern exists; or
+  (d) a separate opinion on individual matters.
+  </div>
+
+  <h4>Exceptions / Conditions</h4>
+  <div class="exception">Auditor shall <strong>not</strong> communicate KAM when <span class="keyword">disclaiming</span> an opinion (unless required by law/regulation). Law/regulation may preclude public disclosure of a matter; in extremely rare circumstances, adverse consequences of disclosure may reasonably be expected to outweigh public-interest benefits — then do not communicate.</div>
+
+  <h4>Examples of matters that often become KAM</h4>
+  <ul>
+    <li>Assessment of <span class="keyword">impairment</span>; provision for losses &amp; contingencies</li>
+    <li>Valuation of <span class="keyword">financial instruments</span>; revenue recognition</li>
+    <li>Taxation matters — multiple jurisdictions, uncertain positions, deferred tax assets</li>
+  </ul>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>KAM section sits immediately after Basis for Opinion (and Material Uncertainty re GC, if any). KAM is an <em>addition</em> to — never a replacement for — the opinion, modification, or required disclosures.</p>
+</section>
+
+<!-- SA 705 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 705</span> Modifications to the Opinion in the Independent Auditor's Report</h3>
+  <p><strong>Scope:</strong> When, in forming an opinion per SA 700, the auditor concludes a <span class="keyword">modification</span> is necessary — issuing the appropriate report + revised form and content.</p>
+
+  <h4>Objective</h4>
+  <blockquote class="icai">"The objective of the auditor is to express clearly an appropriately modified opinion on the financial statements that is necessary when: (a) the auditor concludes, based on the audit evidence obtained, that the financial statements as a whole are not free from material misstatement; or (b) the auditor is unable to obtain sufficient appropriate audit evidence to conclude that the financial statements as a whole are free from material misstatement."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Pervasive</span> — effects (or possible effects) that (i) are not confined to specific elements/accounts/items, or (ii) if confined, represent or could represent a substantial proportion of the FS, or (iii) in relation to disclosures, are fundamental to users' understanding</li>
+    <li>Two trigger families: <span class="keyword">FS materially misstated</span> (evidence obtained) · <span class="keyword">inability to obtain SAAE</span> (scope limitation)</li>
+  </ul>
+
+  <h4>Materiality × Pervasiveness — the 2×2 decision matrix</h4>
+  <table>
+    <thead>
+      <tr><th>Nature of matter giving rise to modification</th><th>Material but <em>not</em> pervasive</th><th>Material <em>and</em> pervasive</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>FS are materially misstated</strong><br>(evidence shows MM)</td>
+        <td><span class="keyword">Qualified Opinion</span><br>"except for the effects of…"</td>
+        <td><span class="keyword">Adverse Opinion</span><br>"do not present fairly / give a true and fair view"</td>
+      </tr>
+      <tr>
+        <td><strong>Inability to obtain SAAE</strong><br>(scope limitation)</td>
+        <td><span class="keyword">Qualified Opinion</span><br>"except for the <em>possible</em> effects of…"</td>
+        <td><span class="keyword">Disclaimer of Opinion</span><br>"we do not express an opinion"</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>Key Requirements — when modifying</h4>
+  <ul>
+    <li>Use heading: "<span class="keyword">Qualified Opinion</span>" / "<span class="keyword">Adverse Opinion</span>" / "<span class="keyword">Disclaimer of Opinion</span>"</li>
+    <li>Amend "Basis for Opinion" → "<span class="keyword">Basis for Qualified / Adverse / Disclaimer of Opinion</span>" with a <span class="keyword">description &amp; quantification</span> of the matter (or state if impracticable)</li>
+    <li>For inability to obtain SAAE: include <span class="keyword">reasons for that inability</span> in the Basis section</li>
+    <li>Qualified/adverse → amend "sufficient &amp; appropriate" statement to add "qualified" / "adverse"</li>
+    <li>Disclaimer → <em>omit</em> the reference to auditor's responsibilities section &amp; the SAAE-sufficient statement; amend auditor's-responsibilities description to short form (engaged-to-audit, could not obtain SAAE, independence statement)</li>
+    <li><span class="keyword">Communicate with TCWG</span>: circumstances leading to expected modification &amp; wording</li>
+  </ul>
+
+  <h4>Management-imposed scope limitation (after engagement accepted)</h4>
+  <ul>
+    <li>Request management to <span class="keyword">remove the limitation</span></li>
+    <li>If refused → communicate to TCWG (unless all are in management); try <span class="keyword">alternative procedures</span></li>
+    <li>If effects could be material but not pervasive → <span class="keyword">qualify</span></li>
+    <li>If effects could be material and pervasive → <span class="keyword">withdraw</span> where practicable &amp; legal; else <span class="keyword">disclaim</span></li>
+  </ul>
+
+  <h4>Exceptions / Conditions</h4>
+  <div class="exception">Adverse opinion or disclaimer on FS as a whole → auditor's report shall <em>not</em> also include an <span class="keyword">unmodified opinion</span> on a single statement/element of the same FS under the same FRF (would contradict).</div>
+  <div class="exception">Disclaimer → <span class="keyword">no KAM section</span> unless required by law/regulation.</div>
+  <div class="exception"><span class="keyword">SEBI Oct 18, 2019 circular</span>: listed-entity auditor cannot withdraw without issuing the audit/limited-review report — resignation within 45 days of quarter-end ⇒ issue report for that quarter; after 45 days ⇒ that quarter + next; if 3 quarters done ⇒ full-year report before resigning. ICAI: unlisted auditor cannot cite "professional pre-occupation" as resignation reason.</div>
+
+  <h4>SA 705 / SA 706 decision tree</h4>
+  <div class="mermaid">
+flowchart TD
+    A[Opinion being formed under SA 700] --> B{MM identified OR unable to obtain SAAE?}
+    B -->|No — neither| U[Unmodified opinion]
+    B -->|Yes| C{Material?}
+    C -->|No| U
+    C -->|Yes| D{Pervasive?}
+    D -->|No, MM| Q1[Qualified · except for effects]
+    D -->|No, SAAE| Q2[Qualified · except for possible effects]
+    D -->|Yes, MM| AD[Adverse opinion]
+    D -->|Yes, SAAE| DS[Disclaimer of opinion]
+    U --> E{SA 706 add-on?}
+    Q1 --> E
+    Q2 --> E
+    AD --> E
+    DS --> E
+    E -->|Matter IN FS, fundamental to users| EOM[Emphasis of Matter para]
+    E -->|Matter NOT in FS, relevant to audit/auditor/report| OM[Other Matter para]
+    E -->|Neither| END[No extra para]
+  </div>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>Clearly modified opinion + revised Basis + TCWG communication. Even in adverse / disclaimer, describe in Basis any <em>other</em> matters that would have required modification.</p>
+</section>
+
+<!-- SA 706 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 706</span> Emphasis of Matter &amp; Other Matter Paragraphs in the Independent Auditor's Report</h3>
+  <p><strong>Scope:</strong> Additional communication in the report — when the auditor judges it necessary to draw users' attention to a matter. <em>Supplement</em>, never a substitute for modification.</p>
+
+  <h4>Objective</h4>
+  <blockquote class="icai">"The objective of the auditor, having formed an opinion on the financial statements, is to draw users' attention, when in the auditor's judgment it is necessary to do so, by way of clear additional communication in the auditor's report, to: (a) A matter, although appropriately presented or disclosed in the financial statements, that is of such importance that it is fundamental to users' understanding of the financial statements; or (b) As appropriate, any other matter that is relevant to users' understanding of the audit, the auditor's responsibilities or the auditor's report."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Emphasis of Matter paragraph</span> — para in the report that refers to a matter <em>appropriately presented or disclosed in the FS</em> that, in the auditor's judgment, is of such importance that it is fundamental to users' understanding of the FS.</li>
+    <li><span class="keyword">Other Matter paragraph</span> — para that refers to a matter <em>other than</em> those presented or disclosed in the FS that, in the auditor's judgment, is relevant to users' understanding of the <em>audit</em>, the <em>auditor's responsibilities</em>, or the <em>auditor's report</em>.</li>
+  </ul>
+
+  <h4>EoM vs OM — one-line rule</h4>
+  <table>
+    <thead>
+      <tr><th>Test</th><th>Emphasis of Matter (EoM)</th><th>Other Matter (OM)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Matter located…</td><td><strong>IN</strong> the FS (presented / disclosed)</td><td><strong>NOT</strong> in the FS</td></tr>
+      <tr><td>Why included</td><td>Fundamental to users' <em>understanding of the FS</em></td><td>Relevant to users' understanding of audit / auditor's responsibilities / report</td></tr>
+      <tr><td>Opinion modified?</td><td>No — state "opinion is not modified in respect of this matter"</td><td>No</td></tr>
+      <tr><td>Typical triggers</td><td>Exceptional litigation uncertainty · significant subsequent event · early adoption of new AS with material effect · major catastrophe · special-purpose framework</td><td>Prior period audited by predecessor auditor (comparatives) · branch FS audited by branch auditors · joint-auditor disagreement cross-reference</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Key Requirements — EoM</h4>
+  <ul>
+    <li>Include within a <span class="keyword">separate section</span> with a heading that includes "Emphasis of Matter"</li>
+    <li>Clear reference to the matter &amp; to where the related disclosures can be found in the FS — refer only to information <span class="keyword">presented or disclosed in the FS</span></li>
+    <li>State that the auditor's <span class="keyword">opinion is not modified</span> in respect of the matter emphasised</li>
+    <li><em>Preconditions</em>: modification not required under SA 705, and (where SA 701 applies) the matter has not been determined to be a KAM</li>
+  </ul>
+
+  <h4>Key Requirements — OM</h4>
+  <ul>
+    <li>Permitted only if <span class="keyword">not prohibited by law/regulation</span> and, where SA 701 applies, not determined to be a KAM</li>
+    <li>Separate section headed "<span class="keyword">Other Matter</span>" or similar</li>
+  </ul>
+
+  <h4>Exceptions / Conditions</h4>
+  <div class="exception"><strong>Not a substitute rule:</strong> EoM is <em>not</em> a substitute for a modified opinion under SA 705, a KAM under SA 701, a material-uncertainty report under SA 570, or a disclosure the FRF requires. <span class="keyword">Widespread use</span> of EoM diminishes its effectiveness.</div>
+  <div class="exception">Must <span class="keyword">communicate with TCWG</span> regarding the expectation to include an EoM / OM paragraph and the wording.</div>
+
+  <h4>EoM vs KAM (SA 701) — which goes where?</h4>
+  <ul>
+    <li>If a matter qualifies as <span class="keyword">KAM</span>, communicate as KAM — do not use EoM for the same matter</li>
+    <li>If matter is fundamental to user understanding but did <em>not</em> require significant auditor attention (e.g., a subsequent event) → EoM</li>
+    <li>Where KAM section is present, auditor may highlight a matter more prominently (e.g., listed first) instead of duplicating as EoM</li>
+  </ul>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>EoM / OM is a <span class="keyword">targeted spotlight</span> that preserves an otherwise unmodified (or modified) opinion while flagging a matter. Use sparingly; communicate to TCWG; always state "opinion not modified".</p>
+</section>
+
+<!-- SA 710 revisit -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 710</span> Comparative Information — Corresponding Figures &amp; Comparative FS <em>(revisit — primary in Ch 6)</em></h3>
+  <p><strong>Scope note:</strong> Primary coverage in <a href="../ch-06-completion-review/full.html">Ch 6</a>. Reporting angle recapped here.</p>
+  <div class="exception">Mechanics (audit procedures for comparatives, written representations, communication with predecessor) live in Ch 6 to avoid duplication. This card only summarises the <em>reporting</em> angle relevant to Ch 7.</div>
+
+  <h4>Two reporting frameworks — bottom line</h4>
+  <ul>
+    <li><span class="keyword">Corresponding figures</span>: opinion refers to <em>current period only</em>. Do <strong>not</strong> refer to corresponding figures in the opinion, <em>except</em> when (a) prior AR was other than unqualified, or (b) a prior-period MM was not addressed, or (c) prior-period FS unaudited, or (d) prior period audited by predecessor auditor and auditor (permitted by law) chooses to refer.</li>
+    <li><span class="keyword">Comparative financial statements</span>: opinion refers to <em>each period</em> presented. If current-year opinion on prior period differs from the opinion previously issued → explain substantive reason in an <span class="clause">Other Matter Paragraph</span>.</li>
+  </ul>
+  <p>Cross-refer: prior period audited by predecessor → OM para stating (i) fact, (ii) type of opinion, (iii) date of that report. Prior-period unaudited → OM para to that effect (does not relieve auditor of duty on opening balances).</p>
+</section>
+
+<!-- SA 720 revisit -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 720</span> Auditor's Responsibilities Relating to Other Information <em>(revisit — primary in Ch 6)</em></h3>
+  <p><strong>Scope note:</strong> Primary coverage in <a href="../ch-06-completion-review/full.html">Ch 6</a>. Reporting mechanics recapped here.</p>
+  <div class="exception">Read/consider/respond mechanics of SA 720 live in Ch 6. This card covers the <em>"Other Information" section of the auditor's report</em> only.</div>
+
+  <h4>Reporting — "Other Information" section of the report</h4>
+  <ul>
+    <li>Required when (a) listed entity: OI obtained or expected to be obtained; (b) unlisted corporate entity: some or all OI obtained</li>
+    <li>Contents: (i) management's responsibility for OI · (ii) identification of OI obtained (and, for listed, expected to be obtained post-report-date) · (iii) auditor's opinion does not cover OI, no assurance expressed · (iv) auditor's SA 720 responsibilities · (v) either "nothing to report" or description of <span class="keyword">uncorrected material misstatement</span> in OI</li>
+    <li>Modification under SA 705 → consider implications for the OI statement</li>
+  </ul>
+</section>
+
+<!-- CARO overview -->
+<section class="sa-card">
+  <h3>CARO 2020 — Overview (additional reporting under <span class="clause">s.143(11)</span>)</h3>
+  <p>Issued by the Central Government, after consultation with NFRA, as the <span class="keyword">Companies (Auditor's Report) Order, 2020</span> dated 25 Feb 2020. It is an <span class="keyword">additional</span> reporting requirement tacked on to the <span class="clause">s.143</span> report — specifically under the "<span class="keyword">Report on Other Legal and Regulatory Requirements</span>" section.</p>
+
+  <h4>Applicability — summary</h4>
+  <ul>
+    <li>Applies to every company (including foreign companies per <span class="clause">s.2(42)</span>), <span class="keyword">except</span>: banking company; insurance company; <span class="clause">s.8</span> company; One Person Company; small company; and private limited company (not subsidiary/holding of a public co.) meeting all thresholds — paid-up capital + reserves ≤ ₹1 cr on BS date · borrowings ≤ ₹1 cr at any point in FY · revenue ≤ ₹10 cr in FY.</li>
+    <li>Does <strong>not</strong> apply to the auditor's report on <em>consolidated</em> FS — <span class="keyword">except</span> clause (xxi) (which requires reporting on CARO qualifications/adverse remarks in subsidiaries/associates/JVs consolidated).</li>
+  </ul>
+
+  <div class="exception"><strong>CARO 21-clause detail lives in Ch 7a.</strong> Clause-by-clause drill-downs (title deeds · inventory · loans to related parties · statutory dues · defaults in repayment · fraud reporting · cash losses · consolidated CARO etc.) are covered in full at <a href="../ch-07a-caro-2020/full.html">chapters/ch-07a-caro-2020/full.html</a>. Do not try to memorise the 21 clauses from this chapter — go to Ch 7a.</div>
+
+  <h4>Reporting mechanics (para 4)</h4>
+  <ul>
+    <li>Unfavourable / qualified answer to any paragraph-3 question → state <span class="keyword">basis</span> for that answer</li>
+    <li>Unable to express any opinion on a matter → indicate the fact + <span class="keyword">reasons</span></li>
+  </ul>
+</section>
+
+<!-- Duties / Fraud reporting under Sec 143 (compact reference) -->
+<section class="sa-card">
+  <h3>Auditor's duties under <span class="clause">s.143</span> — quick reference</h3>
+  <p>Ch 7 PDF also recaps statutory duties that drive what goes into the report. Keep these for fact-patterns where the question tests the Companies Act wrapping around SA 700.</p>
+  <h4>Duty to enquire — <span class="clause">s.143(1)</span></h4>
+  <ul>
+    <li>Loans &amp; advances on security — properly secured? terms prejudicial?</li>
+    <li>Book-entry-only transactions — prejudicial to company?</li>
+    <li>Sale of shares/debentures below cost (non-investment/banking co.)</li>
+    <li>Loans/advances shown as deposits · personal expenses charged to revenue · cash receipt on share allotment</li>
+  </ul>
+  <h4>Report must state — <span class="clause">s.143(3)</span> (selected)</h4>
+  <ul>
+    <li>Information &amp; explanations sought/obtained; proper books; branch-auditor reports received &amp; treatment; agreement of BS/P&amp;L with books</li>
+    <li>FS comply with <span class="keyword">accounting standards</span>; director disqualification under <span class="clause">s.164(2)</span>; <span class="keyword">IFC over FR</span> adequacy &amp; operating effectiveness (carve-outs for OPC / small co. / specified private co.)</li>
+    <li>Rule 11 matters — pending litigations impact · long-term contract material foreseeable losses · IEPF transfer delays · "funds loaned/invested through intermediaries" reps (onward &amp; inward) · dividend per <span class="clause">s.123</span> · <span class="keyword">audit trail (edit log)</span> operated &amp; preserved</li>
+    <li><span class="clause">s.197(16)</span> — statement on managerial remuneration paid per Act, excess if any</li>
+  </ul>
+  <h4>Fraud reporting — <span class="clause">s.143(12)</span> r/w Rule 13 CAAR 2014</h4>
+  <div class="exception">Fraud ≥ ₹1 crore → <span class="keyword">Central Government</span> (Secretary, MCA): auditor reports to Board/AC within <span class="keyword">2 days</span>, seeks reply in <span class="keyword">45 days</span>, forwards report + reply (or note if no reply) to CG within <span class="keyword">15 days</span> in <span class="keyword">Form ADT-4</span>.</div>
+  <div class="exception">Fraud &lt; ₹1 crore → report to <span class="keyword">Audit Committee / Board</span> within 2 days (nature · amount · parties); company discloses in Board's Report (incl. remedial action). Good-faith protection under <span class="clause">s.143(13)</span>. CARO clause (xi) also requires disclosure of frauds noticed/reported and whether ADT-4 was filed.</div>
+  <p><strong>Report vs Certificate:</strong> "Report" = expression of opinion (<span class="clause">s.143</span>), whereas "Certificate" = verification of fact (e.g. <span class="clause">s.66</span> reduction of capital).</p>
+</section>
+
+<!-- Notes on accounts vs qualifications -->
+<section class="sa-card">
+  <h3>Notes on Accounts vs Qualifications — exam-favourite distinction</h3>
+  <ul>
+    <li>Notes = management's explanation of their stand; Qualifications = auditor's disagreement in the <em>opinion</em>.</li>
+    <li>A reference in the AR to a note does <strong>not</strong> automatically become a qualification. The auditor must state qualifications <span class="keyword">independently</span> in the report so users can assess significance.</li>
+    <li>Qualified opinion uses "<span class="keyword">except for</span>" — never "subject to" or "with the foregoing explanation" (insufficiently forceful).</li>
+    <li>Disagreement requires <span class="keyword">qualification</span> (or adverse / disclaimer), <em>not</em> an EoM — EoM is only for matters <em>appropriately</em> presented &amp; disclosed and supported by SAAE.</li>
+  </ul>
+</section>
+
+<div class="triggers">
+<h3>5 Exam Triggers — spot these phrasings, invoke these SAs</h3>
+<ol>
+  <li>"Auditor unable to obtain balance confirmation for debtors = ₹150 cr (defaults ongoing; provision inadequate) <em>and</em> 40% of total assets = inventory, no physical verification, no adequate records" → <strong>SA 705</strong> — inability to obtain SAAE, possible effects <span class="keyword">material &amp; pervasive</span> → <span class="keyword">Disclaimer of Opinion</span>; no KAM section; shortened auditor's-responsibilities description.</li>
+  <li>"Company's financing arrangements expired, renegotiation failed, entity considering bankruptcy; FS do not disclose this fact" → <strong>SA 705 + SA 570</strong> — material uncertainty on going concern with inadequate disclosure; effects on FS material &amp; pervasive → <span class="keyword">Adverse Opinion</span> with Basis for Adverse + material uncertainty statement.</li>
+  <li>"Loan agreement for ₹55 lakhs advance not furnished — auditor cannot verify terms of repayment/interest" → <strong>SA 705</strong> — inability to obtain SAAE, material but <em>not</em> pervasive → <span class="keyword">Qualified Opinion</span> "except for the <em>possible</em> effects of…"; never use EoM.</li>
+  <li>"Company recognizes complex revenue with rebates/discounts; auditor tested Ind AS 115 compliance, controls, cut-off — listed entity" → <strong>SA 701</strong> — disclosure of <span class="keyword">Key Audit Matter</span> (revenue recognition), describing why it was KAM and how the auditor addressed it. Not an EoM, not a modification.</li>
+  <li>"Auditor wants to draw attention to (i) Co.'s plan to resume construction on suspended thermal project — already in Note 27; (ii) 5 branch FS audited by branch auditors" → <strong>SA 706</strong> — (i) matter <em>in</em> FS &amp; fundamental → <span class="keyword">Emphasis of Matter</span>; (ii) matter <em>not in</em> FS, relevant to understanding of audit → <span class="keyword">Other Matter</span>. State "opinion not modified"; do not substitute for a KAM.</li>
+</ol>
+</div>
+
+<script>mermaid.initialize({startOnLoad:true, theme:'neutral'});</script>
+</body>
+</html>

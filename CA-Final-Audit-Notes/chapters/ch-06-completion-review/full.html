@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ch 6 — Completion &amp; Review · CA Final Audit</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<style>
+:root {
+  --bg: #faf8f3;
+  --ink: #1a1a1a;
+  --muted: #5b5b5b;
+  --accent: #0a4a8f;
+  --keyword-bg: #fff3d4;
+  --exception-bg: #ffe4e4;
+  --exception-border: #c33;
+  --clause-bg: #e8f2ff;
+  --table-stripe: #f5f2ea;
+  --rule: #d8d3c4;
+  --quote-bar: #0a4a8f;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Georgia, serif;
+  background: var(--bg); color: var(--ink);
+  max-width: 820px; margin: 2rem auto; padding: 0 1.25rem;
+  line-height: 1.55; font-size: 16px;
+}
+h1 { font-size: 1.9rem; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 0.4rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin-top: 2rem; border-left: 4px solid var(--accent); padding-left: 0.6rem; }
+h3 { font-size: 1.15rem; color: var(--ink); margin-top: 1.5rem; }
+h4 { font-size: 1rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1.2rem; margin-bottom: 0.3rem; }
+.meta { color: var(--muted); font-style: italic; font-size: 0.9rem; margin-top: -0.5rem; }
+.keyword { background: var(--keyword-bg); padding: 0 0.2em; border-radius: 2px; font-weight: 600; }
+.exception {
+  background: var(--exception-bg);
+  border-left: 4px solid var(--exception-border);
+  padding: 0.5rem 0.8rem; margin: 0.5rem 0; border-radius: 3px;
+}
+.exception::before { content: "⚠ "; font-weight: bold; color: var(--exception-border); }
+.clause {
+  background: var(--clause-bg); padding: 0.1rem 0.4rem;
+  border-radius: 3px; font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+}
+blockquote.icai {
+  border-left: 4px solid var(--quote-bar);
+  background: #fff; margin: 0.8rem 0; padding: 0.6rem 1rem;
+  font-style: italic; color: #333;
+}
+blockquote.icai::before { content: "ICAI verbatim · "; font-style: normal; font-weight: 600; color: var(--accent); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.95rem; }
+th, td { padding: 0.5rem 0.7rem; text-align: left; border: 1px solid var(--rule); vertical-align: top; }
+th { background: var(--accent); color: #fff; font-weight: 600; }
+tr:nth-child(even) td { background: var(--table-stripe); }
+.sa-card {
+  border: 1px solid var(--rule); border-radius: 6px;
+  padding: 1rem 1.2rem; margin: 1.5rem 0; background: #fff;
+}
+.sa-card h3 { margin-top: 0; color: var(--accent); }
+.triggers {
+  background: #fff; border: 1px dashed var(--accent);
+  padding: 1rem; border-radius: 6px; margin: 1.5rem 0;
+}
+.triggers h3 { margin-top: 0; color: var(--accent); }
+.triggers ol { margin: 0; padding-left: 1.2rem; }
+.triggers li { margin: 0.4rem 0; }
+.mermaid { background: #fff; padding: 1rem; border-radius: 6px; margin: 1rem 0; text-align: center; }
+svg.diagram { max-width: 100%; height: auto; display: block; margin: 1rem auto; background: #fff; border-radius: 6px; padding: 0.5rem; }
+ul, ol { padding-left: 1.3rem; }
+li { margin: 0.2rem 0; }
+.chip { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-right: 0.3rem; }
+.chip-sa { background: var(--accent); color: #fff; }
+.chip-marks { background: #2a7c3a; color: #fff; }
+.nav { margin: 1rem 0; font-size: 0.9rem; }
+.nav a { color: var(--accent); text-decoration: none; margin-right: 1rem; }
+.nav a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="nav">← <a href="../../index.html">All chapters</a> · <a href="onepager.html">One-pager</a></div>
+<h1>Chapter 6 — Completion &amp; Review</h1>
+<p class="meta">ICAI SM Final P3 May 2026 · <span class="chip chip-marks">~10–12 marks</span> Primary: SA 710 · SA 720 · with revisits of SA 260, 450, 560, 570, 580</p>
+
+<div class="exception">
+<strong>PDF-source note (SPEC §1.1a &amp; §10).</strong> The Ch 6 SM PDF itself only pictorially walks through <span class="keyword">SA 560 · SA 570 · SA 580</span> and expressly states these are "covered in depth at Intermediate level … application part … may be discussed in the form of Case Study at Final level." <span class="keyword">SA 710</span> and <span class="keyword">SA 720</span> are <strong>not</strong> printed in the Ch 6 PDF — the ICAI SM places them physically inside Ch 7 (Reporting). Per SPEC §11, this chapter owns them as the <em>completion-phase primary</em>; the verbatim Objectives below are therefore lifted from the Ch 7 PDF (SA 710 §10, SA 720 §11). SA 560 / 570 / 580 are treated here as short revisit cards (primary detail is in Ch 5). SA 260 and SA 450 are revisits from Ch 2 and Ch 4 respectively.
+</div>
+
+<h2>Chapter map</h2>
+<p>Completion &amp; Review is the <span class="keyword">pre-sign-off loop</span>. Substantive fieldwork is done; the auditor now accumulates leftover misstatements (<span class="clause">SA 450</span>), chases post-balance-sheet events (<span class="clause">SA 560</span>), tests the <span class="keyword">going-concern assumption</span> (<span class="clause">SA 570</span>), collects <span class="keyword">written reps</span> from management/TCWG (<span class="clause">SA 580</span>), sanity-checks <span class="keyword">comparatives</span> (<span class="clause">SA 710</span>), reads <span class="keyword">other information</span> in the annual report (<span class="clause">SA 720</span>), closes the loop with TCWG (<span class="clause">SA 260</span>), and hands the file to the reporting phase (Ch 7).</p>
+
+<h2>Completion-phase cluster</h2>
+<svg class="diagram" viewBox="0 0 780 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr6" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L8,5 L0,10 z" fill="#0a4a8f"/>
+    </marker>
+  </defs>
+  <!-- top label -->
+  <text x="390" y="22" text-anchor="middle" font-size="13" font-style="italic" fill="#5b5b5b">Evidence gathered · now complete &amp; review before signing</text>
+
+  <!-- Row 1: SA 450 + SA 560 -->
+  <rect x="20" y="40" width="240" height="65" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2" stroke-dasharray="4,3"/>
+  <text x="140" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">SA 450 (revisit · Ch 4)</text>
+  <text x="140" y="80" text-anchor="middle" font-size="11" fill="#333">Accumulate &amp; evaluate</text>
+  <text x="140" y="94" text-anchor="middle" font-size="11" fill="#333">misstatements</text>
+
+  <rect x="290" y="40" width="240" height="65" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="410" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">SA 560 (revisit · Ch 5)</text>
+  <text x="410" y="80" text-anchor="middle" font-size="11" fill="#333">Subsequent events</text>
+  <text x="410" y="94" text-anchor="middle" font-size="11" fill="#333">3 timeline windows</text>
+
+  <rect x="560" y="40" width="200" height="65" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="660" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">SA 570 (revisit · Ch 5)</text>
+  <text x="660" y="80" text-anchor="middle" font-size="11" fill="#333">Going concern</text>
+  <text x="660" y="94" text-anchor="middle" font-size="11" fill="#333">4 reporting branches</text>
+
+  <!-- Row 2: SA 580 + 710 + 720 -->
+  <rect x="20" y="145" width="240" height="65" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="140" y="167" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">SA 580 (revisit · Ch 5)</text>
+  <text x="140" y="185" text-anchor="middle" font-size="11" fill="#333">Written representations</text>
+  <text x="140" y="199" text-anchor="middle" font-size="11" fill="#333">near-as-practicable date</text>
+
+  <rect x="290" y="145" width="240" height="65" rx="6" fill="#fff3d4" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="410" y="167" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">SA 710 (primary)</text>
+  <text x="410" y="185" text-anchor="middle" font-size="11" fill="#333">Comparatives —</text>
+  <text x="410" y="199" text-anchor="middle" font-size="11" fill="#333">CF vs CFS approach</text>
+
+  <rect x="560" y="145" width="200" height="65" rx="6" fill="#fff3d4" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="660" y="167" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">SA 720 (primary)</text>
+  <text x="660" y="185" text-anchor="middle" font-size="11" fill="#333">Other information</text>
+  <text x="660" y="199" text-anchor="middle" font-size="11" fill="#333">read · consider · report</text>
+
+  <!-- Row 3: SA 260 + Ch 7 handoff -->
+  <rect x="140" y="260" width="260" height="65" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2" stroke-dasharray="4,3"/>
+  <text x="270" y="282" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">SA 260 (revisit · Ch 2)</text>
+  <text x="270" y="300" text-anchor="middle" font-size="11" fill="#333">Communicate completion-phase</text>
+  <text x="270" y="314" text-anchor="middle" font-size="11" fill="#333">findings to TCWG</text>
+
+  <rect x="440" y="260" width="280" height="65" rx="6" fill="#e8f2ff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="580" y="282" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">Audit opinion · Ch 7 →</text>
+  <text x="580" y="300" text-anchor="middle" font-size="11" fill="#333">SA 700 / 705 / 706 /</text>
+  <text x="580" y="314" text-anchor="middle" font-size="11" fill="#333">Material Uncertainty section</text>
+
+  <!-- arrows -->
+  <path d="M260,72 L290,72" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr6)"/>
+  <path d="M530,72 L560,72" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr6)"/>
+  <path d="M140,105 L140,145" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr6)"/>
+  <path d="M260,177 L290,177" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr6)"/>
+  <path d="M530,177 L560,177" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr6)"/>
+  <path d="M410,210 L270,260" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr6)"/>
+  <path d="M660,210 L580,260" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr6)"/>
+  <path d="M400,292 L440,292" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr6)"/>
+
+  <!-- bottom caption -->
+  <text x="390" y="365" text-anchor="middle" font-size="12" font-style="italic" fill="#5b5b5b">Yellow = primary coverage in this chapter · dashed = revisit (detail in primary chapter)</text>
+</svg>
+
+<h2>Completion-phase theme — what happens AFTER evidence, BEFORE signing</h2>
+<p>Think of a five-item checklist the engagement partner walks through on the last day of fieldwork: <strong>(1)</strong> have all uncorrected misstatements been accumulated and evaluated (<span class="clause">SA 450</span>); <strong>(2)</strong> have events between year-end and report-date been adjusted/disclosed (<span class="clause">SA 560</span>); <strong>(3)</strong> does the going-concern basis still hold (<span class="clause">SA 570</span>); <strong>(4)</strong> is the written-representation letter signed and dated as near as practicable to the audit report (<span class="clause">SA 580</span>); <strong>(5)</strong> do comparatives (<span class="clause">SA 710</span>) and other information (<span class="clause">SA 720</span>) tell a consistent story. Only then does the auditor move into opinion-formation under SA 700/705/706.</p>
+
+<div class="exception" style="background:#fff8e0;border-left-color:#b8860b;"><strong>Sourcing note (PDF-grounding):</strong> SA 710 and SA 720 are <em>not</em> reproduced in <span class="clause">pdfs/ch-06.pdf</span>; the ICAI Study Material prints them in <span class="clause">pdfs/ch-07.pdf</span> (§10 and §11). This chapter cross-references those verbatim quotes here because SA 710/720 form part of the Completion &amp; Review workflow. Every ICAI-verbatim block below is sourced from ch-07.pdf.</div>
+
+<!-- SA 710 PRIMARY (verbatim quotes cross-referenced from ch-07.pdf §10) -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 710</span> Comparative Information — Corresponding Figures and Comparative Financial Statements</h3>
+  <p><strong>Scope:</strong> Auditor's responsibility regarding <span class="keyword">comparative information</span> in an FS audit. Two approaches exist — the FRF and terms of engagement dictate which applies. <em>(Verbatim text sourced from ch-07.pdf §10; ch-06.pdf does not reproduce SA 710.)</em></p>
+
+  <h4>Objective</h4>
+  <blockquote class="icai">"The objectives of the auditor are to obtain sufficient appropriate audit evidence about whether the comparative information included in the financial statements has been presented, in all material respects, in accordance with the requirements for comparative information in the applicable financial reporting framework; and to report in accordance with the auditor's reporting responsibilities."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Comparative information</span> — amounts &amp; disclosures of the prior period presented for comparative purposes</li>
+    <li><span class="keyword">Corresponding figures (CF)</span> — prior-period amounts shown as an <em>integral part</em> of current-period FS; opinion refers to current period only</li>
+    <li><span class="keyword">Comparative financial statements (CFS)</span> — prior-period amounts/disclosures presented for comparison with current period; opinion refers to <em>each</em> period presented</li>
+    <li><span class="keyword">Predecessor auditor</span> — auditor of the prior-period FS now replaced</li>
+  </ul>
+
+  <h4>Key Requirements</h4>
+  <ul>
+    <li>Determine whether FS contain <span class="keyword">appropriately classified comparatives</span> — agree to prior-period amounts, consistent accounting policies, changes properly disclosed</li>
+    <li>If possible misstatement surfaces in comparatives: perform additional procedures; if prior period audited, follow <span class="clause">SA 560</span> mechanics</li>
+    <li>Obtain <span class="keyword">written representation</span> (SA 580) — including a specific rep on any prior-period item disclosed in the current year</li>
+    <li>CF approach: opinion shall <span class="keyword">not refer</span> to corresponding figures except in the two trigger situations (see exceptions)</li>
+    <li>CFS approach: opinion refers to <span class="keyword">each period</span> for which FS are presented</li>
+    <li>Prior period audited by <span class="keyword">predecessor</span> / unaudited → Other Matter Paragraph disclosure (see reporting)</li>
+  </ul>
+
+  <h4>Exceptions / Conditions — when current opinion must touch the prior period</h4>
+  <div class="exception"><strong>CF approach — refer to CF only if:</strong> (a) prior-period report was <em>other than unqualified</em> and the matter remains unresolved; or (b) auditor obtains sufficient evidence that a <span class="keyword">material misstatement exists in prior-period FS</span> on which an unmodified opinion was previously issued. Use <span class="clause">SA 705</span> + Other Matter Paragraph (SA 706).</div>
+  <div class="exception"><strong>CFS approach:</strong> if current-period opinion on the prior period <em>differs</em> from the previously issued opinion, disclose substantive reasons in an <span class="keyword">Other Matter Paragraph</span>.</div>
+  <div class="exception"><strong>Unaudited prior period:</strong> state in Other Matter that comparatives/CF are unaudited — does <em>not</em> relieve the auditor from obtaining SAAE that <span class="keyword">opening balances</span> do not contain material misstatements affecting current period (link to <span class="clause">SA 510</span>).</div>
+
+  <h4>Auditor's Responsibilities — procedure snapshot</h4>
+  <ul>
+    <li>Check <span class="keyword">consistency of accounting policies</span>; tick comparative amounts to prior-period figures</li>
+    <li>Evaluate any restatement / reclassification; verify disclosure of the change</li>
+    <li>If predecessor auditor &amp; law permits reference — state name, type of opinion, date of prior report</li>
+  </ul>
+
+  <h4>Conclusion / Reporting — decision flow</h4>
+  <div class="mermaid">
+flowchart TD
+    A[FRF · terms of engagement] --> B{Approach}
+    B -->|Corresponding figures| C[Opinion refers to current period only]
+    B -->|Comparative FS| D[Opinion refers to EACH period presented]
+    C --> E{Prior period modified OR<br/>material misstatement found?}
+    E -->|No| F[Unmodified · no mention of CF]
+    E -->|Yes| G[Modify under SA 705 + Other Matter para · SA 706]
+    D --> H{Prior-period opinion<br/>differs from earlier?}
+    H -->|No| I[Opinion on each period]
+    H -->|Yes| J[Disclose substantive reason<br/>in Other Matter paragraph]
+  </div>
+</section>
+
+<!-- SA 720 PRIMARY (verbatim quotes cross-referenced from ch-07.pdf §11) -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 720 (Revised)</span> The Auditor's Responsibilities Relating to Other Information</h3>
+  <p><strong>Scope:</strong> Auditor's responsibilities relating to <span class="keyword">other information</span> — financial or non-financial (other than FS &amp; the auditor's report thereon) — included in the entity's <span class="keyword">annual report</span>. Does <em>not</em> apply to preliminary announcements or securities-offering documents (prospectuses). <em>(Verbatim text sourced from ch-07.pdf §11; ch-06.pdf does not reproduce SA 720.)</em></p>
+
+  <h4>Objective</h4>
+  <blockquote class="icai">"The objectives of the auditor, having read the other information, are: (a) To consider whether there is a material inconsistency between the other information and the financial statements; (b) To consider whether there is a material inconsistency between the other information and the auditor's knowledge obtained in the audit; (c) To respond appropriately when the auditor identifies that such material inconsistencies appear to exist, or when the auditor otherwise becomes aware that other information appears to be materially misstated; and (d) To report in accordance with this SA."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Annual report</span> — document(s) prepared on annual basis by management/TCWG providing owners with info on operations &amp; financial results; accompanies FS &amp; auditor's report; typically includes developments, outlook, risks, governance</li>
+    <li><span class="keyword">Other information</span> — financial or non-financial information (other than FS &amp; auditor's report thereon) included in the annual report</li>
+    <li><span class="keyword">Material inconsistency</span> — other information contradicts FS or the auditor's audit knowledge such that credibility is undermined</li>
+    <li><span class="keyword">Material misstatement of other information</span> — OI incorrectly stated or otherwise misleading, including due to omission/obscuring</li>
+  </ul>
+
+  <h4>Key Requirements — the 4-step workflow</h4>
+  <ul>
+    <li><strong>Obtain:</strong> discuss with management what comprises the annual report, agree timing to receive final version <em>prior to report date</em> where possible; if OI will be received <em>after</em> → <span class="keyword">written rep</span> from management that final version will be provided</li>
+    <li><strong>Read &amp; consider:</strong> compare selected items in OI with FS; consider inconsistency vs auditor's audit knowledge; remain <span class="keyword">alert</span> for OI unrelated to FS that appears misstated</li>
+    <li><strong>Respond:</strong> if inconsistency/misstatement appears to exist — discuss with management; perform other procedures; conclude whether (a) OI misstated, (b) FS misstated, or (c) auditor's understanding needs update</li>
+    <li><strong>If OI materially misstated:</strong> request correction; if refused → communicate with <span class="keyword">TCWG</span>; still uncorrected → consider implications for report and <span class="keyword">withdraw</span> where law permits</li>
+    <li><strong>If misstatement surfaces AFTER report date:</strong> if corrected — perform necessary procedures; if not corrected after TCWG communication — take appropriate action to bring it to users' attention</li>
+    <li><strong>Report:</strong> separate <span class="keyword">"Other Information"</span> section in auditor's report when (a) <em>listed</em> entity — OI obtained or expected; (b) <em>unlisted</em> — OI obtained</li>
+  </ul>
+
+  <h4>Exceptions / Conditions</h4>
+  <div class="exception">SA 720 does <strong>not</strong> apply to preliminary announcements of financial information or to securities-offering documents (including prospectuses).</div>
+  <div class="exception">When a <span class="keyword">qualified or adverse</span> opinion is expressed under SA 705, consider the implications of the underlying matter for the Other Information statement — the "nothing to report" line cannot stand unaffected.</div>
+
+  <h4>Contents of the Other Information section</h4>
+  <ul>
+    <li>Statement that <span class="keyword">management is responsible</span> for the OI</li>
+    <li>Identification of OI obtained before report date, and (for listed) OI expected after</li>
+    <li>Statement that auditor's <span class="keyword">opinion does not cover OI</span> — no assurance conclusion expressed</li>
+    <li>Description of auditor's responsibilities — to read, consider, report</li>
+    <li>Where OI obtained before report date: either "nothing to report" <em>or</em> description of <span class="keyword">uncorrected material misstatement</span> of OI</li>
+  </ul>
+
+  <h4>Workflow — decision flow</h4>
+  <div class="mermaid">
+flowchart TD
+    A[Identify what is Other Information<br/>in the annual report] --> B[Read the OI]
+    B --> C{Material inconsistency with<br/>FS or audit knowledge?}
+    C -->|No| D[OI section: nothing to report]
+    C -->|Yes| E[Discuss with management · perform<br/>additional procedures]
+    E --> F{Misstatement in FS,<br/>OI, or auditor's understanding?}
+    F -->|FS misstated| G[Respond under other SAs · SA 705]
+    F -->|OI misstated| H{Corrected?}
+    H -->|Yes| D
+    H -->|No · TCWG also refuses| I[Describe uncorrected MM of OI<br/>in Other Information section · consider withdrawal]
+  </div>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>The OI section sits alongside (not inside) the opinion paragraph — it informs users that the auditor has <em>read</em> OI but does <strong>not</strong> audit it. When OI is materially misstated and uncorrected, the auditor describes the misstatement in this section — opinion on the FS remains driven by SA 705 on its own basis.</p>
+</section>
+
+<h2>Revisit cards — completion-phase SAs owned by other chapters</h2>
+<p class="meta">Short scope + mechanic + pointer. Full treatment in the primary chapter.</p>
+
+<!-- SA 450 revisit -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 450</span> Evaluation of Misstatements Identified during the Audit <em>(revisit)</em></h3>
+  <p><strong>Scope:</strong> Accumulate, classify, communicate &amp; evaluate uncorrected misstatements at completion.</p>
+  <p><strong>Mechanic (1-liner):</strong> Accumulate (except <span class="keyword">clearly trivial</span>) → request correction → reassess materiality under <span class="clause">SA 320</span> → evaluate individually &amp; in aggregate → written rep that uncorrected items are immaterial → modify under <span class="clause">SA 705</span> if not.</p>
+  <div class="exception">Primary chapter: <strong>Ch 4 · Materiality, Risk &amp; Internal Control</strong> — full requirements, 4-step loop, communication thresholds.</div>
+</section>
+
+<!-- SA 560 revisit -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 560</span> Subsequent Events <em>(revisit)</em></h3>
+  <p><strong>Scope:</strong> Events between date of FS and date of auditor's report + facts known after.</p>
+  <p><strong>Mechanic (1-liner):</strong> Three windows — <em>(i)</em> between FS date &amp; report date: <span class="keyword">active procedures</span> to identify adjusting / non-adjusting events; <em>(ii)</em> after report date but before FS issued: discuss, amend auditor's report with additional date / new report; <em>(iii)</em> after FS issued: review management action, re-issue report if amended, else take steps to prevent reliance.</p>
+  <div class="exception">Primary chapter: <strong>Ch 5 · Audit Evidence</strong>. The Ch 6 PDF reproduces the SA 560 pictorial but defers depth to Intermediate.</div>
+</section>
+
+<!-- SA 570 revisit -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 570 (Revised)</span> Going Concern <em>(revisit)</em></h3>
+  <p><strong>Scope:</strong> Appropriateness of management's use of going-concern basis &amp; material uncertainty.</p>
+  <p><strong>Mechanic (1-liner):</strong> Management assesses → auditor obtains SAAE → four reporting branches: (a) basis inappropriate → <span class="keyword">adverse</span>; (b) basis appropriate but <span class="keyword">material uncertainty</span> adequately disclosed → unmodified + separate <span class="keyword">"Material Uncertainty Related to Going Concern"</span> section; (c) uncertainty inadequately disclosed → qualified/adverse with note in Basis of Opinion; (d) management unwilling to assess / extend → consider implications for report (possibly disclaim).</p>
+  <div class="exception">Primary chapter: <strong>Ch 5 · Audit Evidence</strong> (whitelisted flowchart lives there). Note from Ch 6 PDF: SA 570 too is an Intermediate-depth SA — at Final, case-study application only.</div>
+</section>
+
+<!-- SA 580 revisit -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 580</span> Written Representations <em>(revisit)</em></h3>
+  <p><strong>Scope:</strong> Written reps from management and, where appropriate, TCWG.</p>
+  <p><strong>Mechanic (1-liner):</strong> Necessary but <em>not</em> sufficient audit evidence; date <span class="keyword">as near as practicable to, but not after, the date of the auditor's report</span>; cover <span class="keyword">all periods</span> referred to in the report; if unreliable or refused → re-evaluate integrity, consider impact on opinion under <span class="clause">SA 705</span> (possibly disclaimer where refusal concerns FS responsibilities).</p>
+  <div class="exception">Primary chapter: <strong>Ch 5 · Audit Evidence</strong>. Frequent exam anchor via case scenarios — stale-dated rep letter, missing prior-period reps for restated FS (IPO scenario).</div>
+</section>
+
+<!-- SA 260 revisit -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 260 (Revised)</span> Communication with TCWG <em>(revisit)</em></h3>
+  <p><strong>Scope:</strong> Two-way communication with those charged with governance at completion.</p>
+  <p><strong>Mechanic (1-liner):</strong> Before signing, communicate <span class="keyword">qualitative aspects of accounting practices</span>, significant difficulties, uncorrected misstatements, expected modifications / EOM / OM paragraphs, auditor independence (listed), matters requiring written reps — in writing where oral would be inadequate.</p>
+  <div class="exception">Primary chapter: <strong>Ch 2 · General Auditing Principles</strong>. Inadequate two-way communication → modify risk assessment or consider withdrawal.</div>
+</section>
+
+<h2>Subsequent events — the 3-window quick reference</h2>
+<table>
+  <thead>
+    <tr><th>Window</th><th>Trigger</th><th>Auditor's action</th><th>Report impact</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>FS date → <strong>report date</strong></td>
+      <td>Active — events occurring</td>
+      <td>Design procedures to identify; inquire, read minutes, interim FS, obtain written rep</td>
+      <td>Ensure appropriate adjustment / disclosure; otherwise modify under SA 705</td>
+    </tr>
+    <tr>
+      <td>Report date → <strong>FS issued</strong></td>
+      <td>Passive — fact becomes known</td>
+      <td>Discuss · determine if FS need amendment · inquire how management will address</td>
+      <td>If amended — new / dual-dated report (EOM/OM restricted to amendment); if not amended &amp; report delivered — notify TCWG not to issue; if still issued — steps to prevent reliance</td>
+    </tr>
+    <tr>
+      <td>After <strong>FS issued</strong></td>
+      <td>Passive — fact becomes known</td>
+      <td>Discuss · inquire management's action · review steps taken to inform users</td>
+      <td>Steps taken — new / amended report with EOM/OM; steps not taken — appropriate action to prevent reliance on auditor's report</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Going concern — four reporting branches at a glance</h2>
+<table>
+  <thead>
+    <tr><th>Scenario</th><th>Opinion</th><th>Additional section / para</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>GC basis <em>inappropriate</em> (even if management discloses)</td><td><span class="keyword">Adverse</span></td><td>Basis of Adverse Opinion para</td></tr>
+    <tr><td>GC basis appropriate · material uncertainty · <em>adequate</em> disclosure</td><td>Unmodified</td><td>Separate "<span class="keyword">Material Uncertainty Related to Going Concern</span>" section</td></tr>
+    <tr><td>GC basis appropriate · material uncertainty · <em>inadequate</em> disclosure</td><td>Qualified / Adverse</td><td>State MU in Basis of Opinion</td></tr>
+    <tr><td>Management unwilling to make / extend assessment</td><td>Consider implications</td><td>Possible disclaimer for SAAE limitation</td></tr>
+  </tbody>
+</table>
+
+<h2>Written representations — dating rules</h2>
+<ul>
+  <li>Date: <span class="keyword">as near as practicable to, but not after</span>, the date of the auditor's report</li>
+  <li>Cover: <span class="keyword">all periods</span> referred to in the auditor's report (even where current management was not in place — their responsibility for FS as a whole is undiminished)</li>
+  <li>Content pillars: <span class="keyword">management's FS responsibility</span> · completeness of information provided · access to records &amp; people · assertions (SA 240 fraud · SA 250 NOCLAR · SA 450 uncorrected MS · SA 550 related parties · SA 560 subsequent events · SA 570 GC plans)</li>
+  <li>If requested rep not provided — discuss, re-evaluate management integrity, consider <span class="keyword">impact on audit opinion</span> (disclaimer where concerns FS as a whole)</li>
+</ul>
+
+<h2>Completion-phase master checklist (auditor sign-off)</h2>
+<table>
+  <thead><tr><th>Step</th><th>Document / procedure</th><th>SA link</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Summary of Uncorrected Misstatements · classify factual / judgemental / projected</td><td>SA 450</td></tr>
+    <tr><td>2</td><td>Subsequent-events review memo · minutes, interim FS, inquiries</td><td>SA 560</td></tr>
+    <tr><td>3</td><td>Going-concern assessment · cash-flow forecast review · mitigating factors</td><td>SA 570</td></tr>
+    <tr><td>4</td><td>Management Representation Letter · dated as near as practicable to report date</td><td>SA 580</td></tr>
+    <tr><td>5</td><td>Comparatives tie-out · policies-consistency check · predecessor OM para if any</td><td>SA 710</td></tr>
+    <tr><td>6</td><td>Read annual-report Other Information · inconsistency log · OI section</td><td>SA 720</td></tr>
+    <tr><td>7</td><td>TCWG closing communication · significant findings, independence, expected modifications</td><td>SA 260</td></tr>
+    <tr><td>8</td><td>Engagement quality review · assembly of final audit file (≤ 60 days post-report per SQC 1)</td><td>SQC 1 / SA 220 / SA 230</td></tr>
+  </tbody>
+</table>
+
+<div class="triggers">
+<h3>5 Exam Triggers — spot these phrasings, invoke these SAs</h3>
+<ol>
+  <li>"Prior-period FS were qualified for inventory-valuation; the matter <strong>remains unresolved</strong> in the current year; the auditor is using the <em>corresponding figures</em> approach" → <strong>SA 710</strong> — CF approach triggers reference to corresponding figures; modify under <span class="clause">SA 705</span> and insert an <span class="keyword">Other Matter Paragraph</span> disclosing the unresolved prior-period modification.</li>
+  <li>"Chairman's report in the annual report cites ₹ 210 cr net profit; audited FS show ₹ 185 cr; management refuses to correct" → <strong>SA 720</strong> — material inconsistency; communicate with TCWG; if still uncorrected, describe the <span class="keyword">uncorrected material misstatement of OI</span> in the Other Information section of the audit report; consider withdrawal where permitted.</li>
+  <li>"Management Representation Letter is dated 15-Apr-2024; audit report dated 31-Jul-2024; company completed a material acquisition on 10-Jun-2024" → <strong>SA 580 · SA 560</strong> — stale rep letter violates "as near as practicable to, but not after"; obtain refreshed rep dated close to report date; confirm subsequent-event coverage through 31-Jul-2024.</li>
+  <li>"Listed entity; 2024-25 financial results presented as comparative; the auditor's current opinion on 2023-24 <strong>differs</strong> from the previously issued opinion on 2023-24" → <strong>SA 710 (CFS approach)</strong> — disclose substantive reasons for the different opinion on prior period in an <span class="keyword">Other Matter Paragraph</span>.</li>
+  <li>"Between report date and FS issuance, a ₹ 2 cr civil suit is lost by the client; management agrees to amend FS" → <strong>SA 560 Window 2</strong> — carry out procedures on the amendment; issue a new / dual-dated report; date of new report <em>not earlier</em> than the date of approval of the amended FS; EOM/OM restricted to the amendment is permissible.</li>
+</ol>
+</div>
+
+<script>mermaid.initialize({startOnLoad:true, theme:'neutral'});</script>
+</body>
+</html>

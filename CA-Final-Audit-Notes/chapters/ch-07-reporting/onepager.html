@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ch 7 — Reporting · One-Pager · CA Final Audit</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<style>
+:root {
+  --bg: #faf8f3;
+  --ink: #1a1a1a;
+  --muted: #5b5b5b;
+  --accent: #0a4a8f;
+  --keyword-bg: #fff3d4;
+  --exception-bg: #ffe4e4;
+  --exception-border: #c33;
+  --clause-bg: #e8f2ff;
+  --table-stripe: #f5f2ea;
+  --rule: #d8d3c4;
+  --quote-bar: #0a4a8f;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Georgia, serif;
+  background: var(--bg); color: var(--ink);
+  max-width: 820px; margin: 2rem auto; padding: 0 1.25rem;
+  line-height: 1.55; font-size: 16px;
+}
+h1 { font-size: 1.9rem; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 0.4rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin-top: 2rem; border-left: 4px solid var(--accent); padding-left: 0.6rem; }
+h3 { font-size: 1.15rem; color: var(--ink); margin-top: 1.5rem; }
+h4 { font-size: 1rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1.2rem; margin-bottom: 0.3rem; }
+.meta { color: var(--muted); font-style: italic; font-size: 0.9rem; margin-top: -0.5rem; }
+.keyword { background: var(--keyword-bg); padding: 0 0.2em; border-radius: 2px; font-weight: 600; }
+.exception {
+  background: var(--exception-bg);
+  border-left: 4px solid var(--exception-border);
+  padding: 0.5rem 0.8rem; margin: 0.5rem 0; border-radius: 3px;
+}
+.exception::before { content: "⚠ "; font-weight: bold; color: var(--exception-border); }
+.clause {
+  background: var(--clause-bg); padding: 0.1rem 0.4rem;
+  border-radius: 3px; font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+}
+blockquote.icai {
+  border-left: 4px solid var(--quote-bar);
+  background: #fff; margin: 0.8rem 0; padding: 0.6rem 1rem;
+  font-style: italic; color: #333;
+}
+blockquote.icai::before { content: "ICAI verbatim · "; font-style: normal; font-weight: 600; color: var(--accent); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.95rem; }
+th, td { padding: 0.5rem 0.7rem; text-align: left; border: 1px solid var(--rule); vertical-align: top; }
+th { background: var(--accent); color: #fff; font-weight: 600; }
+tr:nth-child(even) td { background: var(--table-stripe); }
+.sa-card {
+  border: 1px solid var(--rule); border-radius: 6px;
+  padding: 1rem 1.2rem; margin: 1.5rem 0; background: #fff;
+}
+.sa-card h3 { margin-top: 0; color: var(--accent); }
+.triggers {
+  background: #fff; border: 1px dashed var(--accent);
+  padding: 1rem; border-radius: 6px; margin: 1.5rem 0;
+}
+.triggers h3 { margin-top: 0; color: var(--accent); }
+.triggers ol { margin: 0; padding-left: 1.2rem; }
+.triggers li { margin: 0.4rem 0; }
+.mermaid { background: #fff; padding: 1rem; border-radius: 6px; margin: 1rem 0; text-align: center; }
+svg.diagram { max-width: 100%; height: auto; display: block; margin: 1rem auto; background: #fff; border-radius: 6px; padding: 0.5rem; }
+ul, ol { padding-left: 1.3rem; }
+li { margin: 0.2rem 0; }
+.chip { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-right: 0.3rem; }
+.chip-sa { background: var(--accent); color: #fff; }
+.chip-marks { background: #2a7c3a; color: #fff; }
+.nav { margin: 1rem 0; font-size: 0.9rem; }
+.nav a { color: var(--accent); text-decoration: none; margin-right: 1rem; }
+.nav a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="nav">← <a href="../../index.html">All chapters</a> · <a href="full.html">Full</a> · <a href="../ch-07a-caro-2020/full.html">CARO →</a></div>
+<h1>Chapter 7 — Reporting · One-Pager</h1>
+<p class="meta">SA 700 · 701 · 705 · 706 · 710/720 (→ Ch 6) · CARO overview</p>
+
+<h2>SAs at a glance</h2>
+<table>
+  <thead><tr><th>SA</th><th>Name</th><th>Core trigger</th><th>⚠</th></tr></thead>
+  <tbody>
+    <tr><td>700</td><td>Form opinion &amp; report</td><td>Evaluate SAAE · express written opinion</td><td>UDIN · only appointed auditor signs</td></tr>
+    <tr><td>701</td><td>Key Audit Matters</td><td>Most-significance current-period matters</td><td>No KAM when disclaiming</td></tr>
+    <tr><td>705</td><td>Modifications</td><td>MM or no SAAE → Qualified/Adverse/Disclaimer</td><td>No unmodified on same FS</td></tr>
+    <tr><td>706</td><td>EoM &amp; OM paras</td><td>Draw attention; opinion not modified</td><td>Never substitute for modification</td></tr>
+    <tr><td>710</td><td>Comparatives (Ch 6)</td><td>Corresponding figures vs comparative FS</td><td>Predecessor → OM para</td></tr>
+    <tr><td>720</td><td>Other Info (Ch 6)</td><td>Read annual report; flag inconsistency</td><td>Uncorrected MM described in report</td></tr>
+    <tr><td>CARO</td><td><span class="clause">s.143(11)</span></td><td>21 clauses (→ Ch 7a)</td><td>Not on CFS except cl. (xxi)</td></tr>
+  </tbody>
+</table>
+
+<h2>SA 705 — 2×2 matrix</h2>
+<table>
+  <thead><tr><th>Matter</th><th>Material, not pervasive</th><th>Material &amp; pervasive</th></tr></thead>
+  <tbody>
+    <tr><td>FS materially misstated</td><td><span class="keyword">Qualified</span></td><td><span class="keyword">Adverse</span></td></tr>
+    <tr><td>Inability to obtain SAAE</td><td><span class="keyword">Qualified</span></td><td><span class="keyword">Disclaimer</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Must-remember keywords</h2>
+<ul>
+  <li><strong>700:</strong> reasonable assurance · 14 report elements · UDIN · personal + firm name</li>
+  <li><strong>701:</strong> most significance · TCWG-selected · listed mandatory · not a substitute</li>
+  <li><strong>705:</strong> "except for" · "do not present fairly" · "do not express an opinion" · pervasive = unconfined / substantial / fundamental</li>
+  <li><strong>706:</strong> EoM = IN FS, fundamental · OM = NOT in FS, audit-relevant · opinion unmodified</li>
+  <li><strong>CARO:</strong> excludes banking · insurance · <span class="clause">s.8</span> · OPC · small · specified pvt ltd</li>
+</ul>
+
+<div class="triggers">
+<h3>5 Exam Triggers</h3>
+<ol>
+  <li>Unverifiable debtors ₹150 cr + 40% inventory unverified → <strong>SA 705 Disclaimer</strong>; no KAM.</li>
+  <li>Going-concern disclosure missing + bankruptcy likely → <strong>SA 705 Adverse</strong>.</li>
+  <li>Missing ₹55 lakh loan agreement → <strong>SA 705 Qualified</strong> ("possible effects"); not EoM.</li>
+  <li>Complex revenue recognition, listed co. → <strong>SA 701 KAM</strong>: describe &amp; how addressed.</li>
+  <li>Thermal project in Note 27 + branch FS by branch auditors → <strong>SA 706</strong>: EoM + OM; "opinion not modified".</li>
+</ol>
+</div>
+
+<h2>Reporting bottom-lines</h2>
+<ul>
+  <li><strong>700:</strong> written report · 14 elements · UDIN · date ≥ SAAE date.</li>
+  <li><strong>701:</strong> describe matter · why KAM · how addressed; no separate opinion.</li>
+  <li><strong>705:</strong> amend heading, Basis, SAAE statement; communicate with TCWG.</li>
+  <li><strong>706:</strong> separate section; state opinion unchanged; skip if SA 705/701 applies.</li>
+  <li><strong>CARO:</strong> goes under "Report on Other Legal and Regulatory Requirements".</li>
+</ul>
+
+<script>mermaid.initialize({startOnLoad:true, theme:'neutral'});</script>
+</body>
+</html>

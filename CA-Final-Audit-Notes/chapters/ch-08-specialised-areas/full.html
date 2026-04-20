@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ch 8 — Specialised Areas · CA Final Audit</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<style>
+:root {
+  --bg: #faf8f3;
+  --ink: #1a1a1a;
+  --muted: #5b5b5b;
+  --accent: #0a4a8f;
+  --keyword-bg: #fff3d4;
+  --exception-bg: #ffe4e4;
+  --exception-border: #c33;
+  --clause-bg: #e8f2ff;
+  --table-stripe: #f5f2ea;
+  --rule: #d8d3c4;
+  --quote-bar: #0a4a8f;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Georgia, serif;
+  background: var(--bg); color: var(--ink);
+  max-width: 820px; margin: 2rem auto; padding: 0 1.25rem;
+  line-height: 1.55; font-size: 16px;
+}
+h1 { font-size: 1.9rem; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 0.4rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin-top: 2rem; border-left: 4px solid var(--accent); padding-left: 0.6rem; }
+h3 { font-size: 1.15rem; color: var(--ink); margin-top: 1.5rem; }
+h4 { font-size: 1rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1.2rem; margin-bottom: 0.3rem; }
+.meta { color: var(--muted); font-style: italic; font-size: 0.9rem; margin-top: -0.5rem; }
+.keyword { background: var(--keyword-bg); padding: 0 0.2em; border-radius: 2px; font-weight: 600; }
+.exception {
+  background: var(--exception-bg);
+  border-left: 4px solid var(--exception-border);
+  padding: 0.5rem 0.8rem; margin: 0.5rem 0; border-radius: 3px;
+}
+.exception::before { content: "⚠ "; font-weight: bold; color: var(--exception-border); }
+.clause {
+  background: var(--clause-bg); padding: 0.1rem 0.4rem;
+  border-radius: 3px; font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+}
+blockquote.icai {
+  border-left: 4px solid var(--quote-bar);
+  background: #fff; margin: 0.8rem 0; padding: 0.6rem 1rem;
+  font-style: italic; color: #333;
+}
+blockquote.icai::before { content: "ICAI verbatim · "; font-style: normal; font-weight: 600; color: var(--accent); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.95rem; }
+th, td { padding: 0.5rem 0.7rem; text-align: left; border: 1px solid var(--rule); vertical-align: top; }
+th { background: var(--accent); color: #fff; font-weight: 600; }
+tr:nth-child(even) td { background: var(--table-stripe); }
+.sa-card {
+  border: 1px solid var(--rule); border-radius: 6px;
+  padding: 1rem 1.2rem; margin: 1.5rem 0; background: #fff;
+}
+.sa-card h3 { margin-top: 0; color: var(--accent); }
+.triggers {
+  background: #fff; border: 1px dashed var(--accent);
+  padding: 1rem; border-radius: 6px; margin: 1.5rem 0;
+}
+.triggers h3 { margin-top: 0; color: var(--accent); }
+.triggers ol { margin: 0; padding-left: 1.2rem; }
+.triggers li { margin: 0.4rem 0; }
+.mermaid { background: #fff; padding: 1rem; border-radius: 6px; margin: 1rem 0; text-align: center; }
+svg.diagram { max-width: 100%; height: auto; display: block; margin: 1rem auto; background: #fff; border-radius: 6px; padding: 0.5rem; }
+ul, ol { padding-left: 1.3rem; }
+li { margin: 0.2rem 0; }
+.chip { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-right: 0.3rem; }
+.chip-sa { background: var(--accent); color: #fff; }
+.chip-marks { background: #2a7c3a; color: #fff; }
+.nav { margin: 1rem 0; font-size: 0.9rem; }
+.nav a { color: var(--accent); text-decoration: none; margin-right: 1rem; }
+.nav a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="nav">← <a href="../../index.html">All chapters</a> · <a href="onepager.html">One-pager</a></div>
+<h1>Chapter 8 — Specialised Areas</h1>
+<p class="meta">ICAI SM Final P3 May 2026 · <span class="chip chip-marks">~6–10 marks</span> Covers SA 800 (Revised) · SA 805 (Revised) · SA 810 (Revised)</p>
+
+<div class="exception">
+<strong>Scope reconciliation — important.</strong> The task brief listed <span class="keyword">SA 600 (Revised), SA 610, SA 620</span> as this chapter's scope. The ICAI SM Final PDF for Ch 8 <em>actually</em> covers the <span class="keyword">800-series Specialised Areas</span> — <span class="clause">SA 800 (Revised)</span>, <span class="clause">SA 805 (Revised)</span>, <span class="clause">SA 810 (Revised)</span>. Per SPEC §1.1a "PDF-only" grounding, this note is written from the actual Ch 8 PDF. <strong>SA 600 / 610 / 620 are not in this chapter's PDF</strong> and are therefore <strong>flagged, not filled</strong> here. If those SAs are assessed, refer the chapter where ICAI places them in the Final SM. No Objective/Definitions/Requirements for SA 600/610/620 have been fabricated.
+</div>
+
+<h2>Chapter map</h2>
+<p>The <span class="keyword">SA 800-series</span> addresses <em>specialised</em> reporting engagements — where the financial information being audited is <em>not</em> a vanilla complete set of general-purpose financial statements. Three SAs, three distinct fact-patterns: <span class="clause">SA 800</span> covers FS prepared under a <span class="keyword">special purpose framework</span>; <span class="clause">SA 805</span> covers a <span class="keyword">single FS</span> or a <span class="keyword">specific element, account or item</span>; <span class="clause">SA 810</span> covers a report on <span class="keyword">summary financial statements</span> derived from previously audited FS. Expect roughly 6–10 marks combined on this chapter, typically mixing MCQs on scope distinctions with a descriptive question on reporting wording or acceptance conditions.</p>
+<p>Common thread: each SA <em>does not</em> override the other SAs — it layers on special considerations for <span class="keyword">acceptance</span>, <span class="keyword">planning &amp; performance</span>, and <span class="keyword">opinion &amp; reporting</span>. SA 800 and SA 805 both hinge on framework acceptability and alerting readers; SA 810 hinges on <span class="keyword">derivation consistency</span> with the already-audited FS.</p>
+
+<h2>SA cluster overview</h2>
+<svg class="diagram" viewBox="0 0 780 360" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L8,5 L0,10 z" fill="#0a4a8f"/>
+    </marker>
+  </defs>
+  <!-- Umbrella -->
+  <rect x="200" y="15" width="380" height="52" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="390" y="38" text-anchor="middle" font-size="14" font-weight="700" fill="#0a4a8f">SA 800-series — Specialised Areas</text>
+  <text x="390" y="56" text-anchor="middle" font-size="11" fill="#333">Do NOT override other SAs · layer special considerations</text>
+
+  <!-- SA 800 -->
+  <rect x="20" y="110" width="230" height="90" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="135" y="132" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">SA 800 (Revised)</text>
+  <text x="135" y="150" text-anchor="middle" font-size="11" fill="#333">Special Purpose Framework</text>
+  <text x="135" y="166" text-anchor="middle" font-size="11" fill="#333">(cash basis · regulator's</text>
+  <text x="135" y="180" text-anchor="middle" font-size="11" fill="#333">framework · contract</text>
+  <text x="135" y="194" text-anchor="middle" font-size="11" fill="#333">provisions)</text>
+
+  <!-- SA 805 -->
+  <rect x="275" y="110" width="230" height="90" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="390" y="132" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">SA 805 (Revised)</text>
+  <text x="390" y="150" text-anchor="middle" font-size="11" fill="#333">Single FS / Specific</text>
+  <text x="390" y="166" text-anchor="middle" font-size="11" fill="#333">element, account or item</text>
+  <text x="390" y="180" text-anchor="middle" font-size="11" fill="#333">(e.g. cash flow stmt,</text>
+  <text x="390" y="194" text-anchor="middle" font-size="11" fill="#333">trade receivables schedule)</text>
+
+  <!-- SA 810 -->
+  <rect x="530" y="110" width="230" height="90" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="645" y="132" text-anchor="middle" font-size="13" font-weight="700" fill="#0a4a8f">SA 810 (Revised)</text>
+  <text x="645" y="150" text-anchor="middle" font-size="11" fill="#333">Summary FS</text>
+  <text x="645" y="166" text-anchor="middle" font-size="11" fill="#333">derived from FS audited</text>
+  <text x="645" y="180" text-anchor="middle" font-size="11" fill="#333">by SAME auditor</text>
+  <text x="645" y="194" text-anchor="middle" font-size="11" fill="#333">(e.g. abridged MF FS)</text>
+
+  <!-- Acceptance row -->
+  <rect x="20" y="230" width="230" height="40" rx="6" fill="#fff3d4" stroke="#0a4a8f" stroke-width="1.5"/>
+  <text x="135" y="253" text-anchor="middle" font-size="11" fill="#333">Acceptance: FRF acceptable?</text>
+  <text x="135" y="266" text-anchor="middle" font-size="11" fill="#333">users' needs?</text>
+
+  <rect x="275" y="230" width="230" height="40" rx="6" fill="#fff3d4" stroke="#0a4a8f" stroke-width="1.5"/>
+  <text x="390" y="253" text-anchor="middle" font-size="11" fill="#333">Acceptance: practicable?</text>
+  <text x="390" y="266" text-anchor="middle" font-size="11" fill="#333">adapt SAs · adequate disclosures</text>
+
+  <rect x="530" y="230" width="230" height="40" rx="6" fill="#fff3d4" stroke="#0a4a8f" stroke-width="1.5"/>
+  <text x="645" y="253" text-anchor="middle" font-size="11" fill="#333">Acceptance: applied criteria OK?</text>
+  <text x="645" y="266" text-anchor="middle" font-size="11" fill="#333">auditor audited the source FS?</text>
+
+  <!-- Reporting row -->
+  <rect x="20" y="290" width="230" height="50" rx="6" fill="#fff" stroke="#c33" stroke-width="2"/>
+  <text x="135" y="312" text-anchor="middle" font-size="11" fill="#333">⚠ Mandatory EoM — alerting</text>
+  <text x="135" y="326" text-anchor="middle" font-size="11" fill="#333">readers · SA 706</text>
+
+  <rect x="275" y="290" width="230" height="50" rx="6" fill="#fff" stroke="#c33" stroke-width="2"/>
+  <text x="390" y="312" text-anchor="middle" font-size="11" fill="#333">⚠ Separate opinion if done with</text>
+  <text x="390" y="326" text-anchor="middle" font-size="11" fill="#333">full FS audit · SA 705 links</text>
+
+  <rect x="530" y="290" width="230" height="50" rx="6" fill="#fff" stroke="#c33" stroke-width="2"/>
+  <text x="645" y="312" text-anchor="middle" font-size="11" fill="#333">⚠ Report: "consistent" /</text>
+  <text x="645" y="326" text-anchor="middle" font-size="11" fill="#333">"fair summary"</text>
+
+  <!-- arrows -->
+  <path d="M300,67 L135,110" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M390,67 L390,110" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M480,67 L645,110" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M135,200 L135,230" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M390,200 L390,230" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M645,200 L645,230" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M135,270 L135,290" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M390,270 L390,290" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M645,270 L645,290" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+</svg>
+
+<!-- SA 800 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 800 (Revised)</span> Special Considerations — Audits of FS Prepared in Accordance with Special Purpose Frameworks</h3>
+  <p><strong>Scope:</strong> Special considerations for audits of FS prepared under a <span class="keyword">special purpose framework</span>. Does <em>not</em> override other SAs.</p>
+
+  <h4>Objective</h4>
+  <blockquote class="icai">"SA 800 addresses special considerations that are relevant to: (a) The acceptance of the engagement; (b) The planning and performance of that engagement; and (c) Forming an opinion and reporting on the financial statements."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Special purpose framework</span> — an FRF designed to meet the financial information needs of <em>specific</em> users; may be fair-presentation or compliance</li>
+    <li><span class="keyword">General purpose framework</span> — FRF designed to meet the <em>common</em> needs of a wide range of users</li>
+    <li>Examples of special purpose FRF: <span class="keyword">cash basis</span> · <span class="keyword">regulator's reporting provisions</span> · <span class="keyword">contract provisions</span> (bond indenture, loan agreement, project grant)</li>
+    <li>"Financial statements" here means a <span class="keyword">complete set of special purpose FS</span> including related notes (accounting policies + explanatory info)</li>
+  </ul>
+
+  <h4>Key Requirements</h4>
+  <ul>
+    <li><strong>Acceptance:</strong> determine acceptability of the FRF by reference to the <span class="keyword">specific users' financial information needs</span>; regulator-prescribed FRF is presumed acceptable absent contrary indication</li>
+    <li><strong>Planning:</strong> comply with <em>all</em> SAs relevant to the audit; <span class="keyword">SA 320</span> materiality judged against <em>intended users</em> (not a wide group); obtain understanding of <span class="keyword">significant interpretations</span> of a contract</li>
+    <li>A management-agreed threshold with intended users does <em>not</em> relieve the auditor from SA 320 materiality for planning/performance</li>
+    <li><strong>Opinion &amp; reporting:</strong> apply <span class="clause">SA 700 (Revised)</span>; report shall <span class="keyword">describe the purpose</span> of the FS and, if necessary, the intended users</li>
+    <li><strong>Mandatory alert:</strong> include an <span class="keyword">Emphasis of Matter</span> paragraph per <span class="clause">SA 706 (Revised)</span> stating FS are prepared under a special purpose framework and <em>may not be suitable for another purpose</em></li>
+    <li>May restrict <span class="keyword">distribution or use</span> of the report to the specific users; expand the alert paragraph and modify its heading accordingly</li>
+  </ul>
+
+  <h4>Exceptions / Conditions</h4>
+  <div class="exception">Where FRF is supplemented by legislative/regulatory requirements → <span class="clause">SA 210</span> requires the auditor to identify any <span class="keyword">conflicts</span> and act as prescribed.</div>
+  <div class="exception">If contract-based FRF falls outside prescribed classes, acceptability is tested against the <span class="keyword">attributes</span> normally exhibited by acceptable FRFs (SA 210); relative weight of each attribute is a matter of <span class="keyword">professional judgment</span>.</div>
+  <div class="exception">Where a complete set of <em>general</em> purpose FS is also prepared, TCWG for SPF oversight may <em>differ</em> from TCWG for GPF oversight (<span class="clause">SA 260 (Revised)</span>).</div>
+
+  <h4>Auditor's Responsibilities</h4>
+  <ul>
+    <li>Evaluate whether FS <span class="keyword">adequately describe</span> the FRF and any significant contract interpretations</li>
+    <li><span class="clause">SA 701</span> KAM applies in its entirety if KAM is communicated</li>
+    <li><span class="clause">SA 720 (Revised)</span> applies to any document accompanying SPF FS whose purpose is to inform owners / similar stakeholders — treat as an annual report</li>
+    <li>May refer in an <span class="keyword">Other Matter</span> paragraph to the auditor's report on the complete GPF FS (e.g. a Material Uncertainty Related to Going Concern disclosed there)</li>
+  </ul>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>Unmodified opinion <em>plus</em> mandatory EoM alert. Example heading: <span class="keyword">"Emphasis of Matter — Basis of Accounting and Restriction on Distribution and Use"</span>. Opinion is <em>not</em> modified by the EoM itself.</p>
+</section>
+
+<!-- SA 805 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 805 (Revised)</span> Special Considerations — Audits of Single FS and Specific Elements, Accounts or Items of a FS</h3>
+  <p><strong>Scope:</strong> Special considerations when applying SAs 100-700 to an audit of a <span class="keyword">single FS</span> or a <span class="keyword">specific element</span>. Framework may be general or special purpose (if special, SA 800 also applies). <em>Does not apply</em> to a component auditor's report produced for a principal auditor in a consolidated-FS audit.</p>
+
+  <h4>Objective</h4>
+  <blockquote class="icai">"The objective of the auditor, when applying SAs in an audit of a single financial statement or of a specific element, account or item of a financial statement, is to address appropriately the special considerations that are relevant to: (a) The acceptance of the engagement; (b) The planning and performance of that engagement; and (c) Forming an opinion and reporting on the single financial statement or on the specific element, account or item of a financial statement."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Single financial statement</span> — distinguished from a complete set; e.g. a <em>cash flow statement</em> alone</li>
+    <li><span class="keyword">Element of a FS</span> — an element, account or item; e.g. trade receivables, cash and bank balances, schedule of net tangible assets, schedule of disbursements under a lease</li>
+    <li>Each includes related notes (accounting policies + explanatory info relevant to the FS/element)</li>
+  </ul>
+
+  <h4>Key Requirements</h4>
+  <ul>
+    <li><strong>Acceptance — practicability test:</strong> if auditor is <em>not</em> also engaged on the complete set, determine whether the audit of the single FS/element under SAs is <span class="keyword">practicable</span></li>
+    <li>Assess <span class="keyword">acceptability of the FRF</span> — whether it produces adequate disclosures for intended users; for element-only engagements, confirm the derivative framework contains relevant requirements of the parent framework</li>
+    <li><strong>Planning:</strong> <span class="keyword">adapt all relevant SAs</span>; even for an element audit, <span class="clause">SA 240</span>, <span class="clause">SA 550</span>, <span class="clause">SA 570 (Revised)</span> remain <em>relevant in principle</em> (fraud, related parties, going concern)</li>
+    <li>Materiality for the single FS / element may be <span class="keyword">lower</span> than for the complete set — affects N/T/E of procedures and evaluation of uncorrected misstatements</li>
+    <li><strong>Form of opinion</strong> — consider whether "presents fairly / true and fair" is appropriate; for compliance framework, use "prepared, in all material respects, in accordance with…"</li>
+    <li><strong>Separate opinion</strong> when done in conjunction with the audit of the complete set; differentiate presentation if published together</li>
+  </ul>
+
+  <h4>Exceptions / Conditions</h4>
+  <div class="exception"><strong>Disproportionate effort:</strong> some SAs (e.g. SA 570 on going concern for a receivables schedule) may be impracticable — discuss with management whether another type of engagement would be more practicable.</div>
+  <div class="exception"><strong>Adverse / Disclaimer on the full FS</strong> → cannot issue an <em>unmodified</em> opinion on a single FS from that set in the <em>same</em> report (SA 705 prohibits contradiction). For a specific <em>element</em>, unmodified opinion is permitted <em>only</em> if (a) not prohibited by law, (b) published in a separate report, and (c) the element is <span class="keyword">not a major portion</span> of the FS.</div>
+  <div class="exception">An unmodified opinion on a <em>single FS</em> of the complete set is <em>never</em> permitted where the overall opinion is adverse/disclaimed — a single FS is deemed to constitute a <span class="keyword">major portion</span> of the FS.</div>
+  <div class="exception">Disclaimer on <em>results/cash flows</em> + unmodified on <em>state of affairs</em> is permitted in the <em>same</em> report on the complete set (the disclaimer is not on the FS as a whole).</div>
+
+  <h4>Auditor's Responsibilities</h4>
+  <ul>
+    <li>Adapt all relevant SAs to the circumstances; perform procedures on interrelated items to meet the audit objective</li>
+    <li>Consider implications of modifications / EoM / OM / MURGC / uncorrected-other-information statements in the report on the complete FS for the single-FS / element engagement</li>
+    <li>Sign in personal name + firm name (if firm appointed) + ICAI membership no. + FRN; state UDIN</li>
+  </ul>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>Separate opinion per engagement. If published together with the complete set, <span class="keyword">differentiate</span> the opinion or insist management rectify the presentation before issuing the report.</p>
+</section>
+
+<!-- SA 810 -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 810 (Revised)</span> Engagements to Report on Summary Financial Statements</h3>
+  <p><strong>Scope:</strong> Auditor's responsibilities when engaged to report on <span class="keyword">summary FS</span> derived from FS audited <em>by that same auditor</em> under SAs.</p>
+
+  <h4>Objective</h4>
+  <blockquote class="icai">"SA 810 deals with the auditor's responsibilities when undertaking an engagement to report on summary financial statements derived from financial statements audited in accordance with SAs by that same auditor."</blockquote>
+
+  <h4>Key Definitions</h4>
+  <ul>
+    <li><span class="keyword">Summary FS</span> — historical financial information derived from FS; less detail, but a <em>structured representation consistent</em> with the source FS of the entity's resources/obligations at a point in time or changes over a period</li>
+    <li><span class="keyword">Applied criteria</span> — criteria management applies to prepare the summary FS</li>
+  </ul>
+
+  <h4>Key Requirements — Acceptance</h4>
+  <ul>
+    <li><span class="keyword">Same-auditor rule</span> — ordinarily accept <em>only</em> if the auditor audited the source FS under SAs (else no knowledge base to discharge SA 810 responsibilities)</li>
+    <li>Determine <span class="keyword">applied criteria are acceptable</span> — factors: nature of entity, purpose, intended users' needs, whether criteria avoid being misleading</li>
+    <li>Where criteria are set by recognised body or law/regulation → presume acceptable (per SA 210 analogy)</li>
+    <li>Obtain management's <span class="keyword">written agreement</span> that it is responsible for: preparing summary FS per criteria · making audited FS available to intended users · including the auditor's report in any document presenting the summary FS</li>
+    <li>Agree on the <span class="keyword">form of opinion</span> with management</li>
+  </ul>
+
+  <h4>Key Requirements — Procedures</h4>
+  <ul>
+    <li>Evaluate whether summary FS <span class="keyword">disclose their summarised nature</span> and identify the audited FS</li>
+    <li>If summary FS not accompanied by audited FS → check that they describe from whom/where the audited FS are available (or cite the law that says they need not be)</li>
+    <li>Evaluate adequate disclosure of applied criteria</li>
+    <li><span class="keyword">Compare / re-calculate</span> the summary FS against the related information in the audited FS</li>
+    <li>Evaluate preparation per applied criteria; aggregation level; not misleading in the circumstances</li>
+    <li>Evaluate availability of the audited FS to intended users <span class="keyword">without undue difficulty</span></li>
+  </ul>
+
+  <h4>Key Requirements — Form of Opinion</h4>
+  <ul>
+    <li>Unmodified opinion uses one of: <span class="keyword">"consistent, in all material respects, with the audited FS, in accordance with the applied criteria"</span> OR <span class="keyword">"a fair summary of the audited FS, in accordance with the applied criteria"</span></li>
+    <li>If law prescribes different wording: apply procedures + evaluate whether users might misunderstand; if additional explanation cannot mitigate misunderstanding → <span class="keyword">do not accept</span> (report, if issued under law, cannot indicate compliance with SA 810)</li>
+  </ul>
+
+  <h4>Elements of the Report (SA 810)</h4>
+  <ul>
+    <li>Title indicating independent auditor · addressee · identification of summary FS and of the audited FS</li>
+    <li>Clear <span class="keyword">expression of opinion</span> · statement that summary FS omit disclosures required by the source FRF and reading them is <em>not</em> a substitute for reading the audited FS</li>
+    <li>Reference to the auditor's report on the audited FS, its date, and the fact that an <span class="keyword">unmodified</span> opinion was expressed on the audited FS</li>
+    <li>Mgmt's responsibility for summary FS · auditor's responsibility to express an opinion under SA 810</li>
+    <li>Signature (personal + firm), FRN, ICAI membership no., <span class="keyword">UDIN</span>, date, place</li>
+    <li>Date of the report on summary FS — <span class="keyword">no earlier than</span>: (i) date SAAE obtained + responsibility asserted by recognised authority; AND (ii) date of report on audited FS</li>
+  </ul>
+
+  <h4>Exceptions / Conditions — Linkage to Audited FS Report</h4>
+  <div class="exception"><strong>Audited FS carries qualified opinion / EoM / OM / MURGC / KAM / uncorrected-other-information statement</strong> → if summary FS are still consistent/fair summary, report on summary FS must <em>state that fact</em> AND <em>describe</em> the basis and effect on the summary FS.</div>
+  <div class="exception"><strong>Audited FS carries adverse opinion or disclaimer</strong> → report on summary FS must (a) state that fact, (b) describe the basis, and (c) state that <em>as a result</em> it is <span class="keyword">inappropriate to express an opinion</span> on the summary FS.</div>
+  <div class="exception"><strong>Summary FS not consistent / not fair summary and mgmt refuses to correct</strong> → express <span class="keyword">adverse opinion</span> on the summary FS.</div>
+  <div class="exception"><strong>Distribution/use restriction or SPF alert on audited FS report</strong> → mirror that restriction/alert in the summary-FS report.</div>
+
+  <h4>Auditor's Responsibilities — Subsequent Events &amp; Association</h4>
+  <ul>
+    <li>If report on summary FS is dated later than report on audited FS → <span class="keyword">state</span> that neither reflects post-report events</li>
+    <li>If auditor becomes aware of a fact existing at the date of the audited-FS report → apply <span class="clause">SA 560</span> before issuing the summary-FS report</li>
+    <li><span class="keyword">Unaudited supplementary information</span> presented with summary FS → demand clear differentiation; if refused, state in report that such info is not covered</li>
+    <li>Read information in the document containing summary FS for <span class="keyword">material inconsistency</span>; if uncorrected, consider implications for the report</li>
+    <li><strong>Auditor association:</strong> if entity refers to auditor's name in a document with summary FS but omits the auditor's report — demand inclusion; if refused, take appropriate action to prevent inappropriate association</li>
+    <li><strong>Comparatives:</strong> if audited FS contain comparatives but summary FS do not — determine reasonableness; if summary FS carry comparatives reported by <em>another</em> auditor, apply <span class="clause">SA 710</span> inclusions</li>
+  </ul>
+
+  <h4>Conclusion / Reporting</h4>
+  <p>Express opinion using "consistent" or "fair summary" language, linked to the audited FS and the applied criteria; modify per the linkage rules above.</p>
+</section>
+
+<!-- SA 600 / 610 / 620 — flagged, not filled -->
+<section class="sa-card">
+  <h3><span class="chip chip-sa">SA 600 · SA 610 · SA 620</span> (User-scope, not in Ch 8 PDF)</h3>
+  <p><strong>Scope (per user brief):</strong> SA 600 (Revised) — Using the work of another auditor / component auditor; SA 610 — Using the work of an internal auditor; SA 620 — Using the work of an auditor's expert.</p>
+  <div class="exception"><strong>Not in this chapter's PDF.</strong> The ICAI SM Final Ch 8 PDF reproduced above covers only <span class="clause">SA 800 / 805 / 810</span>. Per SPEC §1.1a, Objective/Definitions/Requirements for SA 600, 610, 620 are <strong>not reproduced here</strong> and have <strong>not been fabricated</strong>. Refer the chapter where ICAI places these three in the Final SM (not Ch 8) for verbatim treatment.</div>
+  <h4>Keywords to remember (revision only)</h4>
+  <ul>
+    <li><strong>SA 600 (Revised):</strong> principal auditor · component auditor · materiality to CFS · division of responsibility · no review duty of component workpapers unless needed</li>
+    <li><strong>SA 610:</strong> internal audit function · objectivity &amp; competence · nature &amp; extent of reliance · direct assistance (where permitted) · external auditor's sole responsibility for opinion</li>
+    <li><strong>SA 620:</strong> auditor's expert (internal vs external) · competence, capabilities, objectivity · agreement on scope · evaluation of adequacy of work · reference in auditor's report only where required by law/regulation</li>
+  </ul>
+</section>
+
+<h2>Quick compare — SA 800 vs SA 805 vs SA 810</h2>
+<table>
+<thead><tr><th>Feature</th><th>SA 800</th><th>SA 805</th><th>SA 810</th></tr></thead>
+<tbody>
+<tr><td>Object of audit</td><td>Complete SPF FS</td><td>Single FS or element</td><td>Summary FS derived from audited FS</td></tr>
+<tr><td>FRF</td><td>Special purpose (cash basis / regulator / contract)</td><td>General or special purpose</td><td>Applied criteria for summarisation</td></tr>
+<tr><td>Who audits source FS</td><td>N/A (this <em>is</em> the primary audit)</td><td>May or may not be same auditor as complete set</td><td>Must be the <em>same</em> auditor</td></tr>
+<tr><td>Mandatory alert</td><td><span class="keyword">EoM</span> — basis of accounting; may expand with distribution restriction</td><td>Only if SA 800 also applies, or SA 706 EoM otherwise warranted</td><td>Mirror EoM/restriction from report on audited FS</td></tr>
+<tr><td>Opinion phrase (unmodified)</td><td>Per SA 700 (Revised) — "present fairly" / "true and fair" / "prepared in accordance with"</td><td>Per SA 700 (Revised) + consider appropriateness for element</td><td>"Consistent, in all material respects" OR "a fair summary"</td></tr>
+<tr><td>Core exception</td><td>FRF conflict with legislation → SA 210</td><td>Adverse/disclaimer on full FS → can't give unmodified on a single FS from it</td><td>Not consistent + mgmt refuses → adverse on summary FS</td></tr>
+</tbody>
+</table>
+
+<h2>Engagement-acceptance decision — Ch 8 fact-patterns</h2>
+<svg class="diagram" viewBox="0 0 780 340" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L8,5 L0,10 z" fill="#0a4a8f"/>
+    </marker>
+  </defs>
+  <!-- start -->
+  <rect x="280" y="10" width="220" height="40" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="390" y="35" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">Engagement offer received</text>
+
+  <!-- decision 1 -->
+  <polygon points="390,70 540,115 390,160 240,115" fill="#fff3d4" stroke="#0a4a8f" stroke-width="1.5"/>
+  <text x="390" y="110" text-anchor="middle" font-size="11" fill="#333">Subject matter of the audit?</text>
+  <text x="390" y="125" text-anchor="middle" font-size="11" fill="#333">(complete SPF FS / single-FS / summary FS)</text>
+
+  <!-- three outcomes -->
+  <rect x="20" y="180" width="220" height="70" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="130" y="202" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">Complete SPF FS → SA 800</text>
+  <text x="130" y="220" text-anchor="middle" font-size="11" fill="#333">Check FRF acceptability</text>
+  <text x="130" y="234" text-anchor="middle" font-size="11" fill="#333">(users' needs · SA 210 conflicts)</text>
+
+  <rect x="280" y="180" width="220" height="70" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="390" y="202" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">Single FS / element → SA 805</text>
+  <text x="390" y="220" text-anchor="middle" font-size="11" fill="#333">Practicable under SAs?</text>
+  <text x="390" y="234" text-anchor="middle" font-size="11" fill="#333">Adequate disclosures to users?</text>
+
+  <rect x="540" y="180" width="220" height="70" rx="6" fill="#fff" stroke="#0a4a8f" stroke-width="2"/>
+  <text x="650" y="202" text-anchor="middle" font-size="12" font-weight="700" fill="#0a4a8f">Summary FS → SA 810</text>
+  <text x="650" y="220" text-anchor="middle" font-size="11" fill="#333">Am I the source-FS auditor?</text>
+  <text x="650" y="234" text-anchor="middle" font-size="11" fill="#333">Applied criteria acceptable?</text>
+
+  <!-- bottom -->
+  <rect x="20" y="275" width="740" height="55" rx="6" fill="#fff" stroke="#c33" stroke-width="2"/>
+  <text x="390" y="295" text-anchor="middle" font-size="12" fill="#333">If FRF / practicability / applied criteria fails AND no law compels → DO NOT ACCEPT.</text>
+  <text x="390" y="313" text-anchor="middle" font-size="12" fill="#333">If law compels engagement → accept BUT report cannot state compliance with SA 800 / 805 / 810.</text>
+
+  <path d="M390,50 L390,70" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr2)"/>
+  <path d="M270,130 L130,180" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr2)"/>
+  <path d="M390,160 L390,180" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr2)"/>
+  <path d="M510,130 L650,180" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr2)"/>
+  <path d="M130,250 L390,275" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr2)"/>
+  <path d="M390,250 L390,275" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr2)"/>
+  <path d="M650,250 L390,275" stroke="#0a4a8f" stroke-width="1.5" fill="none" marker-end="url(#arr2)"/>
+</svg>
+
+<div class="triggers">
+<h3>5 Exam Triggers — spot these phrasings, invoke these SAs</h3>
+<ol>
+  <li>"FS prepared per <strong>financial reporting provisions of a loan agreement</strong> (or bond indenture) between the client and a specific lender" → <strong>SA 800</strong>: contract-based SPF; unmodified opinion + mandatory <span class="keyword">Emphasis of Matter</span> alert (basis of accounting); consider restricting distribution to the specific users.</li>
+  <li>"Auditor has expressed an <strong>adverse opinion</strong> on the company's complete set of FS; now offered a separate engagement to audit the <strong>cash flow statement</strong> alone" → <strong>SA 805</strong>: cannot issue an unmodified opinion on a single FS of that set (single FS = major portion); unmodified on a <em>specific element</em> may be permitted only if published separately + element is not a major portion + not prohibited by law.</li>
+  <li>"CA G offered audit of <strong>trade payables</strong> only; complete FS audited by another auditor (CA Jignesh)" → <strong>SA 805</strong>: practicability problem — no understanding of entity/IC, no base audit evidence; consider another engagement type; materiality likely <em>lower</em>; SA 240/550/570 still relevant in principle.</li>
+  <li>"Mutual Fund trustees prepare <strong>abridged FS</strong> per SEBI format; audited FS already audited with unmodified opinion by the same auditor" → <strong>SA 810</strong>: applied criteria (SEBI format) presumed acceptable; opinion as "<span class="keyword">fair summary</span> of audited FS, in accordance with applied criteria"; report states abridged FS are not a substitute for audited FS and references date &amp; unmodified opinion of the audited-FS report.</li>
+  <li>"Audited FS carry a <strong>qualified opinion</strong> on allowance for doubtful debts; client now wants a report on summary FS that still reflects a fair summary" → <strong>SA 810</strong>: report on summary FS shall <em>state</em> the audited-FS report contains a qualified opinion, <em>describe</em> the basis, and the effect (if any) on the summary FS; cannot upgrade to an unmodified conclusion on the summary set. If audited-FS report were adverse/disclaimer → must state it is <em>inappropriate to express an opinion</em> on the summary FS.</li>
+</ol>
+</div>
+
+<script>mermaid.initialize({startOnLoad:true, theme:'neutral'});</script>
+</body>
+</html>
